@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# "Open" Microsoft Office files
+~*.docx
+
