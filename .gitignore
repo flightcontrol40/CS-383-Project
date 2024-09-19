@@ -5,3 +5,5 @@
 # "Open" Microsoft Office files
 ~*.docx
 
+# Draw.io backup files
+*.bkp
