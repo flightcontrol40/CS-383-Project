@@ -9,7 +9,7 @@ All we need is something that looks like a game/the most basic version of our ga
 * Towers that do damage to enemies
 * Enemies can hurt the player
 * win/lose screen
-* Each element can be distiguished from another
+* Each element can be distinguished from another
 	* elements like towers and enemies can be rectangles, but the player needs to be able to distinguish between the two
 
 ## Nice to haves:
@@ -17,7 +17,7 @@ All we need is something that looks like a game/the most basic version of our ga
 * difficulty system
 * Enemy spawning interval changes based difficulty system
 * Towers that can be upgraded
-* Main menu sceen
+* Main menu scene
 * basic textures
 
 
@@ -40,15 +40,15 @@ All we need is something that looks like a game/the most basic version of our ga
 ### Clayton - Enemies
 * create a type of enemy which should:
 	* be able to deal damager to player
-	* be able to pathfind - needs coordination with Austin (implimenting enemy path in map?)
+	* be able to pathfind - needs coordination with Austin (implementing enemy path in map?)
 	* take damage from towers
 	* give player some money when killed
 
 ### Sohan - UI/Controls
 * create shop interface - might need coordination with Ankit (towers)
 * create controls to:
-	* place a tower - might need coordinatation with Ankit (towers)/Austin (tower place zones)
-	* select a tower - might need coordinatation with Ankit (towers)
+	* place a tower - might need coordination with Ankit (towers)/Austin (tower place zones)
+	* select a tower - might need coordination with Ankit (towers)
 * create win/lose screen? - might need coordination with Nate (win/lose conition)
 * start thinking about the upgrade tower menu
 
