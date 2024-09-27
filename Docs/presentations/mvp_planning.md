@@ -35,7 +35,7 @@ All we need is something that looks like a game/the most basic version of our ga
 * get enemies to spawn at some rate - might need some coordination with Clayton (enemies)/Austin (start position)
 * create win/lose condition and or condition tracking? - might need to coordinate with Sohan (UI)
 * start thinking about how to expand to more rounds
-* start thinking about difficutly scaling
+* start thinking about difficulty scaling
 
 ### Clayton - Enemies
 * create a type of enemy which should:
