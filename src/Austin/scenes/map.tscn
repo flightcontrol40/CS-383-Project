@@ -163,6 +163,5 @@ curve = SubResource("Curve2D_14av3")
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
 position = Vector2(769, 675)
-scale = Vector2(1, 1)
 
 [connection signal="body_entered" from="TowerZones" to="." method="_on_tower_zones_body_entered"]
