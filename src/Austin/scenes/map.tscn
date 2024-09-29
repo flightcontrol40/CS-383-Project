@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dfupv5dpijmrb" path="res://src/Austin/scenes/path.tscn" id="1_8amha"]
 [ext_resource type="Texture2D" uid="uid://b8kawkducga" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
-[ext_resource type="Script" path="res://src/Austin/scenes/map.gd" id="1_vgid7"]
+[ext_resource type="Script" path="res://src/Austin/scripts/map.gd" id="1_vgid7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykwuv"]
 texture = ExtResource("1_jwyeg")
