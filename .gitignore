@@ -8,3 +8,6 @@
 
 # Draw.io backup files
 *.bkp
+
+# Visual Studio generated Binaryies
+.vs/
