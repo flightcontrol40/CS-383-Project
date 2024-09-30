@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjbygfchlgilm"]
 
-[ext_resource type="Script" path="res://Shop.cs" id="1_dq8cv"]
+[ext_resource type="Script" path="res://src/Sohan/Shop.cs" id="1_dq8cv"]
 
 [node name="Node2D" type="Node2D"]
 
