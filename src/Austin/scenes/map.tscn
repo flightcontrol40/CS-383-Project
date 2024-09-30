@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://xfbsml2kriv7"]
+[gd_scene load_steps=11 format=4 uid="uid://xfbsml2kriv7"]
 
 [ext_resource type="PackedScene" uid="uid://dfupv5dpijmrb" path="res://src/Austin/scenes/path.tscn" id="1_8amha"]
-[ext_resource type="Texture2D" uid="uid://b8kawkducga" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
+[ext_resource type="Texture2D" uid="uid://bvmw3h07pa52s" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Map.cs" id="1_pj5xu"]
+[ext_resource type="Script" path="res://src/Clayton/path_follow.gd" id="4_g1pfc"]
+[ext_resource type="Texture2D" uid="uid://0xoci4qhsl3b" path="res://src/Clayton/Assets/Chicken.png" id="5_h3tmm"]
+[ext_resource type="Script" path="res://src/Clayton/Chicken.cs" id="6_35jdk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykwuv"]
 texture = ExtResource("1_jwyeg")
@@ -139,6 +142,9 @@ _data = {
 }
 point_count = 14
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shkuv"]
+size = Vector2(303.571, 305.626)
+
 [node name="Map" type="Node2D"]
 script = ExtResource("1_pj5xu")
 
@@ -160,6 +166,25 @@ path = NodePath("Path2D")
 position = Vector2(0.998183, 0)
 scale = Vector2(0.999092, 1)
 curve = SubResource("Curve2D_14av3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path/Path2D"]
+position = Vector2(768.7, 674)
+rotation = -1.56246
+rotates = false
+loop = false
+script = ExtResource("4_g1pfc")
+
+[node name="Chicken" type="Sprite2D" parent="Path/Path2D/PathFollow2D"]
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_h3tmm")
+script = ExtResource("6_35jdk")
+
+[node name="Area2D" type="Area2D" parent="Path/Path2D/PathFollow2D/Chicken"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/PathFollow2D/Chicken/Area2D"]
+position = Vector2(0.374512, 0.737305)
+shape = SubResource("RectangleShape2D_shkuv")
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
 position = Vector2(769, 675)
