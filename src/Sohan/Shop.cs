@@ -3,6 +3,11 @@ using System;
 
 public class Shop : Node
 {
+	
+	[Signal]
+	
+	public delegate void TowerBoughtEventHandler();
+	
 	// Reference to the player's money
 	private int playerMoney = 500; // Starting money
 
@@ -66,10 +71,7 @@ public class Shop : Node
 			playerMoney -= towerPrice;
 			UpdateMoneyLabel();
 
-			// Instance a new tower placeholder and add it to the scene
-			TowerPlacement newTowerPlaceholder = (TowerPlacement)towerPlaceholderScene.Instance();
-			GetParent().AddChild(newTowerPlaceholder);
-			newTowerPlaceholder.InitializeTower(selectedTowerType);
+			EmitSignal(SignalName.TowerBought);
 			
 			GD.Print($"{selectedTowerType} purchased and ready to be placed!");
 		}
