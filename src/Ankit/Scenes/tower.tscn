@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://doke7k08ewnl6"]
 
-[ext_resource type="Script" path="res://Script/Tower.cs" id="1_fxjmd"]
-[ext_resource type="Texture2D" uid="uid://dh1ppbg0dnav7" path="res://Assets/tower.png" id="2_dd8ek"]
-[ext_resource type="Texture2D" uid="uid://bwgltsh6cs3wn" path="res://Assets/tower_head.png" id="3_lbqmy"]
+[ext_resource type="Script" path="res://src/Ankit/Script/Tower.cs" id="1_fxjmd"]
+[ext_resource type="Texture2D" uid="uid://cpcyg08wlbmeo" path="res://src/Ankit/Assets/tower.png" id="2_dd8ek"]
+[ext_resource type="Texture2D" uid="uid://8vsupg6v53ju" path="res://src/Ankit/Assets/tower_head.png" id="3_lbqmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
 radius = 95.0

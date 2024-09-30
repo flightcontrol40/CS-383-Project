@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://k57l26e388ld"]
 
-[ext_resource type="Script" path="res://Script/Bullet.cs" id="1_awc76"]
-[ext_resource type="Texture2D" uid="uid://dlqc1vglgn8" path="res://Assets/bullet.png" id="2_7cxks"]
+[ext_resource type="Script" path="res://src/Ankit/Script/Bullet.cs" id="1_awc76"]
+[ext_resource type="Texture2D" uid="uid://bt3rvj0wpp8v4" path="res://src/Ankit/Assets/bullet.png" id="2_7cxks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhutg"]
 size = Vector2(3, 1)
