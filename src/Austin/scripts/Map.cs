@@ -5,7 +5,7 @@ public partial class Map : Node2D
 {
 	public override void _Ready()
 	{
-		GetNode<Area2D>("TowreZones").Monitoring = false;
+		GetNode<Area2D>("TowerZones").Monitoring = false;
 	}
 
 	public override void _Process(double delta)
