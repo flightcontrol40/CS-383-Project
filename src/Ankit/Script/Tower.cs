@@ -25,7 +25,7 @@ public partial class TowerController : Node2D
 		range = GetNode<VisibleOnScreenNotifier2D>("Range");
 	}
 
-	public override void _PhysicsProcess(float delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		if (!building)
 		{
@@ -78,7 +78,7 @@ public partial class TowerController : Node2D
 		{
 			if (currentEnemy == enemies[0])
 			{
-				Node2D bullet = (Node2D)BulletScene.Instance();
+				Node2D bullet = (Node2D)BulletScene.Instantiate();
 				bullet.GlobalPosition = GlobalPosition;
 				bullet.Set("target", currentEnemy);  // Make sure the 'target' variable is accessible in the Bullet script
 				GetParent().AddChild(bullet);

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Shop : Node
+public partial class Shop : Node
 {
 	
 	[Signal]

@@ -1,12 +1,13 @@
 using Godot;
 using System;
 
-public class TowerPlacement : Node2D
+public partial class TowerPlacement : Node2D
 {
 	private bool isPlaced = false;
 
 	public override void _Input(InputEvent @event)
 	{
+		/*
 		if (!isPlaced && @event is InputEventMouseButton mouseEvent)
 		{
 			if (mouseEvent.ButtonIndex == (int)ButtonList.Left && mouseEvent.Pressed)
@@ -18,5 +19,6 @@ public class TowerPlacement : Node2D
 				GD.Print("Tower placed at: ", mousePosition);
 			}
 		}
+		*/
 	}
 }

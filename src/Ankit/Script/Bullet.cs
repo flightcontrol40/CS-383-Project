@@ -21,12 +21,12 @@ public partial class Area2DExample : Area2D
 		}
 	}
 
-	public override void _PhysicsProcess(float delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		move = Vector2.Zero;
 		if (target != null)
 		{
-			move = move.MoveToward(lookVec, speed * delta);
+			move = move.MoveToward(lookVec, (float)(speed * delta));
 			move = move.Normalized() * speed;
 			GlobalPosition += move;
 		}
