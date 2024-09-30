@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsrlv0mknuxye"]
+
+[ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
+[ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/RoundManager.tscn" id="2_0n13b"]
+
+[node name="main" type="Node"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_ircu7")]
+
+[node name="RoundManager" parent="." instance=ExtResource("2_0n13b")]
