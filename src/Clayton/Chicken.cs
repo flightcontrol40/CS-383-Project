@@ -9,4 +9,5 @@ public partial class Chicken : Sprite2D
 	[Export]
 	public int Damage = 10;
 
+	
 }
