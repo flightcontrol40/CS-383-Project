@@ -103,7 +103,9 @@ public partial class DifficultyCalculator : GodotObject {
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
                 spawnOrders.Add(new SpawnOrder(enemyTypes[cost], 100));
+                amount -= 1;
             }
+            enemyTypes.Remove(cost);
         }
         return spawnOrders;
     }

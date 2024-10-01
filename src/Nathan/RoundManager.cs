@@ -3,9 +3,12 @@ namespace RoundManager;
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using Interfaces;
 using Chicken;
+using System;
+using System.Timers;
+
+
 
 /// <summary>
 /// The Round Manager for Processing/tracking round data across the rounds of
@@ -18,20 +21,25 @@ public partial class RoundManager : Node2D {
     private ILevelData lastLevelData;
     private List<SpawnOrder> spawnQueue;
     private List<BaseChicken> liveEnemies;
-    private Godot.Timer spawnTimer;
+    private System.Timers.Timer spawnTimer;
     private Difficulty difficulty;
+    private double currentTime;
+    private double nextSpawnTime;
 
+
+    public override void _Ready()
+    {
+        base._Ready();
+    }
 
     public RoundManager(ILevelData levelData, Difficulty difficulty){
         this.loadLevel(levelData, difficulty);
-        this.spawnTimer = new Godot.Timer();
-        spawnTimer.Timeout += this.spawnEnemy;
         this.liveEnemies = new List<BaseChicken>();
         this.spawnQueue = new List<SpawnOrder>();
     }
 
     private void spawnEnemy(){
-        if (spawnQueue.Count() == 0){
+        if (spawnQueue.Count == 0){
             return;
         }
         SpawnOrder order = spawnQueue[0];
@@ -39,11 +47,11 @@ public partial class RoundManager : Node2D {
         order.Enemy.EnemyDied += HandleEnemyDiesSignal; 
         order.Enemy.EndOfPath += HandleEnemyFinishedSignal;
 
-
         order.Enemy.Start(lastLevelData.LevelPath);
         this.liveEnemies.Add(order.Enemy);
-
-        spawnTimer.Start(((double)order.spawnDelay) / 1000.00);
+        this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
+        // spawnTimer.Interval = order.spawnDelay / 1000.00;
+        // spawnTimer.Enabled = true;
     }
 
     /// <summary>
@@ -101,7 +109,11 @@ public partial class RoundManager : Node2D {
     /// </summary>
     /// <param name="delta"></param>
     public override void _Process(double delta) {
+        this.currentTime += delta;
         if ( roundStatusTracker.roundStarted == true) {
+            if (currentTime > nextSpawnTime && spawnQueue.Count > 0){
+                this.spawnEnemy();
+            }
             if (lastLevelData.Health < 0 ){
                 roundStatusTracker.roundStarted = false;
                 EmitSignal(SignalName.GameLost);
@@ -128,10 +140,11 @@ public partial class RoundManager : Node2D {
         spawnQueue.AddRange(
             this.roundStatusTracker.getSpawnOrder(this.lastLevelData.RoundNumber)
         );
-        roundStatusTracker.roundStarted = true;
-        spawnTimer.Start(((double)spawnQueue[0].spawnDelay) / 1000.0);
+        if (spawnQueue.Count > 0){
+            roundStatusTracker.roundStarted = true;
+            this .nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
+        }
     }
-
 
 
     [Signal]

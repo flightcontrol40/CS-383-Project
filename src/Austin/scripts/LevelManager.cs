@@ -87,7 +87,7 @@ public partial class LevelManager : Node, ILevelData
 	}
 
 	public Path2D LevelPath {
-		get { return currentMap.GetNode<Path>("Path").getPath(); }
+		get { return currentMap.GetNode<Path>("Path").GetNode<Path2D>("Path2D"); }
 	}
 
 	// Making this static for now for MVP

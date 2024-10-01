@@ -2,5 +2,9 @@
 
 [ext_resource type="Script" path="res://src/Nathan/RoundManager.cs" id="1_2isxg"]
 
-[node name="LevelManager" type="Node2D"]
+[node name="RoundManager" type="Node2D"]
 script = ExtResource("1_2isxg")
+
+[node name="spawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="spawnTimer" to="." method="spawnEnemy"]
