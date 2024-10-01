@@ -12,5 +12,8 @@
 # Visual Studio generated Binaryies
 .vs/
 
+# Visual Studio Code
+.vscode/
+
 # Austin's Folders he wants ignored
 src/Austin/assets/gimp
