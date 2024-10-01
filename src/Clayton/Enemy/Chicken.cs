@@ -138,7 +138,7 @@ public partial class DearGodOhLordThatFuckerIsHuge: BaseChicken{
 
 	new public int damageAmount { get; } = 250;
 
-	new public int EnemyRank { get; } = 4;
+	new public int EnemyRank { get; } = 250;
 
 	public override void TakeDamage(int damageCounter){
 		this.Health -= damageCounter;
