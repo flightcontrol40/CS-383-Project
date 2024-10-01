@@ -13,13 +13,19 @@ public partial class Main : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("place_tower")) {
-			placeTower();
-		}
 	}
 
-	public void placeTower(Vector2 spot) {
-		TowerController newTower = (TowerController)tower.Instantiate();
-		newTower.GlobalPosition = spot;
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton eventMouseButton) {
+			placeTower(eventMouseButton.Position);
+		}
+    }
+
+    public void placeTower(Vector2 position) {
+		Node2D newTower = (Node2D)tower.Instantiate();
+		newTower.GlobalPosition = position;
+
+		AddChild(newTower);
 	}
 }

@@ -6,7 +6,9 @@
 /// 
 
 using Godot;
+using RoundManager.Interfaces;
 using System;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class Level : Resource
@@ -19,6 +21,10 @@ public partial class Level : Resource
 	public int playerMoney = 100;
 	[Export]
 	public int currentRoundNum = 0;
+	[Export]
+	public int enemyBudget = 100;
+	[Export]
+	public int MaxRound = 1;
 
 	[Export]
 	public PackedScene mapScene;

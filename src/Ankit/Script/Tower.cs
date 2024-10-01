@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class TowerController : Node2D
+public partial class Tower : Node2D
 {
 	[Export]
 	public NodePath TowerPath;
@@ -10,7 +10,7 @@ public partial class TowerController : Node2D
 	[Export]
 	public PackedScene BulletScene;
 
-	private Node2D Tower;
+	private Node2D Tower2;
 	private Node2D TowerHead;
 	private List<Area2D> enemies = new List<Area2D>();
 	private bool building = true;
@@ -20,7 +20,7 @@ public partial class TowerController : Node2D
 
 	public override void _Ready()
 	{
-		Tower = GetNode<Node2D>(TowerPath);
+		Tower2 = GetNode<Node2D>(TowerPath);
 		TowerHead = GetNode<Node2D>(TowerHeadPath);
 		range = GetNode<VisibleOnScreenNotifier2D>("Range");
 	}
@@ -86,7 +86,7 @@ public partial class TowerController : Node2D
 		}
 	}
 
-	private void _on_Placement_area_entered(Area2D area)
+	private void _on_placement_area_entered(Area2D area)
 	{
 		if (area.IsInGroup("AddPlatform") && building)
 		{
@@ -94,7 +94,7 @@ public partial class TowerController : Node2D
 		}
 	}
 
-	private void _on_Placement_area_exited(Area2D area)
+	private void _on_placement_area_exited(Area2D area)
 	{
 		if (area.IsInGroup("AddPlatform") && building)
 		{
