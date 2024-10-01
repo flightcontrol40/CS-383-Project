@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Interfaces;
+using Chicken;
 
 /// <summary>
 /// The Round Manager for Processing/tracking round data across the rounds of
@@ -16,7 +17,7 @@ public partial class RoundManager : Node2D {
     private RoundStatusTracker roundStatusTracker;
     private ILevelData lastLevelData;
     private List<SpawnOrder> spawnQueue;
-    private List<GodotObject> liveEnemies;
+    private List<BaseChicken> liveEnemies;
     private Godot.Timer spawnTimer;
     private Difficulty difficulty;
 
@@ -25,7 +26,7 @@ public partial class RoundManager : Node2D {
         this.loadLevel(levelData, difficulty);
         this.spawnTimer = new Godot.Timer();
         spawnTimer.Timeout += this.spawnEnemy;
-        this.liveEnemies = new List<GodotObject>();
+        this.liveEnemies = new List<BaseChicken>();
         this.spawnQueue = new List<SpawnOrder>();
     }
 
@@ -35,17 +36,12 @@ public partial class RoundManager : Node2D {
         }
         SpawnOrder order = spawnQueue[0];
         spawnQueue.RemoveAt(0);
-
-        // Should be fixed when the base enemy is actually implemented
-        
-        
-        // TODO reimplement this once enemy base class is made
-        // order.Enemy.EnemyDied += HandleEnemyDiesSignal; 
-        // order.Enemy.EndOfPath += HandleEnemyFinishedSignal;
+        order.Enemy.EnemyDied += HandleEnemyDiesSignal; 
+        order.Enemy.EndOfPath += HandleEnemyFinishedSignal;
 
 
         order.Enemy.Start(lastLevelData.LevelPath);
-        this.liveEnemies.Add((GodotObject)order.Enemy);
+        this.liveEnemies.Add(order.Enemy);
 
         spawnTimer.Start(((double)order.spawnDelay) / 1000.00);
     }
@@ -54,22 +50,22 @@ public partial class RoundManager : Node2D {
     /// Enemy Death Signal Handler.
     /// </summary>
     /// <param name="enemy">The enemy to free.</param>
-    private void HandleEnemyDiesSignal(IEnemyType enemy) {
+    private void HandleEnemyDiesSignal(BaseChicken enemy) {
         // Free the enemy
-        liveEnemies.Remove(((GodotObject) enemy));
-        ((GodotObject) enemy).Free();
+        liveEnemies.Remove(enemy);
+        enemy.QueueFree();
     }
 
     /// <summary>
     /// Enemy Finished path Signal Handler.
     /// </summary>
     /// <param name="enemy">The enemy to free.</param>
-    private void HandleEnemyFinishedSignal(IEnemyType enemy) {
+    private void HandleEnemyFinishedSignal(BaseChicken enemy) {
         // Do Level Damage
-        this.lastLevelData.Health -= enemy.DamageAmount;
+        this.lastLevelData.Health -= enemy.damageAmount;
         // Free the enemy
-        liveEnemies.Remove(((GodotObject) enemy));
-        ((GodotObject) enemy).Free();
+        liveEnemies.Remove(enemy);
+        enemy.QueueFree();
     }
 
     /// <summary>
@@ -90,11 +86,11 @@ public partial class RoundManager : Node2D {
     private void cleanLevel(){
         // Clean the Enemies up.
         foreach ( var spawnOrder in spawnQueue ){
-            liveEnemies.Add((GodotObject)spawnOrder.Enemy);
+            liveEnemies.Add(spawnOrder.Enemy);
         }
         spawnQueue.Clear();
         while (liveEnemies.Count > 0){
-            GodotObject enemy = liveEnemies[0];
+            BaseChicken enemy = liveEnemies[0];
             spawnQueue.RemoveAt(0);
             enemy.Free();
         }
@@ -128,7 +124,6 @@ public partial class RoundManager : Node2D {
         base._Process(delta);
     }
 
-
     public void startRound() {
         spawnQueue.AddRange(
             this.roundStatusTracker.getSpawnOrder(this.lastLevelData.RoundNumber)
@@ -139,11 +134,11 @@ public partial class RoundManager : Node2D {
 
 
 
-[Signal]
-public delegate void GameLostEventHandler();
+    [Signal]
+    public delegate void GameLostEventHandler();
 
-[Signal]
-public delegate void GameWonEventHandler();
+    [Signal]
+    public delegate void GameWonEventHandler();
 
 }
 

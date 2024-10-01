@@ -6,43 +6,6 @@ namespace RoundManager.Interfaces;
 
 
 /// <summary>
-/// A Interface to represent a single Enemy type
-/// </summary> 
-public interface IEnemyType
-{
-
-    /// <summary>
-    // The 'rank' or 'cost' of the enemy. Used for difficulty scaling when spawning.
-    /// </summary>
-    public int EnemyRank { get; }
-
-    /// <summary>
-    // The amount of damage to do if the enemy makes it to the end of the path.
-    /// </summary>
-    public int DamageAmount { get; }
-
-    /// <summary>
-    // Starts the enemy along the LevelPath
-    /// </summary>
-    public void Start(Path2D LevelPath);
-
-    /// <summary>
-    // The Godot Signal to emit if the enemy dies before reaching the end of the
-    // Path2D
-    /// </summary>
-    [Signal]
-    public delegate void EnemyDiedEventHandler(IEnemyType enemy);
-
-    /// <summary>
-    // The Godot signal to emit if the enemy reaches the end of the path before 
-    // being killed
-    /// </summary>
-    [Signal]
-    public delegate void EndOfPathEventHandler(IEnemyType enemy);
-}
-
-
-/// <summary>
 /// A Interface to represent a Maps difficulty table
 /// </summary>
 public interface IDifficultyTable

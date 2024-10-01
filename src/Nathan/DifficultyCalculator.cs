@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RoundManager.Interfaces;
-
+using Chicken;
 namespace RoundManager;
 
 
@@ -25,13 +25,13 @@ public partial class SpawnOrder: GodotObject{
     /// <param name="spawnDelay"></param>
     public SpawnOrder(Type enemyType, int spawnDelay) {
         this.spawnDelay = spawnDelay;
-        this.Enemy = (IEnemyType)Activator.CreateInstance(enemyType);
+        this.Enemy = (BaseChicken)Activator.CreateInstance(enemyType);
     }
 
     /// <summary>
     /// The Enemy class use for the spawn.
     /// </summary>
-    public IEnemyType Enemy;
+    public BaseChicken Enemy;
 
     /// <summary>
     /// The delay in milliseconds to wait before spawning this enemy
