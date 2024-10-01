@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmt4pjx6qy0rj"]
+
+[ext_resource type="Script" path="res://src/Clayton/MainMenu/MainMenu.gd" id="1_2vja7"]
+[ext_resource type="Texture2D" uid="uid://0xoci4qhsl3b" path="res://src/Clayton/Assets/Chicken.png" id="2_kueyn"]
+[ext_resource type="FontFile" uid="uid://bnkmnfgb88snr" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
+
+[node name="mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2vja7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.769806, 0.758054, 1.92523e-06, 1)
+
+[node name="Chicken" type="Sprite2D" parent="."]
+position = Vector2(174, 450)
+texture = ExtResource("2_kueyn")
+
+[node name="Chicken2" type="Sprite2D" parent="."]
+position = Vector2(978, 450)
+texture = ExtResource("2_kueyn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 40
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6bqo3")
+theme_override_font_sizes/font_size = 70
+text = "KILL MO' CHICKEN"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Control2" type="Control" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6bqo3")
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Quit" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6bqo3")
+theme_override_font_sizes/font_size = 40
+text = "Quit"

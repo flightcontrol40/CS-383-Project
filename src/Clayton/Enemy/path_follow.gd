@@ -8,4 +8,3 @@ func _process(delta: float) -> void:
 	if (progress_ratio >= 1):
 		queue_free()
 	
-
