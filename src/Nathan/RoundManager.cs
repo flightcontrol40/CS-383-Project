@@ -23,6 +23,8 @@ public partial class RoundManager : Node2D {
     private List<BaseChicken> liveEnemies;
     private System.Timers.Timer spawnTimer;
     private Difficulty difficulty;
+    private double currentTime;
+    private double nextSpawnTime;
 
 
     public override void _Ready()
@@ -36,7 +38,7 @@ public partial class RoundManager : Node2D {
         this.spawnQueue = new List<SpawnOrder>();
     }
 
-    private void spawnEnemy(Object _, ElapsedEventArgs e){
+    private void spawnEnemy(){
         if (spawnQueue.Count == 0){
             return;
         }
@@ -47,8 +49,9 @@ public partial class RoundManager : Node2D {
 
         order.Enemy.Start(lastLevelData.LevelPath);
         this.liveEnemies.Add(order.Enemy);
-        spawnTimer.Interval = order.spawnDelay / 1000.00;
-        spawnTimer.Enabled = true;
+        this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
+        // spawnTimer.Interval = order.spawnDelay / 1000.00;
+        // spawnTimer.Enabled = true;
     }
 
     /// <summary>
@@ -106,7 +109,11 @@ public partial class RoundManager : Node2D {
     /// </summary>
     /// <param name="delta"></param>
     public override void _Process(double delta) {
+        this.currentTime += delta;
         if ( roundStatusTracker.roundStarted == true) {
+            if (currentTime > nextSpawnTime && spawnQueue.Count > 0){
+                this.spawnEnemy();
+            }
             if (lastLevelData.Health < 0 ){
                 roundStatusTracker.roundStarted = false;
                 EmitSignal(SignalName.GameLost);
@@ -134,11 +141,8 @@ public partial class RoundManager : Node2D {
             this.roundStatusTracker.getSpawnOrder(this.lastLevelData.RoundNumber)
         );
         if (spawnQueue.Count > 0){
-
             roundStatusTracker.roundStarted = true;
-            this.spawnTimer = new System.Timers.Timer((spawnQueue[0].spawnDelay) / 1000.0);
-            this.spawnTimer.Elapsed += spawnEnemy;
-            this.spawnTimer.Enabled = true;
+            this .nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
         }
     }
 
