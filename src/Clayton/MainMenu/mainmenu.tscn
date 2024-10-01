@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmt4pjx6qy0rj"]
 
 [ext_resource type="Script" path="res://src/Clayton/MainMenu/MainMenu.gd" id="1_2vja7"]
-[ext_resource type="Texture2D" uid="uid://0xoci4qhsl3b" path="res://src/Clayton/Assets/Chicken.png" id="2_kueyn"]
-[ext_resource type="FontFile" uid="uid://bnkmnfgb88snr" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
+[ext_resource type="Texture2D" uid="uid://c477a7tf4vsm8" path="res://src/Clayton/chickfila.png" id="3_01k3r"]
+[ext_resource type="FontFile" uid="uid://cwfstwpwyflql" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
@@ -21,14 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.769806, 0.758054, 1.92523e-06, 1)
-
-[node name="Chicken" type="Sprite2D" parent="."]
-position = Vector2(174, 450)
-texture = ExtResource("2_kueyn")
-
-[node name="Chicken2" type="Sprite2D" parent="."]
-position = Vector2(978, 450)
-texture = ExtResource("2_kueyn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -79,3 +71,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_6bqo3")
 theme_override_font_sizes/font_size = 40
 text = "Quit"
+
+[node name="Chickfila" type="Sprite2D" parent="."]
+position = Vector2(202, 451)
+texture = ExtResource("3_01k3r")
+
+[node name="Chickfila2" type="Sprite2D" parent="."]
+position = Vector2(951, 449)
+texture = ExtResource("3_01k3r")
