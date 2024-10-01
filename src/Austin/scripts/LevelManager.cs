@@ -29,6 +29,9 @@ public partial class LevelManager : Node, ILevelData
 		if (Input.IsActionJustPressed("start_round")) {
 			startRound();
 		}
+		if (roundManager.roundStatusTracker.roundStarted){
+			roundManager._Process(delta);
+		}
 	}
 
 	private void startRound(){

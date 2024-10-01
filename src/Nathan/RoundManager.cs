@@ -17,7 +17,7 @@ using System.Timers;
 public partial class RoundManager : Node2D {
 
 
-    private RoundStatusTracker roundStatusTracker;
+    public RoundStatusTracker roundStatusTracker;
     private ILevelData lastLevelData;
     private List<SpawnOrder> spawnQueue;
     private List<BaseChicken> liveEnemies;
@@ -42,6 +42,7 @@ public partial class RoundManager : Node2D {
         if (spawnQueue.Count == 0){
             return;
         }
+        GD.Print("Im spawning a chicken!");
         SpawnOrder order = spawnQueue[0];
         spawnQueue.RemoveAt(0);
         order.Enemy.EnemyDied += HandleEnemyDiesSignal; 
@@ -50,6 +51,7 @@ public partial class RoundManager : Node2D {
         order.Enemy.Start(lastLevelData.LevelPath);
         this.liveEnemies.Add(order.Enemy);
         this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
+        GD.Print(order.Enemy);
         // spawnTimer.Interval = order.spawnDelay / 1000.00;
         // spawnTimer.Enabled = true;
     }
@@ -104,10 +106,6 @@ public partial class RoundManager : Node2D {
         }
     }
 
-    /// <summary>
-    /// Called every cycle to process data.
-    /// </summary>
-    /// <param name="delta"></param>
     public override void _Process(double delta) {
         this.currentTime += delta;
         if ( roundStatusTracker.roundStarted == true) {

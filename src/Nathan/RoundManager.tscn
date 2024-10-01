@@ -4,7 +4,3 @@
 
 [node name="RoundManager" type="Node2D"]
 script = ExtResource("1_2isxg")
-
-[node name="spawnTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="spawnTimer" to="." method="spawnEnemy"]
