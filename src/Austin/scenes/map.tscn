@@ -175,7 +175,7 @@ rotates = false
 loop = false
 script = ExtResource("4_g1pfc")
 
-[node name="Chicken" type="Sprite2D" parent="Path/Path2D/PathFollow2D"]
+[node name="Chicken" type="Sprite2D" parent="Path/Path2D/PathFollow2D" groups=["Enemy"]]
 rotation = 1.5708
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_h3tmm")

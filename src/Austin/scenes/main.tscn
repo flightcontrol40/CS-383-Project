@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=9 format=3 uid="uid://dsrlv0mknuxye"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
 [ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Shop.tscn" id="5_4201l"]
 [ext_resource type="PackedScene" uid="uid://doke7k08ewnl6" path="res://src/Ankit/Scenes/tower.tscn" id="7_tmpp7"]
-[ext_resource type="Script" path="res://src/Sohan/Shop.cs" id="8_l517d"]
 
 [sub_resource type="Resource" id="Resource_isy6s"]
 script = ExtResource("3_j5db1")
@@ -29,4 +28,8 @@ level = SubResource("Resource_isy6s")
 [node name="RoundManager" parent="." instance=ExtResource("2_0n13b")]
 
 [node name="Shop" parent="." instance=ExtResource("5_4201l")]
-script = ExtResource("8_l517d")
+
+[node name="MoneyTimer" type="Timer" parent="."]
+
+[connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]
+[connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]
