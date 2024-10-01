@@ -1,5 +1,4 @@
 using Godot;
-using RoundManager.Interfaces;
 using System;
 using System.Linq;
 
@@ -9,21 +8,18 @@ public partial class LevelManager : Node
 	private Level level;
 	[Export]
 	public Map currentMap;
-	private LevelData levelInterface;
 
 	[Export]
 	private bool LevelLoaded = false;
-
-	public override void _Ready()
-	{
-		levelInterface = new LevelData(level);
-	}
 
 	public override void _Process(double delta)
 	{
 		// this was used to test if the map would load
 		if (Input.IsActionJustPressed("load_map")) {
 			loadMap();
+		} else
+		if (Input.IsActionJustPressed("unload_map")) {
+			unloadMap();
 		}
 	}
 
@@ -33,8 +29,6 @@ public partial class LevelManager : Node
 		if (!IsInstanceValid(currentMap)) {
 			currentMap = (Map)level.mapScene.Instantiate();
 			AddChild(currentMap);
-
-			levelInterface.currentMap = currentMap;
 		}
 	}
 	
@@ -59,29 +53,8 @@ public partial class LevelManager : Node
 		tower.QueueFree();
 	}
 
-	
-}
-public class LevelData : RoundManager.Interfaces.ILevelData {
-	private Level level;
-	public Map currentMap;
-
-	public LevelData(Level l) {
-		level = l;
-	}
-
-	int ILevelData.Health { 
-		get { return level.playerHealth; }
-		set { level.playerHealth = value; }
+	Path2D getPath() {
+		return currentMap.GetNode<Path>("Path").getPath();
 	}
 	
-	int ILevelData.RoundNumber {
-		get { return level.currentRoundNum; }
-		set { level.currentRoundNum = value; }
-	}
-
-	Path2D ILevelData.LevelPath {
-		get { return currentMap.GetNode<Path>("Path").getPath(); }
-	}
-
-	public IDifficultyTable DifficultyTable { get; }
 }

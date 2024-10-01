@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=10 format=3 uid="uid://dsrlv0mknuxye"]
 
+[ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
 [ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/RoundManager.tscn" id="2_0n13b"]
 [ext_resource type="Script" path="res://src/Austin/scripts/custom__resources/Level.cs" id="3_j5db1"]
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
-[ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Shop.tscn" id="5_4201l"]
+[ext_resource type="PackedScene" path="res://src/Sohan/Shop.tscn" id="5_4201l"]
+[ext_resource type="Script" path="res://src/Sohan/Shop.cs" id="6_fd7jd"]
+[ext_resource type="PackedScene" uid="uid://doke7k08ewnl6" path="res://src/Ankit/Scenes/tower.tscn" id="7_tmpp7"]
 
 [sub_resource type="Resource" id="Resource_isy6s"]
 script = ExtResource("3_j5db1")
@@ -15,6 +18,8 @@ currentRoundNum = 0
 mapScene = ExtResource("3_owqxk")
 
 [node name="main" type="Node"]
+script = ExtResource("1_6tv6r")
+tower = ExtResource("7_tmpp7")
 
 [node name="LevelManager" parent="." instance=ExtResource("1_ircu7")]
 level = SubResource("Resource_isy6s")
@@ -22,3 +27,4 @@ level = SubResource("Resource_isy6s")
 [node name="RoundManager" parent="." instance=ExtResource("2_0n13b")]
 
 [node name="Shop" parent="." instance=ExtResource("5_4201l")]
+script = ExtResource("6_fd7jd")
