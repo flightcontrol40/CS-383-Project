@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_isy6s"]
 script = ExtResource("3_j5db1")
-baseDifficutly = 0
+baseDifficulty = 0
 playerHealth = 100
 playerMoney = 100
 currentRoundNum = 0

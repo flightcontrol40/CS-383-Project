@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////
-/// This is an implimentation of the level data.
+/// This is an implementation of the level data.
 /// It contains all data the level needs when it is saved
 /// 
 /// author: Austin Walker
@@ -14,7 +14,7 @@ using System.Collections.Generic;
 public partial class Level : Resource
 {
 	[Export]
-	public RoundManager.Difficulty baseDifficutly = RoundManager.Difficulty.Easy;
+	public RoundManager.Difficulty baseDifficulty = RoundManager.Difficulty.Easy;
 	[Export]
 	public int playerHealth = 100;
 	[Export]

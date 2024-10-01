@@ -1,13 +1,18 @@
 using Godot;
+using RoundManager;
+using RoundManager.Interfaces;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
-public partial class LevelManager : Node
+public partial class LevelManager : Node, ILevelData
 {
 	[Export]
 	private Level level;
 	[Export]
 	public Map currentMap;
+
+	private RoundManager.RoundManager roundManager;
 
 	[Export]
 	private bool LevelLoaded = false;
@@ -21,6 +26,16 @@ public partial class LevelManager : Node
 		if (Input.IsActionJustPressed("unload_map")) {
 			unloadMap();
 		}
+		if (Input.IsActionJustPressed("start_round")) {
+			startRound();
+		}
+	}
+
+	private void startRound(){
+		if (!IsInstanceValid(this.roundManager)){
+			this.loadMap();
+		}
+		this.roundManager.startRound();
 	}
 
 	// Loads a map and add's its node as a child of the LevelManager
@@ -29,6 +44,7 @@ public partial class LevelManager : Node
 		if (!IsInstanceValid(currentMap)) {
 			currentMap = (Map)level.mapScene.Instantiate();
 			AddChild(currentMap);
+			this.roundManager = new RoundManager.RoundManager(this, Difficulty.Medium);
 		}
 	}
 	
@@ -39,7 +55,10 @@ public partial class LevelManager : Node
 		}
 	}
 
+
+
 	void OnLoadLevel(RoundManager.RoundManager roundManager) {
+
 	}
 
 	// Probably adds a tower to the tower record
@@ -56,5 +75,24 @@ public partial class LevelManager : Node
 	Path2D getPath() {
 		return currentMap.GetNode<Path>("Path").getPath();
 	}
-	
+
+	public int Health { 
+		get { return this.level.playerHealth; }
+		set { this.level.playerHealth = value; }
+	}
+
+	public int RoundNumber {
+		get { return this.level.currentRoundNum; }
+		set { this.level.currentRoundNum = value; }
+	}
+
+	public Path2D LevelPath {
+		get { return currentMap.GetNode<Path>("Path").getPath(); }
+	}
+
+	// Making this static for now for MVP
+	public IDifficultyTable DifficultyTable {
+		get { return new ADifficultyTable(); }
+	}
+
 }
