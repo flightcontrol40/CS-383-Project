@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=4 uid="uid://xfbsml2kriv7"]
 
 [ext_resource type="PackedScene" uid="uid://dfupv5dpijmrb" path="res://src/Austin/scenes/path.tscn" id="1_8amha"]
-[ext_resource type="Texture2D" uid="uid://b0jccayew3qs1" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
+[ext_resource type="Texture2D" uid="uid://cmcg5n2gs1ika" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Map.cs" id="1_pj5xu"]
 [ext_resource type="Script" path="res://src/Clayton/Enemy/path_follow.gd" id="4_l7j3g"]
-[ext_resource type="Texture2D" uid="uid://cnxy5545qofvo" path="res://src/Clayton/Assets/Chicken.png" id="5_h3tmm"]
+[ext_resource type="Texture2D" uid="uid://bbh2f3jvaqh0i" path="res://src/Clayton/Assets/Chicken.png" id="5_h3tmm"]
 [ext_resource type="Script" path="res://src/Clayton/Enemy/Chicken.cs" id="6_35jdk"]
 [ext_resource type="PackedScene" uid="uid://by5rxllcg6lic" path="res://src/Ankit/Scenes/building_platform.tscn" id="7_vutlp"]
 
