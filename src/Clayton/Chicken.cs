@@ -33,10 +33,16 @@ public partial class BaseChicken : PathFollow2D {
 
     public int EnemyRank { get; }
 
+    private Path2D path;
+    private bool started = false;
+
     /// <summary>
     /// Starts the enemy along the LevelPath
     /// </summary>
     public void Start(Path2D LevelPath) {
+        this.path = LevelPath;
+        this.path.AddChild(this);
+        this.started = true;
     }
 
     /// <summary>
@@ -45,21 +51,31 @@ public partial class BaseChicken : PathFollow2D {
     /// <param name="delta">The amount of time thats passed since the last call.</param>
     public override void _Process(double delta){
 
-         // Increment the progress ratio based on the speed and delta time
-        ProgressRatio += (float)(delta * speed);
+        if (started){
+            // Increment the progress ratio based on the speed and delta time
+            ProgressRatio += (float)(delta * speed);
 
-        // Check if the progress ratio has reached or exceeded 1
-        if (ProgressRatio >= 1)
-        {
-            EmitSignal(SignalName.EndOfPath, this);
+            // Check if the progress ratio has reached or exceeded 1
+            if (ProgressRatio >= 1)
+            {
+                EmitSignal(SignalName.EndOfPath, this);
 
+            }
+            if (Health <= 0 ){
+                EmitSignal(SignalName.EnemyDied, this);
+            }
         }
-        if (Health <= 0 ){
-            EmitSignal(SignalName.EnemyDied, this);
-        }
+
    }
 
-    public virtual void TakeDamage(int damageAmount){}
+    public virtual void TakeDamage(int damageCounter){
+        this.Health -= damageCounter;
+    }
+
+
+
+
+
 
     /// <summary>
     // The Godot Signal to emit if the enemy dies before reaching the end of the
@@ -85,9 +101,15 @@ public partial class Frank : BaseChicken{
     new public int damageAmount { get; } = 30;
     new public int EnemyRank { get; } = 5;
 
-    public override void TakeDamage(int damageCounter){}
+    public override void TakeDamage(int damageCounter){
+        this.Health -= damageCounter;
+        if (this.Health <= 0){
+            //change image / downgrade health, damage, speed
+        }
+    }
     // base: emit death
-    // others: change image / downgrade health, damage, speed
+    //change image / downgrade health, damage, speed
+    
 
 }
 
@@ -97,6 +119,16 @@ public partial class Frankest : BaseChicken{
     new public double speed = 0.3;
     new public int damageAmount { get; } = 90;
     new public int EnemyRank { get; } = 50;
+
+    public override void TakeDamage(int damageCounter){
+        this.Health -= damageCounter;
+        if (this.Health <= 0){
+            //change image / downgrade health, damage, speed
+        }
+
+
+    }
+
 }
 
 
@@ -107,6 +139,13 @@ public partial class DearGodOhLordThatFuckerIsHuge: BaseChicken{
     new public int damageAmount { get; } = 250;
 
     new public int EnemyRank { get; } = 4;
+
+    public override void TakeDamage(int damageCounter){
+        this.Health -= damageCounter;
+        if (this.Health <= 0){
+            //change image / downgrade health, damage, speed
+        }
+    }
 }
 
 
