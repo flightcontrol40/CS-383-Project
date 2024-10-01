@@ -14,7 +14,7 @@ func _ready():
 	
 	
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/Austin/scenes/map.tscn")		#starts game
+	get_tree().change_scene_to_file("res://src/Austin/scenes/main.tscn")		#starts game
 	
 func on_quit_pressed() -> void:
 	get_tree().quit()		#quits game
