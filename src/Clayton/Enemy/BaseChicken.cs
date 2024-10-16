@@ -3,7 +3,6 @@ using System;
 
 namespace Chicken;
 
-
 public class ChickenFactory {
 
 	public BaseChicken MakeKFC( int chickenRank){
@@ -17,12 +16,12 @@ public class ChickenFactory {
 				return new Frank();
 			default:
 				return new BaseChicken();
-		}
+		} 
 	}
 
 }
 
-public partial class BaseChicken : PathFollow2D {
+public partial class BaseChicken : Sprite2D{
 
 	[Export]
 	private Sprite2D sprite;
@@ -39,10 +38,13 @@ public partial class BaseChicken : PathFollow2D {
 	/// <summary>
 	/// Starts the enemy along the LevelPath
 	/// </summary>
+	
 	public void Start(Path2D LevelPath) {
+		/*
 		this.path = LevelPath;
 		this.path.AddChild(this);
 		this.started = true;
+		*/
 	}
 
 	/// <summary>
@@ -50,7 +52,7 @@ public partial class BaseChicken : PathFollow2D {
 	/// </summary>
 	/// <param name="delta">The amount of time thats passed since the last call.</param>
 	public override void _Process(double delta){
-
+		/*
 		if (started){
 			// Increment the progress ratio based on the speed and delta time
 			ProgressRatio += (float)(delta * speed);
@@ -65,7 +67,7 @@ public partial class BaseChicken : PathFollow2D {
 				EmitSignal(SignalName.EnemyDied, this);
 			}
 		}
-
+		*/
    }
 
 	public virtual void TakeDamage(int damageCounter){
