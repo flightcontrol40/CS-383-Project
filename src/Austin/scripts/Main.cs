@@ -44,7 +44,7 @@ public partial class Main : Node
     }
 
     public void _on_money_timer_timeout() {
-        GetNode<Shop>("Shop").playerMoney += 1;
+        //GetNode<Shop>("Shop").playerMoney += 1;
         GetNode<Timer>("MoneyTimer").Start(0.1);
     }
 }
