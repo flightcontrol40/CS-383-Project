@@ -12,11 +12,11 @@
 [sub_resource type="Resource" id="Resource_isy6s"]
 script = ExtResource("3_j5db1")
 baseDifficulty = 0
-playerHealth = 100
-playerMoney = 100
+playerHealth = 0
+playerMoney = 0
 currentRoundNum = 0
-enemyBudget = 100
-MaxRound = 1
+enemyBudget = 0
+maxRound = 0
 mapScene = ExtResource("3_owqxk")
 
 [node name="main" type="Node"]
