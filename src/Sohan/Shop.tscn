@@ -40,6 +40,6 @@ offset_bottom = 156.0
 text = "CannonTower: $180
 "
 
-[connection signal="pressed" from="Panel/Label/BasicTower" to="." method="_on_basic_tower_pressed"]
+[connection signal="pressed" from="Panel/Label/BasicTower" to="Panel" method="_on_basic_tower_pressed"]
 [connection signal="pressed" from="Panel/Label/SniperTower" to="Panel" method="_on_sniper_tower_pressed"]
 [connection signal="pressed" from="Panel/Label/CannonTower" to="Panel" method="_on_cannon_tower_pressed"]
