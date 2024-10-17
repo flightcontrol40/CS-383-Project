@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-public partial class LevelManager : Node, ILevelData
+public partial class LevelManager : Node
 {
 	[Export]
 	private Level level;
@@ -16,6 +16,13 @@ public partial class LevelManager : Node, ILevelData
 
 	[Export]
 	private bool LevelLoaded = false;
+
+    public override void _Ready()
+    {
+        this.roundManager = this.GetNode<RoundManager.RoundManager>("RoundManager");
+        base._Ready();
+    }
+
 
 	public override void _Process(double delta)
 	{
@@ -29,9 +36,9 @@ public partial class LevelManager : Node, ILevelData
 		if (Input.IsActionJustPressed("start_round")) {
 			startRound();
 		}
-		if (roundManager.roundStatusTracker.roundStarted){
-			roundManager._Process(delta);
-		}
+		// if (roundManager){
+		// 	roundManager._Process(delta);
+		// }
 	}
 
 	private void startRound(){
@@ -47,7 +54,7 @@ public partial class LevelManager : Node, ILevelData
 		if (!IsInstanceValid(currentMap)) {
 			currentMap = (Map)level.mapScene.Instantiate();
 			AddChild(currentMap);
-			this.roundManager = new RoundManager.RoundManager(this, Difficulty.Medium);
+			// this.roundManager = new RoundManager.RoundManager(this, Difficulty.Medium);
 		}
 	}
 	
@@ -57,8 +64,6 @@ public partial class LevelManager : Node, ILevelData
 			currentMap.QueueFree();
 		}
 	}
-
-
 
 	void OnLoadLevel(RoundManager.RoundManager roundManager) {
 
@@ -94,8 +99,8 @@ public partial class LevelManager : Node, ILevelData
 	}
 
 	// Making this static for now for MVP
-	public IDifficultyTable DifficultyTable {
-		get { return new ADifficultyTable(); }
+	public DifficultyTable DifficultyTable {
+		get { return new DifficultyTable(); }
 	}
 
 }
