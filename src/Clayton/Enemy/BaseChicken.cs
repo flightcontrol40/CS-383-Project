@@ -20,10 +20,9 @@ public class ChickenFactory {
 	}
 }
 
-public partial class BaseChicken : Sprite2D{
+public partial class BaseChicken : PathFollow2D{
 
 	[Export]
-	private Sprite2D sprite;
 	public int Health = 100;
 	public double speed = 0.1;
 
@@ -39,25 +38,22 @@ public partial class BaseChicken : Sprite2D{
 	/// </summary>
 	
 	public void Start(Path2D LevelPath) {
-		/*
 		this.path = LevelPath;
 		this.path.AddChild(this);
+		this.Position = Vector2.Zero;
 		this.started = true;
-		*/
+		
 	}
-
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <param name="delta">The amount of time thats passed since the last call.</param>
 	public override void _Process(double delta){
-		/*
 		if (started){
 			// Increment the progress ratio based on the speed and delta time
-			ProgressRatio += (float)(delta * speed);
-
+			this.ProgressRatio += (float)(delta * speed);
 			// Check if the progress ratio has reached or exceeded 1
-			if (ProgressRatio >= 1)
+			if (this.ProgressRatio >= 1)
 			{
 				EmitSignal(SignalName.EndOfPath, this);
 
@@ -66,7 +62,6 @@ public partial class BaseChicken : Sprite2D{
 				EmitSignal(SignalName.EnemyDied, this);
 			}
 		}
-		*/
    }
 
 	public virtual void TakeDamage(int damageCounter){

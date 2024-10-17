@@ -74,15 +74,15 @@ public partial class RoundManager : Node2D {
         // spawnTimer.Enabled = true;
     }
 
-    /// <summary>
-    /// Enemy Death Signal Handler.
-    /// </summary>
-    /// <param name="enemy">The enemy to free.</param>
-    private void HandleEnemyDiesSignal(BaseChicken enemy) {
-        // Free the enemy
-        liveEnemies.Remove(enemy);
-        enemy.QueueFree();
-    }
+	/// <summary>
+	/// Enemy Death Signal Handler.
+	/// </summary>
+	/// <param name="enemy">The enemy to free.</param>
+	private void HandleEnemyDiesSignal(BaseChicken enemy) {
+		// Free the enemy
+		liveEnemies.Remove(enemy);
+		enemy.QueueFree();
+	}
 
     /// <summary>
     /// Enemy Finished path Signal Handler.
@@ -142,11 +142,10 @@ public partial class RoundManager : Node2D {
     public void onLevelLoadSignal(Level level){
     }
 
-    [Signal]
-    public delegate void GameLostEventHandler();
+	[Signal]
+	public delegate void GameLostEventHandler();
 
-    [Signal]
-    public delegate void GameWonEventHandler();
+	[Signal]
+	public delegate void GameWonEventHandler();
 
 }
-
