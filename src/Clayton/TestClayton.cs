@@ -3,8 +3,6 @@ using Chicken;
 using Godot;
 using System;
 
-
-
 public partial class TestClayton : PathFollow2D
 {
 	private const string TEST_CHICKEN = "res://src/Clayton/Enemy/BaseChicken.tscn";
@@ -33,14 +31,15 @@ public partial class TestClayton : PathFollow2D
 		var scene2 = ResourceLoader.Load<PackedScene>(TEST_CHICKEN); 
 		int counter = 0;
 		System.Collections.Generic.Dictionary<int,System.TimeSpan> Results = new System.Collections.Generic.Dictionary<int,System.TimeSpan> {};
-		for (int i = 0; i < 700000; i++)
+		for (int i = 0; i < 600000; i++)
 		{
 			watch.Start();
-			if (Convert.ToBoolean(i % 100000))
+			if (i % 100000 == 0)
 			{
 				Results.Add(i, watch.Elapsed);
 				watch.Reset();
 			}
+			if (Results.Count > 1000){ Results.Clear();}
 			var instance2 = scene2.Instantiate<BaseChicken>();
 			counter += 1;
 		}
