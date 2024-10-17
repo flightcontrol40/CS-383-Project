@@ -9,7 +9,7 @@ public partial class Shop : Node
 	public delegate void TowerBoughtEventHandler();
 	
 	// Reference to the player's money
-	public int playerMoney = 500; // Starting money
+	private int playerMoney = 500; // Starting money
 
 	// UI Elements
 	private Label moneyLabel;
@@ -28,34 +28,30 @@ public partial class Shop : Node
 	public override void _Ready()
 	{
 		// Get references to UI elements
-		moneyLabel = GetNode<Panel>("Panel").GetNode<Label>("Label");
+		moneyLabel = GetNode<Label>("Panel/MoneyLabel");
+		UpdateMoneyLabel();
 	}
 
-    public override void _Process(double delta)
-    {
-		UpdateMoneyLabel();
-    }
-
-    private void UpdateMoneyLabel()
+	private void UpdateMoneyLabel()
 	{
 		// Update the player's money display
 		moneyLabel.Text = $"Money: ${playerMoney}";
 	}
 
 	// Signal handler for Basic Tower Button
-	public void _on_basic_tower_pressed()
+	private void _on_BasicTowerButton_pressed()
 	{
 		SelectTower("BasicTower", basicTowerPrice);
 	}
 
 	// Signal handler for Sniper Tower Button
-	private void _on_sniper_tower_button_pressed()
+	private void _on_SniperTowerButton_pressed()
 	{
 		SelectTower("SniperTower", sniperTowerPrice);
 	}
 
 	// Signal handler for Cannon Tower Button
-	private void _on_cannon_tower_button_pressed()
+	private void _on_CannonTowerButton_pressed()
 	{
 		SelectTower("CannonTower", cannonTowerPrice);
 	}
@@ -70,10 +66,10 @@ public partial class Shop : Node
 	// Function to handle tower purchases and instantiate placeholder
 	private void BuyTower(int towerPrice)
 	{
-		GD.Print(playerMoney);
 		if (playerMoney >= towerPrice)
 		{
 			playerMoney -= towerPrice;
+			UpdateMoneyLabel();
 
 			EmitSignal(SignalName.TowerBought);
 			
@@ -84,5 +80,4 @@ public partial class Shop : Node
 			GD.Print("Not enough money!");
 		}
 	}
-
 }
