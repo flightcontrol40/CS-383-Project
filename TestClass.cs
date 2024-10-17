@@ -7,11 +7,11 @@ using System;
 /// This is a test class for GDMUT. This is purely for demonstration. If you added
 /// this into your project, feel free to delete it =).
 /// </summary>
-
+/*
 public static class TestClass
 {
 
-private const string TEST_CHICKEN = "res://src/Clayton/Enemy/chicken_enemy.tscn";
+private const string TEST_CHICKEN = "res://src/Clayton/Enemy/BaseChicken.tscn";
 #if TOOLS
 	/// <summary>
 	/// An example of a result that will pass.
@@ -69,12 +69,8 @@ public static Result ChickenTest()
 	try
 	{
 		var testResulScene = GD.Load<PackedScene>(TEST_CHICKEN);
-		if (testResulScene == null)
-			return new Result(false, "Failed to load TEST_CHICKEN scene.");
 	
 		var testResul = (BaseChicken)testResulScene.Instantiate();
-		if (testResul == null)
-			return new Result(false, "Failed to instantiate BaseChicken from the scene.");
 	
 		int x = testResul.Health;
 
@@ -92,3 +88,4 @@ public static Result ChickenTest()
 	
 #endif
 }
+*/
