@@ -5,7 +5,7 @@ namespace Chicken;
 
 public class ChickenFactory {
 
-	public BaseChicken MakeKFC( int chickenRank){
+	public static BaseChicken MakeKFC(int chickenRank){
 		switch (chickenRank)
 		{
 			case 4:
@@ -18,7 +18,6 @@ public class ChickenFactory {
 				return new BaseChicken();
 		} 
 	}
-
 }
 
 public partial class BaseChicken : PathFollow2D{
@@ -68,10 +67,6 @@ public partial class BaseChicken : PathFollow2D{
 	public virtual void TakeDamage(int damageCounter){
 		this.Health -= damageCounter;
 	}
-
-
-
-
 
 
 	/// <summary>

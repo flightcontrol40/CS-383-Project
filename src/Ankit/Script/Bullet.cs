@@ -1,34 +1,49 @@
 using Godot;
 using System;
 
-public partial class Area2DExample : Area2D
+public partial class Bullet : Area2D
 {
 	private Vector2 move = Vector2.Zero;
-	private float speed = 3.0f;
+	public float speed = 3.0f;
 	private Vector2 lookVec = Vector2.Zero;
-	private Node2D target;
-	private Sprite2D sprite2D;
+	public Node2D target; 
+	public Sprite2D sprite2D;
 
-	public override void _Ready()
-	{
-		sprite2D = GetNode<Sprite2D>("Sprite2D");  // Adjust the path as necessary.
-		target = GetNode<Node2D>("path/to/your/target") as Node2D;  // Specify the correct node path.
-		
-		if (target != null)
-		{
-			sprite2D.LookAt(target.GlobalPosition);
-			lookVec = target.GlobalPosition - GlobalPosition;
-		}
-	}
+	
+public override void _PhysicsProcess(double delta)
+{
+    GD.Print("Current Position: ", GlobalPosition);  // Debug output
+    if (target != null)
+    {
+        lookVec = target.GlobalPosition - GlobalPosition;
+        GD.Print("Target Position: ", target.GlobalPosition);  // Debug output
+        GD.Print("Look Vector: ", lookVec);  // Debug output
 
-	public override void _PhysicsProcess(double delta)
-	{
-		move = Vector2.Zero;
-		if (target != null)
-		{
-			move = move.MoveToward(lookVec, (float)(speed * delta));
-			move = move.Normalized() * speed;
-			GlobalPosition += move;
-		}
-	}
+        if (lookVec.Length() > 0)
+        {
+            move = lookVec.Normalized() * speed;
+            GlobalPosition += move * (float)delta;
+            GD.Print("Moved To: ", GlobalPosition);  // Debug output
+        }
+        else
+        {
+            GD.Print("No Movement: Look Vector is Zero Length");  // No movement
+        }
+    }
+    else
+    {
+        GD.Print("Target is null");  // Check target initialization
+    }
+}
+
+
+
+	public void UpdateLookVector()
+{
+    if (target != null)
+    {
+        lookVec = target.GlobalPosition - GlobalPosition;
+        sprite2D.LookAt(target.GlobalPosition);
+    }
+}
 }

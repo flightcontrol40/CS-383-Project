@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DifficultyTable" load_steps=2 format=3 uid="uid://dl8ynmuax83a5"]
+
+[ext_resource type="Script" path="res://src/Nathan/CustomResources/DifficultyTable.cs" id="1_in1u2"]
+
+[resource]
+script = ExtResource("1_in1u2")
+EnemyRanks = Array[int]([1, 2, 3, 4])
+RoundDifficultyValue = PackedInt32Array(500000)

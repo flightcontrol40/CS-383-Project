@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RoundManager.Interfaces;
 using Chicken;
 namespace RoundManager;
 
@@ -23,9 +22,9 @@ public partial class SpawnOrder: GodotObject{
     /// </summary>
     /// <param name="enemyType"></param>
     /// <param name="spawnDelay"></param>
-    public SpawnOrder(Type enemyType, int spawnDelay) {
+    public SpawnOrder(Chicken.BaseChicken enemyType, int spawnDelay) {
         this.spawnDelay = spawnDelay;
-        this.Enemy = (BaseChicken)Activator.CreateInstance(enemyType);
+        this.Enemy = enemyType; //(BaseChicken)Activator.CreateInstance(enemyType);
     }
 
     /// <summary>
@@ -57,7 +56,7 @@ public class DifficultyCalculatorFactory {
     /// <returns>
     /// A Difficulty Calculator of the passed difficulty
     /// </returns>
-    public static DifficultyCalculator CreateCalculator(IDifficultyTable difficultyTable, Difficulty difficulty){
+    public static DifficultyCalculator CreateCalculator(DifficultyTable difficultyTable, Difficulty difficulty){
         switch (difficulty)
         {
             case Difficulty.Easy:
@@ -77,14 +76,15 @@ public class DifficultyCalculatorFactory {
 /// The Base class for a difficulty calculator. Cannot construct directly, instead
 /// use the <ref>DifficultyCalculatorFactory.CreateCalculator</ref> method.
 /// </summary>
-public partial class DifficultyCalculator : GodotObject {
+public partial class DifficultyCalculator {
 
-    protected Dictionary<int, Type> enemyTypes;
-    protected int[] RoundDifficultyValue;
+    protected DifficultyTable difficultyTable;
+    protected Godot.Collections.Array<int> enemies;
 
-    internal DifficultyCalculator(IDifficultyTable difficultyTable) {
-        this.enemyTypes = difficultyTable.EnemyTypes;
-        this.RoundDifficultyValue = difficultyTable.RoundDifficultyValue;
+
+    internal DifficultyCalculator(DifficultyTable difficultyTable){
+        this.difficultyTable = difficultyTable;
+        this.enemies = difficultyTable.EnemyRanks;
     }
 
     protected int getSpawnAmount( int cost, ref int levelValue ) {
@@ -97,15 +97,21 @@ public partial class DifficultyCalculator : GodotObject {
 
     public virtual List<SpawnOrder> CalculateSpawnOrder(int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
-        int levelValue =this.RoundDifficultyValue[roundNumber];
-        while ( enemyTypes.Count > 0 ){
-            int cost = enemyTypes.Keys.Max();
+        Godot.Collections.Array<int> enemies = new Godot.Collections.Array<int>();
+        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
+        while ( enemies.Count > 0 ){
+            int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
-                spawnOrders.Add(new SpawnOrder(enemyTypes[cost], 100));
+                spawnOrders.Add(
+                    new SpawnOrder(
+                        Chicken.ChickenFactory.MakeKFC(cost),
+                        100
+                    )
+                );
                 amount -= 1;
             }
-            enemyTypes.Remove(cost);
+            enemies.Remove(cost);
         }
         return spawnOrders;
     }
@@ -116,24 +122,32 @@ public partial class DifficultyCalculator : GodotObject {
 /// Difficulty Calculator For the Easy Difficulty
 /// </summary>
 public partial class EasyDifficultyCalculator : DifficultyCalculator {
-    internal EasyDifficultyCalculator(IDifficultyTable difficultyTable) : base(difficultyTable)
-    {
-        this.enemyTypes = difficultyTable.EnemyTypes;
-        this.RoundDifficultyValue = difficultyTable.RoundDifficultyValue;
-    }
 
+    internal EasyDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
+        this.difficultyTable = difficultyTable;
+        this.enemies = difficultyTable.EnemyRanks;
+
+    }
 
     public override List<SpawnOrder> CalculateSpawnOrder(int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
-        int levelValue =this.RoundDifficultyValue[roundNumber];
+        Godot.Collections.Array<int> enemies = this.difficultyTable.EnemyRanks;
         // Lower Level Value on Easy
-        levelValue = (int)((float)levelValue * 0.8);
-        while ( enemyTypes.Count > 0 ){
-            int cost = enemyTypes.Keys.Max();
+        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
+        levelValue = (int)((float) levelValue * 0.8);
+        while ( enemies.Count > 0 ){
+            int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
-                spawnOrders.Add(new SpawnOrder(enemyTypes[cost], 100));
+                spawnOrders.Add(
+                    new SpawnOrder(
+                        Chicken.ChickenFactory.MakeKFC(cost),
+                        100
+                    )
+                );
+                amount -= 1;
             }
+            enemies.Remove(cost);
         }
         return spawnOrders;
     }
@@ -143,27 +157,28 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
 /// <summary>
 /// Difficulty Calculator For the Medium Difficulty
 /// </summary>
-public partial class MediumDifficultyCalculator : DifficultyCalculator
-{
-    internal MediumDifficultyCalculator(IDifficultyTable difficultyTable) : base(difficultyTable)
-    {
-        this.enemyTypes = difficultyTable.EnemyTypes;
-        this.RoundDifficultyValue = difficultyTable.RoundDifficultyValue;
+public partial class MediumDifficultyCalculator : DifficultyCalculator {
+    internal MediumDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
+        this.difficultyTable = difficultyTable;
+        this.enemies = difficultyTable.EnemyRanks;
+
     }
 }
+
+
 
 /// <summary>
 /// Difficulty Calculator For the Hard Difficulty
 /// </summary>
+/// 
+
 public partial class HardDifficultyCalculator : DifficultyCalculator {
-    internal HardDifficultyCalculator(IDifficultyTable difficultyTable) : base(difficultyTable)
-    {
-        this.enemyTypes = difficultyTable.EnemyTypes;
-        this.RoundDifficultyValue = difficultyTable.RoundDifficultyValue;
+
+    internal HardDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
+        this.difficultyTable = difficultyTable;
+        this.enemies = difficultyTable.EnemyRanks;
+
     }
-
-
-
     /// <summary>
     /// Calculates the SpawnOrders for Hard Difficulty
     /// </summary>
@@ -171,18 +186,29 @@ public partial class HardDifficultyCalculator : DifficultyCalculator {
     /// <param name="roundNumber"></param>
     /// <returns></returns
     public override List<SpawnOrder> CalculateSpawnOrder( int roundNumber) {
+
+
         List<SpawnOrder> spawnOrders = new() { };
-        int levelValue =this.RoundDifficultyValue[roundNumber];
-        // Raise Level Value on Easy
+        Godot.Collections.Array<int>  enemies = this.difficultyTable.EnemyRanks;
+        // Raise Level Value on hard
+        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
         levelValue = (int)((float)levelValue * 1.5);
-        while ( enemyTypes.Count > 0 ){
-            int cost = enemyTypes.Keys.Max();
+        while ( enemies.Count > 0 ){
+            int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
-                spawnOrders.Add(new SpawnOrder(enemyTypes[cost], 20));
+                spawnOrders.Add(
+                    new SpawnOrder(
+                        Chicken.ChickenFactory.MakeKFC(cost),
+                        100
+                    )
+                );
+                amount -= 1;
             }
+            enemies.Remove(cost);
         }
         return spawnOrders;
+
     }
 }
 
