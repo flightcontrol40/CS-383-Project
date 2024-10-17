@@ -15,13 +15,13 @@ run/main_scene="res://src/Clayton/MainMenu/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-RoundManager="*res://src/Nathan/round_manager.gd"
-
 [dotnet]
 
 project/assembly_name="TowerGame"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDMUT/plugin.cfg")
 
 [global_group]
 

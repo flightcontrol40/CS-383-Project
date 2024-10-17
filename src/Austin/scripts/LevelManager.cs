@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-public partial class LevelManager : Node, ILevelData
+public partial class LevelManager : Node
 {
     [Export]
     private Level level;
@@ -14,8 +14,15 @@ public partial class LevelManager : Node, ILevelData
 
     private RoundManager.RoundManager roundManager;
 
-    [Export]
-    private bool LevelLoaded = false;
+	[Export]
+	private bool LevelLoaded = false;
+
+    public override void _Ready()
+    {
+        this.roundManager = this.GetNode<RoundManager.RoundManager>("RoundManager");
+        base._Ready();
+    }
+
 
     public override void _Process(double delta)
     {
@@ -93,21 +100,9 @@ public partial class LevelManager : Node, ILevelData
         get { return currentMap.GetNode<Path>("Path").GetNode<Path2D>("Path2D"); }
     }
 
-    // Making this static for now for MVP
-    public IDifficultyTable DifficultyTable {
-        get { return new ADifficultyTable(); }
-    }
-
-    public int maxRoundNumber {
-        get { return this.level.maxRound; }
-    }
-
-    public void setLevel(Level newLevel) {
-        level = newLevel;
-    }
-
-    public bool isMapLoaded() {
-        return IsInstanceValid(currentMap);
-    }
+	// Making this static for now for MVP
+	public IDifficultyTable DifficultyTable {
+		get { return new ADifficultyTable(); }
+	}
 
 }

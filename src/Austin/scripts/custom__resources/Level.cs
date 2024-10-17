@@ -6,39 +6,31 @@
 /// 
 
 using Godot;
-using RoundManager.Interfaces;
+using RoundManager;
 using System;
 using System.Collections.Generic;
 
 [GlobalClass]
 public partial class Level : Resource
 {
-    [Export]
-    public RoundManager.Difficulty baseDifficulty;
-    [Export]
-    public int playerHealth;
-    [Export]
-    public int playerMoney;
-    [Export]
-    public int currentRoundNum;
-    [Export]
-    public int enemyBudget;
-    [Export]
-    public int maxRound;
-
-    [Export]
-    public PackedScene mapScene;
-    public Node2D[] towers;
-
-    public Level(RoundManager.Difficulty difficulty = RoundManager.Difficulty.Easy,
-                 int health = 100,
-                 int money = 100,
-                 int enemyBudget = 100,
-                 int maxRound = 1) {
-        this.baseDifficulty = difficulty;
-        this.playerHealth = health;
-        this.currentRoundNum = 0;
-        this.enemyBudget = enemyBudget;
-        this.maxRound = maxRound;
-    }
+	[Export]
+	public RoundManager.Difficulty baseDifficulty = RoundManager.Difficulty.Easy;
+	[Export]
+	public int playerHealth = 100;
+	[Export]
+	public int playerMoney = 100;
+	[Export]
+	public int currentRoundNum = 0;
+	[Export]
+	public int enemyBudget = 100;
+	[Export]
+	public int MaxRound = 1;
+	[Export]
+	public DifficultyTable difficultyTable;
+	[Export]
+	public PackedScene mapScene;
+	public Node2D[] towers;
+	public Path2D getPath(){
+		return new Path2D();
+	}
 }
