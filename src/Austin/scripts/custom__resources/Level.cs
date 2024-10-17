@@ -6,7 +6,7 @@
 /// 
 
 using Godot;
-using RoundManager.Interfaces;
+using RoundManager;
 using System;
 using System.Collections.Generic;
 
@@ -25,8 +25,12 @@ public partial class Level : Resource
 	public int enemyBudget = 100;
 	[Export]
 	public int MaxRound = 1;
-
+	[Export]
+	public DifficultyTable difficultyTable;
 	[Export]
 	public PackedScene mapScene;
 	public Node2D[] towers;
+	public Path2D getPath(){
+		return new Path2D();
+	}
 }

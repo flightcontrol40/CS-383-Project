@@ -7,6 +7,8 @@ using Interfaces;
 using Chicken;
 using System;
 using System.Timers;
+using System.Diagnostics;
+
 
 
 
@@ -16,26 +18,43 @@ using System.Timers;
 /// </summary>
 public partial class RoundManager : Node2D {
 
-
-    public RoundStatusTracker roundStatusTracker;
-    private ILevelData lastLevelData;
+    private DifficultyCalculator difficultyCalculator;
+    private Level levelData;
     private List<SpawnOrder> spawnQueue;
     private List<BaseChicken> liveEnemies;
-    private System.Timers.Timer spawnTimer;
-    private Difficulty difficulty;
+    // private System.Timers.Timer spawnTimer;
+    // private Difficulty difficulty;
     private double currentTime;
     private double nextSpawnTime;
-
+    private bool roundRunning = false;
 
     public override void _Ready()
     {
+        this.spawnQueue = new List<SpawnOrder> {};
+        this.liveEnemies = new List<BaseChicken> {};
         base._Ready();
     }
 
-    public RoundManager(ILevelData levelData, Difficulty difficulty){
-        this.loadLevel(levelData, difficulty);
-        this.liveEnemies = new List<BaseChicken>();
-        this.spawnQueue = new List<SpawnOrder>();
+    /// <summary>
+    /// Loads a level from the level data object.
+    /// </summary>
+    /// <param name="levelData"></param>
+    public void loadLevel(Level levelData, Difficulty difficulty) {
+        this.levelData = levelData;
+        this.difficultyCalculator = DifficultyCalculatorFactory.CreateCalculator(
+            levelData.difficultyTable,
+            difficulty
+        );
+    }
+
+    public void startRound() {
+        this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
+            this.levelData.currentRoundNum
+        );
+        this.roundRunning = true;
+        if (spawnQueue.Count > 0){
+            this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
+        }
     }
 
     private void spawnEnemy(){
@@ -45,10 +64,9 @@ public partial class RoundManager : Node2D {
         GD.Print("Im spawning a chicken!");
         SpawnOrder order = spawnQueue[0];
         spawnQueue.RemoveAt(0);
-        order.Enemy.EnemyDied += HandleEnemyDiesSignal; 
+        order.Enemy.EnemyDied += HandleEnemyDiesSignal;
         order.Enemy.EndOfPath += HandleEnemyFinishedSignal;
-
-        order.Enemy.Start(lastLevelData.LevelPath);
+        order.Enemy.Start(this.levelData.getPath());
         this.liveEnemies.Add(order.Enemy);
         this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
         GD.Print(order.Enemy);
@@ -72,26 +90,12 @@ public partial class RoundManager : Node2D {
     /// <param name="enemy">The enemy to free.</param>
     private void HandleEnemyFinishedSignal(BaseChicken enemy) {
         // Do Level Damage
-        this.lastLevelData.Health -= enemy.damageAmount;
+        this.levelData.playerHealth -= enemy.damageAmount;
         // Free the enemy
         liveEnemies.Remove(enemy);
         enemy.QueueFree();
     }
 
-    /// <summary>
-    /// Loads a level from the level data object.
-    /// </summary>
-    /// <param name="levelData"></param>
-    public void loadLevel(ILevelData levelData, Difficulty difficulty) {
-        this.lastLevelData = levelData;
-        this.difficulty = difficulty;
-        roundStatusTracker = new RoundStatusTracker(levelData.DifficultyTable, difficulty);
-    }
-
-    public ILevelData unloadLevel() {
-        this.cleanLevel();
-        return this.lastLevelData;
-    }
 
     private void cleanLevel(){
         // Clean the Enemies up.
@@ -106,44 +110,37 @@ public partial class RoundManager : Node2D {
         }
     }
 
+
     public override void _Process(double delta) {
         this.currentTime += delta;
-        if ( roundStatusTracker.roundStarted == true) {
+        if ( this.roundRunning == true) {
             if (currentTime > nextSpawnTime && spawnQueue.Count > 0){
                 this.spawnEnemy();
             }
-            if (lastLevelData.Health < 0 ){
-                roundStatusTracker.roundStarted = false;
+            if (this.levelData.playerHealth < 0 ){
+                this.roundRunning = false;
                 EmitSignal(SignalName.GameLost);
                 cleanLevel();
             }
             else if ( 
-                lastLevelData.Health > 0 && 
-                roundStatusTracker.roundStarted == true && 
-                lastLevelData.DifficultyTable.MaxRound == lastLevelData.RoundNumber)
+                this.levelData.playerHealth > 0 && 
+                this.roundRunning == true && 
+                this.levelData.MaxRound == this.levelData.currentRoundNum)
                 {
-                    roundStatusTracker.roundStarted = false;
+                    this.roundRunning = false;
                     EmitSignal(SignalName.GameWon);
                     cleanLevel();
                 }
             else if ( this.spawnQueue.Count() == 0 && this.liveEnemies.Count() == 0){
-                roundStatusTracker.roundStarted = false;
-                lastLevelData.RoundNumber++;
+                this.roundRunning = false;
+                this.levelData.currentRoundNum++;
             }
         }
         base._Process(delta);
     }
 
-    public void startRound() {
-        spawnQueue.AddRange(
-            this.roundStatusTracker.getSpawnOrder(this.lastLevelData.RoundNumber)
-        );
-        if (spawnQueue.Count > 0){
-            roundStatusTracker.roundStarted = true;
-            this .nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
-        }
+    public void onLevelLoadSignal(Level level){
     }
-
 
     [Signal]
     public delegate void GameLostEventHandler();
