@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/Austin/scripts/custom__resources/Level.cs" id="3_j5db1"]
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
 [ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Shop.tscn" id="5_4201l"]
-[ext_resource type="PackedScene" uid="uid://bx5j4lpejkuw0" path="res://src/Ankit/Scenes/tower.tscn" id="7_tmpp7"]
+[ext_resource type="PackedScene" uid="uid://bx5j4lpejkuw0" path="res://src/Ankit/Scenes/Tower.tscn" id="7_tmpp7"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
 
 [sub_resource type="Resource" id="Resource_isy6s"]
