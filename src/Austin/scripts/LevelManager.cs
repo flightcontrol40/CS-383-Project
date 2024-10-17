@@ -1,9 +1,7 @@
 using Godot;
 using RoundManager;
-using RoundManager.Interfaces;
 using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 public partial class LevelManager : Node
 {
@@ -36,16 +34,15 @@ public partial class LevelManager : Node
         if (Input.IsActionJustPressed("start_round")) {
             startRound();
         }
-        if (roundManager.roundStatusTracker.roundStarted){
-            roundManager._Process(delta);
-        }
     }
 
     private void startRound(){
+        /*
         if (!IsInstanceValid(this.roundManager)){
             this.loadMap();
         }
         this.roundManager.startRound();
+        */
     }
 
     // Loads a map and add's its node as a child of the LevelManager
@@ -54,7 +51,6 @@ public partial class LevelManager : Node
         if (!IsInstanceValid(currentMap)) {
             currentMap = (Map)level.mapScene.Instantiate();
             AddChild(currentMap);
-            this.roundManager = new RoundManager.RoundManager(this, Difficulty.Medium);
         }
     }
     
@@ -93,16 +89,19 @@ public partial class LevelManager : Node
 
     public int RoundNumber {
         get { return this.level.currentRoundNum; }
-        set { this.level.currentRoundNum = Math.Clamp(value, 0, maxRoundNumber); }
+        set { this.level.currentRoundNum = Math.Clamp(value, 0, level.MaxRound); }
     }
 
     public Path2D LevelPath {
         get { return currentMap.GetNode<Path>("Path").GetNode<Path2D>("Path2D"); }
     }
 
-	// Making this static for now for MVP
-	public IDifficultyTable DifficultyTable {
-		get { return new ADifficultyTable(); }
-	}
+    public void setLevel(Level newLevel) {
+        level = newLevel;
+    }
+
+    public bool isMapLoaded() {
+        return IsInstanceValid(currentMap);
+    }
 
 }
