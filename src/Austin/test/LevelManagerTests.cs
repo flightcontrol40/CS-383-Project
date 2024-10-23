@@ -1,3 +1,4 @@
+using System;
 using GdMUT;
 using Godot;
 
@@ -7,7 +8,7 @@ public partial class LevelManagerTests : Node {
     private static string baseScriptPath = "res://src/Austin/scripts";
     private static string levelManagerScenePath = baseScenePath + "/level_manager.tscn";
     private static string mapScenePath = baseScenePath + "/map.tscn";
-    private static string levelResourcePath = baseScriptPath + "/custom_resources/level.cs";
+    private static string levelResourcePath = baseScriptPath + "/custom_resources/Level.cs";
     //packed scenes
     private static PackedScene levelManagerScene;
     private static Level levelResource;
@@ -39,15 +40,14 @@ public partial class LevelManagerTests : Node {
         levelResource.unloadMap();
 
         return retVal;
-
     }
 
     [CSTestFunction]
     public static Result Unit_minRound() {
         init();
 
-        levelManagerInstance.RoundNumber = -100;
-        int currentRoundNumber= levelManagerInstance.RoundNumber;
+        levelManagerInstance.roundNumber = -100;
+        int currentRoundNumber= levelManagerInstance.roundNumber;
         string resultMessage = "maxRound=" + currentRoundNumber.ToString();
 
         return currentRoundNumber >= 0 ? new Result(true, resultMessage) : new Result(false, resultMessage);
@@ -57,11 +57,11 @@ public partial class LevelManagerTests : Node {
     public static Result Unit_maxRound() {
         init();
 
-        levelManagerInstance.RoundNumber = levelManagerInstance.level.MaxRound + 1;
-        int currentRoundNumber= levelManagerInstance.RoundNumber;
-        string resultMessage = "roundNumber=" + currentRoundNumber.ToString() + " <= maxRound=" + levelManagerInstance.level.MaxRound;
+        levelManagerInstance.roundNumber = levelManagerInstance.level.maxRound + 1;
+        int currentRoundNumber= levelManagerInstance.roundNumber;
+        string resultMessage = "roundNumber=" + currentRoundNumber.ToString() + " <= maxRound=" + levelManagerInstance.level.maxRound;
 
-        return currentRoundNumber <= levelManagerInstance.level.MaxRound ? new Result(true, resultMessage) : new Result(false, resultMessage);
+        return currentRoundNumber <= levelManagerInstance.level.maxRound ? new Result(true, resultMessage) : new Result(false, resultMessage);
     }
 
 /*
