@@ -1,107 +1,120 @@
 using Godot;
 using RoundManager;
 using System;
-using System.Linq;
 
 public partial class LevelManager : Node
 {
-    [Export]
-    private Level level;
-    [Export]
-    public Map currentMap;
+    private const string difficultyTablePath_m = "res://src/Nathan/DifficultyTable.cs";
 
-    private RoundManager.RoundManager roundManager;
+    [Export]
+    public Level level { get; set; }
+    [Export]
+    private Map currentMap { get; set; }
+    [Export]
+    public int playerHealth { 
+        get { return level.playerHealth; }
+        set { level.playerHealth = Math.Max(value, 0); }
+    }
+    [Export]
+    public int roundNumber {
+        get { return level.currentRoundNum; }
+        set { level.currentRoundNum = Math.Clamp(value, 0, level.maxRound); }
+    }
+    [Export]
+    public int maxRound {
+        get { return level.maxRound; }
+        set {
+            if (!levelLoaded) {
+                level.maxRound = Math.Max(value, 0);
+            }
+        }
+    }
+    private bool levelLoaded { get; } = false;
+    public bool mapLoaded { get { return IsInstanceValid(currentMap); } }
+    public Path2D path { get { return currentMap.GetNode<Path>("Path").getPath(); } }
+    public PackedScene mapScene { 
+        set {
+            if (!levelLoaded) {
+                level.mapScene = value;
+            }
+        }
+    }
 
-	[Export]
-	private bool LevelLoaded = false;
+    [Signal]
+    public delegate void LoadRoundEventHandler(DifficultyTable difficulty);
 
     public override void _Ready()
     {
-        this.roundManager = this.GetNode<RoundManager.RoundManager>("RoundManager");
-        base._Ready();
+        return;
     }
-
 
     public override void _Process(double delta)
     {
         // this was used to test if the map would load
         if (Input.IsActionJustPressed("load_map")) {
-            loadMap();
+            //load the map
+            currentMap = level.loadMap();
+            //book keeping
+            if (currentMap != null) {
+                AddChild(currentMap);      //makes visible on screen
+                currentMap.SetOwner(this); //makes visible in scene tree, and able to be packed into PackedScene
+            }
         } else
         if (Input.IsActionJustPressed("unload_map")) {
-            unloadMap();
-        }
-        if (Input.IsActionJustPressed("start_round")) {
-            startRound();
+            level.unloadMap();
         }
     }
 
-    private void startRound(){
-        /*
-        if (!IsInstanceValid(this.roundManager)){
-            this.loadMap();
+    void OnLoadLevel() {
+        // load the map
+        currentMap = level.loadMap();
+        //book keeping
+        if (currentMap != null) {
+            AddChild(currentMap); //makes map visible on the screen
+            currentMap.SetOwner(this); // makes visible in scene tree, and able to be serialized into a PackedScene
         }
-        this.roundManager.startRound();
-        */
+        // load round
+        EmitSignal(SignalName.LoadRound, level.difficultyTable);
     }
 
-    // Loads a map and add's its node as a child of the LevelManager
-    // Note: it won't load a map if on is already loaded
-    public void loadMap() { 
-        if (!IsInstanceValid(currentMap)) {
-            currentMap = (Map)level.mapScene.Instantiate();
-            AddChild(currentMap);
-        }
-    }
-    
-    // Unloads a map if one has been loaded
-    public void unloadMap() {
-        if (IsInstanceValid(currentMap)) {
-            currentMap.QueueFree();
+    public void setDifficutly(Difficulty difficulty) {
+        if (!levelLoaded) {
+            // create new difficulty table
+            DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
+
+            // book keeping
+            level.baseDifficulty = difficulty;
+            level.difficultyTable = newDifficultyTable;
         }
     }
 
+    private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
+        int roundDifficulty; //need to swap this to some kind of exponential equation
+        DifficultyTable difficultyTable = (DifficultyTable)GD.Load<Resource>(difficultyTablePath_m);
 
+        //init EnemyRanks
+        switch (difficulty) {
+            case Difficulty.Hard:
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50, 250};
+                roundDifficulty = 10000;
+                break;
+            case Difficulty.Medium:
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
+                roundDifficulty = 5000;
+                break;
+            default:
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
+                roundDifficulty = 1000;
+                break;
+        }
 
-    void OnLoadLevel(RoundManager.RoundManager roundManager) {
+        //init RoundDifficulty
+        difficultyTable.RoundDifficultyValue = new int[level.maxRound];
+        for (int i = 0; i < difficultyTable.RoundDifficultyValue.Length; i++) {
+            difficultyTable.RoundDifficultyValue[i] = roundDifficulty;
+        }
 
-    }
-
-    // Probably adds a tower to the tower record
-    public void addTower(Node2D tower) {
-        level.towers.Append(tower);
-    }
-
-    // Probably removes a tower from tower records
-    public void removeTower(Node2D tower) {
-        level.towers = level.towers.Where(n => n != tower).ToArray();
-        tower.QueueFree();
-    }
-
-    Path2D getPath() {
-        return currentMap.GetNode<Path>("Path").getPath();
-    }
-
-    public int Health { 
-        get { return this.level.playerHealth; }
-        set { this.level.playerHealth = Math.Max(value, 0); }
-    }
-
-    public int RoundNumber {
-        get { return this.level.currentRoundNum; }
-        set { this.level.currentRoundNum = Math.Clamp(value, 0, level.MaxRound); }
-    }
-
-    public Path2D LevelPath {
-        get { return currentMap.GetNode<Path>("Path").GetNode<Path2D>("Path2D"); }
-    }
-
-    public void setLevel(Level newLevel) {
-        level = newLevel;
-    }
-
-    public bool isMapLoaded() {
-        return IsInstanceValid(currentMap);
+        return difficultyTable;
     }
 
 }

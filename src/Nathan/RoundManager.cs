@@ -122,7 +122,7 @@ public partial class RoundManager : Node2D {
             else if ( 
                 this.levelData.playerHealth > 0 && 
                 this.roundRunning == true && 
-                this.levelData.MaxRound == this.levelData.currentRoundNum)
+                this.levelData.maxRound == this.levelData.currentRoundNum)
                 {
                     this.roundRunning = false;
                     EmitSignal(SignalName.GameWon);
