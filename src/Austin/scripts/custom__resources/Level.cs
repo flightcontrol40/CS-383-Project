@@ -29,7 +29,7 @@ public partial class Level : Resource
     public int MaxRound = 1;
 
     [Export]
-    public PackedScene mapScene;
+    public PackedScene mapScene = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
     public Map mapInstance;
 
     public Map loadMap() {
