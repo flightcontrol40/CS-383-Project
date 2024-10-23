@@ -29,6 +29,7 @@ public partial class Level : Resource
     public Map mapInstance { get; set; }
 
     public Map loadMap() {
+        GD.Print("loadMap()");
         if (!IsInstanceValid(mapInstance)) {
             mapInstance = mapScene.Instantiate<Map>();
             return mapInstance;
