@@ -1,17 +1,44 @@
 using Godot;
 using RoundManager;
 using System;
-using System.Linq;
 
 public partial class LevelManager : Node
 {
-    [Export]
-    public Level level;
-
-    private Map currentMap;
+    private const string difficultyTablePath_m = "res://src/Nathan/DifficultyTable.cs";
 
     [Export]
-    private bool levelLoaded = false;
+    public Level level { get; set; }
+    [Export]
+    private Map currentMap { get; set; }
+    [Export]
+    public int playerHealth { 
+        get { return level.playerHealth; }
+        set { level.playerHealth = Math.Max(value, 0); }
+    }
+    [Export]
+    public int roundNumber {
+        get { return level.currentRoundNum; }
+        set { level.currentRoundNum = Math.Clamp(value, 0, level.maxRound); }
+    }
+    [Export]
+    public int maxRound {
+        get { return level.maxRound; }
+        set {
+            if (!levelLoaded) {
+                level.maxRound = Math.Max(value, 0);
+            }
+        }
+    }
+    private bool levelLoaded { get; } = false;
+    public bool mapLoaded { get { return IsInstanceValid(currentMap); } }
+    public Path2D path { get { return currentMap.GetNode<Path>("Path").getPath(); } }
+    public PackedScene mapScene { 
+        set {
+            if (!levelLoaded) {
+                level.mapScene = value;
+            }
+        }
+    }
 
     [Signal]
     public delegate void LoadRoundEventHandler(DifficultyTable difficulty);
@@ -50,72 +77,44 @@ public partial class LevelManager : Node
         EmitSignal(SignalName.LoadRound, level.difficultyTable);
     }
 
-    Path2D getPath() {
-        return currentMap.GetNode<Path>("Path").getPath();
-    }
-
-    public int playerHealth { 
-        get { return this.level.playerHealth; }
-        set { this.level.playerHealth = Math.Max(value, 0); }
-    }
-
-    public int RoundNumber {
-        get { return this.level.currentRoundNum; }
-        set { this.level.currentRoundNum = Math.Clamp(value, 0, level.MaxRound); }
-    }
-
-    public void setMap(PackedScene mapScene) {
-        if (!levelLoaded) {
-            level.mapScene = mapScene;
-        }
-    }
-
     public void setDifficutly(Difficulty difficulty) {
         if (!levelLoaded) {
+            // create new difficulty table
+            DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
+
+            // book keeping
             level.baseDifficulty = difficulty;
-
-            DifficultyTable newDifficultyTable = (DifficultyTable)GD.Load<Resource>("res://src/Nathan/DifficultyTable.cs");
-            switch (difficulty) {
-                case Difficulty.Easy:
-                    loadEasyDifficultyTable(newDifficultyTable);
-                    break;
-                case Difficulty.Medium:
-                    loadMediumDifficultyTable(newDifficultyTable);
-                    break;
-                case Difficulty.Hard:
-                    loadHardDifficultyTable(newDifficultyTable);
-                    break;
-                default:
-                    loadEasyDifficultyTable(newDifficultyTable);
-                    break;
-            }
-
             level.difficultyTable = newDifficultyTable;
         }
     }
 
-    public bool mapLoaded {
-        get { return IsInstanceValid(currentMap); }
-    }
+    private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
+        int roundDifficulty; //need to swap this to some kind of exponential equation
+        DifficultyTable difficultyTable = (DifficultyTable)GD.Load<Resource>(difficultyTablePath_m);
 
-    private void loadEasyDifficultyTable(DifficultyTable difficultyTable) {
-        // figure out EnemyRanks, should they be defined by chickens?
-
-        difficultyTable.RoundDifficultyValue = new int[level.MaxRound];
-
-
-        for (int i = 0; i < level.MaxRound; i++) {
-            difficultyTable.RoundDifficultyValue[i] = 100; // set this to an exponential equation to gradually bring up the difficulty
+        //init EnemyRanks
+        switch (difficulty) {
+            case Difficulty.Hard:
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50, 250};
+                roundDifficulty = 10000;
+                break;
+            case Difficulty.Medium:
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
+                roundDifficulty = 5000;
+                break;
+            default:
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
+                roundDifficulty = 1000;
+                break;
         }
-    }
 
+        //init RoundDifficulty
+        difficultyTable.RoundDifficultyValue = new int[level.maxRound];
+        for (int i = 0; i < difficultyTable.RoundDifficultyValue.Length; i++) {
+            difficultyTable.RoundDifficultyValue[i] = roundDifficulty;
+        }
 
-    private void loadMediumDifficultyTable(DifficultyTable difficultyTable) {
-        
-    }
-
-    private void loadHardDifficultyTable(DifficultyTable difficultyTable) {
-        
+        return difficultyTable;
     }
 
 }

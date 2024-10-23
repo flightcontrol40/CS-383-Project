@@ -10,31 +10,26 @@ using RoundManager;
 [GlobalClass]
 public partial class Level : Resource
 {
-    [Export]
-    public Difficulty baseDifficulty = Difficulty.Easy;
+    private const string mapScenePath_m = "res://src/Austin/scenes/map.tscn";
 
     [Export]
-    public DifficultyTable difficultyTable;
-
+    public Difficulty baseDifficulty { get; set; } = Difficulty.Easy;
     [Export]
-    public int playerHealth = 100;
-
+    public DifficultyTable difficultyTable { get; set; }
     [Export]
-    public int playerMoney = 100;
-
+    public int playerHealth { get; set; } = 100;
     [Export]
-    public int currentRoundNum = 0;
-
+    public int playerMoney { get; set; } = 100;
     [Export]
-    public int MaxRound = 1;
-
+    public int currentRoundNum { get; set; } = 0;
     [Export]
-    public PackedScene mapScene = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
-    public Map mapInstance;
+    public int maxRound { get; set; } = 1;
+    [Export]
+    public PackedScene mapScene { get; set; } = GD.Load<PackedScene>(mapScenePath_m);
+    public Map mapInstance { get; set; }
 
     public Map loadMap() {
         if (!IsInstanceValid(mapInstance)) {
-            GD.Print("Loaded map");
             mapInstance = mapScene.Instantiate<Map>();
             return mapInstance;
         } else {
@@ -44,7 +39,6 @@ public partial class Level : Resource
 
     public void unloadMap() {
         if (IsInstanceValid(mapInstance)) {
-            GD.Print("Unloaded map");
             mapInstance.QueueFree();
         }
     }
