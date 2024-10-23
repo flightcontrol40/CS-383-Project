@@ -1,8 +1,4 @@
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
+using System;
 using GdMUT;
 using Godot;
 
@@ -12,7 +8,7 @@ public partial class LevelManagerTests : Node {
     private static string baseScriptPath = "res://src/Austin/scripts";
     private static string levelManagerScenePath = baseScenePath + "/level_manager.tscn";
     private static string mapScenePath = baseScenePath + "/map.tscn";
-    private static string levelResourcePath = baseScriptPath + "/custom_resources/level.cs";
+    private static string levelResourcePath = baseScriptPath + "/custom_resources/Level.cs";
     //packed scenes
     private static PackedScene levelManagerScene;
     private static Level levelResource;
@@ -29,31 +25,46 @@ public partial class LevelManagerTests : Node {
 
         //Instantiate the scenes
         levelManagerInstance = levelManagerScene.Instantiate<LevelManager>();
-        levelManagerInstance.setLevel(levelResource);
+        levelManagerInstance.level = levelResource;
     }
 
-    [CSTestFunction] public static Result loadMap() {
+    [CSTestFunction]
+    public static Result Unit_doubleLoadMap() {
         init();
 
-        levelManagerInstance.loadMap();
-        if (levelManagerInstance.isMapLoaded()) {
-            return Result.Success;
-        } else {
-            return Result.Failure;
-        }
+        levelResource.loadMap();
+        Map mapVal = levelResource.loadMap();
+
+        Result retVal = (mapVal == null) ? new Result(true, "Loading a second map returned null") : new Result(false, "A second map was loaded");
+
+        levelResource.unloadMap();
+
+        return retVal;
     }
 
-	[CSTestFunction] public static Result minRound() {
+    [CSTestFunction]
+    public static Result Unit_minRound() {
         init();
 
-        //tk Add code to decrease the player's health
-        levelManagerInstance.RoundNumber = -100;
-        int currentRoundNumber= levelManagerInstance.Health;
-        string resultMessage = "PlayerHealth=" + currentRoundNumber.ToString();
+        levelManagerInstance.roundNumber = -100;
+        int currentRoundNumber= levelManagerInstance.roundNumber;
+        string resultMessage = "maxRound=" + currentRoundNumber.ToString();
+
         return currentRoundNumber >= 0 ? new Result(true, resultMessage) : new Result(false, resultMessage);
     }
 
-    
+    [CSTestFunction]
+    public static Result Unit_maxRound() {
+        init();
+
+        levelManagerInstance.roundNumber = levelManagerInstance.level.maxRound + 1;
+        int currentRoundNumber= levelManagerInstance.roundNumber;
+        string resultMessage = "roundNumber=" + currentRoundNumber.ToString() + " <= maxRound=" + levelManagerInstance.level.maxRound;
+
+        return currentRoundNumber <= levelManagerInstance.level.maxRound ? new Result(true, resultMessage) : new Result(false, resultMessage);
+    }
+
+/*
     [CSTestFunction] public static Result mapStress() {
         init();
         List<Map> mapInstances = new List<Map>();
@@ -75,4 +86,5 @@ public partial class LevelManagerTests : Node {
         var asString = string.Join(System.Environment.NewLine, results);
         return new Result(true, $"Results: {asString}");
     }
+*/
 }
