@@ -43,7 +43,7 @@ public partial class RoundManager : Node2D {
 
     public void startRound() {
         this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
-            this.levelData.currentRoundNum
+            this.levelData.CurrentRoundNum
         );
         this.roundRunning = true;
         if (spawnQueue.Count > 0){
@@ -119,7 +119,7 @@ public partial class RoundManager : Node2D {
             else if ( 
                 this.levelData.playerHealth > 0 && 
                 this.roundRunning == true && 
-                this.levelData.maxRound == this.levelData.currentRoundNum)
+                this.levelData.maxRound == this.levelData.CurrentRoundNum)
                 {
                     this.roundRunning = false;
                     EmitSignal(SignalName.GameWon);
@@ -127,7 +127,7 @@ public partial class RoundManager : Node2D {
                 }
             else if ( this.spawnQueue.Count() == 0 && this.liveEnemies.Count() == 0){
                 this.roundRunning = false;
-                this.levelData.currentRoundNum++;
+                this.levelData.CurrentRoundNum++;
             }
         }
         base._Process(delta);
