@@ -1,47 +1,21 @@
+using Chicken;
 using Godot;
 using RoundManager;
 using System;
 
 public partial class LevelManager : Node
 {
-    private const string difficultyTablePath_m = "res://src/Nathan/DifficultyTable.cs";
+    private const string difficultyTablePath = "res://src/Nathan/CustomResources/DifficultyTable.cs";
 
+	[Export]
+    public Difficulty baseDifficutly = Difficulty.Easy;
     [Export]
-    public Level level { get; set; }
-    [Export]
-    private Map currentMap { get; set; }
-    [Export]
-    public int playerHealth { 
-        get { return level.playerHealth; }
-        set { level.playerHealth = Math.Max(value, 0); }
-    }
-    [Export]
-    public int roundNumber {
-        get { return level.currentRoundNum; }
-        set { level.currentRoundNum = Math.Clamp(value, 0, level.maxRound); }
-    }
-    [Export]
-    public int maxRound {
-        get { return level.maxRound; }
-        set {
-            if (!levelLoaded) {
-                level.maxRound = Math.Max(value, 0);
-            }
-        }
-    }
-    private bool levelLoaded { get; } = false;
-    public bool mapLoaded { get { return IsInstanceValid(currentMap); } }
-    public Path2D path { get { return currentMap.GetNode<Path>("Path").getPath(); } }
-    public PackedScene mapScene { 
-        set {
-            if (!levelLoaded) {
-                level.mapScene = value;
-            }
-        }
-    }
+    public Level level;
+    private bool levelLoaded = false;
+    public bool mapLoaded { get { return IsInstanceValid(level.MapInstance); } }
 
     [Signal]
-    public delegate void LoadRoundEventHandler(DifficultyTable difficulty);
+    public delegate void LoadRoundEventHandler(int difficulty, Level level);
 
     public override void _Ready()
     {
@@ -50,31 +24,18 @@ public partial class LevelManager : Node
 
     public override void _Process(double delta)
     {
-        // this was used to test if the map would load
-        if (Input.IsActionJustPressed("load_map")) {
-            //load the map
-            currentMap = level.loadMap();
-            //book keeping
-            if (currentMap != null) {
-                AddChild(currentMap);      //makes visible on screen
-                currentMap.SetOwner(this); //makes visible in scene tree, and able to be packed into PackedScene
-            }
-        } else
-        if (Input.IsActionJustPressed("unload_map")) {
-            level.unloadMap();
-        }
     }
 
-    void OnLoadLevel() {
+    public void OnLoadLevel() {
         // load the map
-        currentMap = level.loadMap();
+        level.loadMap();
         //book keeping
-        if (currentMap != null) {
-            AddChild(currentMap); //makes map visible on the screen
-            currentMap.SetOwner(this); // makes visible in scene tree, and able to be serialized into a PackedScene
+        if (level.MapInstance != null) {
+            AddChild(level.MapInstance); //makes map visible on the screen
+            level.MapInstance.SetOwner(this); // makes visible in scene tree, and able to be serialized into a PackedScene
         }
         // load round
-        EmitSignal(SignalName.LoadRound, level.difficultyTable);
+        EmitSignal(SignalName.LoadRound, (int)baseDifficutly, level);
     }
 
     public void setDifficutly(Difficulty difficulty) {
@@ -83,26 +44,29 @@ public partial class LevelManager : Node
             DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
 
             // book keeping
-            level.baseDifficulty = difficulty;
+            baseDifficutly = difficulty;
             level.difficultyTable = newDifficultyTable;
         }
     }
 
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
         int roundDifficulty; //need to swap this to some kind of exponential equation
-        DifficultyTable difficultyTable = (DifficultyTable)GD.Load<Resource>(difficultyTablePath_m);
+        DifficultyTable difficultyTable = new DifficultyTable();
 
         //init EnemyRanks
         switch (difficulty) {
             case Difficulty.Hard:
+                GD.Print("Set Difficulty to Hard");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50, 250};
                 roundDifficulty = 10000;
                 break;
             case Difficulty.Medium:
+                GD.Print("Set Difficulty to Medium");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
                 roundDifficulty = 5000;
                 break;
             default:
+                GD.Print("Set Difficulty to Easy");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
                 roundDifficulty = 1000;
                 break;
@@ -115,6 +79,8 @@ public partial class LevelManager : Node
         }
 
         return difficultyTable;
+
+
     }
 
 }
