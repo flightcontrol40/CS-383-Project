@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdbywui582p0y"]
+
+[ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_qvu5o"]
+[ext_resource type="Script" path="res://src/Austin/scripts/LoadLevelTest.cs" id="1_v70ad"]
+
+[node name="Load_Level_Test" type="Node2D"]
+script = ExtResource("1_v70ad")
+
+[node name="LevelManager" parent="." instance=ExtResource("1_qvu5o")]
+
+[connection signal="LoadRound" from="LevelManager" to="." method="OnLoadRound"]
