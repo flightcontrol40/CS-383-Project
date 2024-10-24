@@ -15,9 +15,9 @@ public class TestsNathan
 {
 
     [CSTestFunction]
-    public static Result CalculateEasyDifficulty()
+    public static Result UnitCalculateEasyDifficulty()
     {
-        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleTable.tres");
+        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleEasyTable.tres");
         DifficultyCalculator calculator = DifficultyCalculatorFactory.CreateCalculator(
             difficultyTable,
             Difficulty.Easy
@@ -27,9 +27,9 @@ public class TestsNathan
     }
 
     [CSTestFunction]
-    public static Result CalculateHardDifficulty()
+    public static Result UnitCalculateHardDifficulty()
     {
-        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleTable2.tres");
+        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleHardTable.tres");
         DifficultyCalculator calculator = DifficultyCalculatorFactory.CreateCalculator(
             difficultyTable,
             Difficulty.Hard
@@ -39,7 +39,7 @@ public class TestsNathan
     }
 
     [CSTestFunction]
-    public static Result CalculateDifficultyStressTest()
+    public static Result StressCalculateDifficultyTest()
     {
         var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/StressTestSampleTable.tres");
         DifficultyCalculator calculator = DifficultyCalculatorFactory.CreateCalculator(

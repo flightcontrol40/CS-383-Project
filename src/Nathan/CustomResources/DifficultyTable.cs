@@ -5,12 +5,11 @@ namespace RoundManager;
 /// <summary>
 /// A Resource defining the difficult table
 /// </summary>
-///
 [GlobalClass]
 public partial class DifficultyTable: Resource {
 
     /// <summary>
-    // A Dictionary Mapping available enemies 'cost' to the enemy type.
+    // An array of the valid enemy ranks that can be used.
     /// </summary>
     [Export]
     public Godot.Collections.Array<int> EnemyRanks;

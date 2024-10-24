@@ -7,7 +7,7 @@ public partial class TestClayton : PathFollow2D
 {
 	private const string TEST_CHICKEN = "res://src/Clayton/Enemy/BaseChicken.tscn";
 	[CSTestFunction]
-	public static Result ChickenTest()
+	public static Result HealthTest()
 	{
 		try
 		{
@@ -16,13 +16,32 @@ public partial class TestClayton : PathFollow2D
 		
 			int x = instance.Health;
 
-			return (x == 100) ? new Result(true, "Proved that 100 = 100") : Result.Failure;
+			return (x == 100) ? new Result(true, "Proved that health is 100") : Result.Failure;
 		}
 		catch (Exception ex)
 		{
 			return new Result(false, $"Exception occurred: {ex.Message}");
 		}
 	}
+	
+		[CSTestFunction]
+	public static Result SpeedTest()
+	{
+		try
+		{
+			var scene = ResourceLoader.Load<PackedScene>(TEST_CHICKEN);
+			var instance = scene.Instantiate<BaseChicken>();
+		
+			double x = instance.speed;
+
+			return (x == 0.1) ? new Result(true, "Proved that speed is 0.1") : Result.Failure;
+		}
+		catch (Exception ex)
+		{
+			return new Result(false, $"Exception occurred: {ex.Message}");
+		}
+	}
+	
 	
 	[CSTestFunction]
 	public static Result StressTest()
