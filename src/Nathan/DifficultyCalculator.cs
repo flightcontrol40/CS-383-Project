@@ -1,7 +1,5 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Chicken;
 namespace RoundManager;
 
@@ -82,16 +80,21 @@ public partial class DifficultyCalculator {
 
     protected DifficultyTable difficultyTable;
 
+    /// <summary>
+    /// Internal/Private Constructor
+    /// </summary>
+    /// <param name="difficultyTable"></param>
     internal DifficultyCalculator(DifficultyTable difficultyTable){
         this.difficultyTable = difficultyTable;
     }
-/// <summary>
-/// Getter function for getting the amount of a particular enemy rank to 
-/// spawn
-/// </summary>
-/// <param name="cost">The cost of the enemy to spawn.</param>
-/// <param name="levelValue">The total amount of enemy "Value" for the level.</param>
-/// <returns>The amount of enemies to spawn.</returns>
+
+    /// <summary>
+    /// Getter function for getting the amount of a particular enemy rank to 
+    /// spawn
+    /// </summary>
+    /// <param name="cost">The cost of the enemy to spawn.</param>
+    /// <param name="levelValue">The total amount of enemy "Value" for the level.</param>
+    /// <returns>The amount of enemies to spawn.</returns>
     protected int getSpawnAmount( int cost, ref int levelValue ) {
         // Calculate the amount of enemies to spawn with the given cost for the
         // Given Level Value

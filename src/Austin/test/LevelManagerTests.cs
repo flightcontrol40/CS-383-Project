@@ -46,8 +46,8 @@ public partial class LevelManagerTests : Node {
     public static Result Unit_minRound() {
         init();
 
-        levelManagerInstance.roundNumber = -100;
-        int currentRoundNumber= levelManagerInstance.roundNumber;
+        levelManagerInstance.level.CurrentRoundNum = -100;
+        int currentRoundNumber= levelManagerInstance.level.CurrentRoundNum;
         string resultMessage = "maxRound=" + currentRoundNumber.ToString();
 
         return currentRoundNumber >= 0 ? new Result(true, resultMessage) : new Result(false, resultMessage);
@@ -57,8 +57,8 @@ public partial class LevelManagerTests : Node {
     public static Result Unit_maxRound() {
         init();
 
-        levelManagerInstance.roundNumber = levelManagerInstance.level.maxRound + 1;
-        int currentRoundNumber= levelManagerInstance.roundNumber;
+        levelManagerInstance.level.CurrentRoundNum = levelManagerInstance.level.maxRound + 1;
+        int currentRoundNumber= levelManagerInstance.level.CurrentRoundNum;
         string resultMessage = "roundNumber=" + currentRoundNumber.ToString() + " <= maxRound=" + levelManagerInstance.level.maxRound;
 
         return currentRoundNumber <= levelManagerInstance.level.maxRound ? new Result(true, resultMessage) : new Result(false, resultMessage);

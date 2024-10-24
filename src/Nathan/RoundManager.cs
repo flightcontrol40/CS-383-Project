@@ -4,9 +4,6 @@ namespace RoundManager;
 using System.Collections.Generic;
 using System.Linq;
 using Chicken;
-using System;
-using System.Timers;
-using System.Diagnostics;
 
 
 /// <summary>
@@ -46,7 +43,7 @@ public partial class RoundManager : Node2D {
 
     public void startRound() {
         this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
-            this.levelData.currentRoundNum
+            this.levelData.CurrentRoundNum
         );
         this.roundRunning = true;
         if (spawnQueue.Count > 0){
@@ -71,15 +68,15 @@ public partial class RoundManager : Node2D {
         // spawnTimer.Enabled = true;
     }
 
-	/// <summary>
-	/// Enemy Death Signal Handler.
-	/// </summary>
-	/// <param name="enemy">The enemy to free.</param>
-	private void HandleEnemyDiesSignal(BaseChicken enemy) {
-		// Free the enemy
-		liveEnemies.Remove(enemy);
-		enemy.QueueFree();
-	}
+    /// <summary>
+    /// Enemy Death Signal Handler.
+    /// </summary>
+    /// <param name="enemy">The enemy to free.</param>
+    private void HandleEnemyDiesSignal(BaseChicken enemy) {
+        // Free the enemy
+        liveEnemies.Remove(enemy);
+        enemy.QueueFree();
+    }
 
     /// <summary>
     /// Enemy Finished path Signal Handler.
@@ -122,7 +119,7 @@ public partial class RoundManager : Node2D {
             else if ( 
                 this.levelData.playerHealth > 0 && 
                 this.roundRunning == true && 
-                this.levelData.maxRound == this.levelData.currentRoundNum)
+                this.levelData.maxRound == this.levelData.CurrentRoundNum)
                 {
                     this.roundRunning = false;
                     EmitSignal(SignalName.GameWon);
@@ -130,7 +127,7 @@ public partial class RoundManager : Node2D {
                 }
             else if ( this.spawnQueue.Count() == 0 && this.liveEnemies.Count() == 0){
                 this.roundRunning = false;
-                this.levelData.currentRoundNum++;
+                this.levelData.CurrentRoundNum++;
             }
         }
         base._Process(delta);
@@ -139,10 +136,10 @@ public partial class RoundManager : Node2D {
     public void onLevelLoadSignal(Level level){
     }
 
-	[Signal]
-	public delegate void GameLostEventHandler();
+    [Signal]
+    public delegate void GameLostEventHandler();
 
-	[Signal]
-	public delegate void GameWonEventHandler();
+    [Signal]
+    public delegate void GameWonEventHandler();
 
 }
