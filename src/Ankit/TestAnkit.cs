@@ -15,17 +15,17 @@ private const string TOWER_TEST = "res://src/Ankit/Scenes/Tower.tscn";
 
 
 #if TOOLS
-	/// <summary>
-	/// An example of a result that will pass.
-	/// </summary>
-	/// <returns>The result.</returns>
-	// [CSTestFunction]
-	// public static Result ExamplePass()
-	// {
-	// 	int x = 0;
-	// 	x *= 100;
-	// 	return (x == 0) ? Result.Success : Result.Failure;
-	// }
+    /// <summary>
+    /// An example of a result that will pass.
+    /// </summary>
+    /// <returns>The result.</returns>
+    // [CSTestFunction]
+    // public static Result ExamplePass()
+    // {
+    //     int x = 0;
+    //     x *= 100;
+    //     return (x == 0) ? Result.Success : Result.Failure;
+    // }
 
 
 [CSTestFunction]
@@ -113,6 +113,6 @@ public static Result TestBulletStress_TowerShoot()
     }
 }
 
-	
+    
 #endif
 }

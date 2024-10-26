@@ -1,0 +1,83 @@
+%%{init: {'flowchart': { 'curve': 'stepAfter'}} }%%
+classDiagram
+    direction TD
+    class RoundManager {
+        %% Fields
+        -DifficultyCalculator difficultyCalculator
+        -Level levelData
+        -List~SpawnOrder~ spawnQueue
+        -List~BaseChicken~ liveEnemies
+        -double currentTime
+        -double nextSpawnTime
+        -bool roundRunning
+
+        %% Methods
+        +loadLevel(Level levelData, Difficulty difficulty) void
+        +startRound() void
+        +spawnEnemy() void
+        -HandleEnemyDiesSignal(Chicken.BaseChicken enemy) void
+        -HandleEnemyFinishedSignal(Chicken.BaseChicken enemy) void
+        -cleanLevel() void
+        -onLevelLoadSignal(Level level) void
+        +GameLostEventHandler() void
+        +GameWonEventHandler() void
+    }
+
+
+    class SpawnOrder {
+        +SpawnOrder(Chicken.BaseChicken enemyType, int spawnDelay) SpawnOrder
+        +Enemy BaseChicken
+        +spawnDelay int
+    }
+
+
+    class DifficultyCalculatorFactory{
+        +CreateCalculator(DifficultyTable difficultyTable, Difficulty difficulty) DifficultyCalculator$
+    }
+
+    class DifficultyCalculator {
+        %% Fields
+        #DifficultyTable difficultyTable
+
+        %% Methods
+        ~DifficultyCalculator(DifficultyTable difficultyTable) DifficultyCalculator
+        ~getSpawnAmount(int cost, ref int levelValue) int
+        ~getEnemyRanks() Godot.Collections.Array~int~
+        +CalculateSpawnOrder(int roundNumber)* System.Collections.Generic.List~SpawnOrder~
+    }
+
+    class EasyDifficultyCalculator {
+        %% Methods
+        ~EasyDifficultyCalculator(DifficultyTable difficultyTable) EasyDifficultyCalculator
+        +CalculateSpawnOrder(int roundNumber) System.Collections.Generic.List~SpawnOrder~
+    }
+    class MediumDifficultyCalculator {
+        %% Methods
+        ~MediumDifficultyCalculator(DifficultyTable difficultyTable) MediumDifficultyCalculator
+        +CalculateSpawnOrder(int roundNumber) System.Collections.Generic.List~SpawnOrder~
+    }
+    class HardDifficultyCalculator {
+        ~HardDifficultyCalculator(DifficultyTable difficultyTable) HardDifficultyCalculator
+        +CalculateSpawnOrder(int roundNumber) System.Collections.Generic.List~SpawnOrder~
+    }
+
+
+    RoundManager "1" o-- DifficultyCalculator
+    RoundManager -- DifficultyCalculatorFactory
+
+
+    EasyDifficultyCalculator <|.. DifficultyCalculatorFactory
+    MediumDifficultyCalculator <|.. DifficultyCalculatorFactory
+    HardDifficultyCalculator <|.. DifficultyCalculatorFactory
+
+    EasyDifficultyCalculator o-- SpawnOrder
+    MediumDifficultyCalculator o-- SpawnOrder
+    HardDifficultyCalculator o-- SpawnOrder
+    RoundManager o-- SpawnOrder
+
+
+
+    EasyDifficultyCalculator --|> DifficultyCalculator
+    MediumDifficultyCalculator --|> DifficultyCalculator
+    HardDifficultyCalculator --|> DifficultyCalculator
+

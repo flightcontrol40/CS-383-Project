@@ -3,13 +3,13 @@ using System;
 
 public partial class Bullet : Area2D
 {
-	private Vector2 move = Vector2.Zero;
-	public float speed = 3.0f;
-	private Vector2 lookVec = Vector2.Zero;
-	public Node2D target; 
-	public Sprite2D sprite2D;
+    private Vector2 move = Vector2.Zero;
+    public float speed = 3.0f;
+    private Vector2 lookVec = Vector2.Zero;
+    public Node2D target; 
+    public Sprite2D sprite2D;
 
-	
+    
 public override void _PhysicsProcess(double delta)
 {
     GD.Print("Current Position: ", GlobalPosition);  // Debug output
@@ -38,7 +38,7 @@ public override void _PhysicsProcess(double delta)
 
 
 
-	public void UpdateLookVector()
+    public void UpdateLookVector()
 {
     if (target != null)
     {

@@ -6,7 +6,7 @@ namespace RoundManager;
 /// A Resource defining the difficult table
 /// </summary>
 [GlobalClass]
-public partial class DifficultyTable: Resource {
+public partial class DifficultyTable : Resource {
 
     /// <summary>
     // An array of the valid enemy ranks that can be used.

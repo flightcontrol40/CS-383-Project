@@ -6,7 +6,7 @@
 bg_color = Color(0.275094, 0.277785, 0.300811, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdrkg"]
-bg_color = Color(8.66354e-06, 0.732226, 0.765209, 1)
+bg_color = Color(0.858099, 0.488463, 0.315341, 1)
 
 [node name="PlayerHealth" type="Node2D"]
 

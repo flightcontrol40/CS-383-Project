@@ -1,21 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=11 format=3 uid="uid://dsrlv0mknuxye"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
 [ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/RoundManager.tscn" id="2_0n13b"]
-[ext_resource type="Script" path="res://src/Austin/scripts/custom__resources/Level.cs" id="3_j5db1"]
+[ext_resource type="Script" path="res://src/Austin/scripts/custom_resources/Level.cs" id="3_j5db1"]
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
 [ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Shop.tscn" id="5_4201l"]
-[ext_resource type="PackedScene" uid="uid://bx5j4lpejkuw0" path="res://src/Ankit/Scenes/Tower.tscn" id="7_tmpp7"]
+[ext_resource type="PackedScene" uid="uid://bx5j4lpejkuw0" path="res://src/Ankit/Scenes/tower.tscn" id="7_tmpp7"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
+[ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/PlayerHealth.tscn" id="9_xq0cl"]
 
 [sub_resource type="Resource" id="Resource_isy6s"]
 script = ExtResource("3_j5db1")
-baseDifficulty = 0
 playerHealth = 0
 playerMoney = 0
 currentRoundNum = 0
-enemyBudget = 0
 maxRound = 0
 mapScene = ExtResource("3_owqxk")
 
@@ -42,6 +41,9 @@ script = ExtResource("8_v0l8j")
 [node name="Label" type="Label" parent="Tutorial"]
 layout_mode = 2
 text = "This is a test"
+
+[node name="PlayerHealth" parent="." instance=ExtResource("9_xq0cl")]
+position = Vector2(513, 1)
 
 [connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]
 [connection signal="TowerBought" from="Shop" to="Tutorial" method="_on_shop_tower_bought"]

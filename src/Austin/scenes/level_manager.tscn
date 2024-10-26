@@ -6,7 +6,6 @@
 
 [sub_resource type="Resource" id="Resource_go0cg"]
 script = ExtResource("2_k6ecf")
-baseDifficulty = 0
 playerHealth = 100
 playerMoney = 100
 currentRoundNum = 0
