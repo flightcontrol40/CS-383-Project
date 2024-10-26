@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctnk7atqkplwt"]
+
+[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="1_5m7i0"]
+[ext_resource type="Script" path="res://src/Clayton/ChickenWalkTest.cs" id="1_iwvu3"]
+
+[node name="ChickenWalkTest" type="Node2D"]
+script = ExtResource("1_iwvu3")
+
+[node name="Map" parent="." instance=ExtResource("1_5m7i0")]
+
+[node name="Node2D" type="Node2D" parent="Map"]
+position = Vector2(769, 671)
