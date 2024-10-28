@@ -7,7 +7,7 @@ public partial class ChickenWalkTest : Node2D
 	public override void _Ready()
 	{
 		// Example cost value to decide which chicken to create
-		int cost = 1;
+		//int cost = 1;
 
 		// Create a chicken instance using the factory
 		BaseChicken chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();

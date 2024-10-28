@@ -1,69 +1,58 @@
-using System;
-using GdMUT;
 using Godot;
+using GdUnit4;
+using static GdUnit4.Assertions;
 
-public partial class LevelManagerTests : Node {
-    //strings
-    private static string baseScenePath = "res://src/Austin/scenes";
-    private static string baseScriptPath = "res://src/Austin/scripts";
-    private static string levelManagerScenePath = baseScenePath + "/level_manager.tscn";
-    private static string mapScenePath = baseScenePath + "/map.tscn";
-    private static string levelResourcePath = baseScriptPath + "/custom_resources/Level.cs";
-    //packed scenes
-    private static PackedScene levelManagerScene;
-    private static Level levelResource;
-    //instances
-    public static LevelManager levelManagerInstance;
+namespace AustinsTests {
+    
+    [TestSuite]
+    public class LevelManagerTests {
 
-    public static void init() {
-        //Get the resources
-        levelResource = new Level();
-        levelResource.mapScene = GD.Load<PackedScene>(mapScenePath);
+        // Paths to important files
+        private const string basePath = "res://src/Austin";
+        private const string levelManagerScenePath = basePath + "/scenes/level_manager.tscn";
+        private const string mapScenePath = basePath + "/scenes/map.tscn";
 
-        //Get the scenes
-        levelManagerScene = GD.Load<PackedScene>(levelManagerScenePath);
+        private static LevelManager levelManager;
+        [Before]
+        public void initLevelManagerTests() {
+            levelManager = GD.Load<PackedScene>(levelManagerScenePath).Instantiate<LevelManager>();
 
-        //Instantiate the scenes
-        levelManagerInstance = levelManagerScene.Instantiate<LevelManager>();
-        levelManagerInstance.level = levelResource;
+            levelManager.level = new Level();
+
+            levelManager.level.mapScene = GD.Load<PackedScene>(mapScenePath);
+            levelManager.level.loadMap();
+        }
+
+        [TestCase]
+        public void Unit_doubleLoadMap() {
+            //Try to load another map
+            Map retVal = levelManager.level.loadMap();
+
+            //Check that the value is null
+            AssertThat(retVal).IsEqual(null);
+        }
+
+        [TestCase]
+        public void Unit_minRound() {
+            levelManager.level.CurrentRoundNum = -1;
+
+            AssertThat(levelManager.level.CurrentRoundNum).IsGreater(-1);
+        }
+
+        [TestCase]
+        public void Unit_maxRound() {
+            levelManager.level.CurrentRoundNum = levelManager.level.maxRound + 1;
+
+            AssertThat(levelManager.level.CurrentRoundNum).IsLess(levelManager.level.maxRound + 1);
+        }
+
+        [After]
+        public void endLevelMangerTests() {
+            levelManager.level.unloadMap();
+            levelManager.QueueFree();
+        }
     }
-
-    [CSTestFunction]
-    public static Result Unit_doubleLoadMap() {
-        init();
-
-        levelResource.loadMap();
-        Map mapVal = levelResource.loadMap();
-
-        Result retVal = (mapVal == null) ? new Result(true, "Loading a second map returned null") : new Result(false, "A second map was loaded");
-
-        levelResource.unloadMap();
-
-        return retVal;
-    }
-
-    [CSTestFunction]
-    public static Result Unit_minRound() {
-        init();
-
-        levelManagerInstance.level.CurrentRoundNum = -100;
-        int currentRoundNumber= levelManagerInstance.level.CurrentRoundNum;
-        string resultMessage = "maxRound=" + currentRoundNumber.ToString();
-
-        return currentRoundNumber >= 0 ? new Result(true, resultMessage) : new Result(false, resultMessage);
-    }
-
-    [CSTestFunction]
-    public static Result Unit_maxRound() {
-        init();
-
-        levelManagerInstance.level.CurrentRoundNum = levelManagerInstance.level.maxRound + 1;
-        int currentRoundNumber= levelManagerInstance.level.CurrentRoundNum;
-        string resultMessage = "roundNumber=" + currentRoundNumber.ToString() + " <= maxRound=" + levelManagerInstance.level.maxRound;
-
-        return currentRoundNumber <= levelManagerInstance.level.maxRound ? new Result(true, resultMessage) : new Result(false, resultMessage);
-    }
-
+}
 /*
     [CSTestFunction] public static Result mapStress() {
         init();
@@ -87,4 +76,3 @@ public partial class LevelManagerTests : Node {
         return new Result(true, $"Results: {asString}");
     }
 */
-}
