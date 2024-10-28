@@ -1,5 +1,11 @@
 
 using Godot;
+using GdUnit4;
+using static GdUnit4.Assertions;
+
+namespace AustinsTests {
+
+}
 
 public class MapTests {
 
