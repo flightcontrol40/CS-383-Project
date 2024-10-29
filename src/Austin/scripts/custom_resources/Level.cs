@@ -4,37 +4,43 @@
 /// 
 /// author: Austin Walker
 /// 
+using System;
 using Godot;
 using RoundManager;
 
 [GlobalClass]
 public partial class Level : Resource
 {
-    [Export]
-    public Difficulty baseDifficulty = Difficulty.Easy;
+    private const string mapScenePath = "res://src/Austin/scenes/map.tscn";
 
     [Export]
     public DifficultyTable difficultyTable;
-
     [Export]
     public int playerHealth = 100;
-
     [Export]
-    public int playerMoney = 100;
-
+    private int playerMoney = 100;
     [Export]
-    public int currentRoundNum = 0;
-
+    private int currentRoundNum = 0;
     [Export]
-    public int MaxRound = 1;
-
+    public int maxRound = 1;
     [Export]
-    public PackedScene mapScene = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
-    public Map mapInstance;
+    public PackedScene mapScene = GD.Load<PackedScene>(mapScenePath);
+    private Map mapInstance;
+
+    public int PlayerMoney {
+        get { return playerMoney; }
+        set { playerMoney = Math.Max(value, 0); }
+    }
+    public int CurrentRoundNum {
+        get { return currentRoundNum; }
+        set { currentRoundNum = Math.Min(value, maxRound); }
+    }
+    public Map MapInstance {
+        get { return mapInstance; }
+    }
 
     public Map loadMap() {
         if (!IsInstanceValid(mapInstance)) {
-            GD.Print("Loaded map");
             mapInstance = mapScene.Instantiate<Map>();
             return mapInstance;
         } else {
@@ -44,7 +50,6 @@ public partial class Level : Resource
 
     public void unloadMap() {
         if (IsInstanceValid(mapInstance)) {
-            GD.Print("Unloaded map");
             mapInstance.QueueFree();
         }
     }

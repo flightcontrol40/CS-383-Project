@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://basq4xfe5qyc0"]
+
+[ext_resource type="Script" path="res://src/Ankit/Script/Tower.cs" id="1_fxjmd"]
+[ext_resource type="Texture2D" uid="uid://doaat4l4u8pu8" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Bodies/body_tracks.png" id="2_o7etm"]
+[ext_resource type="Texture2D" uid="uid://7pbkp362dbe3" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Weapons/weapons5.png" id="3_mbvp0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
+radius = 95.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4x3v"]
+size = Vector2(72, 79)
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_fxjmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.09, 1.09)
+
+[node name="Tower" type="Sprite2D" parent="."]
+texture = ExtResource("2_o7etm")
+
+[node name="TowerHead" type="Sprite2D" parent="."]
+position = Vector2(-8.34465e-07, -23.5)
+scale = Vector2(0.8, 1.18824)
+texture = ExtResource("3_mbvp0")
+
+[node name="Sight" type="Area2D" parent="." groups=["Sight"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_5saor")
+
+[node name="Placement" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_l4x3v")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Sight" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sight" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Placement" to="." method="_on_placement_area_entered"]
+[connection signal="area_exited" from="Placement" to="." method="_on_placement_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

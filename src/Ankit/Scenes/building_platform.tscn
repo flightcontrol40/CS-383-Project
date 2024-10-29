@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://by5rxllcg6lic"]
 
-[ext_resource type="Texture2D" uid="uid://e75lq8rsg4j7" path="res://src/Ankit/Assets/brick.png" id="1_lqpla"]
+[ext_resource type="Texture2D" uid="uid://etn2w1yo3ep2" path="res://src/Ankit/Assets/Platform-tower.png" id="1_uowhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rttm5"]
-size = Vector2(31, 33)
+size = Vector2(174, 173)
 
 [node name="BuildingPlatform" type="Area2D" groups=["AddPlatform"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lqpla")
+scale = Vector2(1.8913, 1.90217)
+texture = ExtResource("1_uowhq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+visible = false
+position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_rttm5")
