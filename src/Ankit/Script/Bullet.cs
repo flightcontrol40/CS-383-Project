@@ -1,49 +1,41 @@
 using Godot;
 using System;
 
-public partial class Bullet : Area2D
+public partial class Tower1 : Node2D
 {
-    private Vector2 move = Vector2.Zero;
-    public float speed = 3.0f;
-    private Vector2 lookVec = Vector2.Zero;
-    public Node2D target; 
-    public Sprite2D sprite2D;
+    [Export]
+    public PackedScene BulletScene;  // Packed scene for the bullet
+    private Timer shootTimer;        // Timer for managing shooting intervals
+    private AnimatedSprite2D towerSprite; // For tower animations
 
-    
-public override void _PhysicsProcess(double delta)
-{
-    GD.Print("Current Position: ", GlobalPosition);  // Debug output
-    if (target != null)
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
     {
-        lookVec = target.GlobalPosition - GlobalPosition;
-        GD.Print("Target Position: ", target.GlobalPosition);  // Debug output
-        GD.Print("Look Vector: ", lookVec);  // Debug output
+        towerSprite = GetNode<AnimatedSprite2D>("TowerSprite");
+        towerSprite.Play("idle");  // Assuming there's an 'idle' animation set up
 
-        if (lookVec.Length() > 0)
-        {
-            move = lookVec.Normalized() * speed;
-            GlobalPosition += move * (float)delta;
-            GD.Print("Moved To: ", GlobalPosition);  // Debug output
-        }
-        else
-        {
-            GD.Print("No Movement: Look Vector is Zero Length");  // No movement
-        }
+        shootTimer = new Timer();
+        AddChild(shootTimer);
+        shootTimer.WaitTime = 2.0f;  // Shoot every 2 seconds
+        shootTimer.OneShot = false;
+        // Corrected connection using new Callable syntax
+        shootTimer.Connect("timeout", new Callable(this, nameof(OnShootTimerTimeout)));
+        shootTimer.Start();
     }
-    else
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
     {
-        GD.Print("Target is null");  // Check target initialization
+        // Example: Rotate tower head towards the mouse cursor
+        Vector2 targetDirection = GetGlobalMousePosition() - GlobalPosition;
+        RotationDegrees = targetDirection.AngleTo(Vector2.Right);
     }
-}
 
-
-
-    public void UpdateLookVector()
-{
-    if (target != null)
+    private void OnShootTimerTimeout()
     {
-        lookVec = target.GlobalPosition - GlobalPosition;
-        sprite2D.LookAt(target.GlobalPosition);
+        // Instantiate and shoot a bullet
+        var bullet = BulletScene.Instantiate() as Node2D;
+        bullet.GlobalPosition = this.GlobalPosition; // Start at tower position
+        AddChild(bullet);
     }
-}
 }

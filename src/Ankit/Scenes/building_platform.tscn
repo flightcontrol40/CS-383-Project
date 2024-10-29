@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://by5rxllcg6lic"]
 
-[ext_resource type="Texture2D" uid="uid://etn2w1yo3ep2" path="res://src/Ankit/Assets/Platform-tower.png" id="1_uowhq"]
+[ext_resource type="Texture2D" uid="uid://b1eo6ibn0n7q1" path="res://src/Ankit/Assets/Platform-tower.png" id="1_uowhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rttm5"]
 size = Vector2(174, 173)
@@ -8,6 +8,7 @@ size = Vector2(174, 173)
 [node name="BuildingPlatform" type="Area2D" groups=["AddPlatform"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(1.8913, 1.90217)
 texture = ExtResource("1_uowhq")
 

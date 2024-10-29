@@ -1,31 +1,126 @@
-[gd_scene load_steps=6 format=3 uid="uid://3cc4shaqkpud"]
+[gd_scene load_steps=19 format=3 uid="uid://3cc4shaqkpud"]
 
-[ext_resource type="Script" path="res://src/Ankit/Script/Tower.cs" id="1_fxjmd"]
-[ext_resource type="Texture2D" uid="uid://jnk31gye4315" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Bodies/body_tracks.png" id="2_s6lak"]
-[ext_resource type="Texture2D" uid="uid://btrfqdcerjhri" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/weapons1.png" id="3_0s085"]
+[ext_resource type="Script" path="res://src/Ankit/Scenes/Tower1.cs" id="1_003xk"]
+[ext_resource type="Texture2D" uid="uid://2hed22tk7afd" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Bodies/body_halftrack.png" id="2_a4qt4"]
+[ext_resource type="Texture2D" uid="uid://da2tdk0aticpd" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/turret_01_mk1.png" id="3_3ixe3"]
+[ext_resource type="Texture2D" uid="uid://cavmmvri0evvk" path="res://src/Ankit/Assets/cowimage.png" id="4_16ymn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td3g3"]
+atlas = ExtResource("2_a4qt4")
+region = Rect2(1, 16, 124, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x5gl"]
+atlas = ExtResource("2_a4qt4")
+region = Rect2(125, 16, 124, 87)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gu8q5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td3g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x5gl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwe5m"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq7pg"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0do36"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5qvd"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfcq0"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd2l5"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptmw1"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yot2l"]
+atlas = ExtResource("3_3ixe3")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usa03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwe5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq7pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0do36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5qvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfcq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd2l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptmw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yot2l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
-radius = 139.807
+radius = 192.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4x3v"]
-size = Vector2(74, 80)
+size = Vector2(74, 89)
 
 [node name="Tower" type="Node2D"]
-script = ExtResource("1_fxjmd")
+script = ExtResource("1_003xk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.09, 1.09)
 
-[node name="Tower" type="Sprite2D" parent="."]
-texture = ExtResource("2_s6lak")
+[node name="Towerbody" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gu8q5")
 
-[node name="TowerHead" type="Sprite2D" parent="."]
-position = Vector2(2.98023e-07, -23.5)
-scale = Vector2(1.14286, 1.1375)
-texture = ExtResource("3_0s085")
+[node name="Towerhead" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -24)
+scale = Vector2(1.25, 1.1875)
+sprite_frames = SubResource("SpriteFrames_usa03")
+frame_progress = 0.374781
+
+[node name="Cow" type="Sprite2D" parent="Towerhead"]
+texture_filter = 1
+position = Vector2(0, 53.8947)
+scale = Vector2(0.1, 0.105263)
+texture = ExtResource("4_16ymn")
 
 [node name="Sight" type="Area2D" parent="." groups=["Sight"]]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_5saor")
@@ -33,7 +128,7 @@ shape = SubResource("CircleShape2D_5saor")
 [node name="Placement" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
-position = Vector2(0, 1)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_l4x3v")
 
 [node name="Timer" type="Timer" parent="."]

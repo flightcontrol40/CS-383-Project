@@ -1,31 +1,265 @@
-[gd_scene load_steps=6 format=3 uid="uid://hlq28ejs5044"]
+[gd_scene load_steps=22 format=3 uid="uid://hlq28ejs5044"]
 
-[ext_resource type="Script" path="res://src/Ankit/Script/Tower.cs" id="1_fxjmd"]
-[ext_resource type="Texture2D" uid="uid://djn1kmh2qc0xk" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Bodies/body_tracks.png" id="2_0mxmk"]
-[ext_resource type="Texture2D" uid="uid://cvbgfc46ffh6r" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Weapons/weapons4.png" id="3_eglt7"]
+[ext_resource type="Texture2D" uid="uid://j4hjpng36s3i" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Bodies/body_halftrack.png" id="2_lp4w3"]
+[ext_resource type="Texture2D" uid="uid://cilholye4fnl0" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Weapons/turret_02_mk1.png" id="3_cxem7"]
+[ext_resource type="Texture2D" uid="uid://cavmmvri0evvk" path="res://src/Ankit/Assets/cowimage.png" id="6_bmpl6"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_bsmbl"]
+script/source = "using Godot;
+using System.Collections.Generic;
+
+public partial class Tower : Node2D
+{
+    [Export]
+    public NodePath TowerPath;   // Path to the main body of the tower
+    [Export]
+    public NodePath TowerHeadPath;   // Path to the rotating head of the tower
+    [Export]
+    public PackedScene BulletScene;  // Packed scene for the bullet
+
+    private Node2D Tower2;
+    private Node2D TowerHead;
+    public List<Area2D> enemies = new List<Area2D>();  // List of enemies in range
+    public bool building = true;
+    public bool canPlace = false;
+    public Area2D currentEnemy;
+    private VisibleOnScreenNotifier2D range;
+
+    public override void _Ready()
+    {
+        Tower2 = GetNode<Node2D>(TowerPath);
+        TowerHead = GetNode<Node2D>(TowerHeadPath);
+        range = GetNode<VisibleOnScreenNotifier2D>(\"Range\");
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if (!building)
+        {
+            range.Visible = false;  // Hide the range when the tower is built
+
+            if (enemies.Count > 0)
+            {
+                currentEnemy = enemies[0];  // Get the closest enemy
+                TowerHead.LookAt(currentEnemy.GlobalPosition);  // Rotate tower head towards the enemy
+            }
+        }
+        else
+        {
+            range.Visible = true;  // Show range during tower placement
+            GlobalPosition = GetGlobalMousePosition();  // Follow mouse for placement
+
+            if (canPlace)
+            {
+                range.Modulate = new Color(0, 0, 0, 1);  // Change color when placement is valid
+                if (Input.IsActionJustPressed(\"click\"))
+                {
+                    building = false;
+                    GetParent().Call(\"tower_built\");
+                }
+            }
+            else
+            {
+                range.Modulate = new Color(1, 1, 1, 1);  // Reset color when placement is invalid
+            }
+        }
+    }
+
+    // Enemy enters the sight range of the tower
+    public void _on_Sight_area_entered(Area2D area)
+    {
+        if (area.IsInGroup(\"Enemy\") && !building)
+        {
+            enemies.Add(area);  // Add enemy to the list
+        }
+    }
+
+    // Enemy exits the sight range of the tower
+    public void _on_Sight_area_exited(Area2D area)
+    {
+        if (area.IsInGroup(\"Enemy\") && !building)
+        {
+            enemies.Remove(area);  // Remove enemy from the list
+        }
+    }
+
+    // Shoot a bullet towards the current enemy
+    public void _on_ShootTimer_timeout()
+    {
+        if (!building && currentEnemy != null && enemies.Count > 0)
+        {
+            // Ensure we are targeting the closest enemy
+            if (currentEnemy == enemies[0])
+            {
+                // Instantiate a bullet and set its position to the tower's position
+                Node2D bullet = (Node2D)BulletScene.Instantiate();
+                bullet.GlobalPosition = TowerHead.GlobalPosition;  // Set the bullet to shoot from the tower head
+
+                // Pass the enemy target to the bullet (ensure your Bullet script has a target variable)
+                bullet.Set(\"target\", currentEnemy);
+                GetParent().AddChild(bullet);  // Add the bullet to the scene
+
+                GD.Print(\"Bullet shot towards enemy at: \", currentEnemy.GlobalPosition);  // Debugging log
+            }
+        }
+    }
+
+    // Handle placement zones
+    public void _on_placement_area_entered(Area2D area)
+    {
+        if (area.IsInGroup(\"AddPlatform\") && building)
+        {
+            canPlace = true;  // Allow placement when in the right area
+        }
+    }
+
+    // Handle exiting placement zones
+    public void _on_placement_area_exited(Area2D area)
+    {
+        if (area.IsInGroup(\"AddPlatform\") && building)
+        {
+            canPlace = false;  // Disable placement when leaving the valid zone
+        }
+    }
+}
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frb2u"]
+atlas = ExtResource("2_lp4w3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmp2h"]
+atlas = ExtResource("2_lp4w3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8qar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frb2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmp2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e44lq"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4o4p"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvy1x"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbudb"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsq4y"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l5d2"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxylr"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqxic"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p7ny"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xmh8"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk62m"]
+atlas = ExtResource("3_cxem7")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vl7q5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e44lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4o4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvy1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbudb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsq4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l5d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxylr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqxic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p7ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xmh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk62m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
-radius = 95.0
+radius = 192.167
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4x3v"]
-size = Vector2(72, 79)
+size = Vector2(72, 89)
 
 [node name="Tower" type="Node2D"]
-script = ExtResource("1_fxjmd")
+script = SubResource("CSharpScript_bsmbl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.09, 1.09)
 
-[node name="Tower" type="Sprite2D" parent="."]
-texture = ExtResource("2_0mxmk")
+[node name="Towerbody" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w8qar")
 
-[node name="TowerHead" type="Sprite2D" parent="."]
-position = Vector2(2.17557e-06, -26.5)
-scale = Vector2(1.04167, 1.22472)
-texture = ExtResource("3_eglt7")
+[node name="Towerhead" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -28)
+scale = Vector2(1.125, 1.1875)
+sprite_frames = SubResource("SpriteFrames_vl7q5")
+frame_progress = 0.0544476
+
+[node name="Cow" type="Sprite2D" parent="."]
+position = Vector2(0, 36)
+scale = Vector2(0.125, 0.117188)
+texture = ExtResource("6_bmpl6")
 
 [node name="Sight" type="Area2D" parent="." groups=["Sight"]]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_5saor")
@@ -33,7 +267,7 @@ shape = SubResource("CircleShape2D_5saor")
 [node name="Placement" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
-position = Vector2(0, 1.5)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_l4x3v")
 
 [node name="Timer" type="Timer" parent="."]
