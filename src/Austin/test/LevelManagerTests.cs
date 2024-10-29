@@ -5,7 +5,7 @@ using static GdUnit4.Assertions;
 namespace AustinsTests {
     
     [TestSuite]
-    public class LevelManagerTests {
+    public partial class LevelManagerTests : Node {
 
         // Paths to important files
         private const string basePath = "res://src/Austin";
@@ -46,10 +46,27 @@ namespace AustinsTests {
             AssertThat(levelManager.level.CurrentRoundNum).IsLess(levelManager.level.maxRound + 1);
         }
 
+        [TestCase]
+        public void Unit_mapLoadedProperty() {
+            AssertThat(levelManager.mapLoaded).IsEqual(true);
+        }
+
+        [TestCase]
+        public void Unit_unlaodingAndLoadingMap() {
+            AssertThat(levelManager.mapLoaded).OverrideFailureMessage("This test won't work becasue the Level.mapLoaded property doesn't work").IsEqual(true);
+
+            levelManager.level.unloadMap();
+
+            AssertThat(levelManager.mapLoaded).IsEqual(false);
+
+            levelManager.level.loadMap();
+            AssertThat(levelManager.mapLoaded).IsEqual(true);
+        }
+
         [After]
         public void endLevelMangerTests() {
             levelManager.level.unloadMap();
-            levelManager.QueueFree();
+            levelManager.Free();
         }
     }
 }
