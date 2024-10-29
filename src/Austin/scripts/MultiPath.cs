@@ -3,9 +3,7 @@ using System;
 
 public partial class MultiPath : Path
 {
-    [Export]
     private Path2D path;
-    [Export]
     private Path2D path2;
     private bool pathChoice;
 
@@ -13,6 +11,8 @@ public partial class MultiPath : Path
     public override void _Ready()
     {
         pathChoice = true;
+        path = GetNode<Path2D>("Path1");
+        path2 = GetNode<Path2D>("Path2");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
