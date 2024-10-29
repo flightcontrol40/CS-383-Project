@@ -1,45 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="29582deb-9028-4a8e-8a8b-da25be0e4d3f" name="natha@NATHAN_FRAMWORK 2024-10-24 11:56:04" runUser="NATHAN_FRAMWORK\natha" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2024-10-24T11:56:04.1622654-07:00" queuing="2024-10-24T11:56:04.1622658-07:00" start="2024-10-24T11:55:59.0545981-07:00" finish="2024-10-24T11:56:04.1623085-07:00" />
-  <TestSettings name="default" id="8e7bf4d0-3c44-4f78-8184-658969f3d5cd">
-    <Deployment runDeploymentRoot="natha_NATHAN_FRAMWORK_2024-10-24_11_56_04" />
+<TestRun id="621664e8-02bf-4348-b07e-8c1bbc385c19" name="natha@NATHAN_FRAMWORK 2024-10-29 16:03:20" runUser="NATHAN_FRAMWORK\natha" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-10-29T16:03:20.6323510-07:00" queuing="2024-10-29T16:03:20.6323515-07:00" start="2024-10-29T16:03:18.7651998-07:00" finish="2024-10-29T16:03:20.7003718-07:00" />
+  <TestSettings name="default" id="e650a503-7d52-4b2d-91bc-396ea7ab2b9b">
+    <Deployment runDeploymentRoot="natha_NATHAN_FRAMWORK_2024-10-29_16_03_20" />
   </TestSettings>
+  <Results>
+    <UnitTestResult executionId="fb31a98f-d743-44ca-8486-9c37c1a18b35" testId="ef2f57cb-2e36-3d37-7103-48e2d0a6fa64" testName="UnitCalculateEasyDifficulty" computerName="NATHAN_FRAMWORK" duration="00:00:00.0580000" startTime="2024-10-29T16:03:20.3871249-07:00" endTime="2024-10-29T16:03:20.3884058-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb31a98f-d743-44ca-8486-9c37c1a18b35" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="UnitCalculateEasyDifficulty" storage="c:\users\natha\documents\cs-383-project\.godot\mono\temp\bin\debug\towergame.dll" id="ef2f57cb-2e36-3d37-7103-48e2d0a6fa64">
+      <Execution id="fb31a98f-d743-44ca-8486-9c37c1a18b35" />
+      <TestMethod codeBase="C:\Users\natha\Documents\CS-383-Project\.godot\mono\temp\bin\Debug\TowerGame.dll" adapterTypeName="executor://gdunit4.testadapter/" className="RoundManager.DifficultyCalculatorTests" name="UnitCalculateEasyDifficulty" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="ef2f57cb-2e36-3d37-7103-48e2d0a6fa64" executionId="fb31a98f-d743-44ca-8486-9c37c1a18b35" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
   <TestLists>
     <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
-  <ResultSummary outcome="Failed">
-    <Counters total="0" executed="0" passed="0" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
     <Output>
       <StdOut>CheckGdUnit4ApiVersion gdUnit4Api, Version=4.3.1.0&#xD;
 Start executing tests, 1 TestCases total.&#xD;
 Current directory set to: C:\Users\natha\Documents\CS-383-Project&#xD;
-Run with args  --path . res://gdunit4_testadapter/TestAdapterRunner.tscn --testadapter --configfile="C:\Users\natha\Documents\CS-383-Project\GdUnitRunner_d627eeee-7374-4b24-9d06-bd2af79600eb.cfg" &#xD;
+Run with args  --path . res://gdunit4_testadapter/TestAdapterRunner.tscn --testadapter --configfile="C:\Users\natha\Documents\CS-383-Project\GdUnitRunner_174d6753-4d15-471b-b072-5ec94d88a611.cfg" &#xD;
 TestEventReportServer:: Wait for connecting GdUnit4 test report client.&#xD;
-Error: ERROR: Could not create directory: res://&#xD;
-Error: at: (core/io/dir_access.cpp:180)&#xD;
-Error: ================================================================&#xD;
-Error: CrashHandlerException: Program crashed with signal 11&#xD;
-Error: Engine version: Godot Engine v4.3.stable.mono.official (77dcf97d82cbfe4e4615475fa52ca03da645dbd8)&#xD;
-Error: Dumping the backtrace. Please include this when reporting the bug to the project developer.&#xD;
-Error: [1] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [2] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [3] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [4] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [5] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [6] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [7] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [8] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [9] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [10] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [11] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [12] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [13] error(-1): no debug info in PE/COFF executable&#xD;
-Error: [14] error(-1): no debug info in PE/COFF executable&#xD;
-Error: -- END OF BACKTRACE --&#xD;
-Error: ================================================================&#xD;
-Godot ends with exit code: -1073741819&#xD;
-Run TestRunner ends with -1073741819&#xD;
+TestEventReportServer:: TestAdapterReporter: Successfully connected to GdUnit4 test report server!&#xD;
+TestEventReportServer:: TestAdapterReporter: Disconnecting from GdUnit4 test report server.&#xD;
+Godot ends with exit code: 0&#xD;
+Run TestRunner ends with 0&#xD;
 </StdOut>
     </Output>
   </ResultSummary>
