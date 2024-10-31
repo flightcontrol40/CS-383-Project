@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=10 format=3 uid="uid://dsrlv0mknuxye"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Scenes/Shop.tscn" id="5_4201l"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
 [ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/Scenes/PlayerHealth.tscn" id="9_xq0cl"]
-
-[sub_resource type="Resource" id="Resource_khhp0"]
-metadata/__load_path__ = "res://src/Ankit/Scenes/tower.tscn"
 
 [sub_resource type="Resource" id="Resource_040l3"]
 script = ExtResource("3_j5db1")
@@ -22,7 +19,6 @@ mapScene = ExtResource("3_owqxk")
 
 [node name="main" type="Node"]
 script = ExtResource("1_6tv6r")
-tower = SubResource("Resource_khhp0")
 
 [node name="LevelManager" parent="." instance=ExtResource("1_ircu7")]
 level = SubResource("Resource_040l3")
