@@ -13,7 +13,9 @@ public partial class ChickenFactory : Node {
 			BaseChicken chicken3 = new Frankest();
 			return chicken3;
 		}else if(cost < 15 || cost > 13){
-			BaseChicken chicken2 = new Frank();
+			BaseChicken chicken2 = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frank.tscn").Instantiate<BaseChicken>();
+			Path2D path = GetNode<Path2D>("Map/Path/Path2D");
+			chicken2.Start(path);
 			return chicken2;
 		}else {
 			//BaseChicken chicken1 = new BaseChicken();
@@ -33,7 +35,7 @@ public partial class BaseChicken : PathFollow2D{
 
 	public int damageAmount { get; } = 10;
 
-	public int EnemyRank { get; }
+	public int EnemyRank { get; } // get rid of maybe
 
 	private Path2D path;
 	private bool started = false;
@@ -73,6 +75,7 @@ public partial class BaseChicken : PathFollow2D{
 
 	public virtual void TakeDamage(int damageCounter){
 		this.Health -= damageCounter;
+		
 		if (Health <= 0 ){
 			EmitSignal(SignalName.EnemyDied, this);
 		}
@@ -97,7 +100,7 @@ public partial class BaseChicken : PathFollow2D{
 	/// <summary>
 	// For when chicken splits to lower tier
 	/// </summary>
-		
+	[Signal]	
 	public delegate void EnemySplitEventHandler(BaseChicken enemy);
 
 }

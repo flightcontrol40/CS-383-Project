@@ -11,6 +11,7 @@ public partial class Frank : BaseChicken{
 	public override void TakeDamage(int damageCounter){
 		this.Health -= damageCounter;
 		if (this.Health <= 0){
+			Health = 100;
 			//change image / downgrade health, damage, speed
 		}
 	}
