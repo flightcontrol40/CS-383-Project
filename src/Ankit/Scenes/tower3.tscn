@@ -1,128 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqq3y6pe8ftaf"]
+[gd_scene load_steps=19 format=3 uid="uid://diitwjpg5i8uy"]
 
+[ext_resource type="Script" path="res://src/Ankit/Scenes/Tower3.cs" id="1_u6k6u"]
 [ext_resource type="Texture2D" uid="uid://croexlv2ytp6v" path="res://src/Ankit/Assets/ground_shaker_asset/Desert/Bodies/body_halftrack.png" id="2_k8a2a"]
 [ext_resource type="Texture2D" uid="uid://bq1p04bk4q75d" path="res://src/Ankit/Assets/ground_shaker_asset/Desert/Weapons/turret_01_mk4.png" id="3_fywa7"]
 [ext_resource type="Texture2D" uid="uid://cavmmvri0evvk" path="res://src/Ankit/Assets/cowimage.png" id="6_pvecl"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_bsmbl"]
-script/source = "using Godot;
-using System.Collections.Generic;
-
-public partial class Tower : Node2D
-{
-    [Export]
-    public NodePath TowerPath;   // Path to the main body of the tower
-    [Export]
-    public NodePath TowerHeadPath;   // Path to the rotating head of the tower
-    [Export]
-    public PackedScene BulletScene;  // Packed scene for the bullet
-
-    private Node2D Tower2;
-    private Node2D TowerHead;
-    public List<Area2D> enemies = new List<Area2D>();  // List of enemies in range
-    public bool building = true;
-    public bool canPlace = false;
-    public Area2D currentEnemy;
-    private VisibleOnScreenNotifier2D range;
-
-    public override void _Ready()
-    {
-        Tower2 = GetNode<Node2D>(TowerPath);
-        TowerHead = GetNode<Node2D>(TowerHeadPath);
-        range = GetNode<VisibleOnScreenNotifier2D>(\"Range\");
-    }
-
-    public override void _PhysicsProcess(double delta)
-    {
-        if (!building)
-        {
-            range.Visible = false;  // Hide the range when the tower is built
-
-            if (enemies.Count > 0)
-            {
-                currentEnemy = enemies[0];  // Get the closest enemy
-                TowerHead.LookAt(currentEnemy.GlobalPosition);  // Rotate tower head towards the enemy
-            }
-        }
-        else
-        {
-            range.Visible = true;  // Show range during tower placement
-            GlobalPosition = GetGlobalMousePosition();  // Follow mouse for placement
-
-            if (canPlace)
-            {
-                range.Modulate = new Color(0, 0, 0, 1);  // Change color when placement is valid
-                if (Input.IsActionJustPressed(\"click\"))
-                {
-                    building = false;
-                    GetParent().Call(\"tower_built\");
-                }
-            }
-            else
-            {
-                range.Modulate = new Color(1, 1, 1, 1);  // Reset color when placement is invalid
-            }
-        }
-    }
-
-    // Enemy enters the sight range of the tower
-    public void _on_Sight_area_entered(Area2D area)
-    {
-        if (area.IsInGroup(\"Enemy\") && !building)
-        {
-            enemies.Add(area);  // Add enemy to the list
-        }
-    }
-
-    // Enemy exits the sight range of the tower
-    public void _on_Sight_area_exited(Area2D area)
-    {
-        if (area.IsInGroup(\"Enemy\") && !building)
-        {
-            enemies.Remove(area);  // Remove enemy from the list
-        }
-    }
-
-    // Shoot a bullet towards the current enemy
-    public void _on_ShootTimer_timeout()
-    {
-        if (!building && currentEnemy != null && enemies.Count > 0)
-        {
-            // Ensure we are targeting the closest enemy
-            if (currentEnemy == enemies[0])
-            {
-                // Instantiate a bullet and set its position to the tower's position
-                Node2D bullet = (Node2D)BulletScene.Instantiate();
-                bullet.GlobalPosition = TowerHead.GlobalPosition;  // Set the bullet to shoot from the tower head
-
-                // Pass the enemy target to the bullet (ensure your Bullet script has a target variable)
-                bullet.Set(\"target\", currentEnemy);
-                GetParent().AddChild(bullet);  // Add the bullet to the scene
-
-                GD.Print(\"Bullet shot towards enemy at: \", currentEnemy.GlobalPosition);  // Debugging log
-            }
-        }
-    }
-
-    // Handle placement zones
-    public void _on_placement_area_entered(Area2D area)
-    {
-        if (area.IsInGroup(\"AddPlatform\") && building)
-        {
-            canPlace = true;  // Allow placement when in the right area
-        }
-    }
-
-    // Handle exiting placement zones
-    public void _on_placement_area_exited(Area2D area)
-    {
-        if (area.IsInGroup(\"AddPlatform\") && building)
-        {
-            canPlace = false;  // Disable placement when leaving the valid zone
-        }
-    }
-}
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfdcv"]
 atlas = ExtResource("2_k8a2a")
@@ -217,7 +98,7 @@ radius = 192.167
 size = Vector2(71, 90)
 
 [node name="Tower" type="Node2D"]
-script = SubResource("CSharpScript_bsmbl")
+script = ExtResource("1_u6k6u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.09, 1.09)
