@@ -11,7 +11,7 @@ rotates = false
 script = ExtResource("1_7u7so")
 
 [node name="ChickenSprite" type="Sprite2D" parent="." groups=["Enemy"]]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jvi6w")
 
 [node name="Area2D" type="Area2D" parent="ChickenSprite"]

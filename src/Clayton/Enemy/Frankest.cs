@@ -17,7 +17,7 @@ public partial class Frankest : BaseChicken{
 	}
 	
 	public override void _Ready() {
-		speed = 1000;
+		speed = 400;
 		Health = 900;
 		damageAmount = 90;
 	}
