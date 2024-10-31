@@ -8,6 +8,7 @@ public partial class Map : Node2D
     public override void _Ready()
     {
         GetNode<Area2D>("TowerZones").Monitoring = false;
+        GD.Print("Hello There");
     }
 
     public override void _Process(double delta)
