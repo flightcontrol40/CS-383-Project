@@ -134,7 +134,7 @@ public partial class DifficultyCalculator: Node {
             while ( amount > 0) {
                 SpawnOrder order = new SpawnOrder(
                         Chicken.ChickenFactory.MakeKFC(cost),
-                        100
+                        250
                     );
                 this.AddChild(order);
                 spawnOrders.Add(order);
@@ -167,7 +167,7 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
             while ( amount > 0) {
                 SpawnOrder order = new SpawnOrder(
                         Chicken.ChickenFactory.MakeKFC(cost),
-                        100
+                        500
                     );
                 this.AddChild(order);
                 spawnOrders.Add(order);
