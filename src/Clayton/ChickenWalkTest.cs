@@ -22,7 +22,7 @@ public partial class ChickenWalkTest : Node2D
 
 	public async Task TimerCalc(BaseChicken chicken){
 		for(int i = 0; i < 26; i++){
-			await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
+			await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
 			chicken.TakeDamage(100);
 		}
 	}

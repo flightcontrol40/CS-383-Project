@@ -7,10 +7,11 @@
 size = Vector2(303.571, 305.626)
 
 [node name="ChickenEnemy2" type="PathFollow2D"]
+rotates = false
 script = ExtResource("1_mpyh2")
 
 [node name="ChickenSprite" type="Sprite2D" parent="." groups=["Enemy"]]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_lp38o")
 
 [node name="Area2D" type="Area2D" parent="ChickenSprite"]

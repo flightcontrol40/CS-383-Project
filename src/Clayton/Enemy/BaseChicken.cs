@@ -66,6 +66,7 @@ public partial class BaseChicken : PathFollow2D{
 		
 		if (Health <= 0 ){
 			EmitSignal(SignalName.EnemyDied, this);
+			this.QueueFree();
 		}
 	}
 	
