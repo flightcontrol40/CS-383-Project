@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5jmdbgq1m3er"]
+
+[ext_resource type="Script" path="res://src/Clayton/Enemy/Frankest.cs" id="1_7u7so"]
+[ext_resource type="Texture2D" uid="uid://0xoci4qhsl3b" path="res://src/Clayton/Assets/Chicken.png" id="2_jvi6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oah1a"]
+size = Vector2(303.571, 305.626)
+
+[node name="ChickenEnemy3" type="PathFollow2D"]
+script = ExtResource("1_7u7so")
+
+[node name="ChickenSprite" type="Sprite2D" parent="." groups=["Enemy"]]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_jvi6w")
+
+[node name="Area2D" type="Area2D" parent="ChickenSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenSprite/Area2D"]
+position = Vector2(0.374512, 0.737305)
+shape = SubResource("RectangleShape2D_oah1a")

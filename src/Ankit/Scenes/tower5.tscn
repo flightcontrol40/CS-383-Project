@@ -1,0 +1,279 @@
+[gd_scene load_steps=22 format=3 uid="uid://basq4xfe5qyc0"]
+
+[ext_resource type="Texture2D" uid="uid://7khbml7o7jtf" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Bodies/body_halftrack.png" id="2_ycwqq"]
+[ext_resource type="Texture2D" uid="uid://df8mnfvnvqttu" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Weapons/turret_02_mk4.png" id="3_1twyv"]
+[ext_resource type="Texture2D" uid="uid://cavmmvri0evvk" path="res://src/Ankit/Assets/cowimage.png" id="6_p0mkw"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_bsmbl"]
+script/source = "using Godot;
+using System.Collections.Generic;
+
+public partial class Tower : Node2D
+{
+    [Export]
+    public NodePath TowerPath;   // Path to the main body of the tower
+    [Export]
+    public NodePath TowerHeadPath;   // Path to the rotating head of the tower
+    [Export]
+    public PackedScene BulletScene;  // Packed scene for the bullet
+
+    private Node2D Tower2;
+    private Node2D TowerHead;
+    public List<Area2D> enemies = new List<Area2D>();  // List of enemies in range
+    public bool building = true;
+    public bool canPlace = false;
+    public Area2D currentEnemy;
+    private VisibleOnScreenNotifier2D range;
+
+    public override void _Ready()
+    {
+        Tower2 = GetNode<Node2D>(TowerPath);
+        TowerHead = GetNode<Node2D>(TowerHeadPath);
+        range = GetNode<VisibleOnScreenNotifier2D>(\"Range\");
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if (!building)
+        {
+            range.Visible = false;  // Hide the range when the tower is built
+
+            if (enemies.Count > 0)
+            {
+                currentEnemy = enemies[0];  // Get the closest enemy
+                TowerHead.LookAt(currentEnemy.GlobalPosition);  // Rotate tower head towards the enemy
+            }
+        }
+        else
+        {
+            range.Visible = true;  // Show range during tower placement
+            GlobalPosition = GetGlobalMousePosition();  // Follow mouse for placement
+
+            if (canPlace)
+            {
+                range.Modulate = new Color(0, 0, 0, 1);  // Change color when placement is valid
+                if (Input.IsActionJustPressed(\"click\"))
+                {
+                    building = false;
+                    GetParent().Call(\"tower_built\");
+                }
+            }
+            else
+            {
+                range.Modulate = new Color(1, 1, 1, 1);  // Reset color when placement is invalid
+            }
+        }
+    }
+
+    // Enemy enters the sight range of the tower
+    public void _on_Sight_area_entered(Area2D area)
+    {
+        if (area.IsInGroup(\"Enemy\") && !building)
+        {
+            enemies.Add(area);  // Add enemy to the list
+        }
+    }
+
+    // Enemy exits the sight range of the tower
+    public void _on_Sight_area_exited(Area2D area)
+    {
+        if (area.IsInGroup(\"Enemy\") && !building)
+        {
+            enemies.Remove(area);  // Remove enemy from the list
+        }
+    }
+
+    // Shoot a bullet towards the current enemy
+    public void _on_ShootTimer_timeout()
+    {
+        if (!building && currentEnemy != null && enemies.Count > 0)
+        {
+            // Ensure we are targeting the closest enemy
+            if (currentEnemy == enemies[0])
+            {
+                // Instantiate a bullet and set its position to the tower's position
+                Node2D bullet = (Node2D)BulletScene.Instantiate();
+                bullet.GlobalPosition = TowerHead.GlobalPosition;  // Set the bullet to shoot from the tower head
+
+                // Pass the enemy target to the bullet (ensure your Bullet script has a target variable)
+                bullet.Set(\"target\", currentEnemy);
+                GetParent().AddChild(bullet);  // Add the bullet to the scene
+
+                GD.Print(\"Bullet shot towards enemy at: \", currentEnemy.GlobalPosition);  // Debugging log
+            }
+        }
+    }
+
+    // Handle placement zones
+    public void _on_placement_area_entered(Area2D area)
+    {
+        if (area.IsInGroup(\"AddPlatform\") && building)
+        {
+            canPlace = true;  // Allow placement when in the right area
+        }
+    }
+
+    // Handle exiting placement zones
+    public void _on_placement_area_exited(Area2D area)
+    {
+        if (area.IsInGroup(\"AddPlatform\") && building)
+        {
+            canPlace = false;  // Disable placement when leaving the valid zone
+        }
+    }
+}
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knqaq"]
+atlas = ExtResource("2_ycwqq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cnwk"]
+atlas = ExtResource("2_ycwqq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5af6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knqaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cnwk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx3yv"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbsqm"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8723"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdlmq"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eavmm"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1rvx"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxau"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx6o1"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er0o8"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xomni"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3002"]
+atlas = ExtResource("3_1twyv")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68v3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx3yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbsqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8723")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdlmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eavmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1rvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vxau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx6o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er0o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xomni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3002")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
+radius = 192.666
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4x3v"]
+size = Vector2(72, 89)
+
+[node name="Tower" type="Node2D"]
+script = SubResource("CSharpScript_bsmbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.09, 1.09)
+
+[node name="Towerbody" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h5af6")
+
+[node name="Towerhead" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.38419e-07, -24)
+scale = Vector2(1.0625, 1.1875)
+sprite_frames = SubResource("SpriteFrames_68v3j")
+frame_progress = 0.463514
+
+[node name="Cow" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("6_p0mkw")
+
+[node name="Sight" type="Area2D" parent="." groups=["Sight"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_5saor")
+
+[node name="Placement" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_l4x3v")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Sight" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sight" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Placement" to="." method="_on_placement_area_entered"]
+[connection signal="area_exited" from="Placement" to="." method="_on_placement_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

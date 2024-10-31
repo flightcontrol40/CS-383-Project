@@ -33,7 +33,7 @@ public partial class Level : Resource
     }
     public int CurrentRoundNum {
         get { return currentRoundNum; }
-        set { currentRoundNum = Math.Max(value, 0); }
+        set { currentRoundNum = Math.Min(value, maxRound); }
     }
     public Map MapInstance {
         get { return mapInstance; }

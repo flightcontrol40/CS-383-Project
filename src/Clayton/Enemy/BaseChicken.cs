@@ -3,9 +3,9 @@ using System;
 
 namespace Chicken;
 
-public class ChickenFactory {
+public partial class ChickenFactory : Node {
 
-	public static BaseChicken MakeKFC(int cost){
+	public BaseChicken MakeKFC(int cost){
 		if (cost < 20 || cost > 18){
 			BaseChicken chicken4 = new DearGodOhLordThatGuyIsHuge();
 			return chicken4;
@@ -16,7 +16,10 @@ public class ChickenFactory {
 			BaseChicken chicken2 = new Frank();
 			return chicken2;
 		}else {
-			BaseChicken chicken1 = new BaseChicken();
+			//BaseChicken chicken1 = new BaseChicken();
+			BaseChicken chicken1 = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();
+			Path2D path = GetNode<Path2D>("Map/Path/Path2D");
+			chicken1.Start(path);
 			return chicken1;
 		}
 	}
@@ -90,59 +93,65 @@ public partial class BaseChicken : PathFollow2D{
 	[Signal]
 	public delegate void EndOfPathEventHandler(BaseChicken enemy);
 		// if(progress ratio == 1)
+		
+	/// <summary>
+	// For when chicken splits to lower tier
+	/// </summary>
+		
+	public delegate void EnemySplitEventHandler(BaseChicken enemy);
 
 }
 
 
-public partial class Frank : BaseChicken{
-	new public int Health = 300;
-	new public double speed = 200;
-	new public int damageAmount { get; } = 30;
-	//new public int EnemyRank { get; } = 5;
-
-	public override void TakeDamage(int damageCounter){
-		this.Health -= damageCounter;
-		if (this.Health <= 0){
-			//change image / downgrade health, damage, speed
-		}
-	}
-	// base: emit death
-	//change image / downgrade health, damage, speed
-	
-
-}
-
-
-public partial class Frankest : BaseChicken{
-	new public int Health = 900;
-	new public double speed = 0.3;
-	new public int damageAmount { get; } = 90;
-	//new public int EnemyRank { get; } = 50;
-
-	public override void TakeDamage(int damageCounter){
-		this.Health -= damageCounter;
-		if (this.Health <= 0){
-			//change image / downgrade health, damage, speed
-		}
+//public partial class Frank : BaseChicken{
+	//new public int Health = 300;
+	//new public double speed = 200;
+	//new public int damageAmount { get; } = 30;
+	////new public int EnemyRank { get; } = 5;
+//
+	//public override void TakeDamage(int damageCounter){
+		//this.Health -= damageCounter;
+		//if (this.Health <= 0){
+			////change image / downgrade health, damage, speed
+		//}
+	//}
+	//// base: emit death
+	////change image / downgrade health, damage, speed
+	//
+//
+//}
 
 
-	}
+//public partial class Frankest : BaseChicken{
+	//new public int Health = 900;
+	//new public double speed = 0.3;
+	//new public int damageAmount { get; } = 90;
+	////new public int EnemyRank { get; } = 50;
+//
+	//public override void TakeDamage(int damageCounter){
+		//this.Health -= damageCounter;
+		//if (this.Health <= 0){
+			////change image / downgrade health, damage, speed
+		//}
+//
+//
+	//}
+//
+//}
 
-}
 
-
-public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
-	new public int Health = 2500;
-	new public double speed = 0.1;
-
-	new public int damageAmount { get; } = 250;
-
-	//new public int EnemyRank { get; } = 250;
-
-	public override void TakeDamage(int damageCounter){
-		this.Health -= damageCounter;
-		if (this.Health <= 0){
-			//change image / downgrade health, damage, speed
-		}
-	}
-}
+//public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
+	//new public int Health = 2500;
+	//new public double speed = 0.1;
+//
+	//new public int damageAmount { get; } = 250;
+//
+	////new public int EnemyRank { get; } = 250;
+//
+	//public override void TakeDamage(int damageCounter){
+		//this.Health -= damageCounter;
+		//if (this.Health <= 0){
+			////change image / downgrade health, damage, speed
+		//}
+	//}
+//}

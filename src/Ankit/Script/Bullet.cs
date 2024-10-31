@@ -1,49 +1,39 @@
 using Godot;
 using System;
 
-public partial class Bullet : Area2D
+public class Bullet : Area2D
 {
-    private Vector2 move = Vector2.Zero;
-    public float speed = 3.0f;
-    private Vector2 lookVec = Vector2.Zero;
-    public Node2D target; 
-    public Sprite2D sprite2D;
+    [Export]
+    public float Speed = 400;  // Speed of the bullet, can be adjusted in the Godot editor.
 
-    
-public override void _PhysicsProcess(double delta)
-{
-    GD.Print("Current Position: ", GlobalPosition);  // Debug output
-    if (target != null)
+    // This method initializes any necessary properties or effects for the bullet when it's ready.
+    public override void _Ready()
     {
-        lookVec = target.GlobalPosition - GlobalPosition;
-        GD.Print("Target Position: ", target.GlobalPosition);  // Debug output
-        GD.Print("Look Vector: ", lookVec);  // Debug output
+        Connect("body_entered", this, nameof(OnBodyEntered));  // Connect signal for collision with another body.
+        Connect("screen_exited", this, nameof(OnScreenExited)); // Connect signal for bullet exiting the screen.
+    }
 
-        if (lookVec.Length() > 0)
+    // This method updates the bullet's position each frame.
+    public override void _Process(double delta)
+    {
+        // Calculate the velocity vector based on the bullet's current rotation and the desired speed.
+        Vector2 velocity = new Vector2(Speed, 0).Rotated(Rotation);
+        Position += velocity * (float)delta;  // Update the position of the bullet based on its velocity and delta time.
+    }
+
+    // This method handles what happens when the bullet collides with another body.
+    private void OnBodyEntered(Node body)
+    {
+        if (body is Enemy)  // Check if the collided body is an Enemy.
         {
-            move = lookVec.Normalized() * speed;
-            GlobalPosition += move * (float)delta;
-            GD.Print("Moved To: ", GlobalPosition);  // Debug output
-        }
-        else
-        {
-            GD.Print("No Movement: Look Vector is Zero Length");  // No movement
+            // Add interaction with enemy here, such as reducing health or triggering effects.
+            QueueFree();  // Remove the bullet from the scene after hitting an enemy.
         }
     }
-    else
+
+    // This method is called when the bullet exits the screen area, used to clean up off-screen bullets.
+    private void OnScreenExited()
     {
-        GD.Print("Target is null");  // Check target initialization
+        QueueFree();  // Free up the bullet from memory to prevent off-screen resource usage.
     }
-}
-
-
-
-    public void UpdateLookVector()
-{
-    if (target != null)
-    {
-        lookVec = target.GlobalPosition - GlobalPosition;
-        sprite2D.LookAt(target.GlobalPosition);
-    }
-}
 }
