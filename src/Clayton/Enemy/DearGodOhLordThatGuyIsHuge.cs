@@ -3,17 +3,22 @@ using System;
 using Chicken;
 
 public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
-	new public int Health = 2500;
-	new public double speed = 0.1;
-
-	new public int damageAmount { get; } = 250;
-
-	//new public int EnemyRank { get; } = 250;
 
 	public override void TakeDamage(int damageCounter){
-		this.Health -= damageCounter;
+		this.Health -= damageCounter; // decrement health
+		GD.Print(Health);
 		if (this.Health <= 0){
-			//change image / downgrade health, damage, speed
+			EmitSignal(SignalName.EnemySplit, this); // tell round manager chicken has split			
+			Frankest chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frankest.tscn").Instantiate<Frankest>(); //spawn new chicken
+			chicken.SetProgress(this.Progress); //set new chicken location where chicken died
+			chicken.Start(path); //start new chicken on the path
+			this.QueueFree(); // free old chicken
 		}
+	}
+	
+	public override void _Ready() {
+		speed = 250;
+		Health = 2500;
+		damageAmount = 250;
 	}
 }
