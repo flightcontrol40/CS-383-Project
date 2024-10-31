@@ -1,10 +1,8 @@
 using Godot;
 namespace RoundManager;
-
 using System.Collections.Generic;
 using System.Linq;
 using Chicken;
-
 
 /// <summary>
 /// The Round Manager for Processing/tracking round data across the rounds of
@@ -16,14 +14,11 @@ public partial class RoundManager : Node2D {
     private Level levelData;
     private List<SpawnOrder> spawnQueue;
     private List<BaseChicken> liveEnemies;
-    // private System.Timers.Timer spawnTimer;
-    // private Difficulty difficulty;
     private double currentTime;
     private double nextSpawnTime;
     private bool roundRunning = false;
 
-    public override void _Ready()
-    {
+    public override void _Ready() {
         this.spawnQueue = new List<SpawnOrder> {};
         this.liveEnemies = new List<BaseChicken> {};
         base._Ready();
@@ -39,23 +34,24 @@ public partial class RoundManager : Node2D {
             levelData.difficultyTable,
             difficulty
         );
+        this.AddChild(difficultyCalculator);
     }
-
     public void startRound() {
-        this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
-            this.levelData.CurrentRoundNum
-        );
-        this.roundRunning = true;
-        if (spawnQueue.Count > 0){
-            this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
+        if (this.levelData.CurrentRoundNum >= this.levelData.maxRound){
+            this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
+                this.levelData.CurrentRoundNum
+            );
+            this.roundRunning = true;
+            if (spawnQueue.Count > 0){
+                this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
+            }
         }
     }
 
-    private void spawnEnemy(){
+    private void spawnEnemy() {
         if (spawnQueue.Count == 0){
             return;
         }
-        GD.Print("Im spawning a chicken!");
         SpawnOrder order = spawnQueue[0];
         spawnQueue.RemoveAt(0);
         order.Enemy.EnemyDied += HandleEnemyDiesSignal;
@@ -63,9 +59,6 @@ public partial class RoundManager : Node2D {
         order.Enemy.Start(this.levelData.getPath());
         this.liveEnemies.Add(order.Enemy);
         this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
-        GD.Print(order.Enemy);
-        // spawnTimer.Interval = order.spawnDelay / 1000.00;
-        // spawnTimer.Enabled = true;
     }
 
     /// <summary>
@@ -91,7 +84,7 @@ public partial class RoundManager : Node2D {
     }
 
 
-    private void cleanLevel(){
+    private void cleanLevel() {
         // Clean the Enemies up.
         foreach ( var spawnOrder in spawnQueue ){
             liveEnemies.Add(spawnOrder.Enemy);
@@ -117,8 +110,8 @@ public partial class RoundManager : Node2D {
                 cleanLevel();
             }
             else if ( 
-                this.levelData.playerHealth > 0 && 
-                this.roundRunning == true && 
+                this.levelData.playerHealth > 0 &&
+                this.roundRunning == true &&
                 this.levelData.maxRound == this.levelData.CurrentRoundNum)
                 {
                     this.roundRunning = false;
@@ -133,8 +126,7 @@ public partial class RoundManager : Node2D {
         base._Process(delta);
     }
 
-    public void onLevelLoadSignal(Level level){
-    }
+    public void onLevelLoadSignal(Level level) {}
 
     [Signal]
     public delegate void GameLostEventHandler();

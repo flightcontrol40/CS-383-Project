@@ -71,7 +71,6 @@ public partial class BaseChicken : PathFollow2D{
 	}
 	
 
-
 	/// <summary>
 	// The Godot Signal to emit if the enemy dies before reaching the end of the
 	// Path2D

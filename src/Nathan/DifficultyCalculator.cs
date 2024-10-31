@@ -1,7 +1,6 @@
 using Godot;
 using System.Collections.Generic;
 using Chicken;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace RoundManager;
 
 /// <summary>
@@ -16,16 +15,17 @@ public enum Difficulty {
 /// <summary>
 /// A Single spawn order element for controlling what and when to spawn an enemy
 /// </summary>
-public partial class SpawnOrder: GodotObject{
+public partial class SpawnOrder: Node{
 
     /// <summary>
     /// Creates A spawn Order for a passed type that implements IEnemyType
     /// </summary>
-    /// <param name="enemyType"></param>
+    /// <param name="enemy"></param>
     /// <param name="spawnDelay"></param>
-    public SpawnOrder(Chicken.BaseChicken enemyType, int spawnDelay) {
+    public SpawnOrder(Chicken.BaseChicken enemy, int spawnDelay) {
         this.spawnDelay = spawnDelay;
-        this.Enemy = enemyType; //(BaseChicken)Activator.CreateInstance(enemyType);
+        this.Enemy = enemy;
+        this.AddChild(enemy);
     }
 
     /// <summary>
@@ -58,26 +58,31 @@ public class DifficultyCalculatorFactory {
     /// A Difficulty Calculator of the passed difficulty
     /// </returns>
     public static DifficultyCalculator CreateCalculator(DifficultyTable difficultyTable, Difficulty difficulty){
+        DifficultyCalculator difficultyCalculator;
         switch (difficulty)
         {
             case Difficulty.Easy:
-                return new EasyDifficultyCalculator(difficultyTable);
+                difficultyCalculator = new EasyDifficultyCalculator(difficultyTable);
+                break;
             case Difficulty.Medium:
-                return new MediumDifficultyCalculator(difficultyTable);
+                difficultyCalculator = new MediumDifficultyCalculator(difficultyTable);
+                break;
             case Difficulty.Hard:
-                return new HardDifficultyCalculator(difficultyTable);
+                difficultyCalculator = new HardDifficultyCalculator(difficultyTable);
+                break;
             default:
-                return new DifficultyCalculator(difficultyTable);
+                difficultyCalculator = new DifficultyCalculator(difficultyTable);
+                break;
         }
+        return difficultyCalculator;
     }
-
 }
 
 /// <summary>
 /// The Base class for a difficulty calculator. Cannot construct directly, instead
 /// use the <ref>DifficultyCalculatorFactory.CreateCalculator</ref> method.
 /// </summary>
-public partial class DifficultyCalculator {
+public partial class DifficultyCalculator: Node {
 
     protected DifficultyTable difficultyTable;
 
@@ -127,12 +132,12 @@ public partial class DifficultyCalculator {
             int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
-                spawnOrders.Add(
-                    new SpawnOrder(
+                SpawnOrder order = new SpawnOrder(
                         Chicken.ChickenFactory.MakeKFC(cost),
                         100
-                    )
-                );
+                    );
+                this.AddChild(order);
+                spawnOrders.Add(order);
                 amount -= 1;
             }
             enemies.Remove(cost);
@@ -160,12 +165,12 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
             int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
-                spawnOrders.Add(
-                    new SpawnOrder(
+                SpawnOrder order = new SpawnOrder(
                         Chicken.ChickenFactory.MakeKFC(cost),
                         100
-                    )
-                );
+                    );
+                this.AddChild(order);
+                spawnOrders.Add(order);
                 amount -= 1;
             }
             enemies.Remove(cost);
@@ -208,12 +213,12 @@ public partial class HardDifficultyCalculator : DifficultyCalculator {
             int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
-                spawnOrders.Add(
-                    new SpawnOrder(
+                SpawnOrder order = new SpawnOrder(
                         Chicken.ChickenFactory.MakeKFC(cost),
                         100
-                    )
-                );
+                    );
+                this.AddChild(order);
+                spawnOrders.Add(order);
                 amount -= 1;
             }
             enemies.Remove(cost);
