@@ -1,39 +1,37 @@
 using Godot;
 using System;
+using Chicken; // Static binding: Compiles a reference to the Chicken namespace containing enemy classes. Ensure the namespace matches your project's structure.
 
-public class Bullet : Area2D
+// The 'Bullet' class is declared as 'partial', allowing its definition to be split across multiple files if needed.
+public partial class Bullet : Area2D // Subclass: 'Bullet' inherits from 'Area2D', making 'Area2D' the superclass.
 {
     [Export]
-    public float Speed = 400;  // Speed of the bullet, can be adjusted in the Godot editor.
+    public float Speed = 400; // Speed at which the bullet moves, settable in the editor (dynamic binding).
 
-    // This method initializes any necessary properties or effects for the bullet when it's ready.
-    public override void _Ready()
+    public Vector2 Direction; // The direction for the bullet to travel, set at runtime (dynamic binding).
+
+    public override void _Ready() // Overrides the _Ready method from Area2D, called when the node is added to the scene.
     {
-        Connect("body_entered", this, nameof(OnBodyEntered));  // Connect signal for collision with another body.
-        Connect("screen_exited", this, nameof(OnScreenExited)); // Connect signal for bullet exiting the screen.
+        Connect("body_entered", new Callable(this, nameof(OnBodyEntered))); // Dynamically binds the 'body_entered' signal to the 'OnBodyEntered' method.
+        Connect("screen_exited", new Callable(this, nameof(OnScreenExited))); // Dynamically binds the 'screen_exited' signal to the 'OnScreenExited' method.
     }
 
-    // This method updates the bullet's position each frame.
-    public override void _Process(double delta)
+    public override void _Process(double delta) // Overrides the _Process method from Area2D, called every frame the node is active.
     {
-        // Calculate the velocity vector based on the bullet's current rotation and the desired speed.
-        Vector2 velocity = new Vector2(Speed, 0).Rotated(Rotation);
-        Position += velocity * (float)delta;  // Update the position of the bullet based on its velocity and delta time.
+        Position += Direction * (float)(Speed * delta); // Updates position based on direction and speed, casting delta to float to match Godot's requirements.
     }
 
-    // This method handles what happens when the bullet collides with another body.
-    private void OnBodyEntered(Node body)
+    private void OnBodyEntered(Node body) // Called dynamically when another body enters the bullet's area.
     {
-        if (body is Enemy)  // Check if the collided body is an Enemy.
+        if (body is BaseChicken chicken) // Dynamic check to see if the object is of type BaseChicken.
         {
-            // Add interaction with enemy here, such as reducing health or triggering effects.
-            QueueFree();  // Remove the bullet from the scene after hitting an enemy.
+            chicken.TakeDamage(10); // Calls the TakeDamage method on the chicken, assuming such a method exists and is public.
+            QueueFree(); // Frees the bullet node from memory and removes it from the scene, cleaning up resources.
         }
     }
 
-    // This method is called when the bullet exits the screen area, used to clean up off-screen bullets.
-    private void OnScreenExited()
+    private void OnScreenExited() // Called dynamically when the bullet exits the screen area.
     {
-        QueueFree();  // Free up the bullet from memory to prevent off-screen resource usage.
+        QueueFree(); // Frees the bullet node from memory and removes it from the scene, similar to above.
     }
 }

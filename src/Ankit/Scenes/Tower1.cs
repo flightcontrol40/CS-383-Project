@@ -1,78 +1,63 @@
-using Godot;
+using Godot; // Static binding: using directive resolves Godot namespace references at compile time.
 using System;
+using Chicken; // Static binding: using directive for the Chicken namespace, resolved at compile time.
 
-public partial class Tower1 : Node2D
+public partial class Tower : Node2D // Subclass: Tower inherits from Node2D, making Node2D the superclass.
 {
     [Export]
-    public PackedScene BulletScene; // Packed scene for the bullet, to be instantiated when firing.
+    public PackedScene BulletScene; // Scene for bullets, dynamically set in the Godot editor (dynamic binding).
     [Export]
-    public NodePath TowerHeadPath;  // Path to the node of the tower's head, which will rotate to target enemies.
+    public NodePath TowerHeadPath;  // Path to the tower's rotating head, dynamically set in the editor (dynamic binding).
     [Export]
-    public float ShootingInterval = 2.0f; // Time in seconds between each shot.
+    public float ShootingInterval = 2.0f; // Interval between shots, can be statically or dynamically set in the editor.
     [Export]
-    public float RotationSpeed = 5.0f;    // Speed at which the tower head rotates towards its target.
+    public float RotationSpeed = 5.0f;    // Speed of tower head rotation, settable in the editor.
 
-    private AnimatedSprite2D towerSprite; // Sprite for the tower's body.
-    private AnimatedSprite2D towerHead;   // Sprite for the tower's head, which rotates to aim at the target.
-    private Timer shootTimer;             // Timer to manage the shooting intervals.
-    private Area2D sightArea;             // Area that detects enemies within the tower's range of sight.
-    private Node2D currentTarget;         // The current target that the tower is aiming at.
+    private AnimatedSprite2D towerHead; // Dynamically assigned at runtime when the node tree is ready.
+    private Timer shootTimer; // Timer for shooting intervals, configured dynamically at runtime.
+    private Area2D sightArea; // Area that detects enemies, configured at runtime.
+    private Node2D currentTarget; // The current target of the tower, dynamically changes based on gameplay.
 
-    public override void _Ready()
+    public override void _Ready() // Overridden from Node2D; called when the node is ready, demonstrates dynamic binding.
     {
-        towerSprite = GetNode<AnimatedSprite2D>("Towerbody/TowerSprite"); // Access the sprite for the tower's body.
-        towerHead = GetNode<AnimatedSprite2D>(TowerHeadPath); // Access the sprite for the tower's head.
+        towerHead = GetNode<AnimatedSprite2D>(TowerHeadPath); // Dynamically finds the tower head at runtime.
+        shootTimer = new Timer();
+        AddChild(shootTimer); // Dynamic addition of a node to the scene tree at runtime.
+        shootTimer.WaitTime = ShootingInterval;
+        shootTimer.OneShot = false;
+        shootTimer.Connect("timeout", new Callable(this, nameof(OnShootTimerTimeout))); // Dynamic binding: Connects the timeout signal to OnShootTimerTimeout at runtime.
+        shootTimer.Start();
 
-        towerSprite.Play("idle"); // Start the idle animation for the tower's body.
-        towerHead.Play("idle");   // Start the idle animation for the tower's head.
-
-        sightArea = GetNode<Area2D>("Sight/CollisionShape2D"); // Access the sight area defined for detecting enemies.
-        sightArea.Connect("body_entered", this, nameof(OnBodyEntered)); // Connect signal for entering sight.
-        sightArea.Connect("body_exited", this, nameof(OnBodyExited));   // Connect signal for exiting sight.
-
-        shootTimer = new Timer();  // Initialize the shooting timer.
-        AddChild(shootTimer);
-        shootTimer.WaitTime = ShootingInterval; // Set the shooting interval.
-        shootTimer.OneShot = false; // Make the timer continuous.
-        shootTimer.Connect("timeout", this, nameof(OnShootTimerTimeout)); // Connect timeout signal to shooting handler.
-        shootTimer.Start(); // Start the timer.
+        sightArea = GetNode<Area2D>("SightArea"); // Dynamically finds the sight area node at runtime.
+        sightArea.Connect("body_entered", new Callable(this, nameof(OnBodyEntered))); // Dynamic binding: Signal connection is resolved at runtime.
     }
 
-    private void OnBodyEntered(Node body)
+    private void OnBodyEntered(Node body) // Called dynamically when a body enters the sight area.
     {
-        if (body is Enemy)  // Ensure the body is an Enemy type.
+        if (body is BaseChicken chicken) // Runtime type check to see if the object is a BaseChicken.
         {
-            currentTarget = body as Node2D; // Set the current target to the enemy that entered the sight.
+            currentTarget = chicken; // Dynamically sets the current target based on game conditions.
         }
     }
 
-    private void OnBodyExited(Node body)
+    private void OnShootTimerTimeout() // Dynamically called when the shooting interval timer times out.
     {
-        if (body == currentTarget) // Check if the exiting body is the current target.
+        if (currentTarget != null && currentTarget is Node2D target) // Runtime check and cast to Node2D.
         {
-            currentTarget = null; // Clear the current target.
+            Bullet bullet = BulletScene.Instantiate<Bullet>(); // Instance method is dynamically bound at runtime.
+            bullet.GlobalPosition = towerHead.GlobalPosition;
+            bullet.Direction = (target.GlobalPosition - towerHead.GlobalPosition).Normalized();
+            AddChild(bullet); // Adds the bullet to the scene dynamically.
         }
     }
 
-    private void OnShootTimerTimeout()
+    public override void _Process(double delta) // Overridden method from Node2D called each frame, uses dynamic binding.
     {
-        if (currentTarget != null && IsInstanceValid(currentTarget)) // Check if there's a valid target.
+        if (currentTarget != null) // Checks dynamically if there's a current target each frame.
         {
-            var bullet = BulletScene.Instance() as Node2D; // Instantiate the bullet.
-            bullet.GlobalPosition = towerHead.GlobalPosition; // Set bullet's starting position at the tower's head.
-            bullet.LookAt(currentTarget.GlobalPosition); // Point bullet towards the target.
-            AddChild(bullet); // Add the bullet to the scene.
-        }
-    }
-
-    public override void _Process(float delta)
-    {
-        if (currentTarget != null && IsInstanceValid(currentTarget)) // Continuously check if there's a valid target.
-        {
-            Vector2 direction = currentTarget.GlobalPosition - towerHead.GlobalPosition; // Calculate direction to target.
-            float targetAngle = direction.Angle(); // Get the angle towards the target.
-            float currentAngle = towerHead.Rotation; // Get current rotation angle of the tower head.
-            towerHead.Rotation = Mathf.LerpAngle(currentAngle, targetAngle, RotationSpeed * delta); // Smoothly rotate tower head towards target.
+            Vector2 direction = currentTarget.GlobalPosition - towerHead.GlobalPosition;
+            float targetAngle = direction.Angle();
+            towerHead.Rotation = Mathf.LerpAngle(towerHead.Rotation, targetAngle, RotationSpeed * (float) delta); // Dynamically calculates and applies rotation.
         }
     }
 }
