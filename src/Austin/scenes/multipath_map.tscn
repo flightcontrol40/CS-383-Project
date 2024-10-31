@@ -165,10 +165,10 @@ position = Vector2(832, -64)
 [node name="Path" type="Node2D" parent="."]
 script = ExtResource("3_d3fnt")
 
-[node name="Path2D1" type="Path2D" parent="Path"]
+[node name="Path1" type="Path2D" parent="Path"]
 curve = SubResource("Curve2D_ryiw1")
 
-[node name="Path2D2" type="Path2D" parent="Path"]
+[node name="Path2" type="Path2D" parent="Path"]
 curve = SubResource("Curve2D_v1jpd")
 
 [connection signal="body_entered" from="TowerZones" to="." method="_on_tower_zones_body_entered"]

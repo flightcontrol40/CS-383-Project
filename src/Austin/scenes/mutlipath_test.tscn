@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dilp6ok2e4uc5"]
+
+[ext_resource type="Script" path="res://src/Austin/scripts/MultipathTest.cs" id="1_uefqg"]
+[ext_resource type="PackedScene" uid="uid://icbpusc6sd0u" path="res://src/Austin/scenes/multipath_map.tscn" id="3_jgl8n"]
+
+[node name="MultipathTest" type="Node2D"]
+script = ExtResource("1_uefqg")
+
+[node name="Map" parent="." instance=ExtResource("3_jgl8n")]
