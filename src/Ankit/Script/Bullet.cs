@@ -1,49 +1,37 @@
 using Godot;
 using System;
+using Chicken; // Static binding: Compiles a reference to the Chicken namespace containing enemy classes. Ensure the namespace matches your project's structure.
 
-public partial class Bullet : Area2D
+// The 'Bullet' class is declared as 'partial', allowing its definition to be split across multiple files if needed.
+public partial class Bullet : Area2D // Subclass: 'Bullet' inherits from 'Area2D', making 'Area2D' the superclass.
 {
-    private Vector2 move = Vector2.Zero;
-    public float speed = 3.0f;
-    private Vector2 lookVec = Vector2.Zero;
-    public Node2D target; 
-    public Sprite2D sprite2D;
+    [Export]
+    public float Speed = 400; // Speed at which the bullet moves, settable in the editor (dynamic binding).
 
-    
-public override void _PhysicsProcess(double delta)
-{
-    GD.Print("Current Position: ", GlobalPosition);  // Debug output
-    if (target != null)
+    public Vector2 Direction; // The direction for the bullet to travel, set at runtime (dynamic binding).
+
+    public override void _Ready() // Overrides the _Ready method from Area2D, called when the node is added to the scene.
     {
-        lookVec = target.GlobalPosition - GlobalPosition;
-        GD.Print("Target Position: ", target.GlobalPosition);  // Debug output
-        GD.Print("Look Vector: ", lookVec);  // Debug output
+        Connect("body_entered", new Callable(this, nameof(OnBodyEntered))); // Dynamically binds the 'body_entered' signal to the 'OnBodyEntered' method.
+        Connect("screen_exited", new Callable(this, nameof(OnScreenExited))); // Dynamically binds the 'screen_exited' signal to the 'OnScreenExited' method.
+    }
 
-        if (lookVec.Length() > 0)
+    public override void _Process(double delta) // Overrides the _Process method from Area2D, called every frame the node is active.
+    {
+        Position += Direction * (float)(Speed * delta); // Updates position based on direction and speed, casting delta to float to match Godot's requirements.
+    }
+
+    private void OnBodyEntered(Node body) // Called dynamically when another body enters the bullet's area.
+    {
+        if (body is BaseChicken chicken) // Dynamic check to see if the object is of type BaseChicken.
         {
-            move = lookVec.Normalized() * speed;
-            GlobalPosition += move * (float)delta;
-            GD.Print("Moved To: ", GlobalPosition);  // Debug output
-        }
-        else
-        {
-            GD.Print("No Movement: Look Vector is Zero Length");  // No movement
+            chicken.TakeDamage(10); // Calls the TakeDamage method on the chicken, assuming such a method exists and is public.
+            QueueFree(); // Frees the bullet node from memory and removes it from the scene, cleaning up resources.
         }
     }
-    else
+
+    private void OnScreenExited() // Called dynamically when the bullet exits the screen area.
     {
-        GD.Print("Target is null");  // Check target initialization
+        QueueFree(); // Frees the bullet node from memory and removes it from the scene, similar to above.
     }
-}
-
-
-
-    public void UpdateLookVector()
-{
-    if (target != null)
-    {
-        lookVec = target.GlobalPosition - GlobalPosition;
-        sprite2D.LookAt(target.GlobalPosition);
-    }
-}
 }

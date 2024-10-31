@@ -1,0 +1,139 @@
+[gd_scene load_steps=19 format=3 uid="uid://diitwjpg5i8uy"]
+
+[ext_resource type="Script" path="res://src/Ankit/Scenes/Tower3.cs" id="1_u6k6u"]
+[ext_resource type="Texture2D" uid="uid://croexlv2ytp6v" path="res://src/Ankit/Assets/ground_shaker_asset/Desert/Bodies/body_halftrack.png" id="2_k8a2a"]
+[ext_resource type="Texture2D" uid="uid://bq1p04bk4q75d" path="res://src/Ankit/Assets/ground_shaker_asset/Desert/Weapons/turret_01_mk4.png" id="3_fywa7"]
+[ext_resource type="Texture2D" uid="uid://cavmmvri0evvk" path="res://src/Ankit/Assets/cowimage.png" id="6_pvecl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfdcv"]
+atlas = ExtResource("2_k8a2a")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vd0w"]
+atlas = ExtResource("2_k8a2a")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4myrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfdcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vd0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy42c"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(0, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ratij"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(128, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wowdv"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(256, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1wo2"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(384, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar13o"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(512, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1scp8"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(640, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw5hi"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(768, 0, 128, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b671f"]
+atlas = ExtResource("3_fywa7")
+region = Rect2(896, 0, 128, 97)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvrub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy42c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ratij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wowdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1wo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar13o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1scp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw5hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b671f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
+radius = 192.167
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4x3v"]
+size = Vector2(71, 90)
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_u6k6u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.09, 1.09)
+
+[node name="Towerbody" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4myrp")
+frame_progress = 0.283789
+
+[node name="Towerhead" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.38419e-07, -42.125)
+scale = Vector2(1.0625, 1.19845)
+sprite_frames = SubResource("SpriteFrames_tvrub")
+
+[node name="Cow" type="Sprite2D" parent="Towerhead"]
+position = Vector2(-2.24394e-07, 68.5258)
+scale = Vector2(0.117647, 0.104301)
+texture = ExtResource("6_pvecl")
+
+[node name="Sight" type="Area2D" parent="." groups=["Sight"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_5saor")
+
+[node name="Placement" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_l4x3v")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Sight" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sight" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Placement" to="." method="_on_placement_area_entered"]
+[connection signal="area_exited" from="Placement" to="." method="_on_placement_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

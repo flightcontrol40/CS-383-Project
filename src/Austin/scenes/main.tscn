@@ -5,25 +5,27 @@
 [ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/RoundManager.tscn" id="2_0n13b"]
 [ext_resource type="Script" path="res://src/Austin/scripts/custom_resources/Level.cs" id="3_j5db1"]
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
-[ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Shop.tscn" id="5_4201l"]
-[ext_resource type="PackedScene" uid="uid://bx5j4lpejkuw0" path="res://src/Ankit/Scenes/tower.tscn" id="7_tmpp7"]
+[ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Scenes/Shop.tscn" id="5_4201l"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
-[ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/PlayerHealth.tscn" id="9_xq0cl"]
+[ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/Scenes/PlayerHealth.tscn" id="9_xq0cl"]
 
-[sub_resource type="Resource" id="Resource_isy6s"]
+[sub_resource type="Resource" id="Resource_khhp0"]
+metadata/__load_path__ = "res://src/Ankit/Scenes/tower.tscn"
+
+[sub_resource type="Resource" id="Resource_040l3"]
 script = ExtResource("3_j5db1")
-playerHealth = 0
-playerMoney = 0
+playerHealth = 100
+playerMoney = 100
 currentRoundNum = 0
-maxRound = 0
+maxRound = 1
 mapScene = ExtResource("3_owqxk")
 
 [node name="main" type="Node"]
 script = ExtResource("1_6tv6r")
-tower = ExtResource("7_tmpp7")
+tower = SubResource("Resource_khhp0")
 
 [node name="LevelManager" parent="." instance=ExtResource("1_ircu7")]
-level = SubResource("Resource_isy6s")
+level = SubResource("Resource_040l3")
 
 [node name="RoundManager" parent="." instance=ExtResource("2_0n13b")]
 
@@ -45,6 +47,7 @@ text = "This is a test"
 [node name="PlayerHealth" parent="." instance=ExtResource("9_xq0cl")]
 position = Vector2(513, 1)
 
+[connection signal="LoadRound" from="LevelManager" to="RoundManager" method="loadLevel"]
 [connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]
 [connection signal="TowerBought" from="Shop" to="Tutorial" method="_on_shop_tower_bought"]
 [connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]

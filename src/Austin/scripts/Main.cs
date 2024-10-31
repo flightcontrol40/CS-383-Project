@@ -12,11 +12,16 @@ public partial class Main : Node
     public override void _Ready()
     {
         GetNode<Timer>("MoneyTimer").Start(0.1);
+
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        if (Input.IsActionJustPressed("loadLevel")) {
+            GetNode<LevelManager>("LevelManager").setDifficutly(RoundManager.Difficulty.Easy);
+            GetNode<LevelManager>("LevelManager").OnLoadLevel();
+        }
     }
 
     public override void _Input(InputEvent @event)

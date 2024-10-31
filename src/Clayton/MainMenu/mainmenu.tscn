@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmt4pjx6qy0rj"]
 
 [ext_resource type="Script" path="res://src/Clayton/MainMenu/MainMenu.gd" id="1_2vja7"]
-[ext_resource type="Texture2D" uid="uid://dp7yhyfnvwivr" path="res://src/Clayton/chickfila.png" id="3_01k3r"]
-[ext_resource type="FontFile" uid="uid://c5vmsk8d0osr2" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
+[ext_resource type="Texture2D" uid="uid://cxrj6wfp7i4ko" path="res://src/Clayton/chickfila.png" id="3_01k3r"]
+[ext_resource type="FontFile" uid="uid://deus54qjh17t1" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
