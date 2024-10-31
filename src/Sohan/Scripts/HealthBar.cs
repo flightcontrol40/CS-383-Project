@@ -8,7 +8,7 @@ public partial class HealthBar : ProgressBar
 	public override void _Ready()
 	{
 		GD.Print("HealthBar Ready: Connecting signals.");
-		
+
 		// Connect all existing and future enemies' EndOfPath signal
 		GetTree().Connect("node_added", new Callable(this, nameof(OnNodeAdded)));
 
@@ -18,6 +18,7 @@ public partial class HealthBar : ProgressBar
 		}
 	}
 
+	// Triggered when a new enemy is added to the scene tree.
 	private void OnNodeAdded(Node node)
 	{
 		if (node is BaseChicken chicken)
@@ -27,34 +28,52 @@ public partial class HealthBar : ProgressBar
 		}
 	}
 
+	// Connects the EndOfPath signal from an enemy to decrease player health.
 	private void ConnectEnemySignal(BaseChicken enemy)
 	{
 		if (enemy != null)
 		{
 			GD.Print($"Connecting {enemy.Name}'s EndOfPath signal.");
-			// Connect the EndOfPath signal to HealthBar's OnEnemyReachedEnd method
-			enemy.Connect(nameof(BaseChicken.EndOfPathEventHandler), 
+			enemy.Connect(nameof(BaseChicken.EndOfPathEventHandler),
 						  new Callable(this, nameof(OnEnemyReachedEnd)));
 		}
 	}
 
+	// Called when an enemy reaches the endpoint, triggering a health decrease.
 	private void OnEnemyReachedEnd(BaseChicken enemy)
 	{
 		GD.Print($"{enemy.Name} reached the endpoint! Decreasing health.");
-		DecreaseHealth(enemy.damageAmount);
+		UpdateHealthBar(enemy.damageAmount); // Using your UpdateHealthBar approach here
 	}
 
-	private void DecreaseHealth(int amount)
+	// Updates the health value and visual components
+	private void UpdateHealthBar(int healthDecrementAmount)
 	{
-		currentHealth -= amount;
-		Value = currentHealth;
+		currentHealth -= healthDecrementAmount;
+		Value = currentHealth;  // Update the health bar's display value
 
-		GD.Print($"Health decreased by {amount}. Current Health: {currentHealth}");
+		GD.Print($"Health decreased by {healthDecrementAmount}. Current Health: {currentHealth}");
 
 		if (currentHealth <= 0)
 		{
 			GD.Print("Game Over! Health reached 0.");
-			// Handle game over logic here
+			// Game over logic here
 		}
+
+		UpdateHealthBarColor();
+	}
+
+	// Modifies the health bar color based on health percentage.
+	private void UpdateHealthBarColor()
+	{
+		float healthPercentage = (float)currentHealth / 100;
+
+		// Change the color gradually from green to red
+		if (healthPercentage > 0.6f)
+			Modulate = new Color(0, 1, 0); // Green
+		else if (healthPercentage > 0.3f)
+			Modulate = new Color(1, 1, 0); // Yellow
+		else
+			Modulate = new Color(1, 0, 0); // Red
 	}
 }
