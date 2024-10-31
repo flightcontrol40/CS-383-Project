@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://1hfdoop8uwub"]
 
-[ext_resource type="Script" path="res://src/Sohan/HealthBar.cs" id="1_pml3w"]
+[ext_resource type="Script" path="res://src/Sohan/Scripts/HealthBar.cs" id="1_bphsx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwnc4"]
 bg_color = Color(0.275094, 0.277785, 0.300811, 1)
@@ -16,4 +16,4 @@ offset_bottom = 36.0
 theme_override_styles/background = SubResource("StyleBoxFlat_qwnc4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fdrkg")
 value = 100.0
-script = ExtResource("1_pml3w")
+script = ExtResource("1_bphsx")
