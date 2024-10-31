@@ -19,9 +19,9 @@ public partial class RoundManager : Node2D {
     private bool roundRunning = false;
 
     public override void _Ready() {
+        base._Ready();
         this.spawnQueue = new List<SpawnOrder> {};
         this.liveEnemies = new List<BaseChicken> {};
-        base._Ready();
     }
 
     /// <summary>
@@ -67,6 +67,7 @@ public partial class RoundManager : Node2D {
     /// <param name="enemy">The enemy to free.</param>
     private void HandleEnemyDiesSignal(BaseChicken enemy) {
         // Free the enemy
+        this.levelData.PlayerMoney++; // Add to money
         liveEnemies.Remove(enemy);
         enemy.QueueFree();
     }
@@ -83,7 +84,13 @@ public partial class RoundManager : Node2D {
         enemy.QueueFree();
     }
 
-
+    /// <summary>
+    /// Enemy Split Event Handler
+    /// </summary>
+    private void EnemySplitEventHandler(BaseChicken enemy) {
+        this.liveEnemies.Add(enemy); // Start tracking the new chicken
+        this.levelData.PlayerMoney++; // Add to money
+    }
     private void cleanLevel() {
         // Clean the Enemies up.
         foreach ( var spawnOrder in spawnQueue ){
@@ -101,7 +108,7 @@ public partial class RoundManager : Node2D {
     public override void _Process(double delta) {
         this.currentTime += delta;
         if ( this.roundRunning == true) {
-            if (currentTime > nextSpawnTime && spawnQueue.Count > 0){
+            if (this.currentTime > this.nextSpawnTime && spawnQueue.Count > 0){
                 this.spawnEnemy();
             }
             if (this.levelData.playerHealth < 0 ){
