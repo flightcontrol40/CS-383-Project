@@ -15,13 +15,24 @@ run/main_scene="res://src/Clayton/MainMenu/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[debug]
+
+file_logging/enable_file_logging.pc=false
+file_logging/log_path="res://TestResults"
+
 [dotnet]
 
 project/assembly_name="TowerGame"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/test/test_discovery=true
+settings/test/flaky_check_enable=true
+ui/toolbar/run_overall=true
 
 [global_group]
 

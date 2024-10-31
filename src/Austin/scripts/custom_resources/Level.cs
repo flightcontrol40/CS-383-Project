@@ -50,7 +50,7 @@ public partial class Level : Resource
 
     public void unloadMap() {
         if (IsInstanceValid(mapInstance)) {
-            mapInstance.QueueFree();
+            mapInstance.Free();
         }
     }
 
