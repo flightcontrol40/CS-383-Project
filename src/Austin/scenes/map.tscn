@@ -154,8 +154,7 @@ scale = Vector2(0.999092, 1)
 [node name="NoZone" type="CollisionPolygon2D" parent="TowerZones"]
 polygon = PackedVector2Array(-28.0236, -80, 26.0254, -80, 27.0264, 30, 190.174, 29, 191.175, 87, 905.824, 86, 905.824, 251, 1125.02, 251, 1125.02, 463, 1072.98, 463, 853.777, 465, 853.777, 300, 906.825, 300, 906.825, 417, 1072.7, 417.494, 1071.98, 299, 908.827, 299, 577.526, 299, 574.523, 409, 247.226, 408, 247.226, 524, 247.226, 524, 796.725, 525, 795.724, 741, 743.677, 741, 742.676, 574, 193.177, 575, 194.178, 360, 521.475, 362, 523.477, 250, 851.775, 252, 852.776, 134, 138.127, 135, 136.125, 80, -28.0236, 80)
 
-[node name="Path" parent="." node_paths=PackedStringArray("path") instance=ExtResource("1_8amha")]
-path = NodePath("Path2D")
+[node name="Path" parent="." instance=ExtResource("1_8amha")]
 
 [node name="Path2D" type="Path2D" parent="Path"]
 position = Vector2(0.998183, 0)

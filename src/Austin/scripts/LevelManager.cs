@@ -24,9 +24,11 @@ public partial class LevelManager : Node
 
     public override void _Process(double delta)
     {
+        return;
     }
 
     public void OnLoadLevel() {
+        GD.Print("Loading level...");
         // load the map
         level.loadMap();
         //book keeping
@@ -35,6 +37,7 @@ public partial class LevelManager : Node
             level.MapInstance.SetOwner(this); // makes visible in scene tree, and able to be serialized into a PackedScene
         }
         // load round
+        GD.Print("Level loading, attempting to load round...");
         EmitSignal(SignalName.LoadRound, (int)baseDifficutly, level);
     }
 

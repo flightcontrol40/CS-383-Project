@@ -3,27 +3,20 @@ using System;
 
 namespace Chicken;
 
-public partial class ChickenFactory : Node {
+public static partial class ChickenFactory {
 
-	public BaseChicken MakeKFC(int cost){
-		if (cost < 20 || cost > 18){
-			BaseChicken chicken4 = new DearGodOhLordThatGuyIsHuge();
-			return chicken4;
-		}else if (cost < 18 || cost > 16){
-			BaseChicken chicken3 = new Frankest();
-			return chicken3;
-		}else if(cost < 15 || cost > 13){
-			BaseChicken chicken2 = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frank.tscn").Instantiate<BaseChicken>();
-			Path2D path = GetNode<Path2D>("Map/Path/Path2D");
-			chicken2.Start(path);
-			return chicken2;
+	public static BaseChicken MakeKFC(int cost){
+		BaseChicken chicken;
+		if (cost < 20 && cost > 18){
+			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/DearGodOhLordThatGuyIsHuge.tscn").Instantiate<DearGodOhLordThatGuyIsHuge>();
+		}else if (cost < 18 && cost > 16){
+			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frankest.tscn").Instantiate<Frankest>();
+		}else if(cost < 15 && cost > 13){
+			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frank.tscn").Instantiate<Frank>();
 		}else {
-			//BaseChicken chicken1 = new BaseChicken();
-			BaseChicken chicken1 = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();
-			Path2D path = GetNode<Path2D>("Map/Path/Path2D");
-			chicken1.Start(path);
-			return chicken1;
+			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();
 		}
+		return chicken;
 	}
 }
 
@@ -33,23 +26,22 @@ public partial class BaseChicken : PathFollow2D{
 	public int Health = 100;
 	public double speed = 100;
 
-	public int damageAmount { get; } = 10;
+	public int damageAmount {protected set; get; } = 10;
 
 	public int EnemyRank { get; } // get rid of maybe
 
-	private Path2D path;
-	private bool started = false;
+	public Path2D path;
+	public bool started = false;
 
 	/// <summary>
 	/// Starts the enemy along the LevelPath
 	/// </summary>
 	
 	public void Start(Path2D LevelPath) {
-		GD.Print($"running");
 		this.path = LevelPath;
 		this.path.AddChild(this);
-		this.Position = Vector2.Zero;
 		this.started = true;
+		SetLoop(false);
 		
 	}
 	/// <summary>
@@ -57,14 +49,10 @@ public partial class BaseChicken : PathFollow2D{
 	/// </summary>
 	/// <param name="delta">The amount of time thats passed since the last call.</param>
 	public override void _Process(double delta){
-		GD.Print($"running2");
 		if (started == true){
 			// Increment the progress ratio based on the speed and delta time
 			this.SetProgress(Progress + (float)(delta * speed));
-			GD.Print(Progress);
-			GD.Print(GlobalPosition);
-			GD.Print(IsVisibleInTree());
-			// Check if the progress ratio has reached or exceeded 1
+			//GD.Print(ProgressRatio);
 			if (this.ProgressRatio >= 1)
 			{
 				EmitSignal(SignalName.EndOfPath, this);
@@ -78,8 +66,10 @@ public partial class BaseChicken : PathFollow2D{
 		
 		if (Health <= 0 ){
 			EmitSignal(SignalName.EnemyDied, this);
+			this.QueueFree();
 		}
 	}
+	
 
 
 	/// <summary>

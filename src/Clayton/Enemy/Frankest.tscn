@@ -7,6 +7,7 @@
 size = Vector2(303.571, 305.626)
 
 [node name="ChickenEnemy3" type="PathFollow2D"]
+rotates = false
 script = ExtResource("1_7u7so")
 
 [node name="ChickenSprite" type="Sprite2D" parent="." groups=["Enemy"]]
