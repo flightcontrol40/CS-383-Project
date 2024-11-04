@@ -8,10 +8,10 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 		this.Health -= damageCounter; // decrement health
 		GD.Print(Health);
 		if (this.Health <= 0){
-			EmitSignal(SignalName.EnemySplit, this); // tell round manager chicken has split			
 			Frankest chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frankest.tscn").Instantiate<Frankest>(); //spawn new chicken
 			chicken.SetProgress(this.Progress); //set new chicken location where chicken died
 			chicken.Start(path); //start new chicken on the path
+			EmitSignal(SignalName.EnemySplit, chicken); // tell round manager chicken has split		
 			this.QueueFree(); // free old chicken
 		}
 	}

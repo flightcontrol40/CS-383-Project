@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctnk7atqkplwt"]
+[gd_scene load_steps=6 format=3 uid="uid://ctnk7atqkplwt"]
 
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="1_5m7i0"]
 [ext_resource type="Script" path="res://src/Clayton/ChickenWalkTest.cs" id="1_iwvu3"]
 [ext_resource type="Texture2D" uid="uid://dawgf32e3pu6u" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/weapons1.png" id="3_nhtoh"]
 [ext_resource type="Texture2D" uid="uid://wt7vbmlo2dmg" path="res://src/Ankit/Assets/cowimage.png" id="4_d5n5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ij6p"]
 
 [node name="ChickenWalkTest" type="Node2D"]
 script = ExtResource("1_iwvu3")
@@ -44,3 +46,9 @@ position = Vector2(1007, 91)
 rotation = 2.74715
 scale = Vector2(0.0917969, 0.0878906)
 texture = ExtResource("4_d5n5b")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+position = Vector2(353, 374)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["bullet"]]
+shape = SubResource("RectangleShape2D_7ij6p")

@@ -32,6 +32,8 @@ public partial class BaseChicken : PathFollow2D{
 
 	public Path2D path;
 	public bool started = false;
+	
+	private Area2D _collisionArea;
 
 	/// <summary>
 	/// Starts the enemy along the LevelPath
@@ -92,6 +94,26 @@ public partial class BaseChicken : PathFollow2D{
 	[Signal]	
 	public delegate void EnemySplitEventHandler(BaseChicken enemy);
 
+	public override void _Ready(){
+		// Reference the Area2D node
+		_collisionArea = GetNode<Area2D>("ChickenSprite/Area2D");
+
+		// Ensure the collision area is found
+		if (_collisionArea == null)
+		{
+			GD.Print("Collision area not found!");
+			return;
+		}
+
+		// Connect the "body_entered" signal from Area2D to detect collisions
+		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
+		GD.Print("Connected body_entered signal.");
+	}
+	
+	private void OnAreaEntered(Area2D area)
+	{
+		GD.Print("Another Area2D entered the Chicken's area:", area.Name);
+	}
 }
 
 

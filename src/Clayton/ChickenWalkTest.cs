@@ -8,17 +8,17 @@ public partial class ChickenWalkTest : Node2D
 	public override void _Ready()
 	{
 		TimerCalc1();
-		TimerCalc2();
-		TimerCalc3();
-		TimerCalc4();
-		TimerCalc5();
-		TimerCalc6();
-		TimerCalc7();
-		TimerCalc8();
-		TimerCalc9();
-		TimerCalc10();
-		TimerCalc11();
-		TimerCalc12();
+		//TimerCalc2();
+		//TimerCalc3();
+		//TimerCalc4();
+		//TimerCalc5();
+		//TimerCalc6();
+		//TimerCalc7();
+		//TimerCalc8();
+		//TimerCalc9();
+		//TimerCalc10();
+		//TimerCalc11();
+		//TimerCalc12();
 		
 	}
 
