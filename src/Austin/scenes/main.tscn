@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
 [ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/RoundManager.tscn" id="2_0n13b"]
 [ext_resource type="Script" path="res://src/Austin/scripts/custom_resources/Level.cs" id="3_j5db1"]
-[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
+[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/meadows.tscn" id="3_owqxk"]
 [ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Scenes/Shop.tscn" id="5_4201l"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
 [ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/Scenes/PlayerHealth.tscn" id="9_xq0cl"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccomjicon1i7p"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/LevelManager.cs" id="1_duoay"]
-[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="2_5rgho"]
+[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/meadows.tscn" id="2_5rgho"]
 [ext_resource type="Script" path="res://src/Austin/scripts/custom_resources/Level.cs" id="2_k6ecf"]
 
 [sub_resource type="Resource" id="Resource_go0cg"]
