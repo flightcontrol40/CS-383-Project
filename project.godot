@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TowerGame"
-run/main_scene="res://src/Clayton/MainMenu/mainmenu.tscn"
+run/main_scene="res://src/Sohan/Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 

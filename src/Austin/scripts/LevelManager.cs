@@ -35,7 +35,8 @@ public partial class LevelManager : Node
             level.MapInstance.SetOwner(this); // makes visible in scene tree, and able to be serialized into a PackedScene
         }
         // load round
-        EmitSignal(SignalName.LoadRound, (int)baseDifficutly, level);
+        GD.Print("Level loading, attempting to load round...");
+        EmitSignal(SignalName.LoadRound, level, (int)baseDifficutly);
     }
 
     public void setDifficutly(Difficulty difficulty) {
