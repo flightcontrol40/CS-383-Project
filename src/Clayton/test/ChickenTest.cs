@@ -21,14 +21,12 @@ namespace ClaytonTest {
 		
 		[TestCase]
 		public void HealthCheck() {
-			//code here
-			
+			int x = 100;
+			int y = chicken.Health;
+			AssertThat(y).IsEqual(x);	
 		}
 	
 	}
-	
-	
-	
 	
 	
 	
