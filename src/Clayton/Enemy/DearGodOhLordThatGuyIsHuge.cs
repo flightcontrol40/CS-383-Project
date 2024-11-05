@@ -17,6 +17,7 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 	}
 	
 	public override void _Ready() {
+		base._Ready();
 		speed = 250;
 		Health = 2500;
 		damageAmount = 250;

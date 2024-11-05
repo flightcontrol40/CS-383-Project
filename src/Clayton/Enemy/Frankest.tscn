@@ -15,7 +15,9 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jvi6w")
 
 [node name="Area2D" type="Area2D" parent="ChickenSprite"]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenSprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenSprite/Area2D" groups=["Enemy"]]
 position = Vector2(0.374512, 0.737305)
 shape = SubResource("RectangleShape2D_oah1a")

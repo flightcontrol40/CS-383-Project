@@ -49,6 +49,10 @@ texture = ExtResource("4_d5n5b")
 
 [node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
 position = Vector2(353, 374)
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["bullet"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_7ij6p")

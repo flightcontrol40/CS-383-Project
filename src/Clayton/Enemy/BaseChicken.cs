@@ -33,7 +33,7 @@ public partial class BaseChicken : PathFollow2D{
 	public Path2D path;
 	public bool started = false;
 	
-	private Area2D _collisionArea;
+	public Area2D _collisionArea;
 
 	/// <summary>
 	/// Starts the enemy along the LevelPath
@@ -112,7 +112,12 @@ public partial class BaseChicken : PathFollow2D{
 	
 	private void OnAreaEntered(Area2D area)
 	{
-		GD.Print("Another Area2D entered the Chicken's area:", area.Name);
+		if (area.IsInGroup("bullet")){
+		GD.Print("Another Area2D entered the Chicken's area:", area.Name);		
+		} else {
+			return;
+		}
+		
 	}
 }
 

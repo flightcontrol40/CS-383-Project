@@ -17,6 +17,7 @@ public partial class Frank : BaseChicken{
 	}
 	
 	public override void _Ready() {
+		base._Ready();
 		speed = 200;
 		Health = 300;
 		damageAmount = 30;
