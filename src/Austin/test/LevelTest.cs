@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 
-public partial class TestScene : Node2D
+public partial class LevelTest : Node2D
 {
     private PackedScene mapScene;
     private List<Level> levels;
@@ -46,11 +46,9 @@ public partial class TestScene : Node2D
 
     public void runChicken() {
         ChickensAtEnd = false;
-        List<BaseChicken> chickens = new List<BaseChicken>();
 
         foreach (Level level in levels) {
             BaseChicken newChicken = ChickenFactory.MakeKFC(Chicken.Cost.ChickenR3);
-            chickens.Add(newChicken);
 
             newChicken.Start(level.MapInstance.GetNode<Path>("Path").getPath());
             newChicken.EndOfPath += chickenAtEnd;

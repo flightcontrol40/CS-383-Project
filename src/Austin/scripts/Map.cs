@@ -12,6 +12,7 @@ public partial class Map : Node2D
 
     public override void _Process(double delta)
     {
+        return;
     }
 
     // Checks if a tower can be placed based on its area

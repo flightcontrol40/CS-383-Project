@@ -19,7 +19,7 @@ public partial class LevelManager : Node
 
     public override void _Ready()
     {
-        return;
+        level.difficultyTable = loadDifficultyTable(baseDifficulty);
     }
 
     public override void _Process(double delta)
@@ -36,6 +36,7 @@ public partial class LevelManager : Node
             AddChild(level.MapInstance); //makes map visible on the screen
             level.MapInstance.SetOwner(this); // makes visible in scene tree, and able to be serialized into a PackedScene
         }
+
         // load round
         GD.Print("Level loading, attempting to load round...");
         EmitSignal(SignalName.LoadRound, level, (int)baseDifficulty);
@@ -82,8 +83,6 @@ public partial class LevelManager : Node
         }
 
         return difficultyTable;
-
-
     }
 
 }

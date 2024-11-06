@@ -67,13 +67,13 @@ namespace AustinsTests {
             AssertThat(levelManager.mapLoaded).IsEqual(true);
         }
 
-        [TestCase(Timeout = 60000)]
+        [TestCase(Timeout=60000)]
         public async Task Stress_multipleLevels() {
             const int numInitialLevels = 380;
             bool moreStress = true;
             int totalLevels = numInitialLevels;
             int levelsPerRounnd = 10;
-            ISceneRunner runner = ISceneRunner.Load("res://src/Austin/test/test_scene.tscn");
+            ISceneRunner runner = ISceneRunner.Load("res://src/Austin/test/level_test.tscn");
             
             //setup the scene runner
             runner.SetTimeFactor(50);
