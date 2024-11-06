@@ -49,7 +49,7 @@ public partial class TestScene : Node2D
         List<BaseChicken> chickens = new List<BaseChicken>();
 
         foreach (Level level in levels) {
-            BaseChicken newChicken = ChickenFactory.MakeKFC(17);
+            BaseChicken newChicken = ChickenFactory.MakeKFC(Chicken.Cost.ChickenR3);
             chickens.Add(newChicken);
 
             newChicken.Start(level.MapInstance.GetNode<Path>("Path").getPath());

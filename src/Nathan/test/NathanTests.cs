@@ -66,7 +66,7 @@ public class DifficultyCalculatorTests {
         await runner.SimulateFrames(360);
         RoundManager round = runner.Scene().GetNode<RoundManager>("RoundManager");
         SpawnOrder order = new SpawnOrder(
-            Chicken.ChickenFactory.MakeKFC(19),
+            Chicken.ChickenFactory.MakeKFC(Chicken.Cost.ChickenR1),
             250
         );
         round.spawnQueue.Add(order);

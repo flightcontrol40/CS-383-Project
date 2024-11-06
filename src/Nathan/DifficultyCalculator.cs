@@ -1,6 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 using Chicken;
+using System;
 namespace RoundManager;
 
 /// <summary>
@@ -114,7 +115,7 @@ public partial class DifficultyCalculator: Node {
 /// <returns></returns>
     protected Godot.Collections.Array<int> getEnemyRanks(){
         Godot.Collections.Array<int> ranks = new Godot.Collections.Array<int>();
-        foreach (int rank in this.difficultyTable.EnemyRanks){
+        foreach (int rank in Enum.GetValues(typeof(Chicken.Cost))){
             ranks.Add(rank);
         }
         return ranks;
@@ -133,7 +134,7 @@ public partial class DifficultyCalculator: Node {
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
                 SpawnOrder order = new SpawnOrder(
-                        Chicken.ChickenFactory.MakeKFC(cost),
+                        Chicken.ChickenFactory.MakeKFC((Chicken.Cost)cost),
                         250
                     );
                 this.AddChild(order);
@@ -167,7 +168,7 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
                 SpawnOrder order = new SpawnOrder(
-                        Chicken.ChickenFactory.MakeKFC(cost),
+                        Chicken.ChickenFactory.MakeKFC((Chicken.Cost)cost),
                         500
                     );
                 this.AddChild(order);
@@ -215,7 +216,7 @@ public partial class HardDifficultyCalculator : DifficultyCalculator {
             int amount = getSpawnAmount(cost, ref levelValue);
             while ( amount > 0) {
                 SpawnOrder order = new SpawnOrder(
-                        Chicken.ChickenFactory.MakeKFC(cost),
+                        Chicken.ChickenFactory.MakeKFC((Chicken.Cost)cost),
                         100
                     );
                 this.AddChild(order);

@@ -9,8 +9,8 @@ public partial class MultipathTest : Node2D
 	{
 
 		// Create a chicken instance using the factory
-		BaseChicken chicken = ChickenFactory.MakeKFC(1);
-		BaseChicken chicken2 = ChickenFactory.MakeKFC(1);
+		BaseChicken chicken = ChickenFactory.MakeKFC(Chicken.Cost.ChickenR1);
+		BaseChicken chicken2 = ChickenFactory.MakeKFC(Chicken.Cost.ChickenR1);
 		//BaseChicken chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frank.tscn").Instantiate<Frank>();
 
 		// Get the path for the chicken to follow
