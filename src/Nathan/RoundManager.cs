@@ -28,11 +28,12 @@ public partial class RoundManager : Node2D {
     /// Loads a level from the level data object.
     /// </summary>
     /// <param name="levelData"></param>
-    public void loadLevel(Level levelData, Difficulty difficulty) {
+    public void loadLevel(Level levelData, int difficulty) {
+        Difficulty diff = (Difficulty)difficulty;
         this.levelData = levelData;
         this.difficultyCalculator = DifficultyCalculatorFactory.CreateCalculator(
             levelData.difficultyTable,
-            difficulty
+            diff
         );
         this.AddChild(difficultyCalculator);
     }
@@ -56,6 +57,7 @@ public partial class RoundManager : Node2D {
         spawnQueue.RemoveAt(0);
         order.Enemy.EnemyDied += HandleEnemyDiesSignal;
         order.Enemy.EndOfPath += HandleEnemyFinishedSignal;
+        order.Enemy.EnemySplit += HandleEnemySplit;
         order.Enemy.Start(this.levelData.getPath());
         this.liveEnemies.Add(order.Enemy);
         this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
@@ -67,7 +69,7 @@ public partial class RoundManager : Node2D {
     /// <param name="enemy">The enemy to free.</param>
     private void HandleEnemyDiesSignal(BaseChicken enemy) {
         // Free the enemy
-        this.levelData.PlayerMoney++; // Add to money
+        this.levelData.PlayerMoney += enemy.EnemyRank; // Add to money
         liveEnemies.Remove(enemy);
         enemy.QueueFree();
     }
@@ -87,9 +89,8 @@ public partial class RoundManager : Node2D {
     /// <summary>
     /// Enemy Split Event Handler
     /// </summary>
-    private void EnemySplitEventHandler(BaseChicken enemy) {
+    private void HandleEnemySplit(BaseChicken enemy) {
         this.liveEnemies.Add(enemy); // Start tracking the new chicken
-        this.levelData.PlayerMoney++; // Add to money
     }
     private void cleanLevel() {
         // Clean the Enemies up.
@@ -104,10 +105,9 @@ public partial class RoundManager : Node2D {
         }
     }
 
-
     public override void _Process(double delta) {
         this.currentTime += delta;
-        if ( this.roundRunning == true) {
+        if (this.roundRunning == true) {
             if (this.currentTime > this.nextSpawnTime && spawnQueue.Count > 0){
                 this.spawnEnemy();
             }
@@ -116,7 +116,7 @@ public partial class RoundManager : Node2D {
                 EmitSignal(SignalName.GameLost);
                 cleanLevel();
             }
-            else if ( 
+            else if (
                 this.levelData.playerHealth > 0 &&
                 this.roundRunning == true &&
                 this.levelData.maxRound == this.levelData.CurrentRoundNum)
