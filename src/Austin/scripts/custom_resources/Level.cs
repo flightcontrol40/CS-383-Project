@@ -11,7 +11,7 @@ using RoundManager;
 [GlobalClass]
 public partial class Level : Resource
 {
-    private const string mapScenePath = "res://src/Austin/scenes/map.tscn";
+    private const string defaultMapScenePath = "res://src/Austin/scenes/map.tscn";
 
     [Export]
     public DifficultyTable difficultyTable;
@@ -24,8 +24,8 @@ public partial class Level : Resource
     [Export]
     public int maxRound = 1;
     [Export]
-    public PackedScene mapScene = GD.Load<PackedScene>(mapScenePath);
-    private Map mapInstance;
+    public PackedScene mapScene = GD.Load<PackedScene>(defaultMapScenePath);
+    private Map mapInstance = null;
 
     public int PlayerMoney {
         get { return playerMoney; }

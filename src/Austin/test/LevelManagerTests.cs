@@ -2,6 +2,8 @@ using Godot;
 using GdUnit4;
 using static GdUnit4.Assertions;
 
+using System.Threading.Tasks;
+
 namespace AustinsTests {
     
     [TestSuite]
@@ -21,6 +23,8 @@ namespace AustinsTests {
 
             levelManager.level.mapScene = GD.Load<PackedScene>(mapScenePath);
             levelManager.level.loadMap();
+
+            AutoFree(levelManager);
         }
 
         [TestCase]
@@ -61,6 +65,43 @@ namespace AustinsTests {
 
             levelManager.level.loadMap();
             AssertThat(levelManager.mapLoaded).IsEqual(true);
+        }
+
+        [TestCase(Timeout = 60000)]
+        public async Task Stress_multipleLevels() {
+            const int numInitialLevels = 125;
+            bool moreStress = true;
+            int totalLevels = numInitialLevels;
+            ISceneRunner runner = ISceneRunner.Load("res://src/Austin/test/test_scene.tscn");
+            
+            //setup the scene runner
+            runner.SetTimeFactor(50);
+            runner.MaximizeView();
+
+            for (int i = 0; i < numInitialLevels; i++) {
+                runner.Invoke("makeLevel");
+            }
+
+            while (moreStress) {
+                runner.Invoke("runChicken");
+                while (!(runner.GetProperty("ChickensAtEnd"))) {
+                    await runner.SimulateFrames(1);
+                }
+
+                double currentFPS = Performance.GetMonitor(Performance.Monitor.TimeFps);
+                AssertThat(currentFPS).OverrideFailureMessage($"Hit {currentFPS} fps at {totalLevels} levels").IsGreaterEqual(15);
+                if (currentFPS < 15) {
+                    moreStress = false;
+                } else {
+                    runner.Invoke("makeLevel");
+                    totalLevels++;
+                }
+
+            }
+
+            GD.Print($"Number of Levels: {totalLevels}");
+
+            runner.Invoke("freeLevels");
         }
 
         [After]

@@ -1,20 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="621664e8-02bf-4348-b07e-8c1bbc385c19" name="natha@NATHAN_FRAMWORK 2024-10-29 16:03:20" runUser="NATHAN_FRAMWORK\natha" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2024-10-29T16:03:20.6323510-07:00" queuing="2024-10-29T16:03:20.6323515-07:00" start="2024-10-29T16:03:18.7651998-07:00" finish="2024-10-29T16:03:20.7003718-07:00" />
-  <TestSettings name="default" id="e650a503-7d52-4b2d-91bc-396ea7ab2b9b">
-    <Deployment runDeploymentRoot="natha_NATHAN_FRAMWORK_2024-10-29_16_03_20" />
+<TestRun id="fa264a8b-8689-4fdf-b657-5555487e161c" name="ajwbl@AUSTINS-DESKTOP 2024-11-04 22:07:18" runUser="AUSTINS-DESKTOP\ajwbl" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-11-04T22:07:18.5436273-08:00" queuing="2024-11-04T22:07:18.5436276-08:00" start="2024-11-04T22:07:16.7832871-08:00" finish="2024-11-04T22:07:18.6095099-08:00" />
+  <TestSettings name="default" id="09eeb5bb-2ce7-4a7a-93a2-23ac9cbb05e2">
+    <Deployment runDeploymentRoot="ajwbl_AUSTINS-DESKTOP_2024-11-04_22_07_18" />
   </TestSettings>
   <Results>
-    <UnitTestResult executionId="fb31a98f-d743-44ca-8486-9c37c1a18b35" testId="ef2f57cb-2e36-3d37-7103-48e2d0a6fa64" testName="UnitCalculateEasyDifficulty" computerName="NATHAN_FRAMWORK" duration="00:00:00.0580000" startTime="2024-10-29T16:03:20.3871249-07:00" endTime="2024-10-29T16:03:20.3884058-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb31a98f-d743-44ca-8486-9c37c1a18b35" />
+    <UnitTestResult executionId="eb246d1b-15e6-407e-91b2-57e85fd3455e" testId="7046f0e1-26a1-7e31-11aa-7eea0eaa6e02" testName="Stress_multipleLevels" computerName="AUSTINS-DESKTOP" duration="00:00:00.0220000" startTime="2024-11-04T22:07:18.0223880-08:00" endTime="2024-11-04T22:07:18.0232518-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb246d1b-15e6-407e-91b2-57e85fd3455e">
+      <Output>
+        <ErrorInfo>
+          <Message>WARNING:
+    Detected &lt;220&gt; orphan nodes during test execution!</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
   </Results>
   <TestDefinitions>
-    <UnitTest name="UnitCalculateEasyDifficulty" storage="c:\users\natha\documents\cs-383-project\.godot\mono\temp\bin\debug\towergame.dll" id="ef2f57cb-2e36-3d37-7103-48e2d0a6fa64">
-      <Execution id="fb31a98f-d743-44ca-8486-9c37c1a18b35" />
-      <TestMethod codeBase="C:\Users\natha\Documents\CS-383-Project\.godot\mono\temp\bin\Debug\TowerGame.dll" adapterTypeName="executor://gdunit4.testadapter/" className="RoundManager.DifficultyCalculatorTests" name="UnitCalculateEasyDifficulty" />
+    <UnitTest name="Stress_multipleLevels" storage="c:\users\ajwbl\git\cs-383-project\.godot\mono\temp\bin\debug\towergame.dll" id="7046f0e1-26a1-7e31-11aa-7eea0eaa6e02">
+      <Execution id="eb246d1b-15e6-407e-91b2-57e85fd3455e" />
+      <TestMethod codeBase="C:\Users\ajwbl\git\CS-383-Project\.godot\mono\temp\bin\Debug\TowerGame.dll" adapterTypeName="executor://gdunit4.testadapter/" className="AustinsTests.LevelManagerTests" name="Stress_multipleLevels" />
     </UnitTest>
   </TestDefinitions>
   <TestEntries>
-    <TestEntry testId="ef2f57cb-2e36-3d37-7103-48e2d0a6fa64" executionId="fb31a98f-d743-44ca-8486-9c37c1a18b35" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7046f0e1-26a1-7e31-11aa-7eea0eaa6e02" executionId="eb246d1b-15e6-407e-91b2-57e85fd3455e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <TestLists>
     <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
@@ -25,11 +32,27 @@
     <Output>
       <StdOut>CheckGdUnit4ApiVersion gdUnit4Api, Version=4.3.1.0&#xD;
 Start executing tests, 1 TestCases total.&#xD;
-Current directory set to: C:\Users\natha\Documents\CS-383-Project&#xD;
-Run with args  --path . res://gdunit4_testadapter/TestAdapterRunner.tscn --testadapter --configfile="C:\Users\natha\Documents\CS-383-Project\GdUnitRunner_174d6753-4d15-471b-b072-5ec94d88a611.cfg" &#xD;
+Current directory set to: C:\Users\ajwbl\git\CS-383-Project&#xD;
+Run with args  --path . res://gdunit4_testadapter/TestAdapterRunner.tscn --testadapter --configfile="C:\Users\ajwbl\git\CS-383-Project\GdUnitRunner_6a5722b3-8968-4fad-bd9a-23ac0517103c.cfg" &#xD;
 TestEventReportServer:: Wait for connecting GdUnit4 test report client.&#xD;
 TestEventReportServer:: TestAdapterReporter: Successfully connected to GdUnit4 test report server!&#xD;
+Error: WARNING: res://src/Austin/scenes/map.tscn:4 - ext_resource, invalid UID: uid://jc8wp10efe6g - using text path instead: res://src/Austin/assets/KnightQuest_Tiles_nospace.png&#xD;
+Error: at: load (scene/resources/resource_format_text.cpp:453)&#xD;
+Error: WARNING: res://src/Ankit/Scenes/building_platform.tscn:3 - ext_resource, invalid UID: uid://b1eo6ibn0n7q1 - using text path instead: res://src/Ankit/Assets/Platform-tower.png&#xD;
+Error: at: load (scene/resources/resource_format_text.cpp:453)&#xD;
 TestEventReportServer:: TestAdapterReporter: Disconnecting from GdUnit4 test report server.&#xD;
+Error: ERROR: 60 RID allocations of type 'P11GodotArea2D' were leaked at exit.&#xD;
+Error: ERROR: 171 RID allocations of type 'P12GodotShape2D' were leaked at exit.&#xD;
+Error: WARNING: 220 RIDs of type "CanvasItem" were leaked.&#xD;
+Error: at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2485)&#xD;
+Error: ERROR: 3 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.&#xD;
+Error: ERROR: 1 RID allocations of type 'N10RendererRD14TextureStorage13CanvasTextureE' were leaked at exit.&#xD;
+Error: WARNING: 6 RIDs of type "Texture" were leaked.&#xD;
+Error: at: finalize (servers/rendering/rendering_device.cpp:5758)&#xD;
+Error: WARNING: ObjectDB instances leaked at exit (run with --verbose for details).&#xD;
+Error: at: cleanup (core/object/object.cpp:2284)&#xD;
+Error: ERROR: 6 resources still in use at exit (run with --verbose for details).&#xD;
+Error: at: clear (core/io/resource.cpp:604)&#xD;
 Godot ends with exit code: 0&#xD;
 Run TestRunner ends with 0&#xD;
 </StdOut>
