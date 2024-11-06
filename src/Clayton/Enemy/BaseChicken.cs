@@ -38,13 +38,16 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	
 	public Area2D _collisionArea; // for use in collision detection (tower bullets)
 
+
 	/// <summary>
 	/// Makes chicken a child to a path so that path following is possible
 	/// </summary>
 	
 	public void Start(Path2D LevelPath) {
+		this.Visible = true;
 		this.path = LevelPath; 
-		this.path.AddChild(this);
+		this.Reparent(LevelPath);
+		// this.path.AddChild(this);
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path
 		
@@ -94,6 +97,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	public delegate void EnemySplitEventHandler(BaseChicken enemy);
 
 	public override void _Ready(){
+		this.Visible = false;
 		// Reference the Area2D node
 		_collisionArea = GetNode<Area2D>("ChickenSprite/Area2D");
 

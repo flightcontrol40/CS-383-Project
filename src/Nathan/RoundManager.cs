@@ -67,6 +67,7 @@ public partial class RoundManager : Node2D {
         this.liveEnemies.Add(order.Enemy);
         this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
         spawnQueue.RemoveAt(0);
+        GD.Print($"Spawning Enemy: {order.Enemy}");
     }
 
     /// <summary>

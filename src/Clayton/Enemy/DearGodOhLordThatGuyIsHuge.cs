@@ -18,10 +18,9 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 			Frankest chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frankest.tscn").Instantiate<Frankest>();
 			chicken.SetProgress(this.Progress); //set new chicken location where chicken died
 			chicken.Start(path); //start new chicken on the path
-			EmitSignal(SignalName.EnemySplit, chicken); // tell round manager chicken has split		
-			EmitSignal(SignalName.EnemyDied, this); // tell round manager old chicken has died	
+			EmitSignal(SignalName.EnemySplit, chicken); // tell round manager chicken has split
+			EmitSignal(SignalName.EnemyDied, this); // tell round manager old chicken has died
 		}
-	}
 	}
 	
 	public override void _Ready() {

@@ -60,17 +60,17 @@ public partial class LevelManager : Node
         switch (difficulty) {
             case Difficulty.Hard:
                 GD.Print("Set Difficulty to Hard");
-                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50, 250};
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{1, 14, 17, 19};
                 roundDifficulty = 10000;
                 break;
             case Difficulty.Medium:
                 GD.Print("Set Difficulty to Medium");
-                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{1, 14, 17, 19};
                 roundDifficulty = 5000;
                 break;
             default:
                 GD.Print("Set Difficulty to Easy");
-                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{5, 50};
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{1, 14, 17, 19};
                 roundDifficulty = 1000;
                 break;
         }
