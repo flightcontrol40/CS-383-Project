@@ -8,7 +8,7 @@ public partial class Frank : BaseChicken{
 		Speed = 200; // Set tier 2 speed 
 		Health = 300; // Set tier 2 health
 		damageAmount = 30; // Set tier 2 damage 
-		EnemyRank = 2;
+		EnemyRank = 2; // Set rank for round manager money
 	}
 	
 	public override void TakeDamage(int damageCounter){

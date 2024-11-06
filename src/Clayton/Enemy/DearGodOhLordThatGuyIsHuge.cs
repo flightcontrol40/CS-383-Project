@@ -8,7 +8,7 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 		Speed = 250; // Set tier 4 speed
 		Health = 2500; // Set tier 4 health
 		damageAmount = 250; // Set tier 4 damage 
-		EnemyRank = 4;
+		EnemyRank = 4; // Set rank for round manager money
 	}
 
 	public override void TakeDamage(int damageCounter){

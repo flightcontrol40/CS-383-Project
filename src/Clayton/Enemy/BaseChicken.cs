@@ -3,22 +3,34 @@ using System;
 
 namespace Chicken;
 
+public enum Cost{
+	ChickenR1 = 1,
+	ChickenR2 = 2,
+	ChickenR3 = 4,
+	ChickenR4 = 8,
+}
+
 public static partial class ChickenFactory { //Factory Pattern used by round manager 
 
-	public static BaseChicken MakeKFC(int cost){
+	public static BaseChicken MakeKFC(Cost cost){
 		BaseChicken chicken; // Sets initial chicken variable as BaseChicken
-		if (cost < 20 && cost > 18){ 
+		switch (cost){
+			case Cost.ChickenR4:
 			// Instantiates Tier 4 chicken
 			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/DearGodOhLordThatGuyIsHuge.tscn").Instantiate<DearGodOhLordThatGuyIsHuge>();
-		}else if (cost < 18 && cost > 16){
+			break;
+			case Cost.ChickenR3: 	
 			// Instantiates Tier 3 chicken
 			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frankest.tscn").Instantiate<Frankest>();
-		}else if(cost < 15 && cost > 13){
+			break;
+			case Cost.ChickenR2:
 			// Instantiates Tier 2 chicken
 			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/Frank.tscn").Instantiate<Frank>();
-		}else {
+			break;
+			default:
 			// Instantiates base chicken
 			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();
+			break;
 		}
 		// Returns chicken of varing tier based on cost input into factory
 		return chicken;
@@ -31,7 +43,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	public int Health = 100; // Set base health
 	public int Speed = 100; // Set base speed
 	public int damageAmount {protected set; get; } = 10; // Set base damage
-	public int EnemyRank = 1; //set rank for round manager
+	public int EnemyRank = 1; //set rank for round manager money
 
 	public Path2D path; // Create variable for path following
 	public bool started = false; // Used in start function to start chicken movement on path
