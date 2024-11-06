@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://da6kkqmvuvyce"]
 
 [ext_resource type="Script" path="res://src/Clayton/Enemy/BaseChicken.cs" id="1_u08ub"]
-[ext_resource type="Texture2D" uid="uid://y0cxajm7d1ss" path="res://src/Clayton/Assets/BaseChicken.png" id="2_0wekt"]
+[ext_resource type="Texture2D" uid="uid://cor3t5rri5j6h" path="res://src/Clayton/Assets/BaseChicken.png" id="2_0wekt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md4sb"]
 size = Vector2(303.571, 305.626)

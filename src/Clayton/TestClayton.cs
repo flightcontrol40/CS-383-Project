@@ -32,7 +32,7 @@ public partial class TestClayton : PathFollow2D
 			var scene = ResourceLoader.Load<PackedScene>(TEST_CHICKEN);
 			var instance = scene.Instantiate<BaseChicken>();
 		
-			double x = instance.speed;
+			double x = instance.Speed;
 
 			return (x == 0.1) ? new Result(true, "Proved that speed is 0.1") : Result.Failure;
 		}
