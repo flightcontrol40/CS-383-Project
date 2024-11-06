@@ -6,3 +6,33 @@
 script = ExtResource("1_bkuhw")
 
 [node name="SpawnChickenTimer" type="Timer" parent="."]
+
+[node name="Stats" type="HBoxContainer" parent="."]
+offset_left = 447.0
+offset_top = 328.0
+offset_right = 652.0
+offset_bottom = 351.0
+
+[node name="Titles" type="VBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="Stats/Titles"]
+layout_mode = 2
+text = "Current Number of Levels:"
+horizontal_alignment = 2
+
+[node name="FPS" type="Label" parent="Stats/Titles"]
+layout_mode = 2
+text = "Current FPS:"
+horizontal_alignment = 2
+
+[node name="Values" type="VBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="Stats/Values"]
+layout_mode = 2
+text = "0"
+
+[node name="FPS" type="Label" parent="Stats/Values"]
+layout_mode = 2
+text = "0"

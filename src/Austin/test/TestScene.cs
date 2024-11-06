@@ -27,13 +27,15 @@ public partial class TestScene : Node2D
         return;
     }
 
-    public void makeLevel() {
-        Level newLevel = new Level();
-        newLevel.mapScene = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
-        levels.Add(newLevel);
+    public void makeLevel(int numLevels) {
+        for (int i = 0; i < numLevels; i++) {
+            Level newLevel = new Level();
+            newLevel.mapScene = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
+            levels.Add(newLevel);
 
-        Map newMap = newLevel.loadMap();
-        AddChild(newMap);
+            Map newMap = newLevel.loadMap();
+            AddChild(newMap);
+        }
     }
 
     public void freeLevels() {
@@ -59,4 +61,5 @@ public partial class TestScene : Node2D
         ChickensAtEnd = true;
         enemy.QueueFree();
     }
+
 }

@@ -69,18 +69,17 @@ namespace AustinsTests {
 
         [TestCase(Timeout = 60000)]
         public async Task Stress_multipleLevels() {
-            const int numInitialLevels = 125;
+            const int numInitialLevels = 380;
             bool moreStress = true;
             int totalLevels = numInitialLevels;
+            int levelsPerRounnd = 10;
             ISceneRunner runner = ISceneRunner.Load("res://src/Austin/test/test_scene.tscn");
             
             //setup the scene runner
             runner.SetTimeFactor(50);
             runner.MaximizeView();
 
-            for (int i = 0; i < numInitialLevels; i++) {
-                runner.Invoke("makeLevel");
-            }
+            runner.Invoke("makeLevel", numInitialLevels);
 
             while (moreStress) {
                 runner.Invoke("runChicken");
@@ -93,8 +92,8 @@ namespace AustinsTests {
                 if (currentFPS < 15) {
                     moreStress = false;
                 } else {
-                    runner.Invoke("makeLevel");
-                    totalLevels++;
+                    runner.Invoke("makeLevel", levelsPerRounnd);
+                    totalLevels += levelsPerRounnd;
                 }
 
             }
@@ -111,26 +110,3 @@ namespace AustinsTests {
         }
     }
 }
-/*
-    [CSTestFunction] public static Result mapStress() {
-        init();
-        List<Map> mapInstances = new List<Map>();
-        var watch = new System.Diagnostics.Stopwatch();
-        System.Collections.Generic.Dictionary<int, long> results = new System.Collections.Generic.Dictionary<int, long> {};
-
-        #pragma warning restore format
-
-        for (int i = 0; i < 100000; i++) {
-            watch.Start();
-            if(i % 1000 == 0) {
-                results.Add(i, watch.ElapsedMilliseconds);
-                watch.Reset();
-            }
-            
-            mapInstances.Append<Map>(levelResource.mapScene.Instantiate<Map>());
-        }
-
-        var asString = string.Join(System.Environment.NewLine, results);
-        return new Result(true, $"Results: {asString}");
-    }
-*/
