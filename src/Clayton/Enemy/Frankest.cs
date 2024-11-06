@@ -5,7 +5,7 @@ using Chicken;
 public partial class Frankest : BaseChicken{
 
 	public Frankest(){
-		Speed = 400; // Set tier 3 speed
+		Speed = 250; // Set tier 3 speed
 		Health = 900; // Set tier 3 health
 		damageAmount = 90; // Set tier 3 damage 
 		EnemyRank = 3; // Set rank for round manager money

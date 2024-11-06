@@ -19,20 +19,20 @@ namespace ClaytonTest {
 		
 		[TestCase]
 		public void HealthCheck4() {
-			int x = 900;
+			int x = 2500;
 			int y = chicken4.Health;
 			AssertThat(y).IsEqual(x);
 		}
 		[TestCase]
 		public void DamageCheck4() {
-			int x = 90;
+			int x = 250;
 			int y = chicken4.damageAmount;
 			AssertThat(y).IsEqual(x);
 		}
 		
 		[TestCase]
 		public void SpeedCheck4() {
-			int x = 400;
+			int x = 100;
 			int y = chicken4.Speed;
 			AssertThat(y).IsEqual(x);
 		}

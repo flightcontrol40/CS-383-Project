@@ -33,7 +33,7 @@ namespace ClaytonTest {
 		
 		[TestCase]
 		public void SpeedCheck() {
-			int x = 100;
+			int x = 150;
 			int y = chicken.Speed;
 			AssertThat(y).IsEqual(x);
 		}

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/meadows.tscn" id="1_5m7i0"]
 [ext_resource type="Script" path="res://src/Clayton/ChickenWalkTest.cs" id="1_iwvu3"]
-[ext_resource type="Texture2D" uid="uid://dawgf32e3pu6u" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/weapons1.png" id="3_nhtoh"]
-[ext_resource type="Texture2D" uid="uid://wt7vbmlo2dmg" path="res://src/Ankit/Assets/cowimage.png" id="4_d5n5b"]
+[ext_resource type="Texture2D" uid="uid://c5ehwpqsl85kt" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/weapons1.png" id="3_nhtoh"]
+[ext_resource type="Texture2D" uid="uid://dl3ourqlubjmi" path="res://src/Ankit/Assets/cowimage.png" id="4_d5n5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ij6p"]
 

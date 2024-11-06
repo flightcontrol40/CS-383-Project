@@ -41,7 +41,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
 	[Export]
 	public int Health = 100; // Set base health
-	public int Speed = 100; // Set base speed
+	public int Speed = 150; // Set base speed
 	public int damageAmount {protected set; get; } = 10; // Set base damage
 	public int EnemyRank = 1; //set rank for round manager money
 

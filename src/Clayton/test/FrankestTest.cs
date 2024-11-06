@@ -32,7 +32,7 @@ namespace ClaytonTest {
 		
 		[TestCase]
 		public void SpeedCheck3() {
-			int x = 400;
+			int x = 250;
 			int y = chicken3.Speed;
 			AssertThat(y).IsEqual(x);
 		}
