@@ -7,6 +7,10 @@ public partial class Main : Node
     public override void _Ready()
     {
         GetNode<Timer>("MoneyTimer").Start(0.1);
+        // Connect Signals
+        RoundManager.RoundManager roundManager = GetNode<RoundManager.RoundManager>("RoundManager");
+        LevelManager levelManager = GetNode<LevelManager>("LevelManager");
+        levelManager.LoadRound += roundManager.loadLevel;
 
     }
 
@@ -14,7 +18,7 @@ public partial class Main : Node
     public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed("loadLevel")) {
-            GetNode<LevelManager>("LevelManager").setDifficutly(RoundManager.Difficulty.Easy);
+            GetNode<LevelManager>("LevelManager").setDifficulty(RoundManager.Difficulty.Easy);
             GetNode<LevelManager>("LevelManager").OnLoadLevel();
         }
     }

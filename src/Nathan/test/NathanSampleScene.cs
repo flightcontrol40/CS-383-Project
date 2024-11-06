@@ -6,15 +6,17 @@ using RoundManager;
 
 public partial class NathanSampleScene : Node2D
 {
-    DifficultyTable difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleHardTable.tres");
+    DifficultyTable difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/test/SampleHardTable.tres");
     RoundManager.RoundManager roundManager;
     RoundManager.DifficultyCalculator difficultyCalculator;
     List<SpawnOrder> spawnOrders;
-    
+    Level level;
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready(){
         this.roundManager = this.GetNode<RoundManager.RoundManager>("RoundManager");
+        level = GD.Load<Level>("res://src/Nathan/test/TestLevel.tres");
         this.difficultyCalculator = DifficultyCalculatorFactory.CreateCalculator(
             this.difficultyTable,
             Difficulty.Hard
@@ -38,5 +40,6 @@ public partial class NathanSampleScene : Node2D
         }
         return this.spawnOrders.Count;
     }
+
 
 }

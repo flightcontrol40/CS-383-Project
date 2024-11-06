@@ -12,11 +12,11 @@ public partial class RoundManager : Node2D {
 
     private DifficultyCalculator difficultyCalculator;
     private Level levelData;
-    private List<SpawnOrder> spawnQueue;
-    private List<BaseChicken> liveEnemies;
+    public List<SpawnOrder> spawnQueue;
+    public List<BaseChicken> liveEnemies;
     private double currentTime;
     private double nextSpawnTime;
-    private bool roundRunning = false;
+    public bool roundRunning = false;
 
     public override void _Ready() {
         base._Ready();
@@ -29,6 +29,7 @@ public partial class RoundManager : Node2D {
     /// </summary>
     /// <param name="levelData"></param>
     public void loadLevel(Level levelData, int difficulty) {
+        GD.PrintErr($"Setting Difficulty: {difficulty}, LevelData: {levelData}");
         Difficulty diff = (Difficulty)difficulty;
         this.levelData = levelData;
         this.difficultyCalculator = DifficultyCalculatorFactory.CreateCalculator(
@@ -36,14 +37,19 @@ public partial class RoundManager : Node2D {
             diff
         );
         this.AddChild(difficultyCalculator);
+        this.startRound();
     }
     public void startRound() {
-        if (this.levelData.CurrentRoundNum >= this.levelData.maxRound){
+        GD.Print("Starting Round");
+        if (this.levelData.CurrentRoundNum <= this.levelData.maxRound){
+            GD.Print($"Calculating SpawnOrder for Round: {this.levelData.CurrentRoundNum}");
             this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
                 this.levelData.CurrentRoundNum
             );
+            GD.Print($"Spawn Queue: {this.spawnQueue}");
             this.roundRunning = true;
             if (spawnQueue.Count > 0){
+                GD.Print("Setting Next Spawn Time");
                 this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
             }
         }
@@ -54,13 +60,13 @@ public partial class RoundManager : Node2D {
             return;
         }
         SpawnOrder order = spawnQueue[0];
-        spawnQueue.RemoveAt(0);
         order.Enemy.EnemyDied += HandleEnemyDiesSignal;
         order.Enemy.EndOfPath += HandleEnemyFinishedSignal;
         order.Enemy.EnemySplit += HandleEnemySplit;
         order.Enemy.Start(this.levelData.getPath());
         this.liveEnemies.Add(order.Enemy);
         this.nextSpawnTime = this.currentTime + (order.spawnDelay / 1000.0);
+        spawnQueue.RemoveAt(0);
     }
 
     /// <summary>
@@ -107,8 +113,10 @@ public partial class RoundManager : Node2D {
 
     public override void _Process(double delta) {
         this.currentTime += delta;
+        // GD.Print("Processing Round");
         if (this.roundRunning == true) {
             if (this.currentTime > this.nextSpawnTime && spawnQueue.Count > 0){
+                GD.Print("Spawning Enemy");
                 this.spawnEnemy();
             }
             if (this.levelData.playerHealth < 0 ){

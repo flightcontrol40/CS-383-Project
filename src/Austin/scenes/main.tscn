@@ -43,7 +43,6 @@ text = "This is a test"
 [node name="PlayerHealth" parent="." instance=ExtResource("9_xq0cl")]
 position = Vector2(513, 1)
 
-[connection signal="LoadRound" from="LevelManager" to="RoundManager" method="loadLevel"]
 [connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]
 [connection signal="TowerBought" from="Shop" to="Tutorial" method="_on_shop_tower_bought"]
 [connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]

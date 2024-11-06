@@ -8,14 +8,14 @@ public partial class LevelManager : Node
     private const string difficultyTablePath = "res://src/Nathan/CustomResources/DifficultyTable.cs";
 
 	[Export]
-    public Difficulty baseDifficutly = Difficulty.Easy;
+    public Difficulty baseDifficulty = Difficulty.Easy;
     [Export]
     public Level level;
     private bool levelLoaded = false;
     public bool mapLoaded { get { return IsInstanceValid(level.MapInstance); } }
 
     [Signal]
-    public delegate void LoadRoundEventHandler(int difficulty, Level level);
+    public delegate void LoadRoundEventHandler(Level level, int difficulty);
 
     public override void _Ready()
     {
@@ -38,16 +38,16 @@ public partial class LevelManager : Node
         }
         // load round
         GD.Print("Level loading, attempting to load round...");
-        EmitSignal(SignalName.LoadRound, (int)baseDifficutly, level);
+        EmitSignal(SignalName.LoadRound, level, (int)baseDifficulty);
     }
 
-    public void setDifficutly(Difficulty difficulty) {
+    public void setDifficulty(Difficulty difficulty) {
         if (!levelLoaded) {
             // create new difficulty table
             DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
 
             // book keeping
-            baseDifficutly = difficulty;
+            baseDifficulty = difficulty;
             level.difficultyTable = newDifficultyTable;
         }
     }

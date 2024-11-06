@@ -21,6 +21,7 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 			EmitSignal(SignalName.EnemySplit, chicken); // tell round manager chicken has split		
 			EmitSignal(SignalName.EnemyDied, this); // tell round manager old chicken has died	
 	}
+	}
 	
 	public override void _Ready() {
 		base._Ready();

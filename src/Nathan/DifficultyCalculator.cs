@@ -159,7 +159,8 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();
         // Lower Level Value on Easy
-        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
+        GD.Print($"Round Number: {roundNumber}");
+        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber];
         levelValue = (int)((float) levelValue * 0.8);
         while ( enemies.Count > 0 ){
             int cost = enemies.Max();

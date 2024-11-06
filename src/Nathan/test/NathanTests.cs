@@ -6,6 +6,8 @@ using static GdUnit4.Assertions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GdUnit4.Asserts;
+using Castle.Components.DictionaryAdapter.Xml;
+
 
 [TestSuite]
 public class DifficultyCalculatorTests {
@@ -15,7 +17,7 @@ public class DifficultyCalculatorTests {
     /// </summary>
     [TestCase]
     public void UnitCalculateEasyDifficulty() {
-        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleEasyTable.tres");
+        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/test/SampleEasyTable.tres");
         DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(
             difficultyTable,
             Difficulty.Easy
@@ -32,7 +34,7 @@ public class DifficultyCalculatorTests {
     /// </summary>
     [TestCase]
     public void UnitCalculateMediumDifficulty() {
-        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleMediumTable.tres");
+        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/test/SampleMediumTable.tres");
         DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(
             difficultyTable,
             Difficulty.Medium
@@ -47,7 +49,7 @@ public class DifficultyCalculatorTests {
     /// </summary>
     [TestCase]
     public void UnitCalculateHardDifficulty() {
-        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/Tests/SampleHardTable.tres");
+        var difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/test/SampleHardTable.tres");
         DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(
             difficultyTable,
             Difficulty.Hard
@@ -56,9 +58,28 @@ public class DifficultyCalculatorTests {
         AssertArray(spawnOrders).HasSize(1089);
     }
 
+
+    [TestCase]
+    public async Task SpawnChickenTest(){
+        ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/test/NathanSampleScene.tscn");
+        runner.MaximizeView();
+        await runner.SimulateFrames(360);
+        RoundManager round = runner.Scene().GetNode<RoundManager>("RoundManager");
+        SpawnOrder order = new SpawnOrder(
+            Chicken.ChickenFactory.MakeKFC(19),
+            250
+        );
+        round.spawnQueue.Add(order);
+        round.roundRunning = true;
+        await runner.SimulateFrames(600);
+
+
+    }
+
+
     [TestCase]
     public async Task StressCalculateDifficultyTest() {
-        ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/Tests/NathanSampleScene.tscn");
+        ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/test/NathanSampleScene.tscn");
         runner.MaximizeView();
         bool under_load = true;
         string total_enemies = "";
@@ -84,5 +105,23 @@ public class DifficultyCalculatorTests {
             IStringAssert.Compare.GREATER_THAN
         );
     }
+
+    [TestCase]
+    public async Task LoadLevelTest(){
+        ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/test/NathanSampleScene.tscn");
+        runner.MaximizeView();
+        await runner.SimulateFrames(360);
+        RoundManager round = runner.Scene().GetNode<RoundManager>("RoundManager");
+        Level level = GD.Load<Level>("res://src/Nathan/test/TestLevel.tres");
+        AssertThat(level).IsInstanceOf<Level>();
+        round.loadLevel(level, 1);
+
+
+        // round.loadLevel(level, (int)Difficulty.Medium);
+        for (int i =0; i< 10; i++){
+            await runner.SimulateFrames(360);
+        }
+    }
+
 
 }
