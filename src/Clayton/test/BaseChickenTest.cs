@@ -10,9 +10,8 @@ namespace ClaytonTest {
 	public partial class BaseChickenTests : Node
 	{
 		
-		private static BaseChicken chicken;
+		public BaseChicken chicken;
 		[Before] //load in chickens
-	
 		public void ChickenLoader() {
 			//load the base chicken
 			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();
@@ -23,12 +22,29 @@ namespace ClaytonTest {
 		public void HealthCheck() {
 			int x = 100;
 			int y = chicken.Health;
-			AssertThat(y).IsEqual(x);	
+			AssertThat(y).IsEqual(x);
+		}
+		[TestCase]
+		public void DamageCheck() {
+			int x = 10;
+			int y = chicken.damageAmount;
+			AssertThat(y).IsEqual(x);
+		}
+		
+		[TestCase]
+		public void SpeedCheck() {
+			int x = 100;
+			int y = chicken.Speed;
+			AssertThat(y).IsEqual(x);
+		}
+		
+		
+		
+		[After]
+		public void ChickenDeLoader(){
+			chicken.Free();
+			
 		}
 	
 	}
-	
-	
-	
-	
 }

@@ -24,11 +24,9 @@ public partial class BaseChicken : PathFollow2D{
 
 	[Export]
 	public int Health = 100;
-	public double speed = 100;
-
+	public int Speed = 100;
 	public int damageAmount {protected set; get; } = 10;
-
-	public int EnemyRank { get; } // get rid of maybe
+	public int EnemyRank = 1;
 
 	public Path2D path;
 	public bool started = false;
@@ -53,7 +51,7 @@ public partial class BaseChicken : PathFollow2D{
 	public override void _Process(double delta){
 		if (started == true){
 			// Increment the progress ratio based on the speed and delta time
-			this.SetProgress(Progress + (float)(delta * speed));
+			this.SetProgress(Progress + (float)(delta * Speed));
 			//GD.Print(ProgressRatio);
 			if (this.ProgressRatio >= 1)
 			{
@@ -72,7 +70,6 @@ public partial class BaseChicken : PathFollow2D{
 		}
 	}
 	
-
 	/// <summary>
 	// The Godot Signal to emit if the enemy dies before reaching the end of the
 	// Path2D
@@ -98,79 +95,17 @@ public partial class BaseChicken : PathFollow2D{
 		// Reference the Area2D node
 		_collisionArea = GetNode<Area2D>("ChickenSprite/Area2D");
 
-		// Ensure the collision area is found
-		if (_collisionArea == null)
-		{
-			GD.Print("Collision area not found!");
-			return;
-		}
-
 		// Connect the "body_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
-		GD.Print("Connected body_entered signal.");
 	}
 	
 	private void OnAreaEntered(Area2D area)
 	{
 		if (area.IsInGroup("bullet")){
-		GD.Print("Another Area2D entered the Chicken's area:", area.Name);		
+			return;	
 		} else {
 			return;
 		}
 		
 	}
 }
-
-
-//public partial class Frank : BaseChicken{
-	//new public int Health = 300;
-	//new public double speed = 200;
-	//new public int damageAmount { get; } = 30;
-	////new public int EnemyRank { get; } = 5;
-//
-	//public override void TakeDamage(int damageCounter){
-		//this.Health -= damageCounter;
-		//if (this.Health <= 0){
-			////change image / downgrade health, damage, speed
-		//}
-	//}
-	//// base: emit death
-	////change image / downgrade health, damage, speed
-	//
-//
-//}
-
-
-//public partial class Frankest : BaseChicken{
-	//new public int Health = 900;
-	//new public double speed = 0.3;
-	//new public int damageAmount { get; } = 90;
-	////new public int EnemyRank { get; } = 50;
-//
-	//public override void TakeDamage(int damageCounter){
-		//this.Health -= damageCounter;
-		//if (this.Health <= 0){
-			////change image / downgrade health, damage, speed
-		//}
-//
-//
-	//}
-//
-//}
-
-
-//public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
-	//new public int Health = 2500;
-	//new public double speed = 0.1;
-//
-	//new public int damageAmount { get; } = 250;
-//
-	////new public int EnemyRank { get; } = 250;
-//
-	//public override void TakeDamage(int damageCounter){
-		//this.Health -= damageCounter;
-		//if (this.Health <= 0){
-			////change image / downgrade health, damage, speed
-		//}
-	//}
-//}
