@@ -115,7 +115,6 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
 		// Connect the "area_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
-		GD.Print("Connected body_entered signal.");
 	}
 	
 	private void OnAreaEntered(Area2D area)

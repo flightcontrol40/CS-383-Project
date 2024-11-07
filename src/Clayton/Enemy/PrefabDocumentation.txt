@@ -1,0 +1,35 @@
+Readme for BaseChicken Prefab:
+For my feature of the Kill Mo' Chickens game I have worked on the enemy features. This includes image detection for when a tower's bullet hits my chicken, integration with the round manager for spawning chicken entities on a map, integration with the level manager for path following, chicken splitting for enemy variation when a chicken dies and creating multiple enemy classes for variation of game enemies. 
+
+Explaining the BaseChicken feature by function is as follows: 
+
+Chicken Namespace: 
+This namespace refers to any function that I call within the BaseChicken class so that I can use it in other classes and scripts. This is used In my chicken test features for all chicken tests using GDUnit4 and all sub classes of the chicken (Frank, Frankest, DearGodOhLordThatGuyIsHuge). This allows for me to call certain functions defined in the BaseChicken class in other functions and scripts to minimize integration issues. 
+
+Enum Cost:
+This refers to the cost value set for each class of my chicken and is used in the ChickenFactory class to spawn each of my chickens. The Enum value is used by the round manager for assigning a cost to each chicken so that defining the amount of chickens spawned per round is possible and can be entrusted to a function that is called per round. 
+
+Chicken Factory Cass:
+The ChickenFactory class includes the MakeKFC function in which all variations of my chicken enemy are instantiated. To properly instantiate each chicken the Enum value is used in a switch function to denote which chicken should be spawned when a value is passed to the MakeKFC function. Each function loads a packed scene of a varying chicken type which will dynamically assign the take damage function (will be explained later) and health, speed, damage, and rank values (in the constructor function). This allows for the round manager to call this function with a certain input when spawning a chicken into the level. This function also takes into account the level manager script because that script is responsible for assigning a specific cost to each round that will in turn spawn a predetermined amount of chickens per round. 
+
+BaseChicken Class: 
+This class is made to be a subclass of PathFollow2D so that certain functions and variable called in the function to enable path following area recognized by the script. The first part of this class assigns the base values for Health, Speed, damageAmount (how much damage the chicken does to the player when it reaches the end of the path) EnemyRank (used for amount of money awarded to player when a chicken is killed). The BaseChicken class also assigns a path variable (For assigning a path to a chicken to follow), sets the started value to false (Used in _Process function), and creates a variable for the Area2D (For collision detection). 
+
+Start function:
+The start function initially sets the visibility of the chicken entity to true (Makes the chicken visible when it starts along the path (set to false in the ready function)). The start function also assigns the preassigned path to the chicken (this) and reparents the path LevelPath to the chicken entity that was instantiated. This makes sure that when the chicken starts along the path it follows the correct path dependent on the level. The start function then assigns the started value to true (used in _Process function) so that the chicken can then begin to follow the path. The final thing that the Start function does is set the SetLoop function to false so that the chicken does not loop the path more than once. 
+
+_Process function:
+This function uses an if statement that triggers when the Started value == true (set to true in the Start function). When the value is set to true it uses the delta variable multiplied by the Speed variable to increment the chickens Progress along the path. This means that the chicken will begin following the path until it reaches the end. When it reaches the end of the path it will emit a signal that it has finished the path (Used by the round manager and Health bar) which will do damage to the player and free the chicken from memory. 
+
+TakeDamage function (Dynamic Binding):
+This function is what I am using for my dynamic binding example in my code. At a base level this function simply decrements the Health variable of the chicken whenever it is hit by a bullet. When Health reaches 0 it will emit a signal that tells the round manager that the chicken has dies and should be freed from the path and memory. In the other classed of my chicken, this function is used to "split" the chicken into the tier below it so that the lower tier chicken will continue along the path in place of the higher tier chicken until it dies as a base chicken. This function takes the variable damageCounter which will be taken from the tower so that the function knows how much damage a tower does to the chicken per hit. 
+
+Signals:
+There are three signals that are used by the chicken classes, EnemyDied, EndOfPath, and EnemySplit. The EnemyDied signal tells the round manager to free the chicken from the path and memory when a base chicken dies and can no longer split to a lower tier. The EndOfPath signal tells the health bar and round manager that the chicken has reached the end of path so that it can both do damage to the player and be freed from memory. The EnemySplit signal tells the round manager that the higher tier of chicken has died and should be freed from memory and that it has split into a lower tier chicken that should be denoted as still on the path (For keeping track of chickens per round).
+
+_Ready function:
+This function is used by all chicken classes. The first thing it does is set the visibility of the chicken to false, so that when a chicken is spawned it is not visible on screen until it is started along the path. What it does next is connect the _collisionArea value to the Area2D node so that it is properly able to detect collision using the OnAreaEntered function. This will allow for it to properly call the TakeDamage function when a chicken is hit by a bullet. 
+
+OnAreaEntered function:
+This function takes the Area2D area as a parameter and calls the TakeDamage function when the chicken's area collides with an area assigned to the bullet global group. This makes sure that the chicken does not detect collisions with other chickens or objects on the map that are not tower bullets. This is essential to ensuring that the chicken can properly take damage and be eliminated by the towers on the map. 
+
