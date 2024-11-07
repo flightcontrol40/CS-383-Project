@@ -6,18 +6,42 @@ using Chicken;
 
 /// <summary>
 /// The Round Manager for Processing/tracking round data across the rounds of
-/// a level.
+/// a level. The class is also in charge of spawning the enemies, tracking round
+/// health and money, signaling when a round ends, and signaling when the player
+/// wins or loses
 /// </summary>
 public partial class RoundManager : Node2D {
 
+    /// <summary>
+    /// The DifficultyCalculator for the selected difficulty
+    /// </summary>
     private DifficultyCalculator difficultyCalculator;
+    
+    /// <summary>
+    /// The Loaded Level object
+    /// </summary>
     private Level levelData;
+
+    /// <summary>
+    /// Holds the queue of enemy's to spawn
+    /// </summary>
     public List<SpawnOrder> spawnQueue;
+
+    /// <summary>
+    /// Holds the currently living enemies
+    /// </summary>
     public List<BaseChicken> liveEnemies;
     private double currentTime;
     private double nextSpawnTime;
+
+    /// <summary>
+    /// Indicates if a round is running.
+    /// </summary>
     public bool roundRunning = false;
 
+    /// <summary>
+    /// Called when the object enters the scene tree. Sets up queue objects
+    /// </summary>
     public override void _Ready() {
         base._Ready();
         this.spawnQueue = new List<SpawnOrder> {};
@@ -25,9 +49,10 @@ public partial class RoundManager : Node2D {
     }
 
     /// <summary>
-    /// Loads a level from the level data object.
+    /// Loads a level from a <c>Level</c> object and creates a difficulty table. 
     /// </summary>
-    /// <param name="levelData"></param>
+    /// <param name="levelData">The current level data.</param>
+    /// <param name="difficulty">Indicates the Difficulty to use.</param>
     public void loadLevel(Level levelData, int difficulty) {
         GD.PrintErr($"Setting Difficulty: {difficulty}, LevelData: {levelData}");
         Difficulty diff = (Difficulty)difficulty;
@@ -37,8 +62,13 @@ public partial class RoundManager : Node2D {
             diff
         );
         this.AddChild(difficultyCalculator);
-        this.startRound();
     }
+
+    /// <summary>
+    /// Called to start a round.
+    /// This method starts the next round, getting the <c>SpawnOrder</c>'s 
+    /// from the <c>DifficultyCalculator</c>, and begins the spawning timer.
+    /// </summary>
     public void startRound() {
         GD.Print("Starting Round");
         if (this.levelData.CurrentRoundNum <= this.levelData.maxRound){
@@ -55,6 +85,9 @@ public partial class RoundManager : Node2D {
         }
     }
 
+    /// <summary>
+    /// Internal method used for spawning the next enemy in the spawn queue
+    /// </summary>
     private void spawnEnemy() {
         if (spawnQueue.Count == 0){
             return;
@@ -71,9 +104,9 @@ public partial class RoundManager : Node2D {
     }
 
     /// <summary>
-    /// Enemy Death Signal Handler.
+    /// Enemy Death Signal Handler. 
     /// </summary>
-    /// <param name="enemy">The enemy to free.</param>
+    /// <param name="enemy">The associated enemy.</param>
     private void HandleEnemyDiesSignal(BaseChicken enemy) {
         // Free the enemy
         this.levelData.PlayerMoney += enemy.EnemyRank; // Add to money
@@ -84,7 +117,7 @@ public partial class RoundManager : Node2D {
     /// <summary>
     /// Enemy Finished path Signal Handler.
     /// </summary>
-    /// <param name="enemy">The enemy to free.</param>
+    /// <param name="enemy">The associated enemy.</param>
     private void HandleEnemyFinishedSignal(BaseChicken enemy) {
         // Do Level Damage
         this.levelData.playerHealth -= enemy.damageAmount;
@@ -94,24 +127,36 @@ public partial class RoundManager : Node2D {
     }
 
     /// <summary>
-    /// Enemy Split Event Handler
+    /// Enemy Split Event Handler.
     /// </summary>
+    /// <param name="enemy">The associated enemy.</param>
     private void HandleEnemySplit(BaseChicken enemy) {
         this.liveEnemies.Add(enemy); // Start tracking the new chicken
     }
+
+    /// <summary>
+    /// Clears spawn queue and all loaded enemies. Called before exporting the
+    /// level data to save
+    /// </summary>
     private void cleanLevel() {
         // Clean the Enemies up.
         foreach ( var spawnOrder in spawnQueue ){
             liveEnemies.Add(spawnOrder.Enemy);
         }
         spawnQueue.Clear();
-        while (liveEnemies.Count > 0){
-            BaseChicken enemy = liveEnemies[0];
-            spawnQueue.RemoveAt(0);
-            enemy.Free();
+        foreach (BaseChicken enemy in liveEnemies){
+            enemy.QueueFree();
         }
+        liveEnemies.Clear();
     }
 
+
+    /// <summary>
+    /// Godot Process function called every engine cycle
+    /// Processes spawning enemies when the spawn timer is up. Also handles
+    /// emitting the end game signals.
+    /// </summary>
+    /// <param name="delta"></param>
     public override void _Process(double delta) {
         this.currentTime += delta;
         // GD.Print("Processing Round");
@@ -142,11 +187,16 @@ public partial class RoundManager : Node2D {
         base._Process(delta);
     }
 
-    public void onLevelLoadSignal(Level level) {}
 
+    /// <summary>
+    /// Signal to emit when the game is lost.
+    /// </summary>
     [Signal]
     public delegate void GameLostEventHandler();
-
+    
+    /// <summary>
+    /// Signal to emit when the game is Won.
+    /// </summary>
     [Signal]
     public delegate void GameWonEventHandler();
 

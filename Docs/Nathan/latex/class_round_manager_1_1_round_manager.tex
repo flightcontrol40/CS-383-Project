@@ -1,0 +1,151 @@
+\doxysection{Round\+Manager.\+Round\+Manager Class Reference}
+\hypertarget{class_round_manager_1_1_round_manager}{}\label{class_round_manager_1_1_round_manager}\index{RoundManager.RoundManager@{RoundManager.RoundManager}}
+
+
+The Round Manager for Processing/tracking round data across the rounds of a level. The class is also in charge of spawning the enemies, tracking round health and money, signaling when a round ends, and signaling when the player wins or loses.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a1c629145a6cadeb6d38ab47cba99ae92}\label{class_round_manager_1_1_round_manager_a1c629145a6cadeb6d38ab47cba99ae92} 
+override void {\bfseries \+\_\+\+Ready} ()
+\begin{DoxyCompactList}\small\item\em Called when the object enters the scene tree. Sets up queue objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_round_manager_1_1_round_manager_a398875b93c5052ddaeafe11685ad1cf9}{load\+Level}} (Level \mbox{\hyperlink{class_round_manager_1_1_round_manager_a1b1f46fdd11e9f524b31123c15eeea25}{level\+Data}}, int difficulty)
+\begin{DoxyCompactList}\small\item\em Loads a level from a {\ttfamily Level} object and creates a difficulty table. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a4e1a82fb3debf47b5d9cbfab9e6da940}\label{class_round_manager_1_1_round_manager_a4e1a82fb3debf47b5d9cbfab9e6da940} 
+void {\bfseries start\+Round} ()
+\begin{DoxyCompactList}\small\item\em Called to start a round. This method starts the next round, getting the {\ttfamily \doxylink{class_round_manager_1_1_spawn_order}{Spawn\+Order}}\textquotesingle{}s from the {\ttfamily \doxylink{class_round_manager_1_1_difficulty_calculator}{Difficulty\+Calculator}}, and begins the spawning timer. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_round_manager_1_1_round_manager_afcf50f33e8982086f94506e9b309bccb}{\+\_\+\+Process}} (double delta)
+\begin{DoxyCompactList}\small\item\em Godot Process function called every engine cycle Processes spawning enemies when the spawn timer is up. Also handles emitting the end game signals. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a6b12e069991af99be04370b12618f97e}\label{class_round_manager_1_1_round_manager_a6b12e069991af99be04370b12618f97e} 
+delegate void {\bfseries Game\+Lost\+Event\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Signal to emit when the game is lost. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a9a306a2272ab68260af6752ee34311de}\label{class_round_manager_1_1_round_manager_a9a306a2272ab68260af6752ee34311de} 
+delegate void {\bfseries Game\+Won\+Event\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Signal to emit when the game is Won. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_round_manager_1_1_round_manager_ad6212fc5dec38c06f1f4ff12ec80f8a3}\label{class_round_manager_1_1_round_manager_ad6212fc5dec38c06f1f4ff12ec80f8a3} 
+List$<$ \mbox{\hyperlink{class_round_manager_1_1_spawn_order}{Spawn\+Order}} $>$ {\bfseries spawn\+Queue}
+\begin{DoxyCompactList}\small\item\em Holds the queue of enemy\textquotesingle{}s to spawn. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a4f31870efc05e222f6ff2c41ebb64758}\label{class_round_manager_1_1_round_manager_a4f31870efc05e222f6ff2c41ebb64758} 
+List$<$ Base\+Chicken $>$ {\bfseries live\+Enemies}
+\begin{DoxyCompactList}\small\item\em Holds the currently living enemies. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a7c450fb1047e9b34f3cd7e980a53fe92}\label{class_round_manager_1_1_round_manager_a7c450fb1047e9b34f3cd7e980a53fe92} 
+bool {\bfseries round\+Running} = false
+\begin{DoxyCompactList}\small\item\em Indicates if a round is running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_round_manager_1_1_round_manager_aefebea535f244e49f9180b218f3a914f}\label{class_round_manager_1_1_round_manager_aefebea535f244e49f9180b218f3a914f} 
+void {\bfseries spawn\+Enemy} ()
+\begin{DoxyCompactList}\small\item\em Internal method used for spawning the next enemy in the spawn queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_round_manager_1_1_round_manager_a46225a42519fd5037ccda0348b504c5b}{Handle\+Enemy\+Dies\+Signal}} (Base\+Chicken enemy)
+\begin{DoxyCompactList}\small\item\em Enemy Death Signal Handler. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_round_manager_1_1_round_manager_aa587d458893fac85b5ee6f5d8cce91fe}{Handle\+Enemy\+Finished\+Signal}} (Base\+Chicken enemy)
+\begin{DoxyCompactList}\small\item\em Enemy Finished path Signal Handler. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_round_manager_1_1_round_manager_a4159a89b5f696e958122f31c035ea2f5}{Handle\+Enemy\+Split}} (Base\+Chicken enemy)
+\begin{DoxyCompactList}\small\item\em Enemy Split Event Handler. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a426b5d7c1e96d52fd08869a11cbf6aeb}\label{class_round_manager_1_1_round_manager_a426b5d7c1e96d52fd08869a11cbf6aeb} 
+void {\bfseries clean\+Level} ()
+\begin{DoxyCompactList}\small\item\em Clears spawn queue and all loaded enemies. Called before exporting the level data to save. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a97a6e9c7ec8fa8bc4cd2ce573a2d630c}\label{class_round_manager_1_1_round_manager_a97a6e9c7ec8fa8bc4cd2ce573a2d630c} 
+\mbox{\hyperlink{class_round_manager_1_1_difficulty_calculator}{Difficulty\+Calculator}} {\bfseries difficulty\+Calculator}
+\begin{DoxyCompactList}\small\item\em The \doxylink{class_round_manager_1_1_difficulty_calculator}{Difficulty\+Calculator} for the selected difficulty. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a1b1f46fdd11e9f524b31123c15eeea25}\label{class_round_manager_1_1_round_manager_a1b1f46fdd11e9f524b31123c15eeea25} 
+Level {\bfseries level\+Data}
+\begin{DoxyCompactList}\small\item\em The Loaded Level object. \end{DoxyCompactList}\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a2b5eb3e53fdead1ed350a50bb9b7a4d8}\label{class_round_manager_1_1_round_manager_a2b5eb3e53fdead1ed350a50bb9b7a4d8} 
+double {\bfseries current\+Time}
+\item 
+\Hypertarget{class_round_manager_1_1_round_manager_a69f5ae5336251f40332b5bbff93f203c}\label{class_round_manager_1_1_round_manager_a69f5ae5336251f40332b5bbff93f203c} 
+double {\bfseries next\+Spawn\+Time}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Round Manager for Processing/tracking round data across the rounds of a level. The class is also in charge of spawning the enemies, tracking round health and money, signaling when a round ends, and signaling when the player wins or loses. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_round_manager_1_1_round_manager_afcf50f33e8982086f94506e9b309bccb}\index{RoundManager.RoundManager@{RoundManager.RoundManager}!\_Process@{\_Process}}
+\index{\_Process@{\_Process}!RoundManager.RoundManager@{RoundManager.RoundManager}}
+\doxysubsubsection{\texorpdfstring{\_Process()}{\_Process()}}
+{\footnotesize\ttfamily \label{class_round_manager_1_1_round_manager_afcf50f33e8982086f94506e9b309bccb} 
+override void Round\+Manager.\+Round\+Manager.\+\_\+\+Process (\begin{DoxyParamCaption}\item[{double}]{delta}{}\end{DoxyParamCaption})}
+
+
+
+Godot Process function called every engine cycle Processes spawning enemies when the spawn timer is up. Also handles emitting the end game signals. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_round_manager_1_1_round_manager_a46225a42519fd5037ccda0348b504c5b}\index{RoundManager.RoundManager@{RoundManager.RoundManager}!HandleEnemyDiesSignal@{HandleEnemyDiesSignal}}
+\index{HandleEnemyDiesSignal@{HandleEnemyDiesSignal}!RoundManager.RoundManager@{RoundManager.RoundManager}}
+\doxysubsubsection{\texorpdfstring{HandleEnemyDiesSignal()}{HandleEnemyDiesSignal()}}
+{\footnotesize\ttfamily \label{class_round_manager_1_1_round_manager_a46225a42519fd5037ccda0348b504c5b} 
+void Round\+Manager.\+Round\+Manager.\+Handle\+Enemy\+Dies\+Signal (\begin{DoxyParamCaption}\item[{Base\+Chicken}]{enemy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enemy Death Signal Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & The associated enemy.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_round_manager_1_1_round_manager_aa587d458893fac85b5ee6f5d8cce91fe}\index{RoundManager.RoundManager@{RoundManager.RoundManager}!HandleEnemyFinishedSignal@{HandleEnemyFinishedSignal}}
+\index{HandleEnemyFinishedSignal@{HandleEnemyFinishedSignal}!RoundManager.RoundManager@{RoundManager.RoundManager}}
+\doxysubsubsection{\texorpdfstring{HandleEnemyFinishedSignal()}{HandleEnemyFinishedSignal()}}
+{\footnotesize\ttfamily \label{class_round_manager_1_1_round_manager_aa587d458893fac85b5ee6f5d8cce91fe} 
+void Round\+Manager.\+Round\+Manager.\+Handle\+Enemy\+Finished\+Signal (\begin{DoxyParamCaption}\item[{Base\+Chicken}]{enemy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enemy Finished path Signal Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & The associated enemy.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_round_manager_1_1_round_manager_a4159a89b5f696e958122f31c035ea2f5}\index{RoundManager.RoundManager@{RoundManager.RoundManager}!HandleEnemySplit@{HandleEnemySplit}}
+\index{HandleEnemySplit@{HandleEnemySplit}!RoundManager.RoundManager@{RoundManager.RoundManager}}
+\doxysubsubsection{\texorpdfstring{HandleEnemySplit()}{HandleEnemySplit()}}
+{\footnotesize\ttfamily \label{class_round_manager_1_1_round_manager_a4159a89b5f696e958122f31c035ea2f5} 
+void Round\+Manager.\+Round\+Manager.\+Handle\+Enemy\+Split (\begin{DoxyParamCaption}\item[{Base\+Chicken}]{enemy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enemy Split Event Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & The associated enemy.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_round_manager_1_1_round_manager_a398875b93c5052ddaeafe11685ad1cf9}\index{RoundManager.RoundManager@{RoundManager.RoundManager}!loadLevel@{loadLevel}}
+\index{loadLevel@{loadLevel}!RoundManager.RoundManager@{RoundManager.RoundManager}}
+\doxysubsubsection{\texorpdfstring{loadLevel()}{loadLevel()}}
+{\footnotesize\ttfamily \label{class_round_manager_1_1_round_manager_a398875b93c5052ddaeafe11685ad1cf9} 
+void Round\+Manager.\+Round\+Manager.\+load\+Level (\begin{DoxyParamCaption}\item[{Level}]{level\+Data}{, }\item[{int}]{difficulty}{}\end{DoxyParamCaption})}
+
+
+
+Loads a level from a {\ttfamily Level} object and creates a difficulty table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level\+Data} & The current level data.\\
+\hline
+{\em difficulty} & Indicates the Difficulty to use.\\
+\hline
+\end{DoxyParams}

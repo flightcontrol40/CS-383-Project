@@ -81,10 +81,13 @@ public class DifficultyCalculatorFactory {
 
 /// <summary>
 /// The Base class for a difficulty calculator. Cannot construct directly, instead
-/// use the <ref>DifficultyCalculatorFactory.CreateCalculator</ref> method.
+/// use the <c>DifficultyCalculatorFactory.CreateCalculator</c> method.
 /// </summary>
 public partial class DifficultyCalculator: Node {
 
+    /// <summary>
+    /// The current difficulty table that is loaded.
+    /// </summary>
     protected DifficultyTable difficultyTable;
 
     /// <summary>
@@ -109,10 +112,10 @@ public partial class DifficultyCalculator: Node {
         levelValue -= amount;
         return amount;
     }
-/// <summary>
-/// Gets the available ranks of enemies that can be spawned.
-/// </summary>
-/// <returns></returns>
+    /// <summary>
+    /// Gets the available ranks of enemies that can be spawned. 
+    /// </summary>
+    /// <returns>The Available ranks to spawn</returns>
     protected Godot.Collections.Array<int> getEnemyRanks(){
         Godot.Collections.Array<int> ranks = new Godot.Collections.Array<int>();
         foreach (int rank in Enum.GetValues(typeof(Chicken.Cost))){
@@ -120,11 +123,13 @@ public partial class DifficultyCalculator: Node {
         }
         return ranks;
     }
-/// <summary>
-/// Base Virtual function for Calculating the Spawn Order.
-/// </summary>
-/// <param name="roundNumber"></param>
-/// <returns></returns>
+    /// <summary>
+    /// Base Virtual function for Calculating the Spawn Order.
+    /// This function returns a list of <c>SpawnOrder</c> objects that should
+    /// be spawned for the corresponding round
+    /// </summary>
+    /// <param name="roundNumber">The Current Round Number</param>
+    /// <returns></returns>
     public virtual List<SpawnOrder> CalculateSpawnOrder(int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();
@@ -155,7 +160,14 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
     internal EasyDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
         this.difficultyTable = difficultyTable;
     }
-
+    /// <summary>
+    /// Function for Calculating the Spawn Order.
+    /// This function returns a list of <c>SpawnOrder</c> objects that should
+    /// be spawned for the corresponding round. Easy Mode lowers the enemy
+    /// 'spawn budget' by 20%
+    /// </summary>
+    /// <param name="roundNumber">The Current Round Number</param>
+    /// <returns></returns>
     public override List<SpawnOrder> CalculateSpawnOrder(int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();
@@ -200,11 +212,13 @@ public partial class HardDifficultyCalculator : DifficultyCalculator {
         this.difficultyTable = difficultyTable;
     }
     /// <summary>
-    /// Calculates the SpawnOrders for Hard Difficulty
+    /// Function for Calculating the Spawn Order.
+    /// This function returns a list of <c>SpawnOrder</c> objects that should
+    /// be spawned for the corresponding round. Hard Mode raises the enemy
+    /// 'spawn budget' by 50%
     /// </summary>
-    /// <param name="difficultyTable"></param>
-    /// <param name="roundNumber"></param>
-    /// <returns></returns
+    /// <param name="roundNumber">The Current Round Number</param>
+    /// <returns></returns>
     public override List<SpawnOrder> CalculateSpawnOrder( int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();

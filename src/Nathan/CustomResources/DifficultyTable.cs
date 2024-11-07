@@ -8,16 +8,16 @@ namespace RoundManager;
 [GlobalClass]
 public partial class DifficultyTable : Resource {
 
+    [Export]
     /// <summary>
     // An array of the valid enemy ranks that can be used.
     /// </summary>
-    [Export]
     public Godot.Collections.Array<int> EnemyRanks;
 
+    [Export]
     /// <summary>
     /// An Array of the total amount of enemy "value" to spawn each round
     /// </summary>
-    [Export]
     public int[] RoundDifficultyValue;
 }
 
