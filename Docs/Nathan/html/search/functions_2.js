@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['difficultycalculator_0',['DifficultyCalculator',['../class_round_manager_1_1_difficulty_calculator.html#a8c23d770f7cb3ec8603834c5161adc32',1,'RoundManager::DifficultyCalculator']]]
+  ['difficultycalculator_47',['DifficultyCalculator',['../classDifficultyCalculator.html#a41e8c5934915319e712694b626287f7f',1,'DifficultyCalculator']]]
 ];

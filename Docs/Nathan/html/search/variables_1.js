@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['enemy_0',['Enemy',['../class_round_manager_1_1_spawn_order.html#ac4e4f38a64a776ebee1b6485d32f57bd',1,'RoundManager::SpawnOrder']]]
+  ['enemy_61',['Enemy',['../classSpawnOrder.html#a6780194fdd70f2c33428c76307be2741',1,'SpawnOrder']]],
+  ['enemyranks_62',['EnemyRanks',['../classDifficultyTable.html#a7da3ecf3431841065ae09379be0eaa84',1,'DifficultyTable']]]
 ];

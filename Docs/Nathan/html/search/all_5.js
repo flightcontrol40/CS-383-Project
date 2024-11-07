@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['handleenemydiessignal_0',['HandleEnemyDiesSignal',['../class_round_manager_1_1_round_manager.html#a46225a42519fd5037ccda0348b504c5b',1,'RoundManager::RoundManager']]],
-  ['handleenemyfinishedsignal_1',['HandleEnemyFinishedSignal',['../class_round_manager_1_1_round_manager.html#aa587d458893fac85b5ee6f5d8cce91fe',1,'RoundManager::RoundManager']]],
-  ['handleenemysplit_2',['HandleEnemySplit',['../class_round_manager_1_1_round_manager.html#a4159a89b5f696e958122f31c035ea2f5',1,'RoundManager::RoundManager']]],
-  ['harddifficultycalculator_3',['HardDifficultyCalculator',['../class_round_manager_1_1_hard_difficulty_calculator.html',1,'RoundManager']]]
+  ['handleenemydiessignal_18',['HandleEnemyDiesSignal',['../classRoundManager.html#adfaf72d21e97239cc99d227173b1d0e5',1,'RoundManager']]],
+  ['handleenemyfinishedsignal_19',['HandleEnemyFinishedSignal',['../classRoundManager.html#a3055b19c8aa2ea5f653ec8cc4076b907',1,'RoundManager']]],
+  ['handleenemysplit_20',['HandleEnemySplit',['../classRoundManager.html#adfef8855af6f4a5129632971364a15fb',1,'RoundManager']]],
+  ['harddifficultycalculator_21',['HardDifficultyCalculator',['../classHardDifficultyCalculator.html',1,'']]]
 ];

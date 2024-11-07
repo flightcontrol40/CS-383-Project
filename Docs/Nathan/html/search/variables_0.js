@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['difficultycalculator_0',['difficultyCalculator',['../class_round_manager_1_1_round_manager.html#a97a6e9c7ec8fa8bc4cd2ce573a2d630c',1,'RoundManager::RoundManager']]],
-  ['difficultytable_1',['difficultyTable',['../class_round_manager_1_1_difficulty_calculator.html#a013291c660c9d7bbddf817f2c58fe8bd',1,'RoundManager::DifficultyCalculator']]]
+  ['difficultycalculator_59',['difficultyCalculator',['../classRoundManager.html#a1625c6c5188a769d15830f4ad766a608',1,'RoundManager']]],
+  ['difficultytable_60',['difficultyTable',['../classDifficultyCalculator.html#a1b4947bc165ea8d0f27a09c497632f02',1,'DifficultyCalculator']]]
 ];

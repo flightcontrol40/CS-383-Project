@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classDifficultyCalculator.html" title="The Base class for a difficulty calculator. Cannot construct directly, instead use the DifficultyCalc..." alt="" coords="5,56,152,83"/>
+<area shape="rect" id="node2" href="$classEasyDifficultyCalculator.html" title="Difficulty Calculator For the Easy Difficulty" alt="" coords="211,5,389,32"/>
+<area shape="rect" id="node3" href="$classHardDifficultyCalculator.html" title="Difficulty Calculator For the Hard Difficulty" alt="" coords="211,56,389,83"/>
+<area shape="rect" id="node4" href="$classMediumDifficultyCalculator.html" title="Difficulty Calculator For the Medium Difficulty" alt="" coords="200,107,400,133"/>
+</map>

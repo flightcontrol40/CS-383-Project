@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_5fprocess_0',['_Process',['../class_round_manager_1_1_round_manager.html#afcf50f33e8982086f94506e9b309bccb',1,'RoundManager::RoundManager']]],
-  ['_5fready_1',['_Ready',['../class_round_manager_1_1_round_manager.html#a1c629145a6cadeb6d38ab47cba99ae92',1,'RoundManager::RoundManager']]]
+  ['_5fprocess_0',['_Process',['../classRoundManager.html#a0a1194a447c48d8d56c9ce6951e65d4f',1,'RoundManager']]],
+  ['_5fready_1',['_Ready',['../classRoundManager.html#ad0a96ffa229ef1e8c2c7d486132cea3d',1,'RoundManager']]]
 ];

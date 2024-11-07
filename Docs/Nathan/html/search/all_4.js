@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['gamelosteventhandler_0',['GameLostEventHandler',['../class_round_manager_1_1_round_manager.html#a6b12e069991af99be04370b12618f97e',1,'RoundManager::RoundManager']]],
-  ['gamewoneventhandler_1',['GameWonEventHandler',['../class_round_manager_1_1_round_manager.html#a9a306a2272ab68260af6752ee34311de',1,'RoundManager::RoundManager']]],
-  ['getenemyranks_2',['getEnemyRanks',['../class_round_manager_1_1_difficulty_calculator.html#ac5f10029451c4e82040798befa4a1e4e',1,'RoundManager::DifficultyCalculator']]],
-  ['getspawnamount_3',['getSpawnAmount',['../class_round_manager_1_1_difficulty_calculator.html#a1d4172cfc5b99d30e5380919e8208450',1,'RoundManager::DifficultyCalculator']]]
+  ['gamelosteventhandler_14',['GameLostEventHandler',['../classRoundManager.html#ad6660aa84d495010ba489ce5b409f01d',1,'RoundManager']]],
+  ['gamewoneventhandler_15',['GameWonEventHandler',['../classRoundManager.html#acb4d59f9e03a427b10cb175801e03f57',1,'RoundManager']]],
+  ['getenemyranks_16',['getEnemyRanks',['../classDifficultyCalculator.html#a81daed3cb75108f89352a443d7d78118',1,'DifficultyCalculator']]],
+  ['getspawnamount_17',['getSpawnAmount',['../classDifficultyCalculator.html#a2246c06098aa7782400fad0d53e68b7e',1,'DifficultyCalculator']]]
 ];

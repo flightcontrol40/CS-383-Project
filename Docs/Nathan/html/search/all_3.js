@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['easydifficultycalculator_0',['EasyDifficultyCalculator',['../class_round_manager_1_1_easy_difficulty_calculator.html',1,'RoundManager']]],
-  ['enemy_1',['Enemy',['../class_round_manager_1_1_spawn_order.html#ac4e4f38a64a776ebee1b6485d32f57bd',1,'RoundManager::SpawnOrder']]]
+  ['easydifficultycalculator_11',['EasyDifficultyCalculator',['../classEasyDifficultyCalculator.html',1,'']]],
+  ['enemy_12',['Enemy',['../classSpawnOrder.html#a6780194fdd70f2c33428c76307be2741',1,'SpawnOrder']]],
+  ['enemyranks_13',['EnemyRanks',['../classDifficultyTable.html#a7da3ecf3431841065ae09379be0eaa84',1,'DifficultyTable']]]
 ];

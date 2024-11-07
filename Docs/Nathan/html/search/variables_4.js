@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['spawndelay_0',['spawnDelay',['../class_round_manager_1_1_spawn_order.html#a28e5d710a4d5ee57198d71df2475355d',1,'RoundManager::SpawnOrder']]],
-  ['spawnqueue_1',['spawnQueue',['../class_round_manager_1_1_round_manager.html#ad6212fc5dec38c06f1f4ff12ec80f8a3',1,'RoundManager::RoundManager']]]
+  ['spawndelay_67',['spawnDelay',['../classSpawnOrder.html#ade330df7143d503c8ef9721e301e5e07',1,'SpawnOrder']]],
+  ['spawnqueue_68',['spawnQueue',['../classRoundManager.html#a5c07157d06defa2b414b1fee1e4dbc65',1,'RoundManager']]]
 ];
