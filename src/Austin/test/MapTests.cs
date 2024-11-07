@@ -24,7 +24,7 @@ namespace AustinsTests {
             map = GD.Load<PackedScene>(mapScenePath).Instantiate<Map>();
             testTower = GD.Load<PackedScene>(testTowerScenePath).Instantiate<Node2D>();
 
-            mapTestRunner = ISceneRunner.Load("res://src/Austin/test/map_test.tscn");
+            mapTestRunner = ISceneRunner.Load("res://src/Austin/test/map_runner.tscn");
             sceneRoot = mapTestRunner.Scene();
 
             sceneRoot.AddChild(map);

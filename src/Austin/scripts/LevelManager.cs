@@ -53,33 +53,56 @@ public partial class LevelManager : Node
         }
     }
 
+    public void setMap(PackedScene map) {
+        if (map != null) {
+            level.mapScene = map;
+        }
+    }
+
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
-        int roundDifficulty; //need to swap this to some kind of exponential equation
+        int initialRoundDifficulty; //need to swap this to some kind of exponential equation
+        int incrementDifficutly;
+        level.maxRound = 100;
         DifficultyTable difficultyTable = new DifficultyTable();
 
         //init EnemyRanks
         switch (difficulty) {
             case Difficulty.Hard:
                 GD.Print("Set Difficulty to Hard");
-                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{1, 14, 17, 19};
-                roundDifficulty = 10000;
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
+                    (int)Chicken.Cost.ChickenR1, 
+                    (int)Chicken.Cost.ChickenR2, 
+                    (int)Chicken.Cost.ChickenR3, 
+                    (int)Chicken.Cost.ChickenR4};
+                initialRoundDifficulty = 15;
+                incrementDifficutly = 3;
                 break;
             case Difficulty.Medium:
                 GD.Print("Set Difficulty to Medium");
-                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{1, 14, 17, 19};
-                roundDifficulty = 5000;
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
+                    (int)Chicken.Cost.ChickenR1, 
+                    (int)Chicken.Cost.ChickenR2, 
+                    (int)Chicken.Cost.ChickenR3, 
+                    (int)Chicken.Cost.ChickenR4};
+                initialRoundDifficulty = 8;
+                incrementDifficutly = 2;
                 break;
             default:
                 GD.Print("Set Difficulty to Easy");
-                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{1, 14, 17, 19};
-                roundDifficulty = 1000;
+                difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
+                    (int)Chicken.Cost.ChickenR1, 
+                    (int)Chicken.Cost.ChickenR2, 
+                    (int)Chicken.Cost.ChickenR3};
+                initialRoundDifficulty = 6;
+                incrementDifficutly = 1;
                 break;
         }
 
         //init RoundDifficulty
         difficultyTable.RoundDifficultyValue = new int[level.maxRound];
-        for (int i = 0; i < difficultyTable.RoundDifficultyValue.Length; i++) {
-            difficultyTable.RoundDifficultyValue[i] = roundDifficulty;
+        difficultyTable.RoundDifficultyValue[0] = initialRoundDifficulty;
+        for (int i = 1; i < difficultyTable.RoundDifficultyValue.Length; i++) {
+            difficultyTable.RoundDifficultyValue[i] = difficultyTable.RoundDifficultyValue[i - 1] + incrementDifficutly;
         }
 
         return difficultyTable;

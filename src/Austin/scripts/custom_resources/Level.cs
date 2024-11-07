@@ -16,7 +16,7 @@ public partial class Level : Resource
     [Export]
     public DifficultyTable difficultyTable;
     [Export]
-    public int playerHealth = 100;
+    private int PlayerHealth = 100;
     [Export]
     private int playerMoney = 100;
     [Export]
@@ -30,6 +30,10 @@ public partial class Level : Resource
     public int PlayerMoney {
         get { return playerMoney; }
         set { playerMoney = Math.Max(value, 0); }
+    }
+    public int playerHealth {
+        get { return PlayerHealth; }
+        set { PlayerHealth = Math.Max(value, 0); }
     }
     public int CurrentRoundNum {
         get { return currentRoundNum; }

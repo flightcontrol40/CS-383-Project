@@ -3,11 +3,14 @@ using System;
 
 public partial class MultiPath : Path
 {
-    private Path2D path;
-    private Path2D path2;
-    private bool pathChoice;
+    private Path2D path; // Storage for the first path
+    private Path2D path2; // Storage for the second path
+    private bool pathChoice; // Used to determine which path should get returned
 
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Called when the node enters the scene tree for the first time.
+    /// Sets up the scene by getting the paths, and setting pathChoice.
+    /// </summary>
     public override void _Ready()
     {
         pathChoice = true;
@@ -15,9 +18,9 @@ public partial class MultiPath : Path
         path2 = GetNode<Path2D>("Path2");
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        return;
     }
 
     public override Path2D getPath() {

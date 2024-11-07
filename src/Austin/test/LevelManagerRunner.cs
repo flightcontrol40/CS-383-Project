@@ -1,11 +1,8 @@
 using Chicken;
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
 
-public partial class LevelTest : Node2D
+public partial class LevelManagerRunner : Node2D
 {
     private PackedScene mapScene;
     private List<Level> levels;

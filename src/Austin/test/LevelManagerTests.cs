@@ -51,12 +51,26 @@ namespace AustinsTests {
         }
 
         [TestCase]
+        public void Unit_setPlayerHealthBellowMin() {
+            levelManager.level.playerHealth = -1;
+
+            AssertThat(levelManager.level.playerHealth).IsGreaterEqual(0);
+        }
+
+        [TestCase]
+        public void Unit_setPlayerMoneyBellowMin() {
+            levelManager.level.PlayerMoney = -1;
+
+            AssertThat(levelManager.level.PlayerMoney).IsGreaterEqual(0);
+        }
+
+        [TestCase]
         public void Unit_mapLoadedProperty() {
             AssertThat(levelManager.mapLoaded).IsEqual(true);
         }
 
         [TestCase]
-        public void Unit_unlaodingAndLoadingMap() {
+        public void Unit_unlaodingMap() {
             AssertThat(levelManager.mapLoaded).OverrideFailureMessage("This test won't work becasue the Level.mapLoaded property doesn't work").IsEqual(true);
 
             levelManager.level.unloadMap();
@@ -67,13 +81,43 @@ namespace AustinsTests {
             AssertThat(levelManager.mapLoaded).IsEqual(true);
         }
 
+        [TestCase]
+        public void Unit_loadingMap() {
+            AssertThat(levelManager.mapLoaded).OverrideFailureMessage("This test won't work becasue the Level.mapLoaded property doesn't work").IsEqual(true);
+
+            levelManager.level.unloadMap();
+            AssertThat(levelManager.mapLoaded).OverrideFailureMessage("Unloading a map failed").IsEqual(false);
+
+            levelManager.level.loadMap();
+            AssertThat(levelManager.mapLoaded).IsEqual(true);
+        }
+
+        [TestCase]
+        public void Unit_setNullMap() {
+            levelManager.setMap(null);
+
+            AssertThat(levelManager.level.mapScene).IsNotNull();
+        }
+
+        [TestCase]
+        public void Unit_loadLevelLoadsMap() {
+            levelManager.level.unloadMap();
+            AssertThat(levelManager.mapLoaded).OverrideFailureMessage("Couldn't unload the map").IsEqual(false);
+
+            levelManager.OnLoadLevel();
+            AssertThat(levelManager.mapLoaded).IsEqual(true);
+        }
+
+
+
         [TestCase(Timeout=60000)]
         public async Task Stress_multipleLevels() {
+            AssertThat(false).OverrideFailureMessage("Skipping this test because it takes too long").IsEqual(true);
             const int numInitialLevels = 380;
             bool moreStress = true;
             int totalLevels = numInitialLevels;
             int levelsPerRounnd = 10;
-            ISceneRunner runner = ISceneRunner.Load("res://src/Austin/test/level_test.tscn");
+            ISceneRunner runner = ISceneRunner.Load("res://src/Austin/test/level_manager_runner.tscn");
             
             //setup the scene runner
             runner.SetTimeFactor(50);

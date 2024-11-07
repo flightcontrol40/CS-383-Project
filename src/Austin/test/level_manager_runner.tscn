@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddl16nk1siccl"]
+[gd_scene load_steps=2 format=3 uid="uid://cj5bfewdv2pec"]
 
-[ext_resource type="Script" path="res://src/Austin/test/LevelTest.cs" id="1_v5go2"]
+[ext_resource type="Script" path="res://src/Austin/test/LevelManagerRunner.cs" id="1_o81ke"]
 
 [node name="LevelTest" type="Node2D"]
-script = ExtResource("1_v5go2")
+script = ExtResource("1_o81ke")
 
 [node name="SpawnChickenTimer" type="Timer" parent="."]
 
