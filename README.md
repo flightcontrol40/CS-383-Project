@@ -1,3 +1,5 @@
+# Kill Mo Chickens
+
 <a id="readme-top"></a>
 
 
@@ -25,8 +27,6 @@
     <a href="https://github.com/flightcontrol40/CS-383-Project">View Demo</a>
   </p>
 </div>
-
-
 
 
 <!-- TABLE OF CONTENTS -->
