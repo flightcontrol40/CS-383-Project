@@ -1,10 +1,17 @@
 <a id="readme-top"></a>
 
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/flightcontrol40/CS-383-Project">
-    <img src="Chick-fil-A-Logo-small.png" alt="Logo" width="80" height="80">
+    <img src="Chick-fil-A-Logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Kill Mo Chicken's</h3>
@@ -18,6 +25,8 @@
     <a href="https://github.com/flightcontrol40/CS-383-Project">View Demo</a>
   </p>
 </div>
+
+
 
 
 <!-- TABLE OF CONTENTS -->
