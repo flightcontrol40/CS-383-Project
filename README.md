@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/flightcontrol40/CS-383-Project">
-    <img src="Chick-fil-A-Logo.png" alt="Logo" width="80" height="80">
+    <img src="src/shared_assets/Chick-fil-A-Logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Kill Mo Chicken's</h3>
