@@ -10,7 +10,7 @@ public partial class DifficultyTable : Resource {
 
     [Export]
     /// <summary>
-    // An array of the valid enemy ranks that can be used.
+    /// An array of the valid enemy ranks that can be used.
     /// </summary>
     public Godot.Collections.Array<int> EnemyRanks;
 

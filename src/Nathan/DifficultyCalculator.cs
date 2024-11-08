@@ -42,21 +42,21 @@ public partial class SpawnOrder: Node{
 }
 
 /// <summary>
-/// Factory Function for getting a DifficultyCalculator class object
+/// Factory Function for getting a #DifficultyCalculator class object
 /// </summary>
 public class DifficultyCalculatorFactory {
 
     /// <summary>
-    /// Get a new Difficulty Calculator class obj based on the Difficulty
+    /// Get a new #DifficultyCalculator class obj based on the Difficulty
     /// </summary>
     /// <param name="difficultyTable">
-    /// DifficultyTable to be used by the calculator.
+    /// #DifficultyTable to be used by the calculator.
     /// </param>
     /// <param name="difficulty">
-    /// The Difficulty to be used for the calculator
+    /// The #Difficulty to be used for the calculator
     /// </param>
     /// <returns>
-    /// A Difficulty Calculator of the passed difficulty
+    /// A #DifficultyCalculator of the passed difficulty
     /// </returns>
     public static DifficultyCalculator CreateCalculator(DifficultyTable difficultyTable, Difficulty difficulty){
         DifficultyCalculator difficultyCalculator;
@@ -81,7 +81,7 @@ public class DifficultyCalculatorFactory {
 
 /// <summary>
 /// The Base class for a difficulty calculator. Cannot construct directly, instead
-/// use the <c>DifficultyCalculatorFactory.CreateCalculator</c> method.
+/// use the #DifficultyCalculatorFactory#CreateCalculator method.
 /// </summary>
 public partial class DifficultyCalculator: Node {
 
