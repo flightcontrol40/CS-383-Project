@@ -21,8 +21,8 @@ public partial class SpawnOrder: Node{
     /// <summary>
     /// Creates A spawn Order for a passed type that implements IEnemyType
     /// </summary>
-    /// <param name="enemy"></param>
-    /// <param name="spawnDelay"></param>
+    /// <param name="enemy">The Enemy class use for the spawn.</param>
+    /// <param name="spawnDelay">The delay in milliseconds to wait before spawning this enemy</param>
     public SpawnOrder(Chicken.BaseChicken enemy, int spawnDelay) {
         this.spawnDelay = spawnDelay;
         this.Enemy = enemy;
@@ -157,6 +157,11 @@ public partial class DifficultyCalculator: Node {
 /// </summary>
 public partial class EasyDifficultyCalculator : DifficultyCalculator {
 
+
+    /// <summary>
+    /// Internal/Private Constructor
+    /// </summary>
+    /// <param name="difficultyTable"></param>
     internal EasyDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
         this.difficultyTable = difficultyTable;
     }
@@ -197,6 +202,11 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
 /// Difficulty Calculator For the Medium Difficulty
 /// </summary>
 public partial class MediumDifficultyCalculator : DifficultyCalculator {
+
+    /// <summary>
+    /// Internal/Private Constructor
+    /// </summary>
+    /// <param name="difficultyTable"></param>
     internal MediumDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
         this.difficultyTable = difficultyTable;
     }
@@ -208,6 +218,10 @@ public partial class MediumDifficultyCalculator : DifficultyCalculator {
 /// 
 public partial class HardDifficultyCalculator : DifficultyCalculator {
 
+    /// <summary>
+    /// Internal/Private Constructor
+    /// </summary>
+    /// <param name="difficultyTable"></param>
     internal HardDifficultyCalculator(DifficultyTable difficultyTable) : base(difficultyTable) {
         this.difficultyTable = difficultyTable;
     }

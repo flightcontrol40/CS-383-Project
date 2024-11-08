@@ -31,7 +31,14 @@ public partial class RoundManager : Node2D {
     /// Holds the currently living enemies
     /// </summary>
     public List<BaseChicken> liveEnemies;
+
+    /// <summary>
+    /// Current time to compare against the spawn timer
+    /// </summary>
     private double currentTime;
+    /// <summary>
+    /// The next time to spawn an enemy by
+    /// </summary>
     private double nextSpawnTime;
 
     /// <summary>

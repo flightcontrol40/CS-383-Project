@@ -1,5 +1,0 @@
-<map id="RoundManager" name="RoundManager">
-<area shape="rect" id="node1" title="The Round Manager for Processing/tracking round data across the rounds of a level...." alt="" coords="19,184,139,211"/>
-<area shape="rect" id="node2" href="$classDifficultyCalculator.html" title="The Base class for a difficulty calculator. Cannot construct directly, instead use the DifficultyCalc..." alt="" coords="5,95,152,121"/>
-<area shape="rect" id="node3" href="$classDifficultyTable.html" title="A Resource defining the difficult table" alt="" coords="21,5,136,32"/>
-</map>
