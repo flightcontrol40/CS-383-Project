@@ -17,8 +17,6 @@ var current_song: String = ""
 func _ready():
     # Add the players to the scene and set initial volumes
     _update_volumes()
-    # Play the default theme
-    play_music('mainTheme')
 
 
 func _update_volumes():
