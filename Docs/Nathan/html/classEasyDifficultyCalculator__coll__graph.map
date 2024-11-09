@@ -1,5 +1,0 @@
-<map id="EasyDifficultyCalculator" name="EasyDifficultyCalculator">
-<area shape="rect" id="node1" title="Difficulty Calculator For the Easy Difficulty" alt="" coords="5,171,184,197"/>
-<area shape="rect" id="node2" href="$classDifficultyCalculator.html" title="The Base class for a difficulty calculator. Cannot construct directly, instead use the DifficultyCalc..." alt="" coords="21,95,168,121"/>
-<area shape="rect" id="node3" href="$classDifficultyTable.html" title="A Resource defining the difficult table" alt="" coords="37,5,152,32"/>
-</map>

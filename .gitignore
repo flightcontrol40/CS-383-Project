@@ -17,3 +17,6 @@
 
 # Austin's Folders he wants ignored
 src/Austin/assets/gimp
+
+# build dir
+build/
