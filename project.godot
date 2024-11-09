@@ -16,11 +16,17 @@ config/features=PackedStringArray("4.3", "C#", "Mobile")
 boot_splash/image="res://Chick-fil-A-Logo.png"
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundManager="*res://src/Nathan/scenes/SoundManager.tscn"
+
 [debug]
 
 file_logging/enable_file_logging=true
 file_logging/enable_file_logging.pc=false
 file_logging/log_path="res://TestResults"
+settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
 
 [dotnet]
 
@@ -36,6 +42,7 @@ settings/test/test_discovery=true
 settings/test/flaky_check_enable=true
 ui/toolbar/run_overall=true
 enabled=PackedStringArray()
+ui/inspector/tree_view_mode=1
 
 [global_group]
 
@@ -75,3 +82,11 @@ loadLevel={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[physics]
+
+common/max_physics_steps_per_frame=20
+
+[rendering]
+
+limits/spatial_indexer/update_iterations_per_frame=30
