@@ -45,6 +45,7 @@ var NAVTREEINDEX1 =
 "md_Docs_Nathan_DifficultyCalculator.html":[2],
 "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md17":[2,0],
 "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md18":[2,1],
+"md_Docs_Nathan_DifficultyCalculator.html#autotoc_md19":[2,2],
 "namespaceChicken.html":[3,0,0],
 "namespaceChicken.html#a63eab158c3939d16044f28fedc267267":[3,0,0,2],
 "namespaceChicken.html#a63eab158c3939d16044f28fedc267267a2d28e7044585c73f72552cfd7d97fae3":[3,0,0,2,0],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Kill Mo&#39; Chickens: Description</title>
+<title>Kill Mo&#39; Chickens: Difficulty Manager</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,23 +92,25 @@ $(document).ready(function(){initNavTree('md_Docs_Nathan_DifficultyCalculator.ht
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Description </div></div>
+  <div class="headertitle"><div class="title">Difficulty Manager </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The Difficulty Manager set of classes are used for calculating what and when to spawn enemies in a Godot Project.</p>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md17"></a>
+Description</h1>
+<p>The Difficulty Manager set of classes are used for calculating what and when to spawn enemies in a Godot Project.</p>
 <p>There are three variants of the difficulty calculator:</p><ol type="1">
 <li>EasyDifficultCalculator</li>
 <li>MediumDifficultCalculator</li>
 <li>HardDifficultCalculator</li>
 </ol>
 <p>All three can be acquired using the DifficultyCalculatorFactory.DifficultyCalculator factory function</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Structure in Godot</h1>
 <p>In Godot there is a specific structure that this scene expects:</p><ol type="1">
 <li>A Difficulty Enum</li>
 <li>A DifficultyTable</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Functions</h1>
 <p>The enemy spawn orders can then be created with the CalculateSpawnOrder function. This function will return a List of [SpawnOrder][#SpawnOrder]</p>
 <p>The full API can be viewed [here][#DifficultyCalculator] </p>
