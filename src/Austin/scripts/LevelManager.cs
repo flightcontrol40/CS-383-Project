@@ -27,6 +27,10 @@ public partial class LevelManager : Node
         return;
     }
 
+    /// <summary>
+    /// Initializes the map and emits a signal that tells the round manager to load the first round.
+    /// Gets called by the level selection menu once the player has finished selecting a level.
+    /// </summary>
     public void OnLoadLevel() {
         GD.Print("Loading level...");
         // load the map
@@ -42,6 +46,10 @@ public partial class LevelManager : Node
         EmitSignal(SignalName.LoadRound, level, (int)baseDifficulty);
     }
 
+    /// <summary>
+    /// Used to set the difficulty of a level and creates a new difficulty table object.
+    /// </summary>
+    /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
     public void setDifficulty(Difficulty difficulty) {
         if (!levelLoaded) {
             // create new difficulty table
@@ -59,6 +67,11 @@ public partial class LevelManager : Node
         }
     }
 
+    /// <summary>
+    /// Creates a new difficulty table and sets it based on the level's difficulty
+    /// </summary>
+    /// <param name="difficulty">Difficutly of the level</param>
+    /// <returns>The newly created DifficultyTable object</returns>
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
