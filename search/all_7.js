@@ -6,6 +6,5 @@ var searchData=
   ['hard_3',['Hard',['../namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83a3656183169810334a96b91129dc9d881',1,'RoundManager']]],
   ['harddifficultycalculator_4',['HardDifficultyCalculator',['../classRoundManager_1_1HardDifficultyCalculator.html',1,'RoundManager']]],
   ['health_5',['Health',['../classChicken_1_1BaseChicken.html#a7e2e71a8bd09a63b231d1146aa939b80',1,'Chicken::BaseChicken']]],
-  ['healthbar_6',['HealthBar',['../classHealthBar.html',1,'']]],
-  ['healthtest_7',['HealthTest',['../classTestClayton.html#a9f97049053b4b22a07cb77ad25207be9',1,'TestClayton']]]
+  ['healthbar_6',['HealthBar',['../classHealthBar.html',1,'']]]
 ];

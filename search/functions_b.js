@@ -5,8 +5,6 @@ var searchData=
   ['setmap_2',['setMap',['../classLevelManager.html#a530b9f3e07d294968a036717b4dbb000',1,'LevelManager']]],
   ['spawnenemy_3',['spawnEnemy',['../classRoundManager_1_1RoundManager.html#addfc0c3129b6ff606f7276e175f31a15',1,'RoundManager::RoundManager']]],
   ['spawnorder_4',['SpawnOrder',['../classRoundManager_1_1SpawnOrder.html#a5710e4375507bd6d84e3a6d5b24ae2d0',1,'RoundManager::SpawnOrder']]],
-  ['speedtest_5',['SpeedTest',['../classTestClayton.html#a3c57fa5bce160be03274adba17a0c95a',1,'TestClayton']]],
-  ['start_6',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],
-  ['startround_7',['startRound',['../classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7',1,'RoundManager::RoundManager']]],
-  ['stresstest_8',['StressTest',['../classTestClayton.html#abe2a4a4d3c4adac0e568fc7f280557ea',1,'TestClayton']]]
+  ['start_5',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],
+  ['startround_6',['startRound',['../classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7',1,'RoundManager::RoundManager']]]
 ];

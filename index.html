@@ -26,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="angry_chicken_logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Kill Mo&#39; Chickens
    </div>
@@ -97,11 +98,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="textblock"><p><a class="anchor" id="md_README"></a> <a class="anchor" id="readme-top"></a></p>
 <p><a href="https://github.com/flightcontrol40/CS-383-Project/graphs/contributors"><img src="https://img.shields.io/github/contributors/flightcontrol40/CS-383-Project.svg?style=for-the-badge" alt="Contributors" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/flightcontrol40/CS-383-Project/network/members"><img src="https://img.shields.io/github/forks/flightcontrol40/CS-383-Project.svg?style=for-the-badge" alt="Forks" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/flightcontrol40/CS-383-Project/stargazers"><img src="https://img.shields.io/github/stars/flightcontrol40/CS-383-Project.svg?style=for-the-badge" alt="Stargazers" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/flightcontrol40/CS-383-Project/issues"><img src="https://img.shields.io/github/issues/flightcontrol40/CS-383-Project.svg?style=for-the-badge" alt="Issues" style="pointer-events: none;" class="inline"/></a></p>
 <p><br  />
- </p><div align="center"> <a href="https://github.com/flightcontrol40/CS-383-Project"><img src="src/shared_assets/Chick-fil-A-Logo.png" alt="Logo" width="80" height="80" class="inline"/> </a></div><div align="center"><h3 align="center">Kill Mo <a class="el" href="namespaceChicken.html">Chicken</a>'s</h3>
+ </p><div align="center"> <a href="https://github.com/flightcontrol40/CS-383-Project"><img src="https://github.com/flightcontrol40/CS-383-Project/blob/master/src/Nathan/Assets/angry_chicken_logo.png" alt="Logo" width="80" height="80" class="inline"/> </a></div><div align="center"><h3 align="center">Kill Mo <a class="el" href="namespaceChicken.html">Chicken</a>'s</h3>
 </div><div align="center"></div><div align="center"> </div><div align="center"> Kill Mo' <a class="el" href="namespaceChicken.html">Chicken</a>'s is a top down tower defense game created for a UIdaho CS-383 calss <br  />
- <a href="https://github.com/flightcontrol40/CS-383-Project"><b>Explore the docs »</b></a> <br  />
- <br  />
- <a href="https://github.com/flightcontrol40/CS-383-Project">View Demo</a> </div><div align="center"> </div><details >
+ <a href="https://flightcontrol40.github.io/CS-383-Project/"><b>Explore the docs »</b></a> </div><div align="center"> </div><details >
 <summary >
 Table of Contents</summary>
 <ol>
@@ -130,33 +129,23 @@ Getting Started</h1>
 <p>This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Prerequisites</h2>
-<p>This is an example of how to list things you need to use the software and how to install them.</p><ul>
-<li>npm <div class="fragment"><div class="line">npm install npm@latest -g</div>
-</div><!-- fragment --></li>
-</ul>
+<p>In order to download and build the project you first need to get a copy of Godot 4.2 with .NET support</p>
+<p><a href="https://godotengine.org/download/">Godot 4</a></p>
+<p>You will also need the .Net 7 &amp; 8 runtime</p>
+<p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">Dotnet 7.0</a> <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8.0</a></p>
+<p>If you plan to build from source you will also need a copy of the rcedit tool</p>
+<p><a href="https://github.com/electron/rcedit/releases">rcedit</a></p>
 <h2><a class="anchor" id="autotoc_md4"></a>
-Installation</h2>
+Building from source</h2>
 <ol type="1">
-<li>Get a free API Key at <a href="https://example.com">https://example.com</a></li>
 <li>Clone the repo <div class="fragment"><div class="line">git clone https://github.com/flightcontrol40/CS-383-Project.git</div>
 </div><!-- fragment --></li>
-<li>Install NPM packages <div class="fragment"><div class="line">npm install</div>
-</div><!-- fragment --></li>
-<li>Enter your API in <code>config.js</code> <div class="fragment"><div class="line">const API_KEY = &#39;ENTER YOUR API&#39;;</div>
-</div><!-- fragment --></li>
-<li>Change git remote url to avoid accidental pushes to base project <div class="fragment"><div class="line">git remote set-url origin flightcontrol40/CS-383-Project</div>
-<div class="line">git remote -v # confirm the changes</div>
-</div><!-- fragment --></li>
+<li>Open the project with Godot</li>
+<li>Select <code>Project -&gt; Export -&gt; Export All</code></li>
 </ol>
 <p>(<a href="#readme-top">back to top</a>)</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
-Usage</h1>
-<p>Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.</p>
-<p><em>For more examples, please refer to the <a href="https://example.com">Documentation</a></em></p>
-<p>(<a href="#readme-top">back to top</a>)</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
 Contributing</h1>
-<p>Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are <b>greatly appreciated</b>.</p>
 <p>If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!</p>
 <ol type="1">
 <li>Fork the Project</li>
@@ -166,10 +155,10 @@ Contributing</h1>
 <li>Open a Pull Request</li>
 </ol>
 <p>(<a href="#readme-top">back to top</a>)</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Top contributors:</h2>
 <p><a href="https://github.com/flightcontrol40/CS-383-Project/graphs/contributors"><img src="https://contrib.rocks/image?repo=flightcontrol40/CS-383-Project" alt="contrib.rocks image" class="inline"/> </a></p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 License</h1>
 <p>Distributed under the MIT License. See <code>LICENSE</code> for more information.</p>
 <p>(<a href="#readme-top">back to top</a>)</p>

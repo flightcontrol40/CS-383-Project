@@ -33,7 +33,6 @@ var annotated_dup =
     [ "Path", "classPath.html", "classPath" ],
     [ "PathFollow2d", "classPathFollow2d.html", "classPathFollow2d" ],
     [ "Shop", "classShop.html", "classShop" ],
-    [ "TestClayton", "classTestClayton.html", "classTestClayton" ],
     [ "Tower1", "classTower1.html", "classTower1" ],
     [ "Tower2", "classTower2.html", "classTower2" ],
     [ "Tower3", "classTower3.html", "classTower3" ],

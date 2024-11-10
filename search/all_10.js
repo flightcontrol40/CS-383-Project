@@ -13,12 +13,10 @@ var searchData=
   ['spawnenemy_10',['spawnEnemy',['../classRoundManager_1_1RoundManager.html#addfc0c3129b6ff606f7276e175f31a15',1,'RoundManager::RoundManager']]],
   ['spawnorder_11',['SpawnOrder',['../classRoundManager_1_1SpawnOrder.html',1,'SpawnOrder'],['../classRoundManager_1_1SpawnOrder.html#a5710e4375507bd6d84e3a6d5b24ae2d0',1,'RoundManager.SpawnOrder.SpawnOrder()']]],
   ['spawnqueue_12',['spawnQueue',['../classRoundManager_1_1RoundManager.html#a396b2fc1458f8423bfd9265daa038e47',1,'RoundManager::RoundManager']]],
-  ['speed_13',['speed',['../classPathFollow2d.html#a7f7e4724cf57d59513b39c5ecc81adc8',1,'PathFollow2d']]],
-  ['speed_14',['Speed',['../classBullet.html#a61efabcca15cccefe7d85ea6da6af5e3',1,'Bullet.Speed()'],['../classChicken_1_1BaseChicken.html#a04caa6dcdf90645ea95e5f3281d780cd',1,'Chicken.BaseChicken.Speed()']]],
-  ['speedtest_15',['SpeedTest',['../classTestClayton.html#a3c57fa5bce160be03274adba17a0c95a',1,'TestClayton']]],
-  ['start_16',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],
-  ['startbutton_17',['startButton',['../classBaseMenu.html#a9ce29135999ae1faa41cff8b8b8d8ed8',1,'BaseMenu']]],
-  ['started_18',['started',['../classChicken_1_1BaseChicken.html#a43c08d193d555a2b2a61c53d2a4e5a63',1,'Chicken::BaseChicken']]],
-  ['startround_19',['startRound',['../classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7',1,'RoundManager::RoundManager']]],
-  ['stresstest_20',['StressTest',['../classTestClayton.html#abe2a4a4d3c4adac0e568fc7f280557ea',1,'TestClayton']]]
+  ['speed_13',['Speed',['../classBullet.html#a61efabcca15cccefe7d85ea6da6af5e3',1,'Bullet.Speed()'],['../classChicken_1_1BaseChicken.html#a04caa6dcdf90645ea95e5f3281d780cd',1,'Chicken.BaseChicken.Speed()']]],
+  ['speed_14',['speed',['../classPathFollow2d.html#a7f7e4724cf57d59513b39c5ecc81adc8',1,'PathFollow2d']]],
+  ['start_15',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],
+  ['startbutton_16',['startButton',['../classBaseMenu.html#a9ce29135999ae1faa41cff8b8b8d8ed8',1,'BaseMenu']]],
+  ['started_17',['started',['../classChicken_1_1BaseChicken.html#a43c08d193d555a2b2a61c53d2a4e5a63',1,'Chicken::BaseChicken']]],
+  ['startround_18',['startRound',['../classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7',1,'RoundManager::RoundManager']]]
 ];

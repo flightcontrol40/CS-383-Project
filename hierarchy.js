@@ -49,8 +49,7 @@ var hierarchy =
         [ "Frank", "classFrank.html", null ],
         [ "Frankest", "classFrankest.html", null ]
       ] ],
-      [ "PathFollow2d", "classPathFollow2d.html", null ],
-      [ "TestClayton", "classTestClayton.html", null ]
+      [ "PathFollow2d", "classPathFollow2d.html", null ]
     ] ],
     [ "ProgressBar", null, [
       [ "HealthBar", "classHealthBar.html", null ]
