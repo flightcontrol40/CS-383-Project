@@ -88,8 +88,8 @@ RoundManager and the BaseChicken classes where both were attempting to free the
 chicken object causing a double free error.
 
 ### Tests
-
-```C#
+C# Tests
+~~~~~~~~~~~~~{.cs}
 [TestSuite]
 class RoundManagerTests{
 
@@ -362,10 +362,9 @@ public class DifficultyCalculatorTests {
     }
 
 }
+~~~~~~~~~~~~~
 
-```
-
-```gdscript
+~~~~~~~~~~~~~{.gd}
 extends GdUnitTestSuite
 class_name SoundManagerTests
 
@@ -443,6 +442,4 @@ func test_start_sfx()->void:
 
 func after_test():
     manager.free()
-
-
-```
+~~~~~~~~~~~~~
