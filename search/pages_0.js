@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['difficulty_20manager_0',['Difficulty Manager',['../md_Docs_Nathan_DifficultyCalculator.html',1,'']]]
+  ['kill_20mo_20chickens_0',['Kill Mo Chickens',['../index.html',1,'']]]
 ];

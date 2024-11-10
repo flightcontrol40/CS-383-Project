@@ -39,10 +39,23 @@ var NAVTREE =
         ] ]
       ] ]
     ] ],
-    [ "Difficulty Manager", "md_Docs_Nathan_DifficultyCalculator.html", [
-      [ "Description", "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md17", null ],
-      [ "Godot Classes", "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md18", null ],
-      [ "Godot Functions", "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md19", null ]
+    [ "Oral Exam Prep Nathan", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html", [
+      [ "Programming Pattern", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md17", [
+        [ "Factory", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md18", null ],
+        [ "Composition", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md19", null ],
+        [ "Singleton", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md20", null ]
+      ] ],
+      [ "Dynamic Binding", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md21", null ],
+      [ "Prefab/Godot Scene", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md22", [
+        [ "DifficultyCalculator Scene", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md23", null ],
+        [ "DifficultyCalculator Classes", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md24", null ],
+        [ "DifficultyCalculator Methods", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md25", null ]
+      ] ],
+      [ "Copyright Example", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md26", null ],
+      [ "Test Cases", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md27", [
+        [ "Example Test Case", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md28", null ],
+        [ "Tests", "md_Docs_Nathan_Oral_Exam_Prep_Nathan.html#autotoc_md29", null ]
+      ] ]
     ] ],
     [ "API", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
