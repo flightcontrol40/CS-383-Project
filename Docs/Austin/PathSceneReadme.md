@@ -2,6 +2,7 @@ Author: Austin Walker
 Date: 11/7/2024
 
 --- This Readme file is for the Path Scene --- \
+# Description
 The path scene is used to store and distribute the paths that a map contains.
 
 A great question would be, why not use the Path2D node already provided by Godot?
