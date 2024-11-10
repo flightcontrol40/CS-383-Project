@@ -35,7 +35,6 @@ jobs:
           godot-status: stable
           godot-net: true
           paths: |
-            res://src/Sohan/test/
             res://src/Nathan/test/
             res://src/Clayton/test/
             res://src/Austin/test/
