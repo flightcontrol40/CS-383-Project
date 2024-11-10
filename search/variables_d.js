@@ -1,14 +1,6 @@
 var searchData=
 [
-  ['selectedtowertype_0',['selectedTowerType',['../classShop.html#a873f7b78044eb62a7d76346345d10c5e',1,'Shop']]],
-  ['shootinginterval_1',['ShootingInterval',['../classTower1.html#a41295e3aaafacc8e5c0eb17eef42abe8',1,'Tower1']]],
-  ['shoottimer_2',['shootTimer',['../classTower1.html#ad2dbb66f2b97769859cbc22143f4ca16',1,'Tower1']]],
-  ['sightarea_3',['sightArea',['../classTower1.html#a79adafe16bc9ebeb4d276db9d06d3bcb',1,'Tower1']]],
-  ['snipertowerprice_4',['sniperTowerPrice',['../classShop.html#a346aa9c172e9434ad6d736f3fb3d04c9',1,'Shop']]],
-  ['spawndelay_5',['spawnDelay',['../classRoundManager_1_1SpawnOrder.html#a2e64f62b347ff19a1cab12ae18fa90f6',1,'RoundManager::SpawnOrder']]],
-  ['spawnqueue_6',['spawnQueue',['../classRoundManager_1_1RoundManager.html#a396b2fc1458f8423bfd9265daa038e47',1,'RoundManager::RoundManager']]],
-  ['speed_7',['Speed',['../classBullet.html#a61efabcca15cccefe7d85ea6da6af5e3',1,'Bullet.Speed()'],['../classChicken_1_1BaseChicken.html#a04caa6dcdf90645ea95e5f3281d780cd',1,'Chicken.BaseChicken.Speed()']]],
-  ['speed_8',['speed',['../classPathFollow2d.html#a7f7e4724cf57d59513b39c5ecc81adc8',1,'PathFollow2d']]],
-  ['startbutton_9',['startButton',['../classBaseMenu.html#a9ce29135999ae1faa41cff8b8b8d8ed8',1,'BaseMenu']]],
-  ['started_10',['started',['../classChicken_1_1BaseChicken.html#a43c08d193d555a2b2a61c53d2a4e5a63',1,'Chicken::BaseChicken']]]
+  ['rotationspeed_0',['RotationSpeed',['../classTower1.html#a12e0b4b346d9dae9164f40164d63bf50',1,'Tower1']]],
+  ['rounddifficultyvalue_1',['RoundDifficultyValue',['../classRoundManager_1_1DifficultyTable.html#a20719fdca6acb18dbb5e1735d721b137',1,'RoundManager::DifficultyTable']]],
+  ['roundrunning_2',['roundRunning',['../classRoundManager_1_1RoundManager.html#ab6f231c1dc7e00446ee1b2cd29d59838',1,'RoundManager::RoundManager']]]
 ];
