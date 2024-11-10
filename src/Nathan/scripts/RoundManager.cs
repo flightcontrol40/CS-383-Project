@@ -1,5 +1,8 @@
 using Godot;
 namespace RoundManager;
+
+using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using Chicken;
@@ -77,6 +80,9 @@ public partial class RoundManager : Node2D {
     /// </summary>
     public void startRound() {
         GD.Print("Starting Round");
+        if (this.levelData == null){
+            throw new Exception("Round Cannot Be started before a level is loaded");
+        }
         if (this.levelData.CurrentRoundNum <= this.levelData.maxRound){
             GD.Print($"Calculating SpawnOrder for Round: {this.levelData.CurrentRoundNum}");
             this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
@@ -116,7 +122,7 @@ public partial class RoundManager : Node2D {
     /// Enemy Death Signal Handler. 
     /// </summary>
     /// <param name="enemy">The associated enemy.</param>
-    private void HandleEnemyDiesSignal(BaseChicken enemy) {
+    public void HandleEnemyDiesSignal(BaseChicken enemy) {
         // Free the enemy
         this.levelData.PlayerMoney += enemy.EnemyRank; // Add to money
         liveEnemies.Remove(enemy);
@@ -127,7 +133,7 @@ public partial class RoundManager : Node2D {
     /// Enemy Finished path Signal Handler.
     /// </summary>
     /// <param name="enemy">The associated enemy.</param>
-    private void HandleEnemyFinishedSignal(BaseChicken enemy) {
+    public void HandleEnemyFinishedSignal(BaseChicken enemy) {
         // Do Level Damage
         this.levelData.playerHealth -= enemy.damageAmount;
         // Free the enemy
@@ -139,7 +145,7 @@ public partial class RoundManager : Node2D {
     /// Enemy Split Event Handler.
     /// </summary>
     /// <param name="enemy">The associated enemy.</param>
-    private void HandleEnemySplit(BaseChicken enemy) {
+    public void HandleEnemySplit(BaseChicken enemy) {
         this.liveEnemies.Add(enemy); // Start tracking the new chicken
     }
 
@@ -147,7 +153,7 @@ public partial class RoundManager : Node2D {
     /// Clears spawn queue and all loaded enemies. Called before exporting the
     /// level data to save
     /// </summary>
-    private void cleanLevel() {
+    public void cleanLevel() {
         // Clean the Enemies up.
         foreach ( var spawnOrder in spawnQueue ){
             liveEnemies.Add(spawnOrder.Enemy);
@@ -174,7 +180,7 @@ public partial class RoundManager : Node2D {
                 GD.Print("Spawning Enemy");
                 this.spawnEnemy();
             }
-            if (this.levelData.playerHealth < 0 ){
+            if (this.levelData.playerHealth <= 0 ){
                 this.roundRunning = false;
                 EmitSignal(SignalName.GameLost);
                 cleanLevel();
@@ -196,6 +202,14 @@ public partial class RoundManager : Node2D {
         base._Process(delta);
     }
 
+
+    /// <summary>
+    /// Call to do damage to the player.
+    /// </summary>
+    /// <param name="damageAmount">Amount of damage to do.</param>
+    public void TakeDamage(int damageAmount){
+        this.levelData.playerHealth -= damageAmount;
+    }
 
     /// <summary>
     /// Signal to emit when the game is lost.
