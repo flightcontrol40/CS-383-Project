@@ -19,7 +19,7 @@
 <h3 align="center">Kill Mo Chicken's</h3>
 
   <p align="center">
-    Kill Mo' Chicken's is a top down tower defense game created for a UIdaho CS-383 calss
+    Kill Mo' Chicken's is a top down tower defense game created for a UIdaho CS-383 class
     <br />
     <a href="https://flightcontrol40.github.io/CS-383-Project/"><strong>Explore the docs »</strong></a>
   </p>
@@ -37,19 +37,18 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#building-from source">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+Kill Mo' Chicken's is a top down tower defense game created for a UIdaho CS-383 class, about
+the great chicken cow wars where only one of the fast-food species will survive
 
 <!-- GETTING STARTED -->
 ## Getting Started
