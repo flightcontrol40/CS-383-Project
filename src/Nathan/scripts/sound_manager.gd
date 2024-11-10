@@ -15,25 +15,26 @@ class_name soundManager
 var current_song: String = ""
 
 func _ready():
-    # Add the players to the scene and set initial volumes
     _update_volumes()
+    set_music_volume(.25)
 
 
 func _update_volumes():
     music_player.volume_db = linear_to_db(music_volume)
     sfx_player.volume_db = linear_to_db(sfx_volume)
 
-func _process(_delta: float) -> void:
-    if music_player.finished:
-        var next_song: String = ''
-        var next = false
-        for _name in music:
-            if next == true:
-                next_song = _name
-                break
-            if _name == current_song:
-                next = true
-        play_music(next_song);
+# func _process(_delta: float) -> void:
+    # if music_player.finished:
+    #     var next_song: String = ''
+    #     var next = false
+    #     for _name in music:
+    #         if next == true:
+    #             next_song = _name
+    #             break
+    #         if _name == current_song:
+    #             next = true
+        
+    #     play_music(next_song);
 
 # Load sound files dynamically
 func load_sound(_name: String, path: String):
@@ -50,7 +51,6 @@ func load_music(_name: String, path: String):
         music[_name] = audio_stream
     else:
         push_error("Failed to load music at path: " + path)
-
 
 # Play background music
 func play_music(_name: String, loop: bool = true):
