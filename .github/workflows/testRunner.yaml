@@ -1,0 +1,44 @@
+name: ci-pr-example
+run-name: ${{ github.head_ref || github.ref_name }}-ci-pr-example
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.yml'
+      - '**.md'
+  workflow_dispatch:
+
+concurrency:
+  group: ci-pr-example${{ github.event.number }}
+  cancel-in-progress: true
+
+
+jobs:
+  unit-test:
+    name: "CI Unit Test"
+    runs-on: 'ubuntu-22.04'
+    timeout-minutes: 10 # The overall timeout
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+      pull-requests: write
+      statuses: write
+
+    steps:
+      # checkout your repository
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: MikeSchulze/gdUnit4-action@v1
+        with:
+          godot-version: '4.3'
+          version: 'master'
+          godot-net: true
+          paths: |
+            res://src/Sohan/test
+            res://src/Nathan/test
+            res://src/Clayton/test
+            res://src/Austin/test
+            res://src/Ankit/test
+          report-name: 'test-results'
