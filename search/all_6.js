@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['easy_0',['Easy',['../namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83a7f943921724d63dc0ac9c6febf99fa88',1,'RoundManager']]],
-  ['easydifficultycalculator_1',['EasyDifficultyCalculator',['../classRoundManager_1_1EasyDifficultyCalculator.html',1,'RoundManager']]],
-  ['encoding_2',['encoding',['../namespacefix__whitespace.html#ab1000d1f2ea9878f60bc119650013894',1,'fix_whitespace']]],
-  ['endofpatheventhandler_3',['EndOfPathEventHandler',['../classChicken_1_1BaseChicken.html#aa55233bacf540a75dc55db888b5d738f',1,'Chicken::BaseChicken']]],
-  ['enemy_4',['Enemy',['../classRoundManager_1_1SpawnOrder.html#afcfc639293087956a4c4298944c356cf',1,'RoundManager::SpawnOrder']]],
-  ['enemydiedeventhandler_5',['EnemyDiedEventHandler',['../classChicken_1_1BaseChicken.html#ab9a27c7d4719a38b2dab727215b8170c',1,'Chicken::BaseChicken']]],
-  ['enemyrank_6',['EnemyRank',['../classChicken_1_1BaseChicken.html#a954ff97be4c5583b98da9898339c33e0',1,'Chicken::BaseChicken']]],
-  ['enemyranks_7',['EnemyRanks',['../classRoundManager_1_1DifficultyTable.html#a9d704c006bed68df02efaea53ae99f5d',1,'RoundManager::DifficultyTable']]],
-  ['enemyspliteventhandler_8',['EnemySplitEventHandler',['../classChicken_1_1BaseChicken.html#a540d16e6a763e355a40ecb7ef17aa089',1,'Chicken::BaseChicken']]],
-  ['exitbutton_9',['exitButton',['../classBaseMenu.html#a34ef989e6debe88fa92cfc80eea907fe',1,'BaseMenu']]]
+  ['gamelosteventhandler_0',['GameLostEventHandler',['../classRoundManager_1_1RoundManager.html#ab181c20125261a9b8a195bf6aacc4061',1,'RoundManager::RoundManager']]],
+  ['gamewoneventhandler_1',['GameWonEventHandler',['../classRoundManager_1_1RoundManager.html#a62292cc7b8e775def355f972fb3cbf58',1,'RoundManager::RoundManager']]],
+  ['getenemyranks_2',['getEnemyRanks',['../classRoundManager_1_1DifficultyCalculator.html#a3db55bf2c224337ee2dbe95e12cb5c38',1,'RoundManager::DifficultyCalculator']]],
+  ['getpath_3',['getPath',['../classLevel.html#a33250fb6b39db4084be413bca686b67b',1,'Level.getPath()'],['../classMultiPath.html#a0dc7f33b2dec30409753cc76204e1b02',1,'MultiPath.getPath()'],['../classPath.html#ac7548db6f5be40735a3e0a273e7bef3b',1,'Path.getPath()']]],
+  ['getspawnamount_4',['getSpawnAmount',['../classRoundManager_1_1DifficultyCalculator.html#ad16276ca57b798153b3e9aaddb41d35f',1,'RoundManager::DifficultyCalculator']]]
 ];
