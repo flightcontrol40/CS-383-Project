@@ -1,5 +1,5 @@
-name: ci-pr-example
-run-name: ${{ github.head_ref || github.ref_name }}-ci-pr-example
+name: test-runner
+run-name: ${{ github.head_ref || github.ref_name }}-test-runner
 
 on:
   pull_request:
