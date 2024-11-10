@@ -89,4 +89,5 @@ common/max_physics_steps_per_frame=20
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 limits/spatial_indexer/update_iterations_per_frame=30

@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/flightcontrol40/CS-383-Project">
-    <img src="src/shared_assets/Chick-fil-A-Logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/flightcontrol40/CS-383-Project/blob/master/src/Nathan/Assets/angry_chicken_logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Kill Mo Chicken's</h3>
@@ -21,10 +21,7 @@
   <p align="center">
     Kill Mo' Chicken's is a top down tower defense game created for a UIdaho CS-383 calss
     <br />
-    <a href="https://github.com/flightcontrol40/CS-383-Project"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/flightcontrol40/CS-383-Project">View Demo</a>
+    <a href="https://flightcontrol40.github.io/CS-383-Project/"><strong>Explore the docs »</strong></a>
   </p>
 </div>
 
@@ -62,49 +59,34 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+In order to download and build the project you first need to get a copy of
+Godot 4.2 with .NET support
 
-### Installation
+[Godot 4](https://godotengine.org/download/)
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+You will also need the .Net 7 & 8 runtime
+
+[Dotnet 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+[Dotnet 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+If you plan to build from source you will also need a copy of the rcedit tool
+
+[rcedit](https://github.com/electron/rcedit/releases)
+
+### Building from source
+
+1. Clone the repo
    ```sh
    git clone https://github.com/flightcontrol40/CS-383-Project.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin flightcontrol40/CS-383-Project
-   git remote -v # confirm the changes
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+2. Open the project with Godot
+3. Select `Project -> Export -> Export All`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTRIBUTING -->
 ## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -144,3 +126,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-url]: https://github.com/flightcontrol40/CS-383-Project/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [product-screenshot]: images/screenshot.png
+[logo_image]: src/Nathan/Assets/angry_chicken_logo.png
