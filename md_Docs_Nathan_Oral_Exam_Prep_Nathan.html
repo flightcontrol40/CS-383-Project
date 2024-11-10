@@ -157,114 +157,113 @@ Example Test Case</h2>
 <p>An example for a test case that caught an error in the project is the HandleEnemyDiedSignalTest(). This test caught a bug in the coupling between the <a class="el" href="namespaceRoundManager.html">RoundManager</a> and the BaseChicken classes where both were attempting to free the chicken object causing a double free error.</p>
 <h2><a class="anchor" id="autotoc_md29"></a>
 Tests</h2>
-<div class="fragment"><div class="line"> {C#}</div>
-<div class="line">[TestSuite]</div>
-<div class="line">class RoundManagerTests{</div>
+<p>C# Tests </p><div class="fragment"><div class="line">[TestSuite]</div>
+<div class="line"><span class="keyword">class </span>RoundManagerTests{</div>
 <div class="line"> </div>
-<div class="line">    RoundManager round = null;</div>
-<div class="line">    Frankest enemy = null;</div>
-<div class="line">    SpawnOrder order = null;</div>
-<div class="line">    Level level = null;</div>
+<div class="line">    <a class="code hl_namespace" href="namespaceRoundManager.html">RoundManager</a> round = <span class="keyword">null</span>;</div>
+<div class="line">    <a class="code hl_class" href="classFrankest.html">Frankest</a> enemy = <span class="keyword">null</span>;</div>
+<div class="line">    SpawnOrder order = <span class="keyword">null</span>;</div>
+<div class="line">    <a class="code hl_class" href="classLevel.html">Level</a> level = <span class="keyword">null</span>;</div>
 <div class="line"> </div>
-<div class="line">    bool signal_status = false;</div>
+<div class="line">    <span class="keywordtype">bool</span> signal_status = <span class="keyword">false</span>;</div>
 <div class="line"> </div>
-<div class="line"> </div>
-<div class="line">    [Signal]</div>
-<div class="line">    public delegate void EnemyDiedEventHandler(BaseChicken enemy);</div>
 <div class="line"> </div>
 <div class="line">    [Signal]</div>
-<div class="line">    public delegate void EndOfPathEventHandler(BaseChicken enemy);</div>
+<div class="line">    <span class="keyword">public</span> delegate <span class="keywordtype">void</span> EnemyDiedEventHandler(BaseChicken enemy);</div>
 <div class="line"> </div>
 <div class="line">    [Signal]</div>
-<div class="line">    public delegate void EnemySplitEventHandler(BaseChicken enemy);</div>
+<div class="line">    <span class="keyword">public</span> delegate <span class="keywordtype">void</span> EndOfPathEventHandler(BaseChicken enemy);</div>
+<div class="line"> </div>
+<div class="line">    [Signal]</div>
+<div class="line">    <span class="keyword">public</span> delegate <span class="keywordtype">void</span> EnemySplitEventHandler(BaseChicken enemy);</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    [BeforeTest]</div>
-<div class="line">    public void SetupTest(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> SetupTest(){</div>
 <div class="line"> </div>
-<div class="line">        round = new RoundManager();</div>
-<div class="line">        enemy = GD.Load&lt;PackedScene&gt;(&quot;res://src/Clayton/Enemy/Frankest.tscn&quot;).Instantiate&lt;Frankest&gt;();</div>
+<div class="line">        round = <span class="keyword">new</span> <a class="code hl_namespace" href="namespaceRoundManager.html">RoundManager</a>();</div>
+<div class="line">        enemy = GD.Load&lt;PackedScene&gt;(<span class="stringliteral">&quot;res://src/Clayton/Enemy/Frankest.tscn&quot;</span>).Instantiate&lt;Frankest&gt;();</div>
 <div class="line">        round._Ready();</div>
-<div class="line">        enemy._Ready();</div>
-<div class="line">        order = new SpawnOrder(enemy, 100);</div>
+<div class="line">        enemy.<a class="code hl_function" href="classFrankest.html#a58d67e4d7bf68d0a09ed9630ba231b30">_Ready</a>();</div>
+<div class="line">        order = <span class="keyword">new</span> SpawnOrder(enemy, 100);</div>
 <div class="line">        order._Ready();</div>
 <div class="line">        round.spawnQueue.Add(order);</div>
-<div class="line">        level = GD.Load&lt;Level&gt;(&quot;res://src/Nathan/test/TestLevel.tres&quot;);</div>
-<div class="line">        AssertThat(level).IsInstanceOf&lt;Level&gt;();</div>
+<div class="line">        level = GD.Load&lt;<a class="code hl_class" href="classLevel.html">Level</a>&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/TestLevel.tres&quot;</span>);</div>
+<div class="line">        AssertThat(level).IsInstanceOf&lt;<a class="code hl_class" href="classLevel.html">Level</a>&gt;();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void SpawnChickenTest(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> SpawnChickenTest(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.spawnEnemy();</div>
 <div class="line">        AssertArray(round.liveEnemies).IsNotEmpty();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void LoadLevelTest(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_class" href="classLoadLevelTest.html">LoadLevelTest</a>(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.spawnEnemy();</div>
 <div class="line">        AssertArray(round.liveEnemies).IsNotEmpty();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">   [TestCase]</div>
-<div class="line">    public void HandleEnemyDiedSignalTest(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> HandleEnemyDiedSignalTest(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.spawnEnemy();</div>
 <div class="line">        order.Enemy.TakeDamage(500);</div>
 <div class="line">        AssertArray(round.liveEnemies).IsEmpty();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">   [TestCase]</div>
-<div class="line">    public void HandleEnemyFinishedSignalTest(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> HandleEnemyFinishedSignalTest(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.spawnEnemy();</div>
-<div class="line">        enemy.EmitSignal(Frankest.SignalName.EndOfPath, enemy);</div>
+<div class="line">        enemy.EmitSignal(<a class="code hl_class" href="classFrankest.html">Frankest</a>.SignalName.EndOfPath, enemy);</div>
 <div class="line">        AssertArray(round.liveEnemies).IsEmpty();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">   [TestCase]</div>
-<div class="line">    public void HandleEnemySplitSignalTest(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> HandleEnemySplitSignalTest(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.spawnEnemy();</div>
-<div class="line">        enemy.EmitSignal(Frankest.SignalName.EnemySplit, enemy);</div>
+<div class="line">        enemy.EmitSignal(<a class="code hl_class" href="classFrankest.html">Frankest</a>.SignalName.EnemySplit, enemy);</div>
 <div class="line">        AssertArray(round.liveEnemies).HasSize(2);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestStartRound(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestStartRound(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.startRound();</div>
 <div class="line">        AssertArray(round.spawnQueue).IsNotEmpty();</div>
 <div class="line">        AssertBool(round.roundRunning).IsTrue();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestStartRoundException(){</div>
-<div class="line">        try {</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestStartRoundException(){</div>
+<div class="line">        <span class="keywordflow">try</span> {</div>
 <div class="line">        round.startRound();</div>
-<div class="line">        // Shouldn&#39;t Get here</div>
-<div class="line">        AssertBool(false).IsTrue();</div>
+<div class="line">        <span class="comment">// Shouldn&#39;t Get here</span></div>
+<div class="line">        AssertBool(<span class="keyword">false</span>).IsTrue();</div>
 <div class="line">        }</div>
-<div class="line">        catch (Exception e){</div>
-<div class="line">            AssertString(e.Message).IsEqual(&quot;Round Cannot Be started before a level is loaded&quot;);</div>
+<div class="line">        <span class="keywordflow">catch</span> (Exception e){</div>
+<div class="line">            AssertString(e.Message).IsEqual(<span class="stringliteral">&quot;Round Cannot Be started before a level is loaded&quot;</span>);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestCleanRound(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestCleanRound(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.startRound();</div>
 <div class="line">        round.cleanLevel();</div>
 <div class="line">        AssertArray(round.liveEnemies).IsEmpty();</div>
@@ -272,157 +271,145 @@ Tests</h2>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestDamage(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestDamage(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.TakeDamage(50);</div>
-<div class="line">        AssertInt(level.playerHealth).IsLess(100);</div>
+<div class="line">        AssertInt(level.<a class="code hl_property" href="classLevel.html#a48595a6d596594bc25ff2a5611f7ceed">playerHealth</a>).IsLess(100);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestLose(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestLose(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.startRound();</div>
 <div class="line">        round.spawnQueue.Clear();</div>
 <div class="line">        round.liveEnemies.Clear();</div>
-<div class="line">        round._Process(10);</div>
+<div class="line">        round.<a class="code hl_function" href="classMap.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a>(10);</div>
 <div class="line">        AssertArray(round.liveEnemies).IsEmpty();</div>
 <div class="line">        AssertArray(round.spawnQueue).IsEmpty();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    public void TestSignal(){</div>
-<div class="line">        signal_status = true;</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestSignal(){</div>
+<div class="line">        signal_status = <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestLoseSignal(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestLoseSignal(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.GameLost += TestSignal;</div>
 <div class="line">        round.startRound();</div>
 <div class="line">        round.spawnQueue.Clear();</div>
 <div class="line">        round.liveEnemies.Clear();</div>
 <div class="line">        level.playerHealth = 0;</div>
-<div class="line">        round._Process(10);</div>
+<div class="line">        round.<a class="code hl_function" href="classMap.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a>(10);</div>
 <div class="line">        AssertBool(signal_status).IsTrue();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void TestWinSignal(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestWinSignal(){</div>
 <div class="line">        round.loadLevel(level, 1);</div>
-<div class="line">        level.loadMap();</div>
+<div class="line">        level.<a class="code hl_function" href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">loadMap</a>();</div>
 <div class="line">        round.GameWon += TestSignal;</div>
 <div class="line">        round.startRound();</div>
 <div class="line">        round.spawnQueue.Clear();</div>
 <div class="line">        round.liveEnemies.Clear();</div>
-<div class="line">        level.maxRound = level.CurrentRoundNum;</div>
+<div class="line">        level.maxRound = level.<a class="code hl_property" href="classLevel.html#adf9097b282dfdc22319112030fc9fac7">CurrentRoundNum</a>;</div>
 <div class="line">        round._Process(10);</div>
 <div class="line">        AssertBool(signal_status).IsTrue();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [AfterTest]</div>
-<div class="line">    public void TestTeardown(){</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> TestTeardown(){</div>
 <div class="line">        round.Free();</div>
 <div class="line">        order.Free();</div>
 <div class="line">        level.Free();</div>
-<div class="line">        signal_status = false;</div>
+<div class="line">        signal_status = <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">[TestSuite]</div>
-<div class="line">public class DifficultyCalculatorTests {</div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>DifficultyCalculatorTests {</div>
 <div class="line"> </div>
-<div class="line">    public bool enabled = false;</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">bool</span> enabled = <span class="keyword">false</span>;</div>
 <div class="line"> </div>
-<div class="line">    /// &lt;summary&gt;</div>
-<div class="line">    /// Testing the Easy unit difficulty calculator</div>
-<div class="line">    /// Should spawn 581 enemies</div>
-<div class="line">    /// &lt;/summary&gt;</div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public void UnitCalculateEasyDifficulty() {</div>
-<div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(&quot;res://src/Nathan/test/SampleEasyTable.tres&quot;);</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> UnitCalculateEasyDifficulty() {</div>
+<div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/SampleEasyTable.tres&quot;</span>);</div>
 <div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
 <div class="line">            difficultyTable,</div>
-<div class="line">            Difficulty.Easy</div>
-<div class="line">        ));</div>
-<div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
-<div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    /// &lt;summary&gt;</div>
-<div class="line">    /// Testing the Medium unit difficulty calculator</div>
-<div class="line">    /// Should spawn 726 enemies</div>
-<div class="line">    /// &lt;/summary&gt;</div>
-<div class="line">    [TestCase]</div>
-<div class="line">    public void UnitCalculateMediumDifficulty() {</div>
-<div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(&quot;res://src/Nathan/test/SampleMediumTable.tres&quot;);</div>
-<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
-<div class="line">            difficultyTable,</div>
-<div class="line">            Difficulty.Medium</div>
-<div class="line">        ));</div>
-<div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
-<div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    /// &lt;summary&gt;</div>
-<div class="line">    /// Testing the Hard unit difficulty calculator</div>
-<div class="line">    /// Should spawn 1089 enemies</div>
-<div class="line">    /// &lt;/summary&gt;</div>
-<div class="line">    [TestCase]</div>
-<div class="line">    public void UnitCalculateHardDifficulty() {</div>
-<div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(&quot;res://src/Nathan/test/SampleHardTable.tres&quot;);</div>
-<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
-<div class="line">            difficultyTable,</div>
-<div class="line">            Difficulty.Hard</div>
+<div class="line">            <a class="code hl_enumeration" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Easy</div>
 <div class="line">        ));</div>
 <div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
 <div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    [TestCase]</div>
-<div class="line">    public async Task StressCalculateDifficultyTest() {</div>
-<div class="line">        ISceneRunner runner = ISceneRunner.Load(&quot;res://src/Nathan/test/NathanSampleScene.tscn&quot;);</div>
-<div class="line">        // await runner.SimulateFrames();</div>
-<div class="line">        bool under_load = true;</div>
-<div class="line">        string total_enemies = &quot;&quot;;</div>
-<div class="line">        Label fpsCounter = runner.Scene().GetNode&lt;Label&gt;(&quot;CanvasLayer/Container/VSplitContainer/FPSLabels/FPSCounter&quot;);</div>
-<div class="line">        Label enemyCounter = runner.Scene().GetNode&lt;Label&gt;(&quot;CanvasLayer/Container/VSplitContainer/EnemiesLabel/EnemiesCounter&quot;);</div>
-<div class="line">        Godot.Timer timer = runner.Scene().GetNode&lt;Godot.Timer&gt;(&quot;Timer&quot;);</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> UnitCalculateMediumDifficulty() {</div>
+<div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/SampleMediumTable.tres&quot;</span>);</div>
+<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
+<div class="line">            difficultyTable,</div>
+<div class="line">            <a class="code hl_enumeration" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Medium</div>
+<div class="line">        ));</div>
+<div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
+<div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    [TestCase]</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> UnitCalculateHardDifficulty() {</div>
+<div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/SampleHardTable.tres&quot;</span>);</div>
+<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
+<div class="line">            difficultyTable,</div>
+<div class="line">            <a class="code hl_enumeration" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Hard</div>
+<div class="line">        ));</div>
+<div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
+<div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    [TestCase]</div>
+<div class="line">    <span class="keyword">public</span> async Task StressCalculateDifficultyTest() {</div>
+<div class="line">        ISceneRunner runner = ISceneRunner.Load(<span class="stringliteral">&quot;res://src/Nathan/test/NathanSampleScene.tscn&quot;</span>);</div>
+<div class="line">        <span class="comment">// await runner.SimulateFrames();</span></div>
+<div class="line">        <span class="keywordtype">bool</span> under_load = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordtype">string</span> total_enemies = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        Label fpsCounter = runner.Scene().GetNode&lt;Label&gt;(<span class="stringliteral">&quot;CanvasLayer/Container/VSplitContainer/FPSLabels/FPSCounter&quot;</span>);</div>
+<div class="line">        Label enemyCounter = runner.Scene().GetNode&lt;Label&gt;(<span class="stringliteral">&quot;CanvasLayer/Container/VSplitContainer/EnemiesLabel/EnemiesCounter&quot;</span>);</div>
+<div class="line">        Godot.Timer timer = runner.Scene().GetNode&lt;Godot.Timer&gt;(<span class="stringliteral">&quot;Timer&quot;</span>);</div>
 <div class="line">        AssertThat(fpsCounter).IsInstanceOf&lt;Label&gt;();</div>
 <div class="line">        AssertThat(enemyCounter).IsInstanceOf&lt;Label&gt;();</div>
-<div class="line">        List&lt;double&gt; frame_times = new List&lt;double&gt;(Enumerable.Repeat(0.03,50));</div>
-<div class="line">        int i = 0;</div>
-<div class="line">        double average_fps;</div>
-<div class="line">        int count = 0;</div>
+<div class="line">        List&lt;double&gt; frame_times = <span class="keyword">new</span> List&lt;double&gt;(Enumerable.Repeat(0.03,50));</div>
+<div class="line">        <span class="keywordtype">int</span> i = 0;</div>
+<div class="line">        <span class="keywordtype">double</span> average_fps;</div>
+<div class="line">        <span class="keywordtype">int</span> count = 0;</div>
 <div class="line">        timer.Start(15);</div>
-<div class="line">        while (under_load) {</div>
+<div class="line">        <span class="keywordflow">while</span> (under_load) {</div>
 <div class="line">            runner.MaximizeView();</div>
 <div class="line">            await runner.SimulateFrames(1);</div>
-<div class="line">            if (i % 50 == 49) {</div>
-<div class="line">                var c = runner.Invoke(&quot;spawn_round&quot;, 1);</div>
+<div class="line">            <span class="keywordflow">if</span> (i % 50 == 49) {</div>
+<div class="line">                var c = runner.Invoke(<span class="stringliteral">&quot;spawn_round&quot;</span>, 1);</div>
 <div class="line">                count = (int)c;</div>
 <div class="line">            }</div>
-<div class="line">            double processTime = Performance.GetMonitor(Performance.Monitor.TimePhysicsProcess);</div>
+<div class="line">            <span class="keywordtype">double</span> processTime = Performance.GetMonitor(Performance.Monitor.TimePhysicsProcess);</div>
 <div class="line">            frame_times[i % 50] = processTime;</div>
 <div class="line">            average_fps = 1 / frame_times.Average();</div>
-<div class="line">            fpsCounter.Text = Performance.GetMonitor(Performance.Monitor.TimeFps).ToString(); //((int)average_fps).ToString();</div>
+<div class="line">            fpsCounter.Text = Performance.GetMonitor(Performance.Monitor.TimeFps).ToString(); <span class="comment">//((int)average_fps).ToString();</span></div>
 <div class="line">            enemyCounter.Text = count.ToString();</div>
-<div class="line">            // Check fps</div>
-<div class="line">            if (average_fps &lt; 5){</div>
-<div class="line">                // Less than 15 fps break the loop</div>
-<div class="line">                under_load = false;</div>
-<div class="line">                // Assert a failure</div>
-<div class="line">                AssertThat(false).IsTrue();</div>
-<div class="line">                total_enemies = $&quot;Spawned: {count}, before FPS &lt; 15.&quot;;</div>
+<div class="line">            <span class="comment">// Check fps</span></div>
+<div class="line">            <span class="keywordflow">if</span> (average_fps &lt; 5){</div>
+<div class="line">                <span class="comment">// Less than 15 fps break the loop</span></div>
+<div class="line">                under_load = <span class="keyword">false</span>;</div>
+<div class="line">                <span class="comment">// Assert a failure</span></div>
+<div class="line">                AssertThat(<span class="keyword">false</span>).IsTrue();</div>
+<div class="line">                total_enemies = $<span class="stringliteral">&quot;Spawned: {count}, before FPS &lt; 15.&quot;</span>;</div>
 <div class="line">            }</div>
-<div class="line">            if (timer.IsStopped() == true){</div>
-<div class="line">                under_load = false;</div>
-<div class="line">                // Assert a pass</div>
-<div class="line">                AssertThat(true).IsTrue();</div>
-<div class="line">                total_enemies = $&quot;Spawned: {count}&quot;;</div>
+<div class="line">            <span class="keywordflow">if</span> (timer.IsStopped() == <span class="keyword">true</span>){</div>
+<div class="line">                under_load = <span class="keyword">false</span>;</div>
+<div class="line">                <span class="comment">// Assert a pass</span></div>
+<div class="line">                AssertThat(<span class="keyword">true</span>).IsTrue();</div>
+<div class="line">                total_enemies = $<span class="stringliteral">&quot;Spawned: {count}&quot;</span>;</div>
 <div class="line">            }</div>
 <div class="line">            i++;</div>
 <div class="line">        }</div>
@@ -430,6 +417,16 @@ Tests</h2>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">}</div>
+<div class="ttc" id="aclassFrankest_html"><div class="ttname"><a href="classFrankest.html">Frankest</a></div><div class="ttdef"><b>Definition:</b> Frankest.cs:5</div></div>
+<div class="ttc" id="aclassFrankest_html_a58d67e4d7bf68d0a09ed9630ba231b30"><div class="ttname"><a href="classFrankest.html#a58d67e4d7bf68d0a09ed9630ba231b30">Frankest._Ready</a></div><div class="ttdeci">override void _Ready()</div><div class="ttdef"><b>Definition:</b> Frankest.cs:27</div></div>
+<div class="ttc" id="aclassLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> Level.cs:13</div></div>
+<div class="ttc" id="aclassLevel_html_a48595a6d596594bc25ff2a5611f7ceed"><div class="ttname"><a href="classLevel.html#a48595a6d596594bc25ff2a5611f7ceed">Level.playerHealth</a></div><div class="ttdeci">int playerHealth</div><div class="ttdef"><b>Definition:</b> Level.cs:34</div></div>
+<div class="ttc" id="aclassLevel_html_adf9097b282dfdc22319112030fc9fac7"><div class="ttname"><a href="classLevel.html#adf9097b282dfdc22319112030fc9fac7">Level.CurrentRoundNum</a></div><div class="ttdeci">int CurrentRoundNum</div><div class="ttdef"><b>Definition:</b> Level.cs:38</div></div>
+<div class="ttc" id="aclassLevel_html_ae4ce2bff44165ab32e2886d645d99acc"><div class="ttname"><a href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">Level.loadMap</a></div><div class="ttdeci">Map loadMap()</div><div class="ttdef"><b>Definition:</b> Level.cs:46</div></div>
+<div class="ttc" id="aclassLoadLevelTest_html"><div class="ttname"><a href="classLoadLevelTest.html">LoadLevelTest</a></div><div class="ttdef"><b>Definition:</b> LoadLevelTest.cs:6</div></div>
+<div class="ttc" id="aclassMap_html_a283e0ea55da32a4e18caeabb96d5c04a"><div class="ttname"><a href="classMap.html#a283e0ea55da32a4e18caeabb96d5c04a">Map._Process</a></div><div class="ttdeci">override void _Process(double delta)</div><div class="ttdef"><b>Definition:</b> Map.cs:13</div></div>
+<div class="ttc" id="anamespaceRoundManager_html"><div class="ttname"><a href="namespaceRoundManager.html">RoundManager</a></div><div class="ttdef"><b>Definition:</b> DifficultyTable.cs:3</div></div>
+<div class="ttc" id="anamespaceRoundManager_html_a43efb0a2e61815a66134dfa5ccea0a83"><div class="ttname"><a href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">RoundManager.Difficulty</a></div><div class="ttdeci">Difficulty</div><div class="ttdoc">Enum to represent the current Difficulty.</div><div class="ttdef"><b>Definition:</b> DifficultyCalculator.cs:10</div></div>
 </div><!-- fragment --><div class="fragment"><div class="line">extends GdUnitTestSuite</div>
 <div class="line">class_name SoundManagerTests</div>
 <div class="line"> </div>
