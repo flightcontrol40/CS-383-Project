@@ -20,4 +20,4 @@ In Godot there is a specific structure that this scene expects:
 The enemy spawn orders can then be created with the [CalculateSpawnOrder](@ref DifficultyCalculator.CalculateSpawnOrder) function.
 This function will return a List of [SpawnOrder](@ref SpawnOrder)
 
-The full API can be viewed [here](@ref DifficultyCalculator)
+The full API can be viewed [here](https://flightcontrol40.github.io/CS-383-Project/classRoundManager_1_1DifficultyCalculator.html)
