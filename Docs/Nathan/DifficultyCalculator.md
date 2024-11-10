@@ -11,12 +11,12 @@ There are three variants of the difficulty calculator:
 
 All three can be acquired using the [DifficultyCalculatorFactory.DifficultyCalculator](@ref DifficultyCalculatorFactory) factory function
 
-## Structure in Godot
+## Godot Classes
 In Godot there is a specific structure that this scene expects:
 1. A [Difficulty Enum](@ref Difficulty)
 2. A [DifficultyTable](@ref DifficultyTable)
 
-## Functions
+## Godot Functions
 The enemy spawn orders can then be created with the [CalculateSpawnOrder](@ref DifficultyCalculator.CalculateSpawnOrder) function.
 This function will return a List of [SpawnOrder](@ref SpawnOrder)
 
