@@ -3,6 +3,7 @@ using GdUnit4;
 using static GdUnit4.Assertions;
 
 using System.Threading.Tasks;
+using RoundManager;
 
 namespace AustinsTests {
     
@@ -15,7 +16,7 @@ namespace AustinsTests {
         private const string mapScenePath = basePath + "/scenes/map.tscn";
 
         private static LevelManager levelManager;
-        [Before]
+        [BeforeTest]
         public void initLevelManagerTests() {
             levelManager = GD.Load<PackedScene>(levelManagerScenePath).Instantiate<LevelManager>();
 
@@ -108,11 +109,162 @@ namespace AustinsTests {
             AssertThat(levelManager.mapLoaded).IsEqual(true);
         }
 
+        [TestCase]
+        public void Unit_defaultDifficutly() {
+            AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Easy);
+        }
+
+        [TestCase]
+        public void Unit_easyDifficultyTableMaxRound() {
+            levelManager.setDifficulty(Difficulty.Easy);
+
+            AssertThat(levelManager.level.maxRound).IsEqual(100);
+        }
+
+        [TestCase]
+        public void Unit_easyDifficultyTableEnemyRanks() {
+            levelManager.setDifficulty(Difficulty.Easy);
+
+            Godot.Collections.Array<int> easyRanks = new Godot.Collections.Array<int> {
+                (int)Chicken.Cost.ChickenR1,
+                (int)Chicken.Cost.ChickenR2,
+                (int)Chicken.Cost.ChickenR3 };
+
+            AssertThat(levelManager.level.difficultyTable.EnemyRanks).ContainsExactly(easyRanks);
+        }
+
+        [TestCase]
+        public void Unit_easyDifficultyTableRoundDifficultyValue() {
+            levelManager.setDifficulty(Difficulty.Easy);
+
+            int[] easyRoundDifficulty = new int [levelManager.level.maxRound];
+            easyRoundDifficulty[0] = 6;
+            for (int i = 1; i < easyRoundDifficulty.Length; i++) {
+                easyRoundDifficulty[i] = easyRoundDifficulty[i - 1] + 1;
+            }
+
+            AssertThat(levelManager.level.difficultyTable.RoundDifficultyValue).ContainsExactly(easyRoundDifficulty);
+        }
+
+        [TestCase]
+        public void Unit_mediumDifficultyTableMaxRound() {
+            levelManager.setDifficulty(Difficulty.Medium);
+
+            AssertThat(levelManager.level.maxRound).IsEqual(100);
+        }
+
+        [TestCase]
+        public void Unit_mediumDifficultyTableEnemyRanks() {
+            levelManager.setDifficulty(Difficulty.Medium);
+
+            Godot.Collections.Array<int> mediumRanks = new Godot.Collections.Array<int> {
+                (int)Chicken.Cost.ChickenR1,
+                (int)Chicken.Cost.ChickenR2,
+                (int)Chicken.Cost.ChickenR3,
+                (int)Chicken.Cost.ChickenR4 };
+
+            AssertThat(levelManager.level.difficultyTable.EnemyRanks).ContainsExactly(mediumRanks);
+        }
+
+        [TestCase]
+        public void Unit_mediumDifficultyTableRoundDifficultyValue() {
+            levelManager.setDifficulty(Difficulty.Medium);
+
+            int[] mediumRoundDifficulty = new int [levelManager.level.maxRound];
+            mediumRoundDifficulty[0] = 8;
+            for (int i = 1; i < mediumRoundDifficulty.Length; i++) {
+                mediumRoundDifficulty[i] = mediumRoundDifficulty[i - 1] + 2;
+            }
+
+            AssertThat(levelManager.level.difficultyTable.RoundDifficultyValue).ContainsExactly(mediumRoundDifficulty);
+        }
+
+        [TestCase]
+        public void Unit_hardDifficultyTableMaxRound() {
+            levelManager.setDifficulty(Difficulty.Hard);
+
+            AssertThat(levelManager.level.maxRound).IsEqual(100);
+        }
+
+        [TestCase]
+        public void Unit_hardDifficultyTableEnemyRanks() {
+            levelManager.setDifficulty(Difficulty.Hard);
+
+            Godot.Collections.Array<int> hardRanks = new Godot.Collections.Array<int> {
+                (int)Chicken.Cost.ChickenR1,
+                (int)Chicken.Cost.ChickenR2,
+                (int)Chicken.Cost.ChickenR3,
+                (int)Chicken.Cost.ChickenR4 };
+
+            AssertThat(levelManager.level.difficultyTable.EnemyRanks).ContainsExactly(hardRanks);
+        }
+
+        [TestCase]
+        public void Unit_hardDifficultyTableRoundDifficultyValue() {
+            levelManager.setDifficulty(Difficulty.Hard);
+
+            int[] hardRoundDifficulty = new int [levelManager.level.maxRound];
+            hardRoundDifficulty[0] = 15;
+            for (int i = 1; i < hardRoundDifficulty.Length; i++) {
+                hardRoundDifficulty[i] = hardRoundDifficulty[i - 1] + 3;
+            }
+
+            AssertThat(levelManager.level.difficultyTable.RoundDifficultyValue).ContainsExactly(hardRoundDifficulty);
+        }
+
+        [TestCase]
+        public void Unit_difficultyTableLoadedByDefault() {
+            AssertThat(levelManager.level.difficultyTable).IsNotNull();
+        }
+
+        [TestCase]
+        public void Unit_setDifficultyEasy() {
+            levelManager.setDifficulty(Difficulty.Easy);
+
+            AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Easy);
+        }
+
+        [TestCase]
+        public void Unit_setDifficultyMedium() {
+            levelManager.setDifficulty(Difficulty.Medium);
+
+            AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Medium);
+        }
+
+        [TestCase]
+        public void Unit_setDifficultyHard() {
+            levelManager.setDifficulty(Difficulty.Hard);
+
+            AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Hard);
+        }
+
+        [TestCase]
+        public void Unit_setMapMeadows() {
+            PackedScene meadows = GD.Load<PackedScene>("res://src/Austin/scenes/meadows.tscn");
+            levelManager.setMap(meadows);
+
+            AssertThat(levelManager.level.mapScene).IsEqual(meadows);
+        }
+
+        [TestCase]
+        public void Unit_setMapMultipath() {
+            PackedScene multipath = GD.Load<PackedScene>("res://src/Austin/scenes/multipath_map.tscn");
+            levelManager.setMap(multipath);
+
+            AssertThat(levelManager.level.mapScene).IsEqual(multipath);
+        }
+
+        [TestCase]
+        public void Unit_setMapDefault() {
+            PackedScene defaultMap = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
+            levelManager.setMap(defaultMap);
+
+            AssertThat(levelManager.level.mapScene).IsEqual(defaultMap);
+        }
 
 
         [TestCase(Timeout=60000)]
         public async Task Stress_multipleLevels() {
-            AssertThat(false).OverrideFailureMessage("Skipping this test because it takes too long").IsEqual(true);
             const int numInitialLevels = 380;
             bool moreStress = true;
             int totalLevels = numInitialLevels;
@@ -147,7 +299,7 @@ namespace AustinsTests {
             runner.Invoke("freeLevels");
         }
 
-        [After]
+        [AfterTest]
         public void endLevelMangerTests() {
             levelManager.level.unloadMap();
             levelManager.Free();
