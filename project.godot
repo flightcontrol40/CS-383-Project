@@ -13,7 +13,8 @@ config_version=5
 config/name="TowerGame"
 run/main_scene="res://src/Clayton/MainMenu/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-boot_splash/image="res://Chick-fil-A-Logo.png"
+boot_splash/image="res://src/Nathan/Assets/angry_chicken_logo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
