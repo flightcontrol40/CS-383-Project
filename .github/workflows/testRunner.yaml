@@ -31,7 +31,7 @@ jobs:
           lfs: true
       - uses: MikeSchulze/gdUnit4-action@v1
         with:
-          godot-version: '4.3'
+          godot-version: '4.3-stable'
           godot-net: true
           paths: |
             res://src/Sohan/test/
