@@ -2,10 +2,9 @@ name: test-runner
 run-name: ${{ github.head_ref || github.ref_name }}-test-runner
 
 on:
-  pull_request:
-    paths-ignore:
-      - '**.yml'
-      - '**.md'
+  push:
+    branches:
+      - master  # Set a branch name to trigger deployment
   workflow_dispatch:
 
 concurrency:
