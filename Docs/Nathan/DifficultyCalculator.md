@@ -1,6 +1,6 @@
+# Difficulty Manager
 
-
-# Description
+## Description
 The Difficulty Manager set of classes are used for calculating what and when to
 spawn enemies in a Godot Project.
 
@@ -11,12 +11,12 @@ There are three variants of the difficulty calculator:
 
 All three can be acquired using the [DifficultyCalculatorFactory.DifficultyCalculator](#DifficultyCalculatorFactory) factory function
 
-# Structure in Godot
+## Structure in Godot
 In Godot there is a specific structure that this scene expects:
 1. A [Difficulty Enum](#Difficulty)
 2. A [DifficultyTable](#DifficultyTable)
 
-# Functions
+## Functions
 The enemy spawn orders can then be created with the [CalculateSpawnOrder](@ref DifficultyCalculator.CalculateSpawnOrder) function.
 This function will return a List of [SpawnOrder][#SpawnOrder]
 
