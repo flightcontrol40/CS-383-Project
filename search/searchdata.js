@@ -8,7 +8,7 @@ var indexSectionsWithContent =
   5: "cd",
   6: "cehm",
   7: "cdmp",
-  8: "kp"
+  8: "dkp"
 };
 
 var indexSectionNames =

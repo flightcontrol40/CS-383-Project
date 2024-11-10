@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kill_20mo_20chickens_0',['Kill Mo Chickens',['../index.html',1,'']]]
+  ['description_0',['Description',['../md_Docs_Nathan_DifficultyCalculator.html',1,'']]]
 ];

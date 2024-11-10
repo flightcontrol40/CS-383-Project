@@ -39,6 +39,10 @@ var NAVTREE =
         ] ]
       ] ]
     ] ],
+    [ "Description", "md_Docs_Nathan_DifficultyCalculator.html", [
+      [ "Structure in Godot", "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md17", null ],
+      [ "Functions", "md_Docs_Nathan_DifficultyCalculator.html#autotoc_md18", null ]
+    ] ],
     [ "API", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
