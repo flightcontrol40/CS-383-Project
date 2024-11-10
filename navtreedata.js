@@ -39,9 +39,6 @@ var NAVTREE =
         ] ]
       ] ]
     ] ],
-    [ "Team Lead 1 Big Group Presentation", "md_Docs_Nathan_PresentationLinks.html", [
-      [ "Godot Breakout", "md_Docs_Nathan_PresentationLinks.html#autotoc_md17", null ]
-    ] ],
     [ "API", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
