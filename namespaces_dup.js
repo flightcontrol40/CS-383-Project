@@ -1,6 +1,7 @@
 var namespaces_dup =
 [
     [ "Chicken", "namespaceChicken.html", "namespaceChicken" ],
+    [ "DifficultyCalculator", "namespaceDifficultyCalculator.html", "namespaceDifficultyCalculator" ],
     [ "fix_whitespace", "namespacefix__whitespace.html", [
       [ "data", "namespacefix__whitespace.html#a82b14ab2862abc027546b172898a151b", null ],
       [ "encoding", "namespacefix__whitespace.html#ab1000d1f2ea9878f60bc119650013894", null ],

@@ -4,15 +4,17 @@ var annotated_dup =
       [ "BaseChicken", "classChicken_1_1BaseChicken.html", "classChicken_1_1BaseChicken" ],
       [ "ChickenFactory", "classChicken_1_1ChickenFactory.html", "classChicken_1_1ChickenFactory" ]
     ] ],
+    [ "DifficultyCalculator", "namespaceDifficultyCalculator.html", [
+      [ "DifficultyCalculator", "classDifficultyCalculator_1_1DifficultyCalculator.html", "classDifficultyCalculator_1_1DifficultyCalculator" ],
+      [ "DifficultyCalculatorFactory", "classDifficultyCalculator_1_1DifficultyCalculatorFactory.html", "classDifficultyCalculator_1_1DifficultyCalculatorFactory" ],
+      [ "EasyDifficultyCalculator", "classDifficultyCalculator_1_1EasyDifficultyCalculator.html", "classDifficultyCalculator_1_1EasyDifficultyCalculator" ],
+      [ "HardDifficultyCalculator", "classDifficultyCalculator_1_1HardDifficultyCalculator.html", "classDifficultyCalculator_1_1HardDifficultyCalculator" ],
+      [ "MediumDifficultyCalculator", "classDifficultyCalculator_1_1MediumDifficultyCalculator.html", null ],
+      [ "SpawnOrder", "classDifficultyCalculator_1_1SpawnOrder.html", "classDifficultyCalculator_1_1SpawnOrder" ]
+    ] ],
     [ "RoundManager", "namespaceRoundManager.html", [
-      [ "DifficultyCalculator", "classRoundManager_1_1DifficultyCalculator.html", "classRoundManager_1_1DifficultyCalculator" ],
-      [ "DifficultyCalculatorFactory", "classRoundManager_1_1DifficultyCalculatorFactory.html", "classRoundManager_1_1DifficultyCalculatorFactory" ],
       [ "DifficultyTable", "classRoundManager_1_1DifficultyTable.html", "classRoundManager_1_1DifficultyTable" ],
-      [ "EasyDifficultyCalculator", "classRoundManager_1_1EasyDifficultyCalculator.html", "classRoundManager_1_1EasyDifficultyCalculator" ],
-      [ "HardDifficultyCalculator", "classRoundManager_1_1HardDifficultyCalculator.html", "classRoundManager_1_1HardDifficultyCalculator" ],
-      [ "MediumDifficultyCalculator", "classRoundManager_1_1MediumDifficultyCalculator.html", null ],
-      [ "RoundManager", "classRoundManager_1_1RoundManager.html", "classRoundManager_1_1RoundManager" ],
-      [ "SpawnOrder", "classRoundManager_1_1SpawnOrder.html", "classRoundManager_1_1SpawnOrder" ]
+      [ "RoundManager", "classRoundManager_1_1RoundManager.html", "classRoundManager_1_1RoundManager" ]
     ] ],
     [ "BaseMenu", "classBaseMenu.html", "classBaseMenu" ],
     [ "Bullet", "classBullet.html", "classBullet" ],

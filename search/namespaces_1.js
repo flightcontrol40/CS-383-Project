@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fix_5fwhitespace_0',['fix_whitespace',['../namespacefix__whitespace.html',1,'']]]
+  ['difficultycalculator_0',['DifficultyCalculator',['../namespaceDifficultyCalculator.html',1,'']]]
 ];

@@ -98,52 +98,52 @@ $(document).ready(function(){initNavTree('md_Docs_Nathan_Oral_Exam_Prep_Nathan.h
 <div class="textblock"><h1><a class="anchor" id="autotoc_md17"></a>
 Programming Pattern</h1>
 <p>For this project there are three different patterns that I am using across my work</p><ol type="1">
-<li>Factory DifficultyCalculatorFactory</li>
-<li>Composition <a class="el" href="namespaceRoundManager.html">RoundManager</a></li>
+<li>Factory <a class="el" href="classDifficultyCalculator_1_1DifficultyCalculatorFactory.html">DifficultyCalculatorFactory</a></li>
+<li>Composition <a class="el" href="classRoundManager_1_1RoundManager.html">RoundManager</a></li>
 <li>Singleton SoundManager</li>
 </ol>
 <h2><a class="anchor" id="autotoc_md18"></a>
 Factory</h2>
-<p>This pattern in used in the DifficultyCalculatorFactory::CreateCalculator method. This method returns one of the subclasses of DifficultCalculator based on the passed in #Difficulty Enum</p>
+<p>This pattern in used in the <a href="DifficultyCalculatorFactory#CreateCalculator()">DifficultyCalculatorFactory.CreateCalculator</a> method. This method returns one of the subclasses of <a href="DifficultCalculator#DifficultCalculator">DifficultCalculator</a> based on the passed in <a href="DifficultyCalculator#Difficulty">Difficulty</a> Enum</p>
 <h2><a class="anchor" id="autotoc_md19"></a>
 Composition</h2>
-<p>This pattern in used by the <a class="el" href="namespaceRoundManager.html">RoundManager</a> class. The RoundManger contain's manages and creates other class instances of DifficultCalculator and BaseChicken classes. This allows the <a class="el" href="namespaceRoundManager.html">RoundManager</a> to properly track round progress, update the level data accordingly, and spawn in the enemies each time a round is started</p>
+<p>This pattern in used by the <a href="RoundManager#RoundManager">RoundManager</a> class. The <a href="RoundManager#RoundManager">RoundManager</a> contain's manages and creates other class instances of <a class="el" href="classDifficultyCalculator_1_1DifficultyCalculator.html">DifficultyCalculator</a> and <a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> classes. This allows the <a class="el" href="namespaceRoundManager.html">RoundManager</a> to properly track round progress, update the level data accordingly, and spawn in the enemies each time a round is started</p>
 <h2><a class="anchor" id="autotoc_md20"></a>
 Singleton</h2>
 <p>This pattern is used by the SoundManager class. In Godot there are no true Singleton Objects but the effect and purpose of a Singleton can be achieved through the global class system. An instance of the SoundManager class is loaded into to global scope of the project during the pre-load time. This allows all other objects and scripts in the game access to a single instance of the sound manager, and with specific naming schemes and hiding the constructor, effectively create a Singleton object in the global scope.</p>
 <h1><a class="anchor" id="autotoc_md21"></a>
 Dynamic Binding</h1>
-<p>An example for dynamic binding that I used in the project is the set of DifficultyCalculator classes. The base class is the DifficultyCalculator class and it has three subclasses:</p><ol type="1">
-<li>EasyDifficultyCalculator</li>
-<li>MediumDifficultCalculator</li>
-<li>HardDifficultCalculator</li>
+<p>An example for dynamic binding that I used in the project is the set of <a class="el" href="namespaceDifficultyCalculator.html">DifficultyCalculator</a> classes. The base class is the <a class="el" href="namespaceDifficultyCalculator.html">DifficultyCalculator</a> class and it has three subclasses:</p><ol type="1">
+<li><a href="DifficultCalculator#EasyDifficultyCalculator">EasyDifficultyCalculator</a></li>
+<li><a href="DifficultCalculator#MediumDifficultCalculator">MediumDifficultCalculator</a></li>
+<li><a href="DifficultCalculator#HardDifficultCalculator">HardDifficultCalculator</a></li>
 </ol>
-<p>The base class defines a public virtual method called DifficultyCalculator::CalculateSpawnOrder that returns a list of SpawnOrders for the <a class="el" href="namespaceRoundManager.html">RoundManager</a>. Two of the subclasses provide an override method for the interface and the other uses the parent classes implementation :</p><ul>
-<li>EasyDifficultyCalculator::CalculateSpawnOrder</li>
-<li>HardDifficultCalculator::CalculateSpawnOrder</li>
-<li>MediumDifficultCalculator Uses the parent implementation</li>
+<p>The base class defines a public virtual method called <a href="DifficultCalculator#DifficultyCalculator#CalculateSpawnOrder()">CalculateSpawnOrder</a> that returns a list of <a href="DifficultyCalculator#SpawnOrder">SpawnOrders</a> for the <a href="RoundManager#RoundManager">RoundManager</a>. Two of the subclasses provide an override method for the interface and the other uses the parent classes implementation :</p><ul>
+<li><a href="EasyDifficultyCalculator#CalculateSpawnOrder">EasyDifficultyCalculator.CalculateSpawnOrder</a></li>
+<li><a href="HardDifficultCalculator#CalculateSpawnOrder">HardDifficultCalculator.CalculateSpawnOrder</a></li>
+<li>MediumDifficultCalculator Uses the parent implementation <a href="DifficultCalculator#DifficultyCalculator#CalculateSpawnOrder()">CalculateSpawnOrder</a></li>
 </ul>
 <h1><a class="anchor" id="autotoc_md22"></a>
 Prefab/Godot Scene</h1>
-<p>For the Prefab requirement I have the DifficultyCalculator classes</p>
+<p>For the Prefab requirement I have the <a class="el" href="namespaceDifficultyCalculator.html">DifficultyCalculator</a> classes</p>
 <h2><a class="anchor" id="autotoc_md23"></a>
 DifficultyCalculator Scene</h2>
-<p>The DifficultyCalculator set of classes are used for calculating what and when to spawn enemies in a Godot Project.</p>
+<p>The <a class="el" href="classDifficultyCalculator_1_1DifficultyCalculator.html">DifficultyCalculator</a> set of classes are used for calculating what and when to spawn enemies in a Godot Project.</p>
 <p>There are three variants of the difficulty calculator:</p><ol type="1">
-<li>EasyDifficultCalculator</li>
-<li>MediumDifficultCalculator</li>
-<li>HardDifficultCalculator</li>
+<li><a href="DifficultCalculator#EasyDifficultyCalculator">EasyDifficultyCalculator</a></li>
+<li><a href="DifficultCalculator#MediumDifficultCalculator">MediumDifficultCalculator</a></li>
+<li><a href="DifficultCalculator#HardDifficultCalculator">HardDifficultCalculator</a></li>
 </ol>
-<p>All three can be acquired using the DifficultyCalculatorFactory::CreateCalculator factory function</p>
+<p>All three can be acquired using the <a class="el" href="classDifficultyCalculator_1_1DifficultyCalculatorFactory.html">DifficultyCalculatorFactory</a> factory function</p>
 <h2><a class="anchor" id="autotoc_md24"></a>
 DifficultyCalculator Classes</h2>
 <p>In Godot there is a specific structure that this scene expects:</p><ol type="1">
-<li>A Difficulty Enum</li>
-<li>A DifficultyTable</li>
+<li>A <a href="DifficultyCalculator#Difficulty">Difficulty Enum</a></li>
+<li>A <a href="RoundManager#DifficultyTable">DifficultyTable</a></li>
 </ol>
 <h2><a class="anchor" id="autotoc_md25"></a>
 DifficultyCalculator Methods</h2>
-<p>The enemy spawn orders can then be created with the CalculateSpawnOrder function. This function will return a List of SpawnOrder</p>
+<p>The enemy spawn orders can then be created with the <a href="DifficultCalculator#DifficultyCalculator#CalculateSpawnOrder()">CalculateSpawnOrder</a> method. This function will return a List of <a href="DifficultyCalculator#SpawnOrder">SpawnOrders</a></p>
 <p>The full API can be viewed <a href="https://flightcontrol40.github.io/CS-383-Project/classRoundManager_1_1DifficultyCalculator.html">here</a></p>
 <h1><a class="anchor" id="autotoc_md26"></a>
 Copyright Example</h1>
@@ -154,7 +154,7 @@ Copyright Example</h1>
 Test Cases</h1>
 <h2><a class="anchor" id="autotoc_md28"></a>
 Example Test Case</h2>
-<p>An example for a test case that caught an error in the project is the HandleEnemyDiedSignalTest(). This test caught a bug in the coupling between the <a class="el" href="namespaceRoundManager.html">RoundManager</a> and the BaseChicken classes where both were attempting to free the chicken object causing a double free error.</p>
+<p>An example for a test case that caught an error in the project is the HandleEnemyDiedSignalTest().This test caught a bug in the event coupling between the <a href="RoundManager#RoundManager">RoundManager</a> and the <a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> classes where both were attempting to free the <a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> Instance causing a double free error.</p>
 <h2><a class="anchor" id="autotoc_md29"></a>
 Tests</h2>
 <p>C# Tests </p><div class="fragment"><div class="line">[TestSuite]</div>
@@ -339,9 +339,9 @@ Tests</h2>
 <div class="line">    [TestCase]</div>
 <div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> UnitCalculateEasyDifficulty() {</div>
 <div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/SampleEasyTable.tres&quot;</span>);</div>
-<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
+<div class="line">        <a class="code hl_namespace" href="namespaceDifficultyCalculator.html">DifficultyCalculator</a> calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
 <div class="line">            difficultyTable,</div>
-<div class="line">            <a class="code hl_enumeration" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Easy</div>
+<div class="line">            <a class="code hl_enumeration" href="namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Easy</div>
 <div class="line">        ));</div>
 <div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
 <div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
@@ -350,9 +350,9 @@ Tests</h2>
 <div class="line">    [TestCase]</div>
 <div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> UnitCalculateMediumDifficulty() {</div>
 <div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/SampleMediumTable.tres&quot;</span>);</div>
-<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
+<div class="line">        <a class="code hl_namespace" href="namespaceDifficultyCalculator.html">DifficultyCalculator</a> calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
 <div class="line">            difficultyTable,</div>
-<div class="line">            <a class="code hl_enumeration" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Medium</div>
+<div class="line">            <a class="code hl_enumeration" href="namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Medium</div>
 <div class="line">        ));</div>
 <div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
 <div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
@@ -361,9 +361,9 @@ Tests</h2>
 <div class="line">    [TestCase]</div>
 <div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> UnitCalculateHardDifficulty() {</div>
 <div class="line">        var difficultyTable = GD.Load&lt;DifficultyTable&gt;(<span class="stringliteral">&quot;res://src/Nathan/test/SampleHardTable.tres&quot;</span>);</div>
-<div class="line">        DifficultyCalculator calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
+<div class="line">        <a class="code hl_namespace" href="namespaceDifficultyCalculator.html">DifficultyCalculator</a> calculator = AutoFree(DifficultyCalculatorFactory.CreateCalculator(</div>
 <div class="line">            difficultyTable,</div>
-<div class="line">            <a class="code hl_enumeration" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Hard</div>
+<div class="line">            <a class="code hl_enumeration" href="namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a>.Hard</div>
 <div class="line">        ));</div>
 <div class="line">        List&lt;SpawnOrder&gt; spawnOrders = calculator.CalculateSpawnOrder(1);</div>
 <div class="line">        AssertArray(spawnOrders).IsNotEmpty();</div>
@@ -423,10 +423,11 @@ Tests</h2>
 <div class="ttc" id="aclassLevel_html_a48595a6d596594bc25ff2a5611f7ceed"><div class="ttname"><a href="classLevel.html#a48595a6d596594bc25ff2a5611f7ceed">Level.playerHealth</a></div><div class="ttdeci">int playerHealth</div><div class="ttdef"><b>Definition:</b> Level.cs:34</div></div>
 <div class="ttc" id="aclassLevel_html_adf9097b282dfdc22319112030fc9fac7"><div class="ttname"><a href="classLevel.html#adf9097b282dfdc22319112030fc9fac7">Level.CurrentRoundNum</a></div><div class="ttdeci">int CurrentRoundNum</div><div class="ttdef"><b>Definition:</b> Level.cs:38</div></div>
 <div class="ttc" id="aclassLevel_html_ae4ce2bff44165ab32e2886d645d99acc"><div class="ttname"><a href="classLevel.html#ae4ce2bff44165ab32e2886d645d99acc">Level.loadMap</a></div><div class="ttdeci">Map loadMap()</div><div class="ttdef"><b>Definition:</b> Level.cs:46</div></div>
-<div class="ttc" id="aclassLoadLevelTest_html"><div class="ttname"><a href="classLoadLevelTest.html">LoadLevelTest</a></div><div class="ttdef"><b>Definition:</b> LoadLevelTest.cs:6</div></div>
+<div class="ttc" id="aclassLoadLevelTest_html"><div class="ttname"><a href="classLoadLevelTest.html">LoadLevelTest</a></div><div class="ttdef"><b>Definition:</b> LoadLevelTest.cs:7</div></div>
 <div class="ttc" id="aclassMap_html_a283e0ea55da32a4e18caeabb96d5c04a"><div class="ttname"><a href="classMap.html#a283e0ea55da32a4e18caeabb96d5c04a">Map._Process</a></div><div class="ttdeci">override void _Process(double delta)</div><div class="ttdef"><b>Definition:</b> Map.cs:13</div></div>
+<div class="ttc" id="anamespaceDifficultyCalculator_html"><div class="ttname"><a href="namespaceDifficultyCalculator.html">DifficultyCalculator</a></div><div class="ttdef"><b>Definition:</b> DifficultyCalculator.cs:6</div></div>
+<div class="ttc" id="anamespaceDifficultyCalculator_html_a43efb0a2e61815a66134dfa5ccea0a83"><div class="ttname"><a href="namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83">DifficultyCalculator.Difficulty</a></div><div class="ttdeci">Difficulty</div><div class="ttdoc">Enum to represent the current Difficulty.</div><div class="ttdef"><b>Definition:</b> DifficultyCalculator.cs:11</div></div>
 <div class="ttc" id="anamespaceRoundManager_html"><div class="ttname"><a href="namespaceRoundManager.html">RoundManager</a></div><div class="ttdef"><b>Definition:</b> DifficultyTable.cs:3</div></div>
-<div class="ttc" id="anamespaceRoundManager_html_a43efb0a2e61815a66134dfa5ccea0a83"><div class="ttname"><a href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">RoundManager.Difficulty</a></div><div class="ttdeci">Difficulty</div><div class="ttdoc">Enum to represent the current Difficulty.</div><div class="ttdef"><b>Definition:</b> DifficultyCalculator.cs:10</div></div>
 </div><!-- fragment --><div class="fragment"><div class="line">extends GdUnitTestSuite</div>
 <div class="line">class_name SoundManagerTests</div>
 <div class="line"> </div>

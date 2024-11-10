@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['roundmanager_0',['RoundManager',['../namespaceRoundManager.html',1,'']]]
+  ['fix_5fwhitespace_0',['fix_whitespace',['../namespacefix__whitespace.html',1,'']]]
 ];

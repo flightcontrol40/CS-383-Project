@@ -15,16 +15,16 @@ var hierarchy =
       ] ],
       [ "Main_menu", "classMain__menu.html", null ]
     ] ],
-    [ "DifficultyCalculatorFactory", "classRoundManager_1_1DifficultyCalculatorFactory.html", null ],
+    [ "DifficultyCalculatorFactory", "classDifficultyCalculator_1_1DifficultyCalculatorFactory.html", null ],
     [ "Node", null, [
+      [ "DifficultyCalculator", "classDifficultyCalculator_1_1DifficultyCalculator.html", [
+        [ "EasyDifficultyCalculator", "classDifficultyCalculator_1_1EasyDifficultyCalculator.html", null ],
+        [ "HardDifficultyCalculator", "classDifficultyCalculator_1_1HardDifficultyCalculator.html", null ],
+        [ "MediumDifficultyCalculator", "classDifficultyCalculator_1_1MediumDifficultyCalculator.html", null ]
+      ] ],
+      [ "SpawnOrder", "classDifficultyCalculator_1_1SpawnOrder.html", null ],
       [ "LevelManager", "classLevelManager.html", null ],
       [ "Main", "classMain.html", null ],
-      [ "DifficultyCalculator", "classRoundManager_1_1DifficultyCalculator.html", [
-        [ "EasyDifficultyCalculator", "classRoundManager_1_1EasyDifficultyCalculator.html", null ],
-        [ "HardDifficultyCalculator", "classRoundManager_1_1HardDifficultyCalculator.html", null ],
-        [ "MediumDifficultyCalculator", "classRoundManager_1_1MediumDifficultyCalculator.html", null ]
-      ] ],
-      [ "SpawnOrder", "classRoundManager_1_1SpawnOrder.html", null ],
       [ "Shop", "classShop.html", null ]
     ] ],
     [ "Node2D", null, [
