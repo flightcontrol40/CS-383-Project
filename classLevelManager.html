@@ -113,8 +113,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelManager.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a> (double delta)</td></tr>
 <tr class="separator:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0f65a6da456735a70836fb14d65529d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelManager.html#ad0f65a6da456735a70836fb14d65529d">OnLoadLevel</a> ()</td></tr>
+<tr class="memdesc:ad0f65a6da456735a70836fb14d65529d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the map and emits a signal that tells the round manager to load the first round. Gets called by the level selection menu once the player has finished selecting a level.  <br /></td></tr>
 <tr class="separator:ad0f65a6da456735a70836fb14d65529d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00a2afaf502f7edee6e097875efc90ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelManager.html#a00a2afaf502f7edee6e097875efc90ee">setDifficulty</a> (<a class="el" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a> difficulty)</td></tr>
+<tr class="memdesc:a00a2afaf502f7edee6e097875efc90ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to set the difficulty of a level and creates a new difficulty table object.  <br /></td></tr>
 <tr class="separator:a00a2afaf502f7edee6e097875efc90ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a530b9f3e07d294968a036717b4dbb000"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelManager.html#a530b9f3e07d294968a036717b4dbb000">setMap</a> (PackedScene map)</td></tr>
 <tr class="separator:a530b9f3e07d294968a036717b4dbb000"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,6 +136,7 @@ Properties</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a5e4145fc4e82b7e8cb578c9896acd629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRoundManager_1_1DifficultyTable.html">DifficultyTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelManager.html#a5e4145fc4e82b7e8cb578c9896acd629">loadDifficultyTable</a> (<a class="el" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a> difficulty)</td></tr>
+<tr class="memdesc:a5e4145fc4e82b7e8cb578c9896acd629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new difficulty table and sets it based on the level's difficulty.  <br /></td></tr>
 <tr class="separator:a5e4145fc4e82b7e8cb578c9896acd629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -221,6 +224,13 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">difficulty</td><td>Difficutly of the level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly created DifficultyTable object</dd></dl>
 
 </div>
 </div>
@@ -300,6 +310,12 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">difficulty</td><td>Some difficutly from the <a class="el" href="namespaceRoundManager.html#a43efb0a2e61815a66134dfa5ccea0a83" title="Enum to represent the current Difficulty.">RoundManager.Difficulty</a> enum to set the level difficulty to</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
