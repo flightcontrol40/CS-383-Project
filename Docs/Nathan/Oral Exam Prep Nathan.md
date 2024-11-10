@@ -78,9 +78,10 @@ This is a derivative work of the Chick Fil' A logo:
 I argue that this is fair use as I have recreated it with the same style but it
 it still unique from the original
 
-
 ## Test Cases
+
 ### Example Test Case
+
 An example for a test case that caught an error in the project is the
 HandleEnemyDiedSignalTest(). This test caught a bug in the coupling between the
 RoundManager and the BaseChicken classes where both were attempting to free the
