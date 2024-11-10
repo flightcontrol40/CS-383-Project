@@ -2,7 +2,8 @@ using Godot;
 using System.Collections.Generic;
 using Chicken;
 using System;
-namespace RoundManager;
+using RoundManager;
+namespace DifficultyCalculator;
 
 /// <summary>
 /// Enum to represent the current Difficulty
@@ -42,21 +43,21 @@ public partial class SpawnOrder: Node{
 }
 
 /// <summary>
-/// Factory Function for getting a #DifficultyCalculator class object
+/// Factory Function for getting a DifficultyCalculator class object
 /// </summary>
 public class DifficultyCalculatorFactory {
 
     /// <summary>
-    /// Get a new #DifficultyCalculator class obj based on the Difficulty
+    /// Get a new RoundManager#DifficultyCalculator class obj based on the Difficulty
     /// </summary>
     /// <param name="difficultyTable">
-    /// #DifficultyTable to be used by the calculator.
+    /// RoundManager#DifficultyTable to be used by the calculator.
     /// </param>
     /// <param name="difficulty">
-    /// The #Difficulty to be used for the calculator
+    /// The RoundManager#Difficulty to be used for the calculator
     /// </param>
     /// <returns>
-    /// A #DifficultyCalculator of the passed difficulty
+    /// A RoundManager#DifficultyCalculator of the passed difficulty
     /// </returns>
     public static DifficultyCalculator CreateCalculator(DifficultyTable difficultyTable, Difficulty difficulty){
         DifficultyCalculator difficultyCalculator;
@@ -81,7 +82,7 @@ public class DifficultyCalculatorFactory {
 
 /// <summary>
 /// The Base class for a difficulty calculator. Cannot construct directly, instead
-/// use the #DifficultyCalculatorFactory#CreateCalculator method.
+/// use the DifficultyCalculatorFactory#CreateCalculator method.
 /// </summary>
 public partial class DifficultyCalculator: Node {
 

@@ -1,3 +1,4 @@
+using DifficultyCalculator;
 using Godot;
 using System;
 
@@ -18,7 +19,7 @@ public partial class Main : Node
     public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed("loadLevel")) {
-            GetNode<LevelManager>("LevelManager").setDifficulty(RoundManager.Difficulty.Easy);
+            GetNode<LevelManager>("LevelManager").setDifficulty(Difficulty.Easy);
             GetNode<LevelManager>("LevelManager").OnLoadLevel();
         }
     }

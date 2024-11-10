@@ -2,20 +2,20 @@
 
 ## Programming Pattern
 For this project there are three different patterns that I am using across my work
-1. Factory [DifficultyCalculatorFactory](@ref DifficultyCalculatorFactory)
-2. Composition [RoundManager](@ref RoundManager)
+1. Factory [DifficultyCalculatorFactory](#DifficultyCalculator#DifficultyCalculatorFactory)
+2. Composition [RoundManager](#RoundManager#RoundManager)
 3. Singleton SoundManager
 
 ### Factory
-This pattern in used in the DifficultyCalculatorFactory::CreateCalculator method.
-This method returns one of the subclasses of DifficultCalculator based on the
-passed in #Difficulty Enum
+This pattern in used in the [DifficultyCalculatorFactory.CreateCalculator](DifficultyCalculatorFactory#CreateCalculator()) method.
+This method returns one of the subclasses of [DifficultCalculator](DifficultCalculator#DifficultCalculator) based on the
+passed in [Difficulty](DifficultyCalculator#Difficulty) Enum
 
 ### Composition
-This pattern in used by the RoundManager class.
-The RoundManger contain's manages and creates other class instances of
-DifficultCalculator and BaseChicken classes. This allows the RoundManager to
-properly track round progress, update the level data accordingly, and spawn in 
+This pattern in used by the [RoundManager](RoundManager#RoundManager) class.
+The [RoundManager](RoundManager#RoundManager) contain's manages and creates other class instances of
+[DifficultyCalculator](#DifficultyCalculator#DifficultyCalculator) and [BaseChicken](#Chicken#BaseChicken) classes. 
+This allows the RoundManager to properly track round progress, update the level data accordingly, and spawn in 
 the enemies each time a round is started
 
 ### Singleton
@@ -30,41 +30,41 @@ effectively create a Singleton object in the global scope.
 ## Dynamic Binding
 An example for dynamic binding that I used in the project is the set of DifficultyCalculator classes.
 The base class is the DifficultyCalculator class and it has three subclasses:
-1. EasyDifficultyCalculator
-2. MediumDifficultCalculator
-3. HardDifficultCalculator
+1. [EasyDifficultyCalculator](DifficultCalculator#EasyDifficultyCalculator)
+2. [MediumDifficultCalculator](DifficultCalculator#MediumDifficultCalculator)
+3. [HardDifficultCalculator](DifficultCalculator#HardDifficultCalculator)
 
-The base class defines a public virtual method called DifficultyCalculator::CalculateSpawnOrder
-that returns a list of SpawnOrders for the RoundManager.
+The base class defines a public virtual method called [CalculateSpawnOrder](DifficultCalculator#DifficultyCalculator#CalculateSpawnOrder())
+that returns a list of [SpawnOrders](DifficultyCalculator#SpawnOrder) for the [RoundManager](RoundManager#RoundManager).
 Two of the subclasses provide an override method for the interface and the other
 uses the parent classes implementation :
-- EasyDifficultyCalculator::CalculateSpawnOrder
-- HardDifficultCalculator::CalculateSpawnOrder
-- MediumDifficultCalculator Uses the parent implementation
+- [EasyDifficultyCalculator.CalculateSpawnOrder](EasyDifficultyCalculator#CalculateSpawnOrder)
+- [HardDifficultCalculator.CalculateSpawnOrder](HardDifficultCalculator#CalculateSpawnOrder)
+- MediumDifficultCalculator Uses the parent implementation [CalculateSpawnOrder](DifficultCalculator#DifficultyCalculator#CalculateSpawnOrder())
 
 
 ## Prefab/Godot Scene
 For the Prefab requirement I have the DifficultyCalculator classes
 
 ### DifficultyCalculator Scene
-The DifficultyCalculator set of classes are used for calculating what and when to
+The [DifficultyCalculator](#DifficultyCalculator#DifficultyCalculator) set of classes are used for calculating what and when to
 spawn enemies in a Godot Project.
 
 There are three variants of the difficulty calculator:
-1. [EasyDifficultCalculator](@ref EasyDifficultCalculator)
-2. [MediumDifficultCalculator](@ref MediumDifficultCalculator)
-3. [HardDifficultCalculator](@ref HardDifficultCalculator)
+1. [EasyDifficultyCalculator](DifficultCalculator#EasyDifficultyCalculator)
+2. [MediumDifficultCalculator](DifficultCalculator#MediumDifficultCalculator)
+3. [HardDifficultCalculator](DifficultCalculator#HardDifficultCalculator)
 
-All three can be acquired using the DifficultyCalculatorFactory::CreateCalculator factory function
+All three can be acquired using the [DifficultyCalculatorFactory](#DifficultyCalculator#DifficultyCalculatorFactory) factory function
 
 ### DifficultyCalculator Classes
 In Godot there is a specific structure that this scene expects:
-1. A [Difficulty Enum](@ref Difficulty)
-2. A [DifficultyTable](@ref DifficultyTable)
+1. A [Difficulty Enum](DifficultyCalculator#Difficulty)
+2. A [DifficultyTable](RoundManager#DifficultyTable)
 
 ### DifficultyCalculator Methods
-The enemy spawn orders can then be created with the [CalculateSpawnOrder](@ref DifficultyCalculator.CalculateSpawnOrder) function.
-This function will return a List of [SpawnOrder](@ref SpawnOrder)
+The enemy spawn orders can then be created with the [CalculateSpawnOrder](DifficultCalculator#DifficultyCalculator#CalculateSpawnOrder()) method.
+This function will return a List of [SpawnOrders](DifficultyCalculator#SpawnOrder)
 
 The full API can be viewed [here](https://flightcontrol40.github.io/CS-383-Project/classRoundManager_1_1DifficultyCalculator.html)
 
@@ -83,9 +83,9 @@ it still unique from the original
 ### Example Test Case
 
 An example for a test case that caught an error in the project is the
-HandleEnemyDiedSignalTest(). This test caught a bug in the coupling between the
-RoundManager and the BaseChicken classes where both were attempting to free the
-chicken object causing a double free error.
+HandleEnemyDiedSignalTest().This test caught a bug in the event coupling between the
+[RoundManager](RoundManager#RoundManager) and the [BaseChicken](#Chicken#BaseChicken) classes where both were 
+attempting to free the [BaseChicken](#Chicken#BaseChicken) Instance causing a double free error.
 
 ### Tests
 C# Tests
