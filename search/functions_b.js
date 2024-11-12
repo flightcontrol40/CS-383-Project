@@ -1,8 +1,8 @@
 var searchData=
 [
   ['selecttower_0',['SelectTower',['../classShop.html#ae9f625b7876ee3f4d6f48dc6d483e21a',1,'Shop']]],
-  ['setdifficulty_1',['setDifficulty',['../classLevelManager.html#a00a2afaf502f7edee6e097875efc90ee',1,'LevelManager']]],
-  ['setmap_2',['setMap',['../classLevelManager.html#a530b9f3e07d294968a036717b4dbb000',1,'LevelManager']]],
+  ['setdifficulty_1',['setDifficulty',['../classLevelConverter_1_1LevelConverter.html#ac4daf39f8ca81807c88a5a90edff4d8e',1,'LevelConverter.LevelConverter.setDifficulty()'],['../classLevelManager.html#a00a2afaf502f7edee6e097875efc90ee',1,'LevelManager.setDifficulty()']]],
+  ['setmap_2',['setMap',['../classLevelConverter_1_1LevelConverter.html#a664417301798e490715f3dbc901d0bec',1,'LevelConverter.LevelConverter.setMap()'],['../classLevelManager.html#a530b9f3e07d294968a036717b4dbb000',1,'LevelManager.setMap()']]],
   ['spawnenemy_3',['spawnEnemy',['../classRoundManager_1_1RoundManager.html#addfc0c3129b6ff606f7276e175f31a15',1,'RoundManager::RoundManager']]],
   ['spawnorder_4',['SpawnOrder',['../classDifficultyCalculator_1_1SpawnOrder.html#a5710e4375507bd6d84e3a6d5b24ae2d0',1,'DifficultyCalculator::SpawnOrder']]],
   ['start_5',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],

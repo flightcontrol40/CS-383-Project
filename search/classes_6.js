@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['level_0',['Level',['../classLevel.html',1,'']]],
-  ['levelmanager_1',['LevelManager',['../classLevelManager.html',1,'']]],
-  ['loadleveltest_2',['LoadLevelTest',['../classLoadLevelTest.html',1,'']]],
-  ['losemenu_3',['LoseMenu',['../classLoseMenu.html',1,'']]]
+  ['jsonconverter_0',['JsonConverter',['../classLevelConverter_1_1JsonConverter.html',1,'LevelConverter']]]
 ];
