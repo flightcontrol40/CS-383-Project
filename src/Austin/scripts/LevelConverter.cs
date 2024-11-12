@@ -1,5 +1,6 @@
 
 // This file will not be used I just need it for my pattern...
+// I am not going to document it since I am not going to put forth the effort to add it to the project.
 using DifficultyCalculator;
 using Godot;
 

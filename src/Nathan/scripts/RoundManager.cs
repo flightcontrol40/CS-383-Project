@@ -64,7 +64,6 @@ public partial class RoundManager : Node2D {
     /// <param name="levelData">The current level data.</param>
     /// <param name="difficulty">Indicates the Difficulty to use.</param>
     public void loadLevel(Level levelData, int difficulty) {
-        GD.PrintErr($"Setting Difficulty: {difficulty}, LevelData: {levelData}");
         Difficulty diff = (Difficulty)difficulty;
         this.levelData = levelData;
         this.difficultyCalculator = DifficultyCalculatorFactory.CreateCalculator(
@@ -80,7 +79,6 @@ public partial class RoundManager : Node2D {
     /// from the <c>DifficultyCalculator</c>, and begins the spawning timer.
     /// </summary>
     public void startRound() {
-        GD.Print("Starting Round");
         if (this.levelData == null){
             throw new Exception("Round Cannot Be started before a level is loaded");
         }
