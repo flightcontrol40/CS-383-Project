@@ -1,7 +1,7 @@
 var searchData=
 [
   ['basechicken_0',['BaseChicken',['../classChicken_1_1BaseChicken.html',1,'Chicken']]],
-  ['basedifficulty_1',['baseDifficulty',['../classLevelManager.html#ae05a4d4e65aa9a734355ed813436320e',1,'LevelManager']]],
+  ['basedifficulty_1',['baseDifficulty',['../classLevel.html#ae05a4d4e65aa9a734355ed813436320e',1,'Level.baseDifficulty()'],['../classLevelManager.html#ae05a4d4e65aa9a734355ed813436320e',1,'LevelManager.baseDifficulty()']]],
   ['basemenu_2',['BaseMenu',['../classBaseMenu.html',1,'']]],
   ['basictowerprice_3',['basicTowerPrice',['../classShop.html#a788de4e2311ba899e596b0ada14c0db7',1,'Shop']]],
   ['bullet_4',['Bullet',['../classBullet.html',1,'']]],

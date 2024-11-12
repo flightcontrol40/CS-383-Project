@@ -1,6 +1,6 @@
 var namespaceLevelConverter =
 [
-    [ "JsonConverter", "classLevelConverter_1_1JsonConverter.html", null ],
     [ "LevelConverter", "classLevelConverter_1_1LevelConverter.html", "classLevelConverter_1_1LevelConverter" ],
-    [ "ResourceConverter", "classLevelConverter_1_1ResourceConverter.html", null ]
+    [ "ResourceInstanceConverter", "classLevelConverter_1_1ResourceInstanceConverter.html", "classLevelConverter_1_1ResourceInstanceConverter" ],
+    [ "SavedResourceConverter", "classLevelConverter_1_1SavedResourceConverter.html", "classLevelConverter_1_1SavedResourceConverter" ]
 ];

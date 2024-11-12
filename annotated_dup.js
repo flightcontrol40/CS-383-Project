@@ -13,9 +13,9 @@ var annotated_dup =
       [ "SpawnOrder", "classDifficultyCalculator_1_1SpawnOrder.html", "classDifficultyCalculator_1_1SpawnOrder" ]
     ] ],
     [ "LevelConverter", "namespaceLevelConverter.html", [
-      [ "JsonConverter", "classLevelConverter_1_1JsonConverter.html", null ],
       [ "LevelConverter", "classLevelConverter_1_1LevelConverter.html", "classLevelConverter_1_1LevelConverter" ],
-      [ "ResourceConverter", "classLevelConverter_1_1ResourceConverter.html", null ]
+      [ "ResourceInstanceConverter", "classLevelConverter_1_1ResourceInstanceConverter.html", "classLevelConverter_1_1ResourceInstanceConverter" ],
+      [ "SavedResourceConverter", "classLevelConverter_1_1SavedResourceConverter.html", "classLevelConverter_1_1SavedResourceConverter" ]
     ] ],
     [ "RoundManager", "namespaceRoundManager.html", [
       [ "DifficultyTable", "classRoundManager_1_1DifficultyTable.html", "classRoundManager_1_1DifficultyTable" ],

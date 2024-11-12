@@ -5,6 +5,5 @@ var classLevelConverter_1_1LevelConverter =
     [ "getLevel", "classLevelConverter_1_1LevelConverter.html#ac3ccfd677fa662c8af08cebe99eafebf", null ],
     [ "setDifficulty", "classLevelConverter_1_1LevelConverter.html#ac4daf39f8ca81807c88a5a90edff4d8e", null ],
     [ "setMap", "classLevelConverter_1_1LevelConverter.html#a664417301798e490715f3dbc901d0bec", null ],
-    [ "level", "classLevelConverter_1_1LevelConverter.html#a083b6d36ebd55b2e07bedb04440cb325", null ],
-    [ "ready", "classLevelConverter_1_1LevelConverter.html#a65cf7d7f8e531611b245355ab91fd749", null ]
+    [ "level", "classLevelConverter_1_1LevelConverter.html#a083b6d36ebd55b2e07bedb04440cb325", null ]
 ];

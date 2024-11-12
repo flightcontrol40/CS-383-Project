@@ -1,8 +1,12 @@
 var classLevel =
 [
+    [ "Level", "classLevel.html#aa8eea882b5aaf5bc56ff862e1f2ffe32", null ],
     [ "getPath", "classLevel.html#a33250fb6b39db4084be413bca686b67b", null ],
+    [ "loadDifficultyTable", "classLevel.html#a5e4145fc4e82b7e8cb578c9896acd629", null ],
     [ "loadMap", "classLevel.html#ae4ce2bff44165ab32e2886d645d99acc", null ],
+    [ "setDifficulty", "classLevel.html#a00a2afaf502f7edee6e097875efc90ee", null ],
     [ "unloadMap", "classLevel.html#aaab5869fd631b958fdb4027e0d61f61b", null ],
+    [ "baseDifficulty", "classLevel.html#ae05a4d4e65aa9a734355ed813436320e", null ],
     [ "currentRoundNum", "classLevel.html#aeaf1c628669762d325dde2961565347a", null ],
     [ "defaultMapScenePath", "classLevel.html#a800ed539515c8e055700f78cbb955f5d", null ],
     [ "difficultyTable", "classLevel.html#aeeab23083a7d7f588f3fae1bd9a6d65e", null ],

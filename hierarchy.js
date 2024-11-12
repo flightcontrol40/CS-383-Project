@@ -17,8 +17,8 @@ var hierarchy =
     ] ],
     [ "DifficultyCalculatorFactory", "classDifficultyCalculator_1_1DifficultyCalculatorFactory.html", null ],
     [ "LevelConverter", "classLevelConverter_1_1LevelConverter.html", [
-      [ "JsonConverter", "classLevelConverter_1_1JsonConverter.html", null ],
-      [ "ResourceConverter", "classLevelConverter_1_1ResourceConverter.html", null ]
+      [ "ResourceInstanceConverter", "classLevelConverter_1_1ResourceInstanceConverter.html", null ],
+      [ "SavedResourceConverter", "classLevelConverter_1_1SavedResourceConverter.html", null ]
     ] ],
     [ "Node", null, [
       [ "DifficultyCalculator", "classDifficultyCalculator_1_1DifficultyCalculator.html", [
