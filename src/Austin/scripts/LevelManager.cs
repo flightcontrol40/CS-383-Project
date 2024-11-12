@@ -3,6 +3,7 @@ using Godot;
 using RoundManager;
 using System;
 using DifficultyCalculator;
+using LevelConverter;
 
 public partial class LevelManager : Node
 {
@@ -14,6 +15,8 @@ public partial class LevelManager : Node
     public Level level;
     private bool levelLoaded = false;
     public bool mapLoaded { get { return IsInstanceValid(level.MapInstance); } }
+
+    public ResourceInstanceConverter levelConverter; //This won't be used I just need it for my pattern... (Yes I could use it, but eveything already works so I am not going to break it)
 
     [Signal]
     public delegate void LoadRoundEventHandler(Level level, int difficulty);

@@ -4,6 +4,7 @@ using GdUnit4;
 using static GdUnit4.Assertions;
 using Chicken;
 using System;
+using DifficultyCalculator;
 namespace RoundManager.Tests;
 
 

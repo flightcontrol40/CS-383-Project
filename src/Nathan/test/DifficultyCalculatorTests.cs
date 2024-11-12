@@ -5,6 +5,7 @@ using static GdUnit4.Assertions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using DifficultyCalculator;
 
 
 [TestSuite]

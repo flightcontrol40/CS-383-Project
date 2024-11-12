@@ -2,13 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using RoundManager;
+using DifficultyCalculator;
 
 
 public partial class NathanSampleScene : Node2D
 {
     DifficultyTable difficultyTable = GD.Load<DifficultyTable>("res://src/Nathan/test/SampleHardTable.tres");
     RoundManager.RoundManager roundManager;
-    RoundManager.DifficultyCalculator difficultyCalculator;
+    DifficultyCalculator.DifficultyCalculator difficultyCalculator;
     List<SpawnOrder> spawnOrders;
     Level level;
 
