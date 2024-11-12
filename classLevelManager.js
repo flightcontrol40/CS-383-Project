@@ -10,7 +10,6 @@ var classLevelManager =
     [ "baseDifficulty", "classLevelManager.html#ae05a4d4e65aa9a734355ed813436320e", null ],
     [ "difficultyTablePath", "classLevelManager.html#a8c21b73f5a7559f23266dc13abf6619a", null ],
     [ "level", "classLevelManager.html#a083b6d36ebd55b2e07bedb04440cb325", null ],
-    [ "levelConverter", "classLevelManager.html#a08ded5943c317e6dcd658d4ae25f97c2", null ],
     [ "levelLoaded", "classLevelManager.html#af3ee07980c2289f926b1f396eb6187ab", null ],
     [ "mapLoaded", "classLevelManager.html#a001286e6cd751cfdce15ef80ad1bccdc", null ]
 ];

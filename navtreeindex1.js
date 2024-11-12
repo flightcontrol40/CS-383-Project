@@ -1,8 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"classRoundManager_1_1RoundManager.html#af2088afeccd3d0d76c510f0395b8fc23":[3,2,0,3,1,6],
-"classShop.html":[3,2,0,22],
-"classShop.html#a194f3d043bd7d70ad9dc4bea2f0c9cff":[3,2,0,22,1],
 "classShop.html#a22f55fa10008bebb205fdc7448a51229":[3,2,0,22,10],
 "classShop.html#a346aa9c172e9434ad6d736f3fb3d04c9":[3,2,0,22,13],
 "classShop.html#a4eeef5fbe149c40e910eecf13b73f80d":[3,2,0,22,14],

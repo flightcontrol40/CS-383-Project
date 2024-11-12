@@ -108,14 +108,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiPath.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a> (double delta)</td></tr>
 <tr class="separator:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dc7f33b2dec30409753cc76204e1b02"><td class="memItemLeft" align="right" valign="top">override Path2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiPath.html#a0dc7f33b2dec30409753cc76204e1b02">getPath</a> ()</td></tr>
-<tr class="memdesc:a0dc7f33b2dec30409753cc76204e1b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access the path member variable.  <br /></td></tr>
+<tr class="memdesc:a0dc7f33b2dec30409753cc76204e1b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a path from the map in a round robin style.  <br /></td></tr>
 <tr class="separator:a0dc7f33b2dec30409753cc76204e1b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classPath"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPath')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPath.html">Path</a></td></tr>
 <tr class="memitem:a58d67e4d7bf68d0a09ed9630ba231b30 inherit pub_methods_classPath"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPath.html#a58d67e4d7bf68d0a09ed9630ba231b30">_Ready</a> ()</td></tr>
-<tr class="memdesc:a58d67e4d7bf68d0a09ed9630ba231b30 inherit pub_methods_classPath"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the node enters the scene tree for the first time.  <br /></td></tr>
 <tr class="separator:a58d67e4d7bf68d0a09ed9630ba231b30 inherit pub_methods_classPath"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283e0ea55da32a4e18caeabb96d5c04a inherit pub_methods_classPath"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPath.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a> (double delta)</td></tr>
-<tr class="memdesc:a283e0ea55da32a4e18caeabb96d5c04a inherit pub_methods_classPath"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boilerplate function that comes with anything that inherits from a Godot Node. It does nothing.  <br /></td></tr>
 <tr class="separator:a283e0ea55da32a4e18caeabb96d5c04a inherit pub_methods_classPath"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7548db6f5be40735a3e0a273e7bef3b inherit pub_methods_classPath"><td class="memItemLeft" align="right" valign="top">virtual Path2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPath.html#ac7548db6f5be40735a3e0a273e7bef3b">getPath</a> ()</td></tr>
 <tr class="memdesc:ac7548db6f5be40735a3e0a273e7bef3b inherit pub_methods_classPath"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access the path member variable.  <br /></td></tr>
@@ -127,7 +125,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa54b50837e39df0998d44f28d445f552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36824cb6df511572752763a951f0e093"><td class="memItemLeft" align="right" valign="top">Path2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiPath.html#a36824cb6df511572752763a951f0e093">path2</a></td></tr>
 <tr class="separator:a36824cb6df511572752763a951f0e093"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac32171e51b89ef8c67007117711a5123"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiPath.html#ac32171e51b89ef8c67007117711a5123">pathChoice</a></td></tr>
+<tr class="memitem:ac32171e51b89ef8c67007117711a5123"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiPath.html#ac32171e51b89ef8c67007117711a5123">pathChoice</a> = true</td></tr>
 <tr class="separator:ac32171e51b89ef8c67007117711a5123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -204,7 +202,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>A Path2D that this class stores</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>One of the Path2D objects on the map</dd></dl>
 
 <p>Reimplemented from <a class="el" href="classPath.html#ac7548db6f5be40735a3e0a273e7bef3b">Path</a>.</p>
 
@@ -265,7 +263,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool pathChoice</td>
+          <td class="memname">bool pathChoice = true</td>
         </tr>
       </table>
   </td>
