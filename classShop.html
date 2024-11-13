@@ -122,6 +122,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ae9f625b7876ee3f4d6f48dc6d483e21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72405d8cc2a72c91d8ed556195cc86e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a72405d8cc2a72c91d8ed556195cc86e7">BuyTower</a> (int towerPrice)</td></tr>
 <tr class="separator:a72405d8cc2a72c91d8ed556195cc86e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7593dfed3b50529ef22dab31b9c09db9"><td class="memItemLeft" align="right" valign="top">Node2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a7593dfed3b50529ef22dab31b9c09db9">CreateTowerInstance</a> (string towerType)</td></tr>
+<tr class="separator:a7593dfed3b50529ef22dab31b9c09db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -135,8 +137,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a346aa9c172e9434ad6d736f3fb3d04c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0a445b75f8bd985bb267e68858bbdb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#ab0a445b75f8bd985bb267e68858bbdb9">cannonTowerPrice</a> = 200</td></tr>
 <tr class="separator:ab0a445b75f8bd985bb267e68858bbdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eeef5fbe149c40e910eecf13b73f80d"><td class="memItemLeft" align="right" valign="top">PackedScene&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a4eeef5fbe149c40e910eecf13b73f80d">towerPlaceholderScene</a> = (PackedScene)ResourceLoader.Load(&quot;res://Scenes/TowerPlaceholder.tscn&quot;)</td></tr>
-<tr class="separator:a4eeef5fbe149c40e910eecf13b73f80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a873f7b78044eb62a7d76346345d10c5e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a873f7b78044eb62a7d76346345d10c5e">selectedTowerType</a> = &quot;&quot;</td></tr>
 <tr class="separator:a873f7b78044eb62a7d76346345d10c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -255,6 +255,32 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>towerPrice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7593dfed3b50529ef22dab31b9c09db9" name="a7593dfed3b50529ef22dab31b9c09db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7593dfed3b50529ef22dab31b9c09db9">&#9670;&#160;</a></span>CreateTowerInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Node2D CreateTowerInstance </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>towerType</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -467,28 +493,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int sniperTowerPrice = 150</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4eeef5fbe149c40e910eecf13b73f80d" name="a4eeef5fbe149c40e910eecf13b73f80d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eeef5fbe149c40e910eecf13b73f80d">&#9670;&#160;</a></span>towerPlaceholderScene</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PackedScene towerPlaceholderScene = (PackedScene)ResourceLoader.Load(&quot;res://Scenes/TowerPlaceholder.tscn&quot;)</td>
         </tr>
       </table>
   </td>

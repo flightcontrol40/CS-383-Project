@@ -10,8 +10,9 @@ var searchData=
   ['difficultycalculator_7',['difficultyCalculator',['../classRoundManager_1_1RoundManager.html#a85118af8d13dde082049ec7b604925e7',1,'RoundManager::RoundManager']]],
   ['difficultycalculator_8',['DifficultyCalculator',['../classDifficultyCalculator_1_1DifficultyCalculator.html',1,'DifficultyCalculator']]],
   ['difficultycalculatorfactory_9',['DifficultyCalculatorFactory',['../classDifficultyCalculator_1_1DifficultyCalculatorFactory.html',1,'DifficultyCalculator']]],
-  ['difficultytable_10',['difficultyTable',['../classLevel.html#aeeab23083a7d7f588f3fae1bd9a6d65e',1,'Level.difficultyTable()'],['../classDifficultyCalculator_1_1DifficultyCalculator.html#aeeab23083a7d7f588f3fae1bd9a6d65e',1,'DifficultyCalculator.DifficultyCalculator.difficultyTable()']]],
-  ['difficultytable_11',['DifficultyTable',['../classRoundManager_1_1DifficultyTable.html',1,'RoundManager']]],
-  ['difficultytablepath_12',['difficultyTablePath',['../classLevelManager.html#a8c21b73f5a7559f23266dc13abf6619a',1,'LevelManager']]],
-  ['direction_13',['Direction',['../classBullet.html#a4fcced862bdecc3879cfbf3da6029054',1,'Bullet']]]
+  ['difficultyselectionmenu_10',['DifficultySelectionMenu',['../classDifficultySelectionMenu.html',1,'']]],
+  ['difficultytable_11',['difficultyTable',['../classLevel.html#aeeab23083a7d7f588f3fae1bd9a6d65e',1,'Level.difficultyTable()'],['../classDifficultyCalculator_1_1DifficultyCalculator.html#aeeab23083a7d7f588f3fae1bd9a6d65e',1,'DifficultyCalculator.DifficultyCalculator.difficultyTable()']]],
+  ['difficultytable_12',['DifficultyTable',['../classRoundManager_1_1DifficultyTable.html',1,'RoundManager']]],
+  ['difficultytablepath_13',['difficultyTablePath',['../classLevelManager.html#a8c21b73f5a7559f23266dc13abf6619a',1,'LevelManager']]],
+  ['direction_14',['Direction',['../classBullet.html#a4fcced862bdecc3879cfbf3da6029054',1,'Bullet']]]
 ];

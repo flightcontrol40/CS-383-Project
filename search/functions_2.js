@@ -9,5 +9,6 @@ var searchData=
   ['createbullet_6',['CreateBullet',['../interfaceIBulletBuilder.html#a494eb326b184f2017702db3a9c5eb796',1,'IBulletBuilder.CreateBullet()'],['../classStandardBulletBuilder.html#a436e623bd88e56634c54c9020c90aaa7',1,'StandardBulletBuilder.CreateBullet()']]],
   ['createbulletbuilder_7',['CreateBulletBuilder',['../classBaseTower.html#a78f40ef848826e3a98ee617460e13f92',1,'BaseTower.CreateBulletBuilder()'],['../classTower1.html#a6debedd98751f08dd02c4551a6288e8d',1,'Tower1.CreateBulletBuilder()'],['../classTower2.html#a6debedd98751f08dd02c4551a6288e8d',1,'Tower2.CreateBulletBuilder()'],['../classTower3.html#a6debedd98751f08dd02c4551a6288e8d',1,'Tower3.CreateBulletBuilder()'],['../classTower4.html#a6debedd98751f08dd02c4551a6288e8d',1,'Tower4.CreateBulletBuilder()'],['../classTower5.html#a6debedd98751f08dd02c4551a6288e8d',1,'Tower5.CreateBulletBuilder()']]],
   ['createcalculator_8',['CreateCalculator',['../classDifficultyCalculator_1_1DifficultyCalculatorFactory.html#a3a96c379b84eaa8a57680cdd9b3b8607',1,'DifficultyCalculator::DifficultyCalculatorFactory']]],
-  ['createtower_9',['CreateTower',['../classTowerFactory.html#aded73fa72c4dfe58f0c27a673b3aea45',1,'TowerFactory']]]
+  ['createtower_9',['CreateTower',['../classTowerFactory.html#aded73fa72c4dfe58f0c27a673b3aea45',1,'TowerFactory']]],
+  ['createtowerinstance_10',['CreateTowerInstance',['../classShop.html#a7593dfed3b50529ef22dab31b9c09db9',1,'Shop']]]
 ];

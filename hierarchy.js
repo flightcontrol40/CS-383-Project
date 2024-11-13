@@ -11,8 +11,10 @@ var hierarchy =
       [ "BaseMenu", "classBaseMenu.html", [
         [ "LoseMenu", "classLoseMenu.html", null ],
         [ "MainMenu", "classMainMenu.html", null ],
+        [ "PauseMenu", "classPauseMenu.html", null ],
         [ "WinMenu", "classWinMenu.html", null ]
       ] ],
+      [ "DifficultySelectionMenu", "classDifficultySelectionMenu.html", null ],
       [ "Main_menu", "classMain__menu.html", null ]
     ] ],
     [ "DifficultyCalculatorFactory", "classDifficultyCalculator_1_1DifficultyCalculatorFactory.html", null ],
@@ -46,6 +48,7 @@ var hierarchy =
         [ "Tower4", "classTower4.html", null ],
         [ "Tower5", "classTower5.html", null ]
       ] ],
+      [ "LevelSelectionMenu", "classLevelSelectionMenu.html", null ],
       [ "LoadLevelTest", "classLoadLevelTest.html", null ],
       [ "Map", "classMap.html", null ],
       [ "MultipathTest", "classMultipathTest.html", null ],
