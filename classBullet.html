@@ -95,7 +95,9 @@ $(document).ready(function(){initNavTree('classBullet.html',''); initResizable()
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classBullet-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Bullet Class Reference</div></div>
 </div><!--header-->
@@ -115,12 +117,24 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a4fcced862bdecc3879cfbf3da6029054"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#a4fcced862bdecc3879cfbf3da6029054">Direction</a></td></tr>
 <tr class="separator:a4fcced862bdecc3879cfbf3da6029054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:ab16a3ebb727a38f50223c1be2ecd111d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#ab16a3ebb727a38f50223c1be2ecd111d">Damage</a> = 10<code> [get, set]</code></td></tr>
+<tr class="separator:ab16a3ebb727a38f50223c1be2ecd111d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:af99233eba5ef513c52801acf11cd5d56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#af99233eba5ef513c52801acf11cd5d56">OnBodyEntered</a> (Node body)</td></tr>
-<tr class="separator:af99233eba5ef513c52801acf11cd5d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec060940e989b49c1765d73fd40864ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#aec060940e989b49c1765d73fd40864ec">SetupCollisions</a> ()</td></tr>
+<tr class="separator:aec060940e989b49c1765d73fd40864ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00697fc11b19eca4190016cbccc44444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#a00697fc11b19eca4190016cbccc44444">OnAreaEntered</a> (Area2D area)</td></tr>
+<tr class="separator:a00697fc11b19eca4190016cbccc44444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fe713491f638b66d330d2863ff8648b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#a7fe713491f638b66d330d2863ff8648b">OnScreenExited</a> ()</td></tr>
 <tr class="separator:a7fe713491f638b66d330d2863ff8648b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac6f8decb9b2a77838f2cd7b42bf7a90d"><td class="memItemLeft" align="right" valign="top">VisibleOnScreenNotifier2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBullet.html#ac6f8decb9b2a77838f2cd7b42bf7a90d">screenNotifier</a></td></tr>
+<tr class="separator:ac6f8decb9b2a77838f2cd7b42bf7a90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a283e0ea55da32a4e18caeabb96d5c04a" name="a283e0ea55da32a4e18caeabb96d5c04a"></a>
@@ -174,8 +188,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af99233eba5ef513c52801acf11cd5d56" name="af99233eba5ef513c52801acf11cd5d56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af99233eba5ef513c52801acf11cd5d56">&#9670;&#160;</a></span>OnBodyEntered()</h2>
+<a id="a00697fc11b19eca4190016cbccc44444" name="a00697fc11b19eca4190016cbccc44444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00697fc11b19eca4190016cbccc44444">&#9670;&#160;</a></span>OnAreaEntered()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,10 +198,10 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void OnBodyEntered </td>
+          <td class="memname">void OnAreaEntered </td>
           <td>(</td>
-          <td class="paramtype">Node&#160;</td>
-          <td class="paramname"><em>body</em></td><td>)</td>
+          <td class="paramtype">Area2D&#160;</td>
+          <td class="paramname"><em>area</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -225,6 +239,31 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aec060940e989b49c1765d73fd40864ec" name="aec060940e989b49c1765d73fd40864ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec060940e989b49c1765d73fd40864ec">&#9670;&#160;</a></span>SetupCollisions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetupCollisions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a4fcced862bdecc3879cfbf3da6029054" name="a4fcced862bdecc3879cfbf3da6029054"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fcced862bdecc3879cfbf3da6029054">&#9670;&#160;</a></span>Direction</h2>
@@ -240,6 +279,28 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac6f8decb9b2a77838f2cd7b42bf7a90d" name="ac6f8decb9b2a77838f2cd7b42bf7a90d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f8decb9b2a77838f2cd7b42bf7a90d">&#9670;&#160;</a></span>screenNotifier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VisibleOnScreenNotifier2D screenNotifier</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a61efabcca15cccefe7d85ea6da6af5e3" name="a61efabcca15cccefe7d85ea6da6af5e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61efabcca15cccefe7d85ea6da6af5e3">&#9670;&#160;</a></span>Speed</h2>
 
@@ -250,6 +311,29 @@ Private Member Functions</h2></td></tr>
           <td class="memname">float Speed = 400</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="ab16a3ebb727a38f50223c1be2ecd111d" name="ab16a3ebb727a38f50223c1be2ecd111d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16a3ebb727a38f50223c1be2ecd111d">&#9670;&#160;</a></span>Damage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Damage = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

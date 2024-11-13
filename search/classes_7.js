@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['main_0',['Main',['../classMain.html',1,'']]],
-  ['main_5fmenu_1',['Main_menu',['../classMain__menu.html',1,'']]],
-  ['mainmenu_2',['MainMenu',['../classMainMenu.html',1,'']]],
-  ['map_3',['Map',['../classMap.html',1,'']]],
-  ['mediumdifficultycalculator_4',['MediumDifficultyCalculator',['../classDifficultyCalculator_1_1MediumDifficultyCalculator.html',1,'DifficultyCalculator']]],
-  ['multipath_5',['MultiPath',['../classMultiPath.html',1,'']]],
-  ['multipathtest_6',['MultipathTest',['../classMultipathTest.html',1,'']]]
+  ['level_0',['Level',['../classLevel.html',1,'']]],
+  ['levelconverter_1',['LevelConverter',['../classLevelConverter_1_1LevelConverter.html',1,'LevelConverter']]],
+  ['levelmanager_2',['LevelManager',['../classLevelManager.html',1,'']]],
+  ['loadleveltest_3',['LoadLevelTest',['../classLoadLevelTest.html',1,'']]],
+  ['losemenu_4',['LoseMenu',['../classLoseMenu.html',1,'']]]
 ];

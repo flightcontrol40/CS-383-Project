@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mapinstance_0',['MapInstance',['../classLevel.html#a54b4f692d7b3fb03e711fb296313a333',1,'Level']]],
-  ['maploaded_1',['mapLoaded',['../classLevelManager.html#a001286e6cd751cfdce15ef80ad1bccdc',1,'LevelManager']]]
+  ['damage_0',['Damage',['../classBullet.html#ab16a3ebb727a38f50223c1be2ecd111d',1,'Bullet']]],
+  ['damageamount_1',['damageAmount',['../classChicken_1_1BaseChicken.html#afad2b5cf34be24f840f5b161fbc48725',1,'Chicken::BaseChicken']]]
 ];
