@@ -45,6 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xq74t")
+metadata/_edit_vertical_guides_ = [-198.0]
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -131,6 +132,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_fonts/font = ExtResource("3_gjayn")
 theme_override_font_sizes/font_size = 60
-text = "Kill Mo Chickens"
+text = "Win Screen"
 horizontal_alignment = 1
 vertical_alignment = 1
