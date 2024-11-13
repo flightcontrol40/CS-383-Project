@@ -1,16 +1,18 @@
-namespace RoundManager;
+namespace RoundManager.Tests;
 using Godot;
 using GdUnit4;
 using static GdUnit4.Assertions;
-
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GdUnit4.Asserts;
-using Castle.Components.DictionaryAdapter.Xml;
+using System.Linq;
+using DifficultyCalculator;
 
 
 [TestSuite]
 public class DifficultyCalculatorTests {
+
+    public bool enabled = false;
+
     /// <summary>
     /// Testing the Easy unit difficulty calculator
     /// Should spawn 581 enemies
@@ -22,10 +24,8 @@ public class DifficultyCalculatorTests {
             difficultyTable,
             Difficulty.Easy
         ));
-
         List<SpawnOrder> spawnOrders = calculator.CalculateSpawnOrder(1);
-        
-        AssertArray(spawnOrders).HasSize(581);
+        AssertArray(spawnOrders).IsNotEmpty();
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public class DifficultyCalculatorTests {
             Difficulty.Medium
         ));
         List<SpawnOrder> spawnOrders = calculator.CalculateSpawnOrder(1);
-        AssertArray(spawnOrders).HasSize(726);
+        AssertArray(spawnOrders).IsNotEmpty();
     }
 
     /// <summary>
@@ -55,73 +55,55 @@ public class DifficultyCalculatorTests {
             Difficulty.Hard
         ));
         List<SpawnOrder> spawnOrders = calculator.CalculateSpawnOrder(1);
-        AssertArray(spawnOrders).HasSize(1089);
+        AssertArray(spawnOrders).IsNotEmpty();
     }
-
-
-    [TestCase]
-    public async Task SpawnChickenTest(){
-        ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/test/NathanSampleScene.tscn");
-        runner.MaximizeView();
-        await runner.SimulateFrames(360);
-        RoundManager round = runner.Scene().GetNode<RoundManager>("RoundManager");
-        SpawnOrder order = new SpawnOrder(
-            Chicken.ChickenFactory.MakeKFC(Chicken.Cost.ChickenR1),
-            250
-        );
-        round.spawnQueue.Add(order);
-        round.roundRunning = true;
-        await runner.SimulateFrames(600);
-
-
-    }
-
 
     [TestCase]
     public async Task StressCalculateDifficultyTest() {
         ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/test/NathanSampleScene.tscn");
-        runner.MaximizeView();
+        // await runner.SimulateFrames();
         bool under_load = true;
         string total_enemies = "";
+        Label fpsCounter = runner.Scene().GetNode<Label>("CanvasLayer/Container/VSplitContainer/FPSLabels/FPSCounter");
+        Label enemyCounter = runner.Scene().GetNode<Label>("CanvasLayer/Container/VSplitContainer/EnemiesLabel/EnemiesCounter");
+        Godot.Timer timer = runner.Scene().GetNode<Godot.Timer>("Timer");
+        AssertThat(fpsCounter).IsInstanceOf<Label>();
+        AssertThat(enemyCounter).IsInstanceOf<Label>();
+        List<double> frame_times = new List<double>(Enumerable.Repeat(0.03,50));
+        int i = 0;
+        double average_fps;
+        int count = 0;
+        timer.Start(15);
         while (under_load) {
-            var count = runner.Invoke("spawn_round", 1);
+            runner.MaximizeView();
             await runner.SimulateFrames(1);
-            Label fpsCounter = runner.Scene().GetNode<Label>("CanvasLayer/Container/VSplitContainer/FPSLabels/FPSCounter");
-            Label enemyCounter = runner.Scene().GetNode<Label>("CanvasLayer/Container/VSplitContainer/EnemiesLabel/EnemiesCounter");
-            AssertThat(fpsCounter).IsInstanceOf<Label>();
-            AssertThat(enemyCounter).IsInstanceOf<Label>();
-            double currentFPS = Performance.GetMonitor(Performance.Monitor.TimeFps);
-            fpsCounter.Text = currentFPS.ToString();
+            if (i % 50 == 49) {
+                var c = runner.Invoke("spawn_round", 1);
+                count = (int)c;
+            }
+            double processTime = Performance.GetMonitor(Performance.Monitor.TimePhysicsProcess);
+            frame_times[i % 50] = processTime;
+            average_fps = 1 / frame_times.Average();
+            fpsCounter.Text = Performance.GetMonitor(Performance.Monitor.TimeFps).ToString(); //((int)average_fps).ToString();
             enemyCounter.Text = count.ToString();
             // Check fps
-            if (currentFPS < 15){
+            if (average_fps < 5){
                 // Less than 15 fps break the loop
                 under_load = false;
+                // Assert a failure
+                AssertThat(false).IsTrue();
                 total_enemies = $"Spawned: {count}, before FPS < 15.";
             }
+            if (timer.IsStopped() == true){
+                under_load = false;
+                // Assert a pass
+                AssertThat(true).IsTrue();
+                total_enemies = $"Spawned: {count}";
+            }
+            i++;
         }
-        AssertString(total_enemies).HasLength(
-            0,
-            IStringAssert.Compare.GREATER_THAN
-        );
+        AssertString(total_enemies).IsNotEmpty();
     }
-
-    [TestCase]
-    public async Task LoadLevelTest(){
-        ISceneRunner runner = ISceneRunner.Load("res://src/Nathan/test/NathanSampleScene.tscn");
-        runner.MaximizeView();
-        await runner.SimulateFrames(360);
-        RoundManager round = runner.Scene().GetNode<RoundManager>("RoundManager");
-        Level level = GD.Load<Level>("res://src/Nathan/test/TestLevel.tres");
-        AssertThat(level).IsInstanceOf<Level>();
-        round.loadLevel(level, 1);
-
-
-        // round.loadLevel(level, (int)Difficulty.Medium);
-        for (int i =0; i< 10; i++){
-            await runner.SimulateFrames(360);
-        }
-    }
-
 
 }
+

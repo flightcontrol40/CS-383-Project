@@ -2,7 +2,8 @@ using Godot;
 using System.Collections.Generic;
 using Chicken;
 using System;
-namespace RoundManager;
+using RoundManager;
+namespace DifficultyCalculator;
 
 /// <summary>
 /// Enum to represent the current Difficulty
@@ -42,21 +43,21 @@ public partial class SpawnOrder: Node{
 }
 
 /// <summary>
-/// Factory Function for getting a #DifficultyCalculator class object
+/// Factory Function for getting a DifficultyCalculator class object
 /// </summary>
 public class DifficultyCalculatorFactory {
 
     /// <summary>
-    /// Get a new #DifficultyCalculator class obj based on the Difficulty
+    /// Get a new RoundManager#DifficultyCalculator class obj based on the Difficulty
     /// </summary>
     /// <param name="difficultyTable">
-    /// #DifficultyTable to be used by the calculator.
+    /// RoundManager#DifficultyTable to be used by the calculator.
     /// </param>
     /// <param name="difficulty">
-    /// The #Difficulty to be used for the calculator
+    /// The RoundManager#Difficulty to be used for the calculator
     /// </param>
     /// <returns>
-    /// A #DifficultyCalculator of the passed difficulty
+    /// A RoundManager#DifficultyCalculator of the passed difficulty
     /// </returns>
     public static DifficultyCalculator CreateCalculator(DifficultyTable difficultyTable, Difficulty difficulty){
         DifficultyCalculator difficultyCalculator;
@@ -81,7 +82,7 @@ public class DifficultyCalculatorFactory {
 
 /// <summary>
 /// The Base class for a difficulty calculator. Cannot construct directly, instead
-/// use the #DifficultyCalculatorFactory#CreateCalculator method.
+/// use the DifficultyCalculatorFactory#CreateCalculator method.
 /// </summary>
 public partial class DifficultyCalculator: Node {
 
@@ -133,6 +134,12 @@ public partial class DifficultyCalculator: Node {
     public virtual List<SpawnOrder> CalculateSpawnOrder(int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();
+        if ( roundNumber >= this.difficultyTable.RoundDifficultyValue.Length){
+            roundNumber = this.difficultyTable.RoundDifficultyValue.Length -1;
+        }
+        if (roundNumber < 1){
+            roundNumber = 1;
+        }
         int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
         while ( enemies.Count > 0 ){
             int cost = enemies.Max();
@@ -176,10 +183,17 @@ public partial class EasyDifficultyCalculator : DifficultyCalculator {
     public override List<SpawnOrder> CalculateSpawnOrder(int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();
+        if ( roundNumber >= this.difficultyTable.RoundDifficultyValue.Length){
+            roundNumber = this.difficultyTable.RoundDifficultyValue.Length -1;
+        }
+        if (roundNumber < 1){
+            roundNumber = 1;
+        }
         // Lower Level Value on Easy
         GD.Print($"Round Number: {roundNumber}");
-        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber];
+        int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
         levelValue = (int)((float) levelValue * 0.8);
+        
         while ( enemies.Count > 0 ){
             int cost = enemies.Max();
             int amount = getSpawnAmount(cost, ref levelValue);
@@ -236,6 +250,12 @@ public partial class HardDifficultyCalculator : DifficultyCalculator {
     public override List<SpawnOrder> CalculateSpawnOrder( int roundNumber) {
         List<SpawnOrder> spawnOrders = new() { };
         Godot.Collections.Array<int> enemies = this.getEnemyRanks();
+        if ( roundNumber >= this.difficultyTable.RoundDifficultyValue.Length){
+            roundNumber = this.difficultyTable.RoundDifficultyValue.Length -1;
+        }
+        if (roundNumber < 1){
+            roundNumber = 1;
+        }
         // Raise Level Value on hard
         int levelValue = this.difficultyTable.RoundDifficultyValue[roundNumber-1];
         levelValue = (int)((float)levelValue * 1.5);

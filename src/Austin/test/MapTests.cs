@@ -2,7 +2,6 @@
 using Godot;
 using GdUnit4;
 using static GdUnit4.Assertions;
-using System.Runtime.CompilerServices;
 
 namespace AustinsTests {
 
