@@ -1,6 +1,6 @@
-//using Godot;
-//using System;
-//using Chicken;
+using Godot;
+using System;
+using Chicken;
 //using System.Threading.Tasks;
 //
 //public partial class ChickenWalkTest : Node2D
@@ -143,3 +143,23 @@
 	//}
 //
 //}
+
+public partial class Tester : Node {
+
+	public override void _Ready() {
+		// Optional: confirm that the node is added to the scene tree
+		GD.Print("Tester node added to scene tree.");
+	}
+
+	public void TestFunc() {
+		double fps = Engine.GetFramesPerSecond();
+		GD.Print("Current FPS:", fps);
+		
+		// Replace "$cheese" if you're trying to reference an actual node
+		GD.Print("cheese");
+	}
+
+	public override void _Process(double delta) {
+		TestFunc();
+	}
+}

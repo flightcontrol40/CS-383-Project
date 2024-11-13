@@ -6,11 +6,12 @@
 
 [sub_resource type="Resource" id="Resource_go0cg"]
 script = ExtResource("2_k6ecf")
-playerHealth = 100
+PlayerHealth = 100
 playerMoney = 100
 currentRoundNum = 0
 maxRound = 1
 mapScene = ExtResource("2_5rgho")
+baseDifficulty = 0
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_duoay")

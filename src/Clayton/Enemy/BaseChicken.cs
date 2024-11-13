@@ -121,9 +121,11 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	{
 		// Detects the "bullet" group when it collides with the chicken's Area2D
 		if (area.IsInGroup("bullet")){
-			return;	// Calls take damage function to decrement chicken health
+			// Calls take damage function to decrement chicken health
 		} else {
 			return; // Do nothing if not a bullet
 		}
 	}
+
+	
 }

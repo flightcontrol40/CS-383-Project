@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/Nathan/test/NathanSampleScene.cs" id="1_hhni2"]
 [ext_resource type="Texture2D" uid="uid://b0jccayew3qs1" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="2_whyq1"]
-[ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/RoundManager.tscn" id="3_wjle4"]
+[ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/scenes/RoundManager.tscn" id="3_wjle4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5gak"]
 texture = ExtResource("2_whyq1")
@@ -194,3 +194,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAANAAEAAAAAAAEAAAAKAAEAAAAAAAIAAAABAAE
 tile_set = SubResource("TileSet_en54k")
 
 [node name="RoundManager" parent="." instance=ExtResource("3_wjle4")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true

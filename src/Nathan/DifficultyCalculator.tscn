@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b321qvvvpe34u"]
-
-[ext_resource type="Script" path="res://src/Nathan/DifficultyCalculator.cs" id="1_y4yse"]
-
-[node name="DifficultyCalculator" type="Node"]
-script = ExtResource("1_y4yse")

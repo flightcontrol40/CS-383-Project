@@ -1,0 +1,34 @@
+[gd_scene load_steps=12 format=3 uid="uid://djl6wq0ma1l11"]
+
+[ext_resource type="Script" path="res://src/Nathan/scripts/sound_manager.gd" id="1_rtprs"]
+[ext_resource type="AudioStream" uid="uid://46th5up08xxj" path="res://src/Nathan/Assets/Bovini Bellatores.mp3" id="2_rtc1t"]
+[ext_resource type="AudioStream" uid="uid://cpy0fvc4iwacc" path="res://src/Nathan/Assets/Armentum Dominationis.mp3" id="3_scrk2"]
+[ext_resource type="AudioStream" uid="uid://b0ymd5d2gn3kx" path="res://src/Nathan/Assets/El Diablillo.mp3" id="4_uon18"]
+[ext_resource type="AudioStream" uid="uid://beo8hd42y7t14" path="res://src/Nathan/Assets/Bellicae Galeae Navium.mp3" id="5_y0lgn"]
+[ext_resource type="AudioStream" uid="uid://b4s1aunrq70o0" path="res://src/Nathan/Assets/Magna Bovinia.mp3" id="6_n5816"]
+[ext_resource type="AudioStream" uid="uid://ck6e15edokton" path="res://src/Nathan/Assets/Maurus Sta.mp3" id="7_i6fkx"]
+[ext_resource type="AudioStream" uid="uid://cvvboy0ep27pr" path="res://src/Nathan/Assets/Militis Fortunas.mp3" id="8_1f565"]
+[ext_resource type="AudioStream" uid="uid://dfn7janrjrfe2" path="res://src/Nathan/Assets/Pastoria Geneseos.mp3" id="9_mb6bh"]
+[ext_resource type="AudioStream" uid="uid://cmdbsyrd1i1ro" path="res://src/Nathan/Assets/Pugna Pastoria.mp3" id="10_hhedy"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_prlrv"]
+fade_time = 0.56
+stream_count = 9
+stream_0 = ExtResource("2_rtc1t")
+stream_1 = ExtResource("3_scrk2")
+stream_2 = ExtResource("4_uon18")
+stream_3 = ExtResource("5_y0lgn")
+stream_4 = ExtResource("6_n5816")
+stream_5 = ExtResource("7_i6fkx")
+stream_6 = ExtResource("8_1f565")
+stream_7 = ExtResource("9_mb6bh")
+stream_8 = ExtResource("10_hhedy")
+
+[node name="SoundManager" type="Node2D"]
+script = ExtResource("1_rtprs")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_prlrv")
+autoplay = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]

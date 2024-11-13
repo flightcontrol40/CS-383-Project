@@ -1,7 +1,7 @@
-using Chicken;
 using Godot;
 using RoundManager;
-using System;
+using DifficultyCalculator;
+using LevelConverter;
 
 public partial class LevelManager : Node
 {
@@ -13,6 +13,8 @@ public partial class LevelManager : Node
     public Level level;
     private bool levelLoaded = false;
     public bool mapLoaded { get { return IsInstanceValid(level.MapInstance); } }
+
+    //public ResourceInstanceConverter levelConverter; //This won't be used I just need it for my pattern... (Yes I could use it, but eveything already works so I am not going to break it)
 
     [Signal]
     public delegate void LoadRoundEventHandler(Level level, int difficulty);
@@ -27,6 +29,10 @@ public partial class LevelManager : Node
         return;
     }
 
+    /// <summary>
+    /// Initializes the map and emits a signal that tells the round manager to load the first round.
+    /// Gets called by the level selection menu once the player has finished selecting a level.
+    /// </summary>
     public void OnLoadLevel() {
         GD.Print("Loading level...");
         // load the map
@@ -42,6 +48,10 @@ public partial class LevelManager : Node
         EmitSignal(SignalName.LoadRound, level, (int)baseDifficulty);
     }
 
+    /// <summary>
+    /// Used to set the difficulty of a level and creates a new difficulty table object.
+    /// </summary>
+    /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
     public void setDifficulty(Difficulty difficulty) {
         if (!levelLoaded) {
             // create new difficulty table
@@ -53,12 +63,21 @@ public partial class LevelManager : Node
         }
     }
 
+    /// <summary>
+    /// Used to set the map to another map scene.
+    /// </summary>
+    /// <param name="map">A PackedScene that refers to a map</param>
     public void setMap(PackedScene map) {
         if (map != null) {
             level.mapScene = map;
         }
     }
 
+    /// <summary>
+    /// Creates a new difficulty table and sets it based on the level's difficulty
+    /// </summary>
+    /// <param name="difficulty">Difficutly of the level</param>
+    /// <returns>The newly created DifficultyTable object</returns>
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
@@ -68,7 +87,6 @@ public partial class LevelManager : Node
         //init EnemyRanks
         switch (difficulty) {
             case Difficulty.Hard:
-                GD.Print("Set Difficulty to Hard");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
                     (int)Chicken.Cost.ChickenR1, 
                     (int)Chicken.Cost.ChickenR2, 
@@ -78,7 +96,6 @@ public partial class LevelManager : Node
                 incrementDifficutly = 3;
                 break;
             case Difficulty.Medium:
-                GD.Print("Set Difficulty to Medium");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
                     (int)Chicken.Cost.ChickenR1, 
                     (int)Chicken.Cost.ChickenR2, 
@@ -88,7 +105,6 @@ public partial class LevelManager : Node
                 incrementDifficutly = 2;
                 break;
             default:
-                GD.Print("Set Difficulty to Easy");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
                     (int)Chicken.Cost.ChickenR1, 
                     (int)Chicken.Cost.ChickenR2, 
