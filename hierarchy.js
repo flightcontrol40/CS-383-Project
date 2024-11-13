@@ -29,7 +29,8 @@ var hierarchy =
       [ "SpawnOrder", "classDifficultyCalculator_1_1SpawnOrder.html", null ],
       [ "LevelManager", "classLevelManager.html", null ],
       [ "Main", "classMain.html", null ],
-      [ "Shop", "classShop.html", null ]
+      [ "Shop", "classShop.html", null ],
+      [ "Tester", "classTester.html", null ]
     ] ],
     [ "Node2D", null, [
       [ "LoadLevelTest", "classLoadLevelTest.html", null ],
