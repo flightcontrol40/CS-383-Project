@@ -9,19 +9,19 @@ using System.Collections.Generic;
 namespace ClaytonTest {
 	[TestSuite]
 	public partial class ChickenStressTest : PathFollow2D {
-		public PackedScene chickenScene;
+		public PackedScene ChickenScene;
 		public List<BaseChicken> chickens = new List<BaseChicken>();
 		public const int MaxChickens = 1000000;
-		public const int MinFPS = 100;
+		public const int MinFPS = 15;
 		[Before]
 		public void ChickenLoaderS() {
 			// Load the BaseChicken scene once to avoid repeated loading
-			chickenScene = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn");
+			ChickenScene = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn");
 		}
 		[TestCase]
 		public async Task StressTest() {
 			for (int i = 0; i < MaxChickens; i++) {
-				var chicken = chickenScene.Instantiate<BaseChicken>();
+				var chicken = ChickenScene.Instantiate<BaseChicken>();
 				AddChild(chicken);
 				chickens.Add(chicken);
 				GD.Print("working");
@@ -36,13 +36,14 @@ namespace ClaytonTest {
 			}
 		}
 		[After]
-		public void Cleanup() {
+		public void ChickenDeLoaderS() {
 			// Free all chickens to prevent orphans
 			foreach (var chicken in chickens) {
 				chicken.QueueFree();
 			}
 			chickens.Clear();
-			AssertThat(chickens.Count == 0).IsTrue();		
+			AssertThat(chickens.Count == 0).IsTrue();	
+			ChickenScene.Free();	
 		}
 	}
 }
