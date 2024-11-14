@@ -37,8 +37,7 @@ var hierarchy =
       [ "SpawnOrder", "classDifficultyCalculator_1_1SpawnOrder.html", null ],
       [ "LevelManager", "classLevelManager.html", null ],
       [ "Main", "classMain.html", null ],
-      [ "Shop", "classShop.html", null ],
-      [ "Tester", "classTester.html", null ]
+      [ "Shop", "classShop.html", null ]
     ] ],
     [ "Node2D", null, [
       [ "BaseTower", "classBaseTower.html", [
@@ -48,6 +47,7 @@ var hierarchy =
         [ "Tower4", "classTower4.html", null ],
         [ "Tower5", "classTower5.html", null ]
       ] ],
+      [ "ChickenWalkTest", "classChickenWalkTest.html", null ],
       [ "LevelSelectionMenu", "classLevelSelectionMenu.html", null ],
       [ "LoadLevelTest", "classLoadLevelTest.html", null ],
       [ "Map", "classMap.html", null ],
