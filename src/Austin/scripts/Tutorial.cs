@@ -1,5 +1,6 @@
+// This is no longer in use, it was to add an npc for the minimum viable product but I haven't been keeping up with it. It falls more under UI anyway, and I am not giving
+// them that responsibility as I don't even think we have a working shop yet...
 using Godot;
-using System;
 
 public partial class Tutorial : Container
 {

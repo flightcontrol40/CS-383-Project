@@ -11,11 +11,12 @@
 
 [sub_resource type="Resource" id="Resource_040l3"]
 script = ExtResource("3_j5db1")
-playerHealth = 100
+PlayerHealth = 100
 playerMoney = 100
 currentRoundNum = 0
 maxRound = 1
 mapScene = ExtResource("3_owqxk")
+baseDifficulty = 0
 
 [node name="main" type="Node"]
 script = ExtResource("1_6tv6r")
@@ -43,6 +44,7 @@ text = "This is a test"
 [node name="PlayerHealth" parent="." instance=ExtResource("9_xq0cl")]
 position = Vector2(513, 1)
 
+[connection signal="LoadRound" from="LevelManager" to="RoundManager" method="loadLevel"]
 [connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]
 [connection signal="TowerBought" from="Shop" to="Tutorial" method="_on_shop_tower_bought"]
 [connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]

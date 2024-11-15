@@ -3,7 +3,7 @@ using GdUnit4;
 using static GdUnit4.Assertions;
 
 using System.Threading.Tasks;
-using RoundManager;
+using DifficultyCalculator;
 
 namespace AustinsTests {
     
@@ -214,7 +214,9 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_difficultyTableLoadedByDefault() {
-            AssertThat(levelManager.level.difficultyTable).IsNotNull();
+            ISceneRunner runner = ISceneRunner.Load("res://src/Austin/scenes/level_manager.tscn");
+            LevelManager differentLManager = (LevelManager)runner.Scene();
+            AssertThat(differentLManager.level.difficultyTable).IsNotNull();
         }
 
         [TestCase]

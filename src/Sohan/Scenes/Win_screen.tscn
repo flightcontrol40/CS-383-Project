@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmtiys00yucpj"]
+[gd_scene load_steps=9 format=3 uid="uid://b1ukxxg81kh7j"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_nvivv"]
 [ext_resource type="Texture2D" uid="uid://ddcwu2g1ypw3k" path="res://src/Sohan/Assests/you-win-neon-signs-style-text-vector.png" id="2_pjv6w"]

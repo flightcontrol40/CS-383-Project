@@ -1,7 +1,4 @@
 using Godot;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 public partial class Map : Node2D
 {
@@ -15,7 +12,11 @@ public partial class Map : Node2D
         return;
     }
 
-    // Checks if a tower can be placed based on its area
+    /// <summary>
+    /// Checks if a tower can be placed in a certain location
+    /// </summary>
+    /// <param name="tower">The tower to check the location of</param>
+    /// <returns>True if the tower is in a valid location, false if not</returns>
     public bool validTowerLocation(Node2D tower) {
         // Get tower and and setup
         Area2D towerZone = GetNode<Area2D>("TowerZones");

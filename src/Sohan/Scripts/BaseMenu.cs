@@ -19,8 +19,8 @@ public partial class BaseMenu : Control
 
 	private void OnStartPressed()
 	{
-		GD.Print("Starting the game...");
-		GetTree().ChangeSceneToFile("res://src/Austin/scenes/main.tscn");
+		GD.Print("Opening Level Selection...");
+		GetTree().ChangeSceneToFile("res://src/Sohan/Scenes/LevelSelectionMenu.tscn");
 	}
 
 	// Virtual exit method to allow customization in subclasses

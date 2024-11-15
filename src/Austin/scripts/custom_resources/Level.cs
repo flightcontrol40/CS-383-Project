@@ -23,7 +23,7 @@ public partial class Level : Resource
     [Export]
     private int currentRoundNum = 0;
     [Export]
-    public int maxRound = 1;
+    public int maxRound = 100;
     [Export]
     public PackedScene mapScene = GD.Load<PackedScene>(defaultMapScenePath);
     [Export]
@@ -47,9 +47,13 @@ public partial class Level : Resource
     }
 
     public Level() {
-        loadDifficultyTable(baseDifficulty);
+        GD.Print("Hello there I am an instance of level");
     }
 
+    /// <summary>
+    /// If there isn't already a map instance, creates a new one.
+    /// </summary>
+    /// <returns>The newly created map instance or null if non was created.</returns>
     public Map loadMap() {
         if (!IsInstanceValid(mapInstance)) {
             mapInstance = mapScene.Instantiate<Map>();
@@ -59,21 +63,32 @@ public partial class Level : Resource
         }
     }
 
+    /// <summary>
+    /// Frees the current map instance, if there is one
+    /// </summary>
     public void unloadMap() {
         if (IsInstanceValid(mapInstance)) {
             mapInstance.Free();
         }
     }
 
+    /// <summary>
+    /// Gets a path from the map.
+    /// </summary>
+    /// <returns>The path returned by calling getPath on the map's path</returns>
     public Path2D getPath(){
         return mapInstance.GetNode<Path>("Path").getPath();
     }
 
+    // Pretend this doesn't exist, I needed things for my pattern...
+    // (If the oral exam is done it can probably be deleted at this point)
     public void setDifficulty(Difficulty difficulty) {
         baseDifficulty = difficulty;
         loadDifficultyTable(difficulty);
     }
 
+    // Pretend this doesn't exist, I needed things for my pattern...
+    // (If the oral exam is done it can probably be deleted at this point)
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
@@ -83,7 +98,6 @@ public partial class Level : Resource
         //init EnemyRanks
         switch (difficulty) {
             case Difficulty.Hard:
-                GD.Print("Set Difficulty to Hard");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
                     (int)Chicken.Cost.ChickenR1, 
                     (int)Chicken.Cost.ChickenR2, 
@@ -93,7 +107,6 @@ public partial class Level : Resource
                 incrementDifficutly = 3;
                 break;
             case Difficulty.Medium:
-                GD.Print("Set Difficulty to Medium");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
                     (int)Chicken.Cost.ChickenR1, 
                     (int)Chicken.Cost.ChickenR2, 
@@ -103,7 +116,6 @@ public partial class Level : Resource
                 incrementDifficutly = 2;
                 break;
             default:
-                GD.Print("Set Difficulty to Easy");
                 difficultyTable.EnemyRanks = new Godot.Collections.Array<int>{
                     (int)Chicken.Cost.ChickenR1, 
                     (int)Chicken.Cost.ChickenR2, 

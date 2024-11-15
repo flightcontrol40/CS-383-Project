@@ -1,7 +1,7 @@
+// This file was used to make sure that the multipath scene worked as expected. It did (or at least it used to until the chickens stopped working)
+// Don't worry about this file it is not neeed anymore
 using Godot;
-using System;
 using Chicken;
-using System.Threading.Tasks;
 
 public partial class MultipathTest : Node2D
 {

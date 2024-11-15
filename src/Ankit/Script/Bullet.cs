@@ -1,37 +1,70 @@
+// File: src/Ankit/Scripts/Bullet.cs
 using Godot;
 using System;
-using Chicken; // Static binding: Compiles a reference to the Chicken namespace containing enemy classes. Ensure the namespace matches your project's structure.
+using Chicken;
 
-// The 'Bullet' class is declared as 'partial', allowing its definition to be split across multiple files if needed.
-public partial class Bullet : Area2D // Subclass: 'Bullet' inherits from 'Area2D', making 'Area2D' the superclass.
+public partial class Bullet : Area2D
 {
     [Export]
-    public float Speed = 400; // Speed at which the bullet moves, settable in the editor (dynamic binding).
+    public float Speed = 400;
+    
+    [Export]
+    public int Damage { get; set; } = 10;
 
-    public Vector2 Direction; // The direction for the bullet to travel, set at runtime (dynamic binding).
+    public Vector2 Direction;
 
-    public override void _Ready() // Overrides the _Ready method from Area2D, called when the node is added to the scene.
+    private VisibleOnScreenNotifier2D screenNotifier;
+
+    public override void _Ready()
+
     {
-        Connect("body_entered", new Callable(this, nameof(OnBodyEntered))); // Dynamically binds the 'body_entered' signal to the 'OnBodyEntered' method.
-        Connect("screen_exited", new Callable(this, nameof(OnScreenExited))); // Dynamically binds the 'screen_exited' signal to the 'OnScreenExited' method.
-    }
+            base._Ready();
+            AddToGroup("Projectile");
 
-    public override void _Process(double delta) // Overrides the _Process method from Area2D, called every frame the node is active.
-    {
-        Position += Direction * (float)(Speed * delta); // Updates position based on direction and speed, casting delta to float to match Godot's requirements.
-    }
+        Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
 
-    private void OnBodyEntered(Node body) // Called dynamically when another body enters the bullet's area.
-    {
-        if (body is BaseChicken chicken) // Dynamic check to see if the object is of type BaseChicken.
+        screenNotifier = GetNode<VisibleOnScreenNotifier2D>("VisibleOnScreenNotifier2D");
+        if (screenNotifier != null)
         {
-            chicken.TakeDamage(10); // Calls the TakeDamage method on the chicken, assuming such a method exists and is public.
-            QueueFree(); // Frees the bullet node from memory and removes it from the scene, cleaning up resources.
+            screenNotifier.Connect("screen_exited", new Callable(this, nameof(OnScreenExited)));
+        }
+        else
+        {
+            GD.PrintErr("VisibleOnScreenNotifier2D not found in Bullet scene");
+        }
+
+        if (Direction != Vector2.Zero)
+        {
+            Rotation = Direction.Angle();
+        }
+
+        SetupCollisions();
+    }
+
+    private void SetupCollisions()
+    {
+        CollisionLayer = 4;
+        CollisionMask = 2;
+    }
+
+    public override void _Process(double delta)
+    {
+        Position += Direction * (float)(Speed * delta);
+    }
+
+    private void OnAreaEntered(Area2D area)
+    {
+        Node parent = area.GetParent();
+        
+        if (parent is BaseChicken chicken)
+        {
+            chicken.TakeDamage(Damage);
+            QueueFree();
         }
     }
 
-    private void OnScreenExited() // Called dynamically when the bullet exits the screen area.
+    private void OnScreenExited()
     {
-        QueueFree(); // Frees the bullet node from memory and removes it from the scene, similar to above.
+        QueueFree();
     }
 }

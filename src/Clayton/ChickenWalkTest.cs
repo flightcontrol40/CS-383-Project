@@ -1,12 +1,12 @@
-//using Godot;
-//using System;
-//using Chicken;
-//using System.Threading.Tasks;
-//
-//public partial class ChickenWalkTest : Node2D
-//{
-	//public override void _Ready()
-	//{
+using Godot;
+using System;
+using Chicken;
+using System.Threading.Tasks;
+
+public partial class ChickenWalkTest : Node2D
+{
+	public override void _Ready()
+	{
 		//TimerCalc1();
 		//TimerCalc2();
 		//TimerCalc3();
@@ -18,12 +18,12 @@
 		//TimerCalc9();
 		//TimerCalc10();
 		//TimerCalc11();
-		//TimerCalc12();
-		//
-	//}
-//
+		Stress();
+		
+	}
+
 	//public async Task TimerCalc1(){
-		//BaseChicken chicken = ChickenFactory.MakeKFC(1);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR1);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -33,7 +33,7 @@
 	//}
 	//public async Task TimerCalc2(){
 		//await ToSignal(GetTree().CreateTimer(.5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(1);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR1);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -43,7 +43,7 @@
 	//}
 	//public async Task TimerCalc3(){
 		//await ToSignal(GetTree().CreateTimer(1f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(1);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR1);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -53,7 +53,7 @@
 	//}
 	//public async Task TimerCalc4(){
 		//await ToSignal(GetTree().CreateTimer(1.5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(1);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR1);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -63,7 +63,7 @@
 	//}
 	//public async Task TimerCalc5(){
 		//await ToSignal(GetTree().CreateTimer(2.5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(14);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR2);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -73,7 +73,7 @@
 	//}
 	//public async Task TimerCalc6(){
 		//await ToSignal(GetTree().CreateTimer(3f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(14);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR2);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -83,7 +83,7 @@
 	//}
 	//public async Task TimerCalc7(){
 		//await ToSignal(GetTree().CreateTimer(5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(14);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR2);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -93,7 +93,7 @@
 	//}
 	//public async Task TimerCalc8(){
 		//await ToSignal(GetTree().CreateTimer(6.5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(14);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR2);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 11; i++){
@@ -103,7 +103,7 @@
 	//}
 	//public async Task TimerCalc9(){
 		//await ToSignal(GetTree().CreateTimer(8f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(17);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR3);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 21; i++){
@@ -113,7 +113,7 @@
 	//}
 	//public async Task TimerCalc10(){
 		//await ToSignal(GetTree().CreateTimer(9.5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(17);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR3);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 21; i++){
@@ -123,7 +123,7 @@
 	//}
 	//public async Task TimerCalc11(){
 		//await ToSignal(GetTree().CreateTimer(10.5f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(17);
+		//BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR3);
 		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
 		//chicken.Start(path);
 		//for(int i = 0; i < 21; i++){
@@ -131,15 +131,15 @@
 			//chicken.TakeDamage(45);
 		//}
 	//}
-	//public async Task TimerCalc12(){
-		//await ToSignal(GetTree().CreateTimer(15f), "timeout");
-		//BaseChicken chicken = ChickenFactory.MakeKFC(19);
-		//Path2D path = GetNode<Path2D>("Map/Path/Path2D");
-		//chicken.Start(path);
-		//for(int i = 0; i < 26; i++){
-			//await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
-			//chicken.TakeDamage(100);
-		//}
-	//}
-//
-//}
+	public async Task Stress(){
+		await ToSignal(GetTree().CreateTimer(1f), "timeout");
+		BaseChicken chicken = ChickenFactory.MakeKFC(Cost.ChickenR4);
+		Path2D path = GetNode<Path2D>("Map/Path/Path2D");
+		chicken.Start(path);
+		for(int i = 0; i < 1000; i++){
+			chicken.TakeDamage(100);
+			await ToSignal(GetTree().CreateTimer(.0003f), "timeout");
+		}
+	}
+
+}
