@@ -2,11 +2,12 @@
 using Godot;
 using System;
 
-// Standard Bullet Builder
+// Standard Bullet Builder: Implements IBulletBuilder to create and configure a standard bullet.
 public class StandardBulletBuilder : IBulletBuilder
 {
     protected Bullet bullet;
 
+    // Creates a bullet instance from a PackedScene and adds it to the "Projectile" group.
     public virtual void CreateBullet(PackedScene bulletScene)
     {
         try
@@ -29,6 +30,7 @@ public class StandardBulletBuilder : IBulletBuilder
         }
     }
 
+    // Sets the bullet's speed.
     public virtual void SetSpeed(float speed)
     {
         if (bullet != null)
@@ -38,6 +40,7 @@ public class StandardBulletBuilder : IBulletBuilder
         }
     }
 
+    // Sets the bullet's damage value.
     public virtual void SetDamage(int damage)
     {
         if (bullet != null)
@@ -47,6 +50,7 @@ public class StandardBulletBuilder : IBulletBuilder
         }
     }
 
+    // Configures the bullet's initial position, direction, and rotation.
     public virtual void SetProperties(Vector2 position, Vector2 direction)
     {
         if (bullet != null)
@@ -58,6 +62,7 @@ public class StandardBulletBuilder : IBulletBuilder
         }
     }
 
+    // Returns the fully configured bullet instance.
     public virtual Bullet GetResult()
     {
         if (bullet == null)
@@ -68,7 +73,7 @@ public class StandardBulletBuilder : IBulletBuilder
     }
 }
 
-// Rapid Bullet Builder
+// Rapid Bullet Builder: Increases bullet speed by 20% for a faster bullet.
 public class RapidBulletBuilder : StandardBulletBuilder
 {
     public override void SetProperties(Vector2 position, Vector2 direction)
@@ -81,7 +86,7 @@ public class RapidBulletBuilder : StandardBulletBuilder
     }
 }
 
-// Heavy Bullet Builder
+// Heavy Bullet Builder: Doubles bullet damage for a more powerful bullet.
 public class HeavyBulletBuilder : StandardBulletBuilder
 {
     public override void SetProperties(Vector2 position, Vector2 direction)

@@ -95,6 +95,7 @@ radius = 192.0
 size = Vector2(74, 89)
 
 [node name="Tower2" type="Node2D"]
+rotation = -6.28319
 script = ExtResource("1_tais8")
 BulletScene = ExtResource("2_tk66k")
 TowerHeadPath = NodePath("Towerhead")

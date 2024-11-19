@@ -1,6 +1,7 @@
 using GdUnit4;
 using GdUnit4.Api;
 using Godot;
+using System.Collections.Generic;
 using Chicken;
 using static GdUnit4.Assertions;
 using System.Threading.Tasks;
@@ -298,6 +299,6 @@ public void TestBulletSceneLoading()
 }
 
 
+}
 
 
-}   

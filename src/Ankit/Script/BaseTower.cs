@@ -66,7 +66,7 @@ public partial class BaseTower : Node2D
     public Area2D SightArea => GetNodeOrNull<Area2D>("Sight");
     public Node2D CurrentTarget => currentTarget;
 
-
+// Checks if a given chicken can be targeted by measuring the distance.
     protected virtual bool CanTargetChicken(BaseChicken chicken)
 {
     GD.Print("CanTargetChicken: Start check");
@@ -91,7 +91,7 @@ public partial class BaseTower : Node2D
     
     
 
-
+// Cleanup for resources and nodes upon exiting the scene.
     public override void _ExitTree()
     {
         base._ExitTree();
@@ -106,6 +106,7 @@ public partial class BaseTower : Node2D
             sightArea.QueueFree();
     }
 
+// Sets up tower components and properties when added to the scene.
     public override void _Ready()
     {
         if (!IsInstanceValid(this)) return;
@@ -113,14 +114,17 @@ public partial class BaseTower : Node2D
         bulletBuilder = CreateBulletBuilder();
         InitializeComponents();
         ValidateSceneSetup();
+        
+        InitializeTowerProperties();
     }
 
+// Creates a default bullet builder (can be overridden by subclasses).
     protected virtual IBulletBuilder CreateBulletBuilder()
     {
         return new StandardBulletBuilder();
     }
 
-
+// Initializes essential components of the tower.
     protected virtual void InitializeComponents()
 {
     // Get required nodes
@@ -184,6 +188,8 @@ public partial class BaseTower : Node2D
 
     GD.Print("Tower initialization completed successfully");
 }
+
+// Verifies that all necessary components are set up correctly.
 private bool VerifyComponents()
 {
     if (!IsInstanceValid(towerHead))
@@ -218,7 +224,7 @@ private bool VerifyComponents()
 
     return true;
 }
-    
+    // Validates that all required nodes are present; disables processing if any are missing.
     protected virtual void ValidateSceneSetup()
     {
         if (towerHead == null)
@@ -233,6 +239,7 @@ private bool VerifyComponents()
             SetProcess(false);
     }
 
+// Sets the target if a chicken enters the sight area and can be targeted
     public void OnBodyEntered(Area2D area)
 {
     GD.Print("OnBodyEntered: Start");
@@ -254,6 +261,7 @@ private bool VerifyComponents()
     }
 }
 
+// Clears the target if a chicken leaves the sight area.
 public void OnBodyExited(Area2D area)
 {
     GD.Print("OnBodyExited: Start");
@@ -266,10 +274,11 @@ public void OnBodyExited(Area2D area)
     }
 }
 
+// Fires bullets at the target when ready and displays shooting animation.
 protected virtual void FireBullets()
 
 {
-    ShowTowerAttack();
+    // ShowTowerAttack();
 
 
     GD.Print("BASE TOWER Firing Pattern");
@@ -322,7 +331,7 @@ protected virtual void FireBullets()
     }
 }
 
-
+// Plays the tower's shooting animation.
 protected virtual void PlayShootingAnimation()
 {
     if (towerHead != null && towerHead.SpriteFrames != null)
@@ -341,7 +350,7 @@ protected virtual void PlayShootingAnimation()
 }
 
 
-
+// Checks conditions for firing bullets when the timer times out.
 protected virtual void OnShootTimerTimeout()
 {
     try
@@ -362,7 +371,7 @@ protected virtual void OnShootTimerTimeout()
     }
 }
 
-// Add this helper method to check if tower can shoot
+// Checks whether the tower can shoot (valid target, spawn point, and bullet scene).
 protected virtual bool CanShoot()
 {
     return IsInstanceValid(currentTarget) && 
@@ -371,6 +380,7 @@ protected virtual bool CanShoot()
            IsInstanceValid(GetTree()?.Root);
 }
 
+// Handles placement validation when entering and exiting restricted areas.
     public void _on_placement_area_entered(Area2D area)
     {
         if (area.IsInGroup("BlockPlacement") || area.IsInGroup("Tower"))
@@ -388,6 +398,8 @@ protected virtual bool CanShoot()
             Modulate = new Color(1, 1, 1, 1);
         }
     }
+
+// Processes tower's rotation to aim at the target and manage shooting.
 
    public override void _Process(double delta)
 {
@@ -434,6 +446,7 @@ protected virtual bool CanShoot()
     }
 }
 
+// Verifies that necessary components are in a valid state before processing.
 private bool ValidateProcessingState()
 {
     // Check tower head
@@ -467,20 +480,38 @@ private bool ValidateProcessingState()
     return true;
 }
 
-////////////////This is for the dynamic Binding Demoo
 
-// In BaseTower.cs
-protected virtual void ShowTowerAttack()  // With virtual
+
+ // Initializes default properties for the tower
+protected virtual void InitializeTowerProperties()
+    {
+        // Default tower properties
+        ShootingInterval = 2.0f;
+        RotationSpeed = 5.0f;
+        BulletsPerShot = 1;
+        BulletSpeed = 300f;
+        BulletDamage = 10;
+
+        GD.Print("=== Base Tower Properties Initialized ===");
+        GD.Print($"Type: Base Tower");
+        GD.Print($"Shooting Interval: {ShootingInterval}");
+        GD.Print($"Rotation Speed: {RotationSpeed}");
+        GD.Print($"Bullets Per Shot: {BulletsPerShot}");
+        GD.Print($"Bullet Speed: {BulletSpeed}");
+        GD.Print($"Bullet Damage: {BulletDamage}");
+        GD.Print("=====================================");
+    }
+
+
+    
+// Added
+public void SetupForTesting(float shootInterval, int bulletsPerShot, float bulletSpeed, float rotationSpeed)
 {
-    GD.Print("=== Base Tower Attack ===");
-    GD.Print($"This is base tower shooting!");
-    GD.Print($"All towers will shoot same if no override");
-    GD.Print($"Bullets Per Shot: {BulletsPerShot}");
-    GD.Print($"Damage: {BulletDamage}");
-    GD.Print("========================");
+    ShootingInterval = shootInterval;
+    BulletsPerShot = bulletsPerShot;
+    BulletSpeed = bulletSpeed;
+    RotationSpeed = rotationSpeed;
 }
-
-
 }
 
 

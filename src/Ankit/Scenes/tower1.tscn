@@ -99,6 +99,7 @@ radius = 192.0
 size = Vector2(74, 89)
 
 [node name="Tower1" type="Node2D"]
+rotation = 6.28319
 script = ExtResource("1_6bnkc")
 BulletScene = ExtResource("2_1wxew")
 TowerHeadPath = NodePath("Towerhead")
@@ -115,7 +116,6 @@ texture_filter = 1
 position = Vector2(0, -24)
 scale = Vector2(1.25, 1.1875)
 sprite_frames = SubResource("SpriteFrames_usa03")
-frame_progress = 0.374781
 
 [node name="Cow" type="Sprite2D" parent="Towerhead"]
 texture_filter = 1
