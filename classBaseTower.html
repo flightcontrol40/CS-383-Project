@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a182a89aacceeb2670cd3f7d7f69a7892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a> (double delta)</td></tr>
 <tr class="separator:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3209f1a888ac2065ef12032dc137ba14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a3209f1a888ac2065ef12032dc137ba14">SetupForTesting</a> (float shootInterval, int bulletsPerShot, float bulletSpeed, float rotationSpeed)</td></tr>
+<tr class="separator:a3209f1a888ac2065ef12032dc137ba14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -141,8 +143,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ae79920e1db2df7b3944db5570c36a4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30743bb2f538e25b0a618877112024e1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a30743bb2f538e25b0a618877112024e1">CanShoot</a> ()</td></tr>
 <tr class="separator:a30743bb2f538e25b0a618877112024e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89af4d934c548a73fff23d0d98ddbacb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a89af4d934c548a73fff23d0d98ddbacb">ShowTowerAttack</a> ()</td></tr>
-<tr class="separator:a89af4d934c548a73fff23d0d98ddbacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93fe07d1da0febd676dda38043bace9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ad93fe07d1da0febd676dda38043bace9">InitializeTowerProperties</a> ()</td></tr>
+<tr class="separator:ad93fe07d1da0febd676dda38043bace9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -486,6 +488,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad93fe07d1da0febd676dda38043bace9" name="ad93fe07d1da0febd676dda38043bace9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93fe07d1da0febd676dda38043bace9">&#9670;&#160;</a></span>InitializeTowerProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void InitializeTowerProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTower1.html#a5c5f5d3f3579d8ec3cbc9e962641a02d">Tower1</a>, <a class="el" href="classTower2.html#a5c5f5d3f3579d8ec3cbc9e962641a02d">Tower2</a>, <a class="el" href="classTower3.html#a5c5f5d3f3579d8ec3cbc9e962641a02d">Tower3</a>, <a class="el" href="classTower4.html#a5c5f5d3f3579d8ec3cbc9e962641a02d">Tower4</a>, and <a class="el" href="classTower5.html#a5c5f5d3f3579d8ec3cbc9e962641a02d">Tower5</a>.</p>
+
+</div>
+</div>
 <a id="a69e4d2c4f3e9d7ce89ff3dd2a19463e3" name="a69e4d2c4f3e9d7ce89ff3dd2a19463e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a69e4d2c4f3e9d7ce89ff3dd2a19463e3">&#9670;&#160;</a></span>OnBodyEntered()</h2>
 
@@ -588,8 +617,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a89af4d934c548a73fff23d0d98ddbacb" name="a89af4d934c548a73fff23d0d98ddbacb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89af4d934c548a73fff23d0d98ddbacb">&#9670;&#160;</a></span>ShowTowerAttack()</h2>
+<a id="a3209f1a888ac2065ef12032dc137ba14" name="a3209f1a888ac2065ef12032dc137ba14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3209f1a888ac2065ef12032dc137ba14">&#9670;&#160;</a></span>SetupForTesting()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -598,20 +627,41 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void ShowTowerAttack </td>
+          <td class="memname">void SetupForTesting </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>shootInterval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bulletsPerShot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>bulletSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotationSpeed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="classTower1.html#a39497418b8521b5b547db2d3d237f196">Tower1</a>, and <a class="el" href="classTower2.html#a39497418b8521b5b547db2d3d237f196">Tower2</a>.</p>
 
 </div>
 </div>
