@@ -30,6 +30,7 @@ public static partial class ChickenFactory { //Factory Pattern used by round man
 			default:
 			// Instantiates base chicken
 			chicken = GD.Load<PackedScene>("res://src/Clayton/Enemy/BaseChicken.tscn").Instantiate<BaseChicken>();
+			GD.Print(chicken.Health);
 			break;
 		}
 		// Returns chicken of varing tier based on cost input into factory
@@ -56,10 +57,9 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	/// </summary>
 	
 	public void Start(Path2D LevelPath) {
-		this.Visible = true;
 		this.path = LevelPath; 
-		this.Reparent(LevelPath);
-		// this.path.AddChild(this);
+		LevelPath.AddChild(this);
+		this.Visible = true; 
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path
 		
@@ -68,7 +68,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	/// Starts chicken along path after start function is called
 	/// </summary>
 	public override void _Process(double delta){
-		if (started == true){
+		if(started == true){
 			this.SetProgress(Progress + (float)(delta * Speed)); // Increment the progress ratio based on the speed and delta time
 			if (this.ProgressRatio >= 1)
 			{

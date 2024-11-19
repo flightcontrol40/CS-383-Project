@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://br7v1if6t0dg5"]
+
+[ext_resource type="Script" path="res://src/Sohan/Scenes/DifficultySelectionMenu.cs" id="1_t3h2n"]
+[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="2_csuou"]
+[ext_resource type="Texture2D" uid="uid://cy33xwmqbneh7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_rur07"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iiyk0"]
+texture = ExtResource("2_rur07")
+modulate_color = Color(0.391185, 0.391185, 0.391185, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk35t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmr0b"]
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugley"]
+bg_color = Color(0.615422, 0.615422, 0.615422, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb4aw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="DifficultySelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t3h2n")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_iiyk0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 249.0
+offset_right = 684.0
+offset_bottom = 458.0
+
+[node name="Easy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+text = "Easy"
+
+[node name="Medium" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+text = "Medium"
+
+[node name="Hard" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+text = "Hard"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = 128.0
+offset_right = 827.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("2_csuou")
+theme_override_font_sizes/font_size = 60
+text = "Select Difficulty
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Easy" to="." method="OnEasyPressed"]

@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=3 uid="uid://scqpiveh4flc"]
+
+[ext_resource type="Script" path="res://src/Sohan/Scripts/PauseMenu.cs" id="1_di0as"]
+[ext_resource type="Texture2D" uid="uid://cy33xwmqbneh7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
+[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
+[ext_resource type="Texture2D" uid="uid://d37mw8kfb7u6s" path="res://src/Sohan/Assests/1174462.png" id="4_rpsjb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
+texture = ExtResource("2_wp4bj")
+modulate_color = Color(0.303233, 0.303233, 0.303233, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvwto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtxvu"]
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7ft1"]
+bg_color = Color(0.615422, 0.615422, 0.615422, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljipv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_di0as")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w2ad8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -89.0
+offset_right = 216.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xvwto")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wtxvu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7ft1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljipv")
+text = "Resume Game
+"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xvwto")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wtxvu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7ft1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljipv")
+text = "Restart Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xvwto")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wtxvu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7ft1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljipv")
+text = "Options
+"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xvwto")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wtxvu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7ft1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljipv")
+text = "Exit
+"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -256.0
+offset_right = 172.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("3_v2065")
+theme_override_font_sizes/font_size = 60
+text = "Kill Mo Chickens"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("4_rpsjb")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
