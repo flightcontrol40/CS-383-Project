@@ -9,8 +9,8 @@ var searchData=
   ['pathfollow2d_6',['PathFollow2d',['../classPathFollow2d.html',1,'']]],
   ['pathscenereadme_7',['PathSceneReadme',['../md_Docs_Austin_PathSceneReadme.html',1,'']]],
   ['pausemenu_8',['PauseMenu',['../classPauseMenu.html',1,'']]],
-  ['playerhealth_9',['PlayerHealth',['../classLevel.html#a185f4542c638e29c9a6c41f3a22f42ea',1,'Level']]],
-  ['playerhealth_10',['playerHealth',['../classLevel.html#a48595a6d596594bc25ff2a5611f7ceed',1,'Level']]],
+  ['playerhealth_9',['playerHealth',['../classLevel.html#a48595a6d596594bc25ff2a5611f7ceed',1,'Level']]],
+  ['playerhealth_10',['PlayerHealth',['../classLevel.html#a185f4542c638e29c9a6c41f3a22f42ea',1,'Level']]],
   ['playermoney_11',['playerMoney',['../classLevel.html#af3c0dbc8253d12765c39cdeeea56d709',1,'Level.playerMoney()'],['../classShop.html#af3c0dbc8253d12765c39cdeeea56d709',1,'Shop.playerMoney()']]],
   ['playermoney_12',['PlayerMoney',['../classLevel.html#a736215bd6d4ea5ba7cc8262691d9480b',1,'Level']]],
   ['playshootinganimation_13',['PlayShootingAnimation',['../classBaseTower.html#a9fe1d1a8cdf77d262a9de98b983596a7',1,'BaseTower']]]

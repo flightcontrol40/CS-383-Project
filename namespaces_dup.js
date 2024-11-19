@@ -9,6 +9,5 @@ var namespaces_dup =
       [ "number", "namespacefix__whitespace.html#ae951c6a92f5fec5e54c03694676a9e77", null ],
       [ "PATH", "namespacefix__whitespace.html#a41c99b2ef4ec14727d687987cc182ed2", null ]
     ] ],
-    [ "LevelConverter", "namespaceLevelConverter.html", "namespaceLevelConverter" ],
     [ "RoundManager", "namespaceRoundManager.html", "namespaceRoundManager" ]
 ];
