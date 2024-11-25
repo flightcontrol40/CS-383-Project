@@ -58,7 +58,8 @@ public partial class Level : Resource
         if (!IsInstanceValid(mapInstance)) {
             mapInstance = mapScene.Instantiate<Map>();
             return mapInstance;
-        } else {
+        } else
+        {
             return null;
         }
     }

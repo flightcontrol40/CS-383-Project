@@ -125,7 +125,7 @@ public partial class BaseTower : Node2D
     }
 
 // Initializes essential components of the tower.
-    protected virtual void InitializeComponents()
+protected virtual void InitializeComponents()
 {
     // Get required nodes
     towerHead = GetNodeOrNull<AnimatedSprite2D>("Towerhead");
