@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5jmdbgq1m3er"]
 
 [ext_resource type="Script" path="res://src/Clayton/Enemy/Frankest.cs" id="1_7u7so"]
-[ext_resource type="Texture2D" uid="uid://bkdumhm7y3ip1" path="res://src/Clayton/Assets/Frankest.png" id="2_iuw3g"]
+[ext_resource type="Texture2D" uid="uid://bpsmk0ux651wf" path="res://src/Clayton/Assets/Frankest.png" id="2_iuw3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oah1a"]
 size = Vector2(303.571, 305.626)
@@ -14,10 +14,11 @@ script = ExtResource("1_7u7so")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iuw3g")
 
-[node name="Area2D" type="Area2D" parent="ChickenSprite"]
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChickenSprite/Area2D" groups=["Enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
 position = Vector2(0.374512, 0.737305)
 shape = SubResource("RectangleShape2D_oah1a")

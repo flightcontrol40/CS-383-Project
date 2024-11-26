@@ -57,8 +57,8 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	/// </summary>
 	
 	public void Start(Path2D LevelPath) {
-		this.path = LevelPath; 
-		LevelPath.AddChild(this);
+		this.path = LevelPath;
+		Reparent(LevelPath);
 		this.Visible = true; 
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path

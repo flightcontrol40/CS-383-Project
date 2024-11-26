@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://3cc4shaqkpud"]
 
 [ext_resource type="Script" path="res://src/Ankit/Script/Tower1.cs" id="1_6bnkc"]
-[ext_resource type="PackedScene" uid="uid://dmi80xnwl2m1b" path="res://src/Ankit/Scenes/Bullet.tscn" id="2_1wxew"]
-[ext_resource type="Texture2D" uid="uid://b3n1hal5er06p" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Bodies/body_halftrack.png" id="2_i7yis"]
-[ext_resource type="Texture2D" uid="uid://bxn12y84nrn71" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/turret_01_mk1.png" id="3_nxx5n"]
-[ext_resource type="Texture2D" uid="uid://dtmwemfjjrwrx" path="res://src/Ankit/Assets/cowimage.png" id="4_rdfuk"]
+[ext_resource type="PackedScene" uid="uid://dmi80xnwl2m1b" path="res://src/Ankit/Scenes/bullet.tscn" id="2_1wxew"]
+[ext_resource type="Texture2D" uid="uid://wkdd7pqqaxaq" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Bodies/body_halftrack.png" id="2_i7yis"]
+[ext_resource type="Texture2D" uid="uid://51c4kp3blaun" path="res://src/Ankit/Assets/ground_shaker_asset/Blue/Weapons/turret_01_mk1.png" id="3_nxx5n"]
+[ext_resource type="Texture2D" uid="uid://c4tc25gphtnv" path="res://src/Ankit/Assets/cowimage.png" id="4_rdfuk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_td3g3"]
 atlas = ExtResource("2_i7yis")
@@ -99,7 +99,6 @@ radius = 192.0
 size = Vector2(74, 89)
 
 [node name="Tower1" type="Node2D"]
-rotation = 6.28319
 script = ExtResource("1_6bnkc")
 BulletScene = ExtResource("2_1wxew")
 TowerHeadPath = NodePath("Towerhead")
@@ -127,13 +126,13 @@ texture = ExtResource("4_rdfuk")
 position = Vector2(0, -45.4737)
 
 [node name="Sight" type="Area2D" parent="." groups=["Sight"]]
-visible = false
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_5saor")
 
 [node name="Placement" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
 position = Vector2(0, -3.5)

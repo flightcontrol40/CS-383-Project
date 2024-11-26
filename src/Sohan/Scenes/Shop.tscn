@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjbygfchlgilm"]
+[gd_scene load_steps=3 format=3 uid="uid://cjbygfchlgilm"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/Shop.cs" id="1_dxfvc"]
+[ext_resource type="Texture2D" uid="uid://cym1gqnwhfsab" path="res://src/Nathan/images/angry_chicken_logo.png" id="2_bfhxj"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_dxfvc")
@@ -39,6 +40,22 @@ offset_right = 273.0
 offset_bottom = 156.0
 text = "CannonTower: $180
 "
+
+[node name="StartRoundButton" type="Button" parent="Shop Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -69.0
+offset_right = 739.0
+offset_bottom = 739.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.0802421, 0.0802421)
+icon = ExtResource("2_bfhxj")
 
 [connection signal="pressed" from="Shop Panel/BasicTower" to="." method="_on_BasicTowerButton_pressed"]
 [connection signal="pressed" from="Shop Panel/SniperTower" to="." method="_on_SniperTowerButton_pressed"]
