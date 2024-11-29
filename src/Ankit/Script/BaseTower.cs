@@ -69,8 +69,8 @@ public partial class BaseTower : Node2D
 	public Area2D SightArea => GetNodeOrNull<Area2D>("Sight");
 	public Node2D CurrentTarget => currentTarget;
 
-	// Checks if a given chicken can be targeted by measuring the distance.
-	protected virtual bool CanTargetChicken(BaseChicken chicken)
+    // Checks if a given chicken can be targeted by measuring the distance.
+    protected virtual bool CanTargetChicken(BaseChicken chicken)
 	{
 		GD.Print("CanTargetChicken: Start check");
 	   
@@ -92,7 +92,20 @@ public partial class BaseTower : Node2D
 		return canTarget;
 	}
 
+	public bool IsValidPosition()
+	{
+		Area2D PlacementArea = GetNode<Area2D>("Placement");
+		return !PlacementArea.HasOverlappingAreas();
+	}
 	
+	public void ToggleCollisionShapes()
+	{
+		Area2D Placement = GetNode<Area2D>("Placement");
+		Area2D Sight = GetNode<Area2D>("Sight");
+
+		Placement.Visible = !Placement.Visible;
+		Sight.Visible = !Sight.Visible;
+	}
 	
 
 	// Cleanup for resources and nodes upon exiting the scene.

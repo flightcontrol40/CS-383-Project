@@ -19,7 +19,7 @@ public partial class Level : Resource
     [Export]
     private int PlayerHealth = 100;
     [Export]
-    private int playerMoney = 100;
+    private int playerMoney = 500;
     [Export]
     private int currentRoundNum = 0;
     [Export]
@@ -32,11 +32,11 @@ public partial class Level : Resource
 
     public int PlayerMoney {
         get { return playerMoney; }
-        set { playerMoney = Math.Max(value, 0); }
+        set { playerMoney = Math.Max(value, 0); EmitSignal(SignalName.MoneyChanged); }
     }
     public int playerHealth {
         get { return PlayerHealth; }
-        set { PlayerHealth = Math.Max(value, 0); }
+        set { PlayerHealth = Math.Max(value, 0); EmitSignal(SignalName.HealthChanged); }
     }
     public int CurrentRoundNum {
         get { return currentRoundNum; }
@@ -135,4 +135,9 @@ public partial class Level : Resource
 
         return difficultyTable;
     }
+
+    [Signal]
+    public delegate void MoneyChangedEventHandler();
+    [Signal]
+    public delegate void HealthChangedEventHandler();
 }

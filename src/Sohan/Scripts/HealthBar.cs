@@ -44,8 +44,7 @@ public partial class HealthBar : ProgressBar
         if (enemy != null)
         {
             GD.Print($"Connecting {enemy.Name}'s EndOfPath signal.");
-            enemy.Connect(nameof(BaseChicken.EndOfPathEventHandler),
-                          new Callable(this, nameof(OnEnemyReachedEnd)));
+            enemy.Connect(BaseChicken.SignalName.EndOfPath, Callable.From<BaseChicken>(OnEnemyReachedEnd));
         }
     }
 
