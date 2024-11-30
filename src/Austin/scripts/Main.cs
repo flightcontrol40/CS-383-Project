@@ -33,7 +33,7 @@ public partial class Main : Node
 			}
 		};
 		HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
-		levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<BaseChicken>(health.OnEnemyReachedEnd));
+		levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
 		//levelm.level.Connect(Level.SignalName.MoneyChanged, )
 	}
 

@@ -1,5 +1,6 @@
 using Godot;
 using Chicken;
+using System;
 
 public partial class HealthBar : ProgressBar
 {
@@ -23,11 +24,11 @@ public partial class HealthBar : ProgressBar
 
         // Connect all existing and future enemies' EndOfPath signal
         GetTree().Connect("node_added", new Callable(this, nameof(OnNodeAdded)));
-
+/*
         foreach (Node node in GetTree().GetNodesInGroup("Enemy"))
         {
             ConnectEnemySignal(node as BaseChicken);
-        }
+        }*/
     }
 
     private void OnNodeAdded(Node node)
@@ -35,7 +36,7 @@ public partial class HealthBar : ProgressBar
         if (node is BaseChicken chicken)
         {
             GD.Print($"New enemy detected: {chicken.Name}. Connecting signal.");
-            ConnectEnemySignal(chicken);
+            // ConnectEnemySignal(chicken);
         }
     }
 
@@ -51,9 +52,12 @@ public partial class HealthBar : ProgressBar
     public void OnEnemyReachedEnd(BaseChicken enemy)
     {
         GD.Print($"{enemy.Name} reached the endpoint! Decreasing health.");
-        UpdateHealthBar(enemy.damageAmount);
     }
 
+    public void OnHealthChanged(int delta)
+    {
+        UpdateHealthBar(delta);
+    }
 
 	public void TestTriggerEnemyReachedEnd(BaseChicken enemy)
 	{

@@ -32,11 +32,11 @@ public partial class Level : Resource
 
     public int PlayerMoney {
         get { return playerMoney; }
-        set { playerMoney = Math.Max(value, 0); EmitSignal(SignalName.MoneyChanged); }
+        set { EmitSignal(SignalName.MoneyChanged, playerMoney - value); playerMoney = Math.Max(value, 0); }
     }
     public int playerHealth {
         get { return PlayerHealth; }
-        set { PlayerHealth = Math.Max(value, 0); EmitSignal(SignalName.HealthChanged); }
+        set { EmitSignal(SignalName.HealthChanged, PlayerHealth - value); PlayerHealth = Math.Max(value, 0);  }
     }
     public int CurrentRoundNum {
         get { return currentRoundNum; }
@@ -137,7 +137,7 @@ public partial class Level : Resource
     }
 
     [Signal]
-    public delegate void MoneyChangedEventHandler();
+    public delegate void MoneyChangedEventHandler(int delta);
     [Signal]
-    public delegate void HealthChangedEventHandler();
+    public delegate void HealthChangedEventHandler(int delta);
 }
