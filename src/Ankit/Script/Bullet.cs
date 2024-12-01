@@ -8,7 +8,7 @@ public partial class Bullet : Area2D
 {
     // Speed of the bullet, with a default value of 400.
     [Export]
-    public float Speed = 400;
+    public float Speed = 500;
     
     // Damage inflicted by the bullet, with a default value of 10.
     [Export]
@@ -19,6 +19,8 @@ public partial class Bullet : Area2D
 
     // Notifier to detect when the bullet exits the screen.
     private VisibleOnScreenNotifier2D screenNotifier;
+
+    private int FramesBeforeDeletion = 500;
 
     // Called when the bullet node is added to the scene.
     public override void _Ready()
@@ -61,6 +63,10 @@ public partial class Bullet : Area2D
     // Updates the bullet's position every frame based on its speed and direction.
     public override void _Process(double delta)
     {
+        // We delete the bullet after it's left the bounds of the screen because no chickens exist there for them to collide with.
+        if (!GetViewport().GetVisibleRect().HasPoint(GlobalPosition))
+            QueueFree();
+
         Position += Direction * (float)(Speed * delta);
     }
 

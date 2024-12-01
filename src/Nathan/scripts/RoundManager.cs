@@ -121,7 +121,8 @@ public partial class RoundManager : Node2D {
     /// Enemy Death Signal Handler. 
     /// </summary>
     /// <param name="enemy">The associated enemy.</param>
-    public void HandleEnemyDiesSignal(BaseChicken enemy) {
+    public void HandleEnemyDiesSignal(BaseChicken enemy)
+    {
         // Free the enemy
         this.levelData.PlayerMoney += enemy.EnemyRank; // Add to money
         liveEnemies.Remove(enemy);
