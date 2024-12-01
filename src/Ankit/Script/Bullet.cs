@@ -20,17 +20,6 @@ public partial class Bullet : Area2D
 
     // Notifier to detect when the bullet exits the screen.
     private VisibleOnScreenNotifier2D screenNotifier;
-     private Node2D sourceTower;
-     private float maxRange;
-
-     public void Initialize(Node2D tower, float range)
-    {
-        sourceTower = tower;
-        maxRange = range; 
-    }
-     
-
-    private int FramesBeforeDeletion = 500;
 
     // Called when the bullet node is added to the scene.
     public override void _Ready()
@@ -72,24 +61,9 @@ public partial class Bullet : Area2D
 
     // Updates the bullet's position every frame based on its speed and direction.
     public override void _Process(double delta)
-{
-    // First check if bullet is beyond tower's range
-    if (sourceTower != null && IsInstanceValid(sourceTower))
     {
-        float distanceFromTower = GlobalPosition.DistanceTo(sourceTower.GlobalPosition);
-        if (distanceFromTower > maxRange)
-        {
-            QueueFree();
-            return;
-        }
+        Position += Direction * (float)(Speed * delta);
     }
-
-    // Existing screen check
-    if (!GetViewport().GetVisibleRect().HasPoint(GlobalPosition))
-        QueueFree();
-
-    Position += Direction * (float)(Speed * delta);
-}
 
     // Handles collision with other areas, specifically chickens, and deals damage.
     private void OnAreaEntered(Area2D area)

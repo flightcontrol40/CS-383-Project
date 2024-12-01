@@ -1,24 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjbygfchlgilm"]
+[gd_scene load_steps=2 format=3 uid="uid://cjbygfchlgilm"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/Shop.cs" id="1_dxfvc"]
-[ext_resource type="Texture2D" uid="uid://bx5ifcuc0rt4o" path="res://src/Nathan/images/angry_chicken_logo.png" id="2_bfhxj"]
-[ext_resource type="Texture2D" uid="uid://3r01l114g15d" path="res://src/Ankit/Assets/tower1.png" id="2_ncqbx"]
-[ext_resource type="Texture2D" uid="uid://dhr7us6cn71d3" path="res://src/Ankit/Assets/Tower2.png" id="3_ojey0"]
-[ext_resource type="Texture2D" uid="uid://cyv8mamsuxoid" path="res://src/Ankit/Assets/tower3.png" id="4_8arxp"]
-[ext_resource type="Texture2D" uid="uid://b73ymxjwh5im5" path="res://src/Ankit/Assets/tower5.png" id="5_5lpxe"]
-[ext_resource type="Texture2D" uid="uid://d0kqkjxo7a0r" path="res://src/Ankit/Assets/Tower4.png" id="6_hq80k"]
 
-[sub_resource type="SystemFont" id="SystemFont_mvn4x"]
-subpixel_positioning = 0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hu71n"]
-
-[node name="Shop" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_dxfvc")
 
-[node name="Shop Panel" type="Panel" parent="."]
-offset_right = 258.0
-offset_bottom = 644.0
+[node name="Panel" type="Panel" parent="."]
+offset_right = 381.0
+offset_bottom = 184.0
 
 [node name="MoneyLabel" type="Label" parent="Shop Panel"]
 layout_mode = 0
@@ -32,26 +21,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_hu71n")
 text = "Money: $0"
 horizontal_alignment = 1
 
-[node name="BasicTower" type="Button" parent="Shop Panel"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 37.0
-offset_right = 258.0
-offset_bottom = 152.0
-text = "Basic Tower - $100
-"
-icon = ExtResource("2_ncqbx")
-
-[node name="RapidFireTower2" type="Button" parent="Shop Panel"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 138.0
-offset_right = 257.0
-offset_bottom = 264.0
-text = "RapidFire Tower - $150"
-icon = ExtResource("3_ojey0")
-
-[node name="HeavyTower" type="Button" parent="Shop Panel"]
+[node name="BasicTower" type="Button" parent="Panel/Label"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 250.0
@@ -63,14 +33,13 @@ icon = ExtResource("4_8arxp")
 
 [node name="SniperTower" type="Button" parent="Shop Panel"]
 layout_mode = 0
-offset_top = 357.0
-offset_right = 257.0
-offset_bottom = 481.0
-text = "Sinper Tower: $250
-"
-icon = ExtResource("6_hq80k")
+offset_left = 114.0
+offset_top = 80.0
+offset_right = 270.0
+offset_bottom = 111.0
+text = "SniperTower - $140"
 
-[node name="SpeedTower" type="Button" parent="Shop Panel"]
+[node name="CannonTower" type="Button" parent="Panel/Label"]
 layout_mode = 0
 offset_top = 466.0
 offset_right = 257.0
@@ -98,8 +67,6 @@ text = "Play Round
 "
 icon = ExtResource("2_bfhxj")
 
-[connection signal="pressed" from="Shop Panel/BasicTower" to="." method="_on_BasicTowerButton_pressed"]
-[connection signal="pressed" from="Shop Panel/RapidFireTower2" to="." method="_on_RapidTowerButton_pressed"]
-[connection signal="pressed" from="Shop Panel/HeavyTower" to="." method="_on_HeavyTowerButton_pressed"]
-[connection signal="pressed" from="Shop Panel/SniperTower" to="." method="_on_SniperTowerButton_pressed"]
-[connection signal="pressed" from="Shop Panel/SpeedTower" to="." method="_on_SpeedTowerButton_pressed"]
+[connection signal="pressed" from="Panel/Label/BasicTower" to="Panel" method="_on_basic_tower_pressed"]
+[connection signal="pressed" from="Panel/Label/SniperTower" to="Panel" method="_on_sniper_tower_pressed"]
+[connection signal="pressed" from="Panel/Label/CannonTower" to="Panel" method="_on_cannon_tower_pressed"]
