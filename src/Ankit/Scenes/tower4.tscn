@@ -1,10 +1,10 @@
 [gd_scene load_steps=23 format=3 uid="uid://4gwyw06kd502"]
 
 [ext_resource type="Script" path="res://src/Ankit/Script/Tower4.cs" id="1_kr7sm"]
-[ext_resource type="PackedScene" uid="uid://dmi80xnwl2m1b" path="res://src/Ankit/Scenes/Bullet.tscn" id="2_aypnh"]
-[ext_resource type="Texture2D" uid="uid://dgbyotbv73yde" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Bodies/body_halftrack.png" id="2_ompr3"]
-[ext_resource type="Texture2D" uid="uid://ts3krcr5x24i" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Weapons/turret_02_mk4.png" id="3_a3834"]
-[ext_resource type="Texture2D" uid="uid://dtmwemfjjrwrx" path="res://src/Ankit/Assets/cowimage.png" id="5_emwhj"]
+[ext_resource type="PackedScene" uid="uid://dmi80xnwl2m1b" path="res://src/Ankit/Scenes/bullet.tscn" id="2_aypnh"]
+[ext_resource type="Texture2D" uid="uid://c61q222ojv8tj" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Bodies/body_halftrack.png" id="2_ompr3"]
+[ext_resource type="Texture2D" uid="uid://blu66ruy2k6ia" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Weapons/turret_02_mk4.png" id="3_a3834"]
+[ext_resource type="Texture2D" uid="uid://cc7ldvkrul14q" path="res://src/Ankit/Assets/cowimage.png" id="5_emwhj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_diifh"]
 atlas = ExtResource("2_ompr3")
@@ -145,20 +145,38 @@ scale = Vector2(0.1, 0.105263)
 texture = ExtResource("5_emwhj")
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="Towerhead"]
-position = Vector2(0, -45.4737)
+position = Vector2(3.2, -45.4737)
+
+[node name="BulletSpawnPoint2" type="Marker2D" parent="Towerhead"]
+position = Vector2(-2.4, -45.4737)
+
+[node name="BulletSpawnPoint3" type="Marker2D" parent="Towerhead"]
+position = Vector2(8.8, -45.4737)
+
+[node name="BulletSpawnPoint4" type="Marker2D" parent="Towerhead"]
+position = Vector2(-8.8, -45.4737)
 
 [node name="Sight" type="Area2D" parent="." groups=["Sight"]]
-visible = false
+show_behind_parent = true
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_5saor")
 
 [node name="Placement" type="Area2D" parent="."]
-visible = false
+show_behind_parent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placement"]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_l4x3v")
+
+[node name="ColorRect" type="ColorRect" parent="Placement"]
+offset_left = -37.0
+offset_top = -48.0
+offset_bottom = -3.5
+scale = Vector2(2, 2)
+color = Color(0.235294, 0.235294, 0.235294, 0.415686)
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1

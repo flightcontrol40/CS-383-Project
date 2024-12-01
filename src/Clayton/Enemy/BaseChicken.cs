@@ -57,8 +57,8 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	/// </summary>
 	
 	public void Start(Path2D LevelPath) {
-		this.path = LevelPath; 
-		LevelPath.AddChild(this);
+		this.path = LevelPath;
+		Reparent(LevelPath);
 		this.Visible = true; 
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path
@@ -73,7 +73,6 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 			if (this.ProgressRatio >= 1)
 			{
 				EmitSignal(SignalName.EndOfPath, this); // Lets round manager / healthbar know when a chicken reaches end of path
-
 			}
 		}
    }
@@ -82,6 +81,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.Health -= damageCounter; // Decrements health based on damage from towers
 		
 		if (Health <= 0 ){
+			GD.PushWarning("Chicken Died. Emitting signal");
 			EmitSignal(SignalName.EnemyDied, this); // Emits death signal if base chicken dies to towers
 		}
 	}
@@ -111,7 +111,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	public override void _Ready(){
 		this.Visible = false;
 		// Reference the Area2D node
-		_collisionArea = GetNode<Area2D>("ChickenSprite/Area2D");
+		_collisionArea = GetNode<Area2D>("Area2D");
 
 		// Connect the "area_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));

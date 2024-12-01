@@ -2,13 +2,14 @@
 using Godot;
 using System;
 using Chicken;
+using System.Runtime.CompilerServices;
 
 // Bullet class representing a projectile in the game, inheriting from Area2D for 2D collision handling.
 public partial class Bullet : Area2D
 {
     // Speed of the bullet, with a default value of 400.
     [Export]
-    public float Speed = 400;
+    public float Speed = 500;
     
     // Damage inflicted by the bullet, with a default value of 10.
     [Export]
@@ -19,6 +20,17 @@ public partial class Bullet : Area2D
 
     // Notifier to detect when the bullet exits the screen.
     private VisibleOnScreenNotifier2D screenNotifier;
+     private Node2D sourceTower;
+     private float maxRange;
+
+     public void Initialize(Node2D tower, float range)
+    {
+        sourceTower = tower;
+        maxRange = range; 
+    }
+     
+
+    private int FramesBeforeDeletion = 500;
 
     // Called when the bullet node is added to the scene.
     public override void _Ready()
@@ -60,9 +72,24 @@ public partial class Bullet : Area2D
 
     // Updates the bullet's position every frame based on its speed and direction.
     public override void _Process(double delta)
+{
+    // First check if bullet is beyond tower's range
+    if (sourceTower != null && IsInstanceValid(sourceTower))
     {
-        Position += Direction * (float)(Speed * delta);
+        float distanceFromTower = GlobalPosition.DistanceTo(sourceTower.GlobalPosition);
+        if (distanceFromTower > maxRange)
+        {
+            QueueFree();
+            return;
+        }
     }
+
+    // Existing screen check
+    if (!GetViewport().GetVisibleRect().HasPoint(GlobalPosition))
+        QueueFree();
+
+    Position += Direction * (float)(Speed * delta);
+}
 
     // Handles collision with other areas, specifically chickens, and deals damage.
     private void OnAreaEntered(Area2D area)
@@ -82,4 +109,6 @@ public partial class Bullet : Area2D
     {
         QueueFree();
     }
+
+
 }

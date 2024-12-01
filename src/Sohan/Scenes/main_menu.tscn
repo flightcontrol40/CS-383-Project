@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dk3xwdblv4m6w"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_xq74t"]
-[ext_resource type="Texture2D" uid="uid://cy33xwmqbneh7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
-[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
+[ext_resource type="Texture2D" uid="uid://b0opr8ra7q18c" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
+[ext_resource type="FontFile" uid="uid://m4wul774ncty" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_vtaje")
@@ -132,6 +132,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_fonts/font = ExtResource("3_gjayn")
 theme_override_font_sizes/font_size = 60
-text = "Main Menu"
+text = "KILL MO. CHICKEN "
 horizontal_alignment = 1
 vertical_alignment = 1

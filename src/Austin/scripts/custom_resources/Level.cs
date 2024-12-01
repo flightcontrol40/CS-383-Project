@@ -19,7 +19,7 @@ public partial class Level : Resource
     [Export]
     private int PlayerHealth = 100;
     [Export]
-    private int playerMoney = 100;
+    private int playerMoney = 500;
     [Export]
     private int currentRoundNum = 0;
     [Export]
@@ -32,11 +32,11 @@ public partial class Level : Resource
 
     public int PlayerMoney {
         get { return playerMoney; }
-        set { playerMoney = Math.Max(value, 0); }
+        set { EmitSignal(SignalName.MoneyChanged, playerMoney - value); playerMoney = Math.Max(value, 0); }
     }
     public int playerHealth {
         get { return PlayerHealth; }
-        set { PlayerHealth = Math.Max(value, 0); }
+        set { EmitSignal(SignalName.HealthChanged, PlayerHealth - value); PlayerHealth = Math.Max(value, 0);  }
     }
     public int CurrentRoundNum {
         get { return currentRoundNum; }
@@ -58,7 +58,8 @@ public partial class Level : Resource
         if (!IsInstanceValid(mapInstance)) {
             mapInstance = mapScene.Instantiate<Map>();
             return mapInstance;
-        } else {
+        } else
+        {
             return null;
         }
     }
@@ -134,4 +135,9 @@ public partial class Level : Resource
 
         return difficultyTable;
     }
+
+    [Signal]
+    public delegate void MoneyChangedEventHandler(int delta);
+    [Signal]
+    public delegate void HealthChangedEventHandler(int delta);
 }
