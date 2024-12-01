@@ -1,11 +1,18 @@
 var searchData=
 [
-  ['takedamage_0',['TakeDamage',['../classChicken_1_1BaseChicken.html#a9cfe2ed2a40b26ce515e523a99039746',1,'Chicken.BaseChicken.TakeDamage()'],['../classDearGodOhLordThatGuyIsHuge.html#a06f35dc2b943d756aa43533a43387b22',1,'DearGodOhLordThatGuyIsHuge.TakeDamage()'],['../classFrank.html#a06f35dc2b943d756aa43533a43387b22',1,'Frank.TakeDamage()'],['../classFrankest.html#a06f35dc2b943d756aa43533a43387b22',1,'Frankest.TakeDamage()'],['../classRoundManager_1_1RoundManager.html#a26c6bf5390870ba76d1c512bac710a95',1,'RoundManager.RoundManager.TakeDamage()']]],
-  ['testtriggerenemyreachedend_1',['TestTriggerEnemyReachedEnd',['../classHealthBar.html#a9af875daf60af81ca443034d98752cf3',1,'HealthBar']]],
-  ['tower1factory_2',['Tower1Factory',['../classTower1Factory.html#aeb316b6fd1502354378c166b9ea64826',1,'Tower1Factory']]],
-  ['tower2factory_3',['Tower2Factory',['../classTower2Factory.html#a8bcfce5941bbe1568d2f4b1e9e35a331',1,'Tower2Factory']]],
-  ['tower3factory_4',['Tower3Factory',['../classTower3Factory.html#adc7fef863e0ae42d5e896b80946813b8',1,'Tower3Factory']]],
-  ['tower4factory_5',['Tower4Factory',['../classTower4Factory.html#a13ab7dbb6d9d6c3e84e44f57e2bd83b7',1,'Tower4Factory']]],
-  ['tower5factory_6',['Tower5Factory',['../classTower5Factory.html#a1da8f8c09ddffd1a83ad899354c729eb',1,'Tower5Factory']]],
-  ['towerboughteventhandler_7',['TowerBoughtEventHandler',['../classShop.html#aa746a7ac4d5f5cce8a3c5ab506af2b65',1,'Shop']]]
+  ['selecttower_0',['SelectTower',['../classShop.html#a0663d7821e053a545f887b6eac7876d4',1,'Shop']]],
+  ['setdamage_1',['SetDamage',['../classStandardBulletBuilder.html#a21e2ebbc750882bc3cb5472dd48ce859',1,'StandardBulletBuilder.SetDamage()'],['../interfaceIBulletBuilder.html#a6c48a226fbed1974a80e3287099a8be3',1,'IBulletBuilder.SetDamage()']]],
+  ['setdifficulty_2',['setDifficulty',['../classLevel.html#a00a2afaf502f7edee6e097875efc90ee',1,'Level.setDifficulty()'],['../classLevelManager.html#a00a2afaf502f7edee6e097875efc90ee',1,'LevelManager.setDifficulty()']]],
+  ['sethealth_3',['SetHealth',['../classHealthBar.html#ace9d67cdddf485f0d4146b27e5fe137e',1,'HealthBar']]],
+  ['setmap_4',['setMap',['../classLevelManager.html#a530b9f3e07d294968a036717b4dbb000',1,'LevelManager']]],
+  ['setproperties_5',['SetProperties',['../interfaceIBulletBuilder.html#abbe0dfb19bdfcd2e17cb5df646db397b',1,'IBulletBuilder.SetProperties()'],['../classHeavyBulletBuilder.html#ad0e11f3c6f4014b9c750e22b17568e00',1,'HeavyBulletBuilder.SetProperties()'],['../classRapidBulletBuilder.html#ad0e11f3c6f4014b9c750e22b17568e00',1,'RapidBulletBuilder.SetProperties()'],['../classStandardBulletBuilder.html#ab263ce7962310e35b9ad4d4abad721fa',1,'StandardBulletBuilder.SetProperties()']]],
+  ['setselectedmap_6',['SetSelectedMap',['../classDifficultySelectionMenu.html#a6145ab792513778768c3284c50fe0ee7',1,'DifficultySelectionMenu']]],
+  ['setspeed_7',['SetSpeed',['../classStandardBulletBuilder.html#af4bc4533027bf2e1d8122ed7bfbb857c',1,'StandardBulletBuilder.SetSpeed()'],['../interfaceIBulletBuilder.html#a5b5ddd48210c6e730be4699d3b426ebc',1,'IBulletBuilder.SetSpeed()']]],
+  ['setupcollisions_8',['SetupCollisions',['../classBullet.html#aec060940e989b49c1765d73fd40864ec',1,'Bullet']]],
+  ['setupfortesting_9',['SetupForTesting',['../classBaseTower.html#a3209f1a888ac2065ef12032dc137ba14',1,'BaseTower']]],
+  ['spawnenemy_10',['spawnEnemy',['../classRoundManager_1_1RoundManager.html#addfc0c3129b6ff606f7276e175f31a15',1,'RoundManager::RoundManager']]],
+  ['spawnorder_11',['SpawnOrder',['../classDifficultyCalculator_1_1SpawnOrder.html#a5710e4375507bd6d84e3a6d5b24ae2d0',1,'DifficultyCalculator::SpawnOrder']]],
+  ['start_12',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],
+  ['startround_13',['startRound',['../classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7',1,'RoundManager::RoundManager']]],
+  ['stress_14',['Stress',['../classChickenWalkTest.html#a22d30841880a54203e022dbe40d4113d',1,'ChickenWalkTest']]]
 ];

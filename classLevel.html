@@ -119,6 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a33250fb6b39db4084be413bca686b67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00a2afaf502f7edee6e097875efc90ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a00a2afaf502f7edee6e097875efc90ee">setDifficulty</a> (<a class="el" href="namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a> difficulty)</td></tr>
 <tr class="separator:a00a2afaf502f7edee6e097875efc90ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241eac976af3d514a6cb3b1ce6bd3f19"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a241eac976af3d514a6cb3b1ce6bd3f19">MoneyChangedEventHandler</a> (int delta)</td></tr>
+<tr class="separator:a241eac976af3d514a6cb3b1ce6bd3f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eba8fb4024b4bf2541a8e03f8a3479e"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a6eba8fb4024b4bf2541a8e03f8a3479e">HealthChangedEventHandler</a> (int delta)</td></tr>
+<tr class="separator:a6eba8fb4024b4bf2541a8e03f8a3479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -151,7 +155,7 @@ Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a185f4542c638e29c9a6c41f3a22f42ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a185f4542c638e29c9a6c41f3a22f42ea">PlayerHealth</a> = 100</td></tr>
 <tr class="separator:a185f4542c638e29c9a6c41f3a22f42ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3c0dbc8253d12765c39cdeeea56d709"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#af3c0dbc8253d12765c39cdeeea56d709">playerMoney</a> = 100</td></tr>
+<tr class="memitem:af3c0dbc8253d12765c39cdeeea56d709"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#af3c0dbc8253d12765c39cdeeea56d709">playerMoney</a> = 500</td></tr>
 <tr class="separator:af3c0dbc8253d12765c39cdeeea56d709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaf1c628669762d325dde2961565347a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#aeaf1c628669762d325dde2961565347a">currentRoundNum</a> = 0</td></tr>
 <tr class="separator:aeaf1c628669762d325dde2961565347a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,6 +220,24 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6eba8fb4024b4bf2541a8e03f8a3479e" name="a6eba8fb4024b4bf2541a8e03f8a3479e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eba8fb4024b4bf2541a8e03f8a3479e">&#9670;&#160;</a></span>HealthChangedEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void HealthChangedEventHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5e4145fc4e82b7e8cb578c9896acd629" name="a5e4145fc4e82b7e8cb578c9896acd629"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e4145fc4e82b7e8cb578c9896acd629">&#9670;&#160;</a></span>loadDifficultyTable()</h2>
 
@@ -265,6 +287,24 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The newly created map instance or null if non was created.</dd></dl>
+
+</div>
+</div>
+<a id="a241eac976af3d514a6cb3b1ce6bd3f19" name="a241eac976af3d514a6cb3b1ce6bd3f19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241eac976af3d514a6cb3b1ce6bd3f19">&#9670;&#160;</a></span>MoneyChangedEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate void MoneyChangedEventHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -474,7 +514,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int playerMoney = 100</td>
+          <td class="memname">int playerMoney = 500</td>
         </tr>
       </table>
   </td>

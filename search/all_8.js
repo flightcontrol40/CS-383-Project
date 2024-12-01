@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['ibulletbuilder_0',['IBulletBuilder',['../interfaceIBulletBuilder.html',1,'']]],
-  ['initializecomponents_1',['InitializeComponents',['../classBaseTower.html#afa0720dc15d48d8b932da3a30e0d9e66',1,'BaseTower']]],
-  ['initializetowerproperties_2',['InitializeTowerProperties',['../classBaseTower.html#ad93fe07d1da0febd676dda38043bace9',1,'BaseTower.InitializeTowerProperties()'],['../classTower1.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower1.InitializeTowerProperties()'],['../classTower2.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower2.InitializeTowerProperties()'],['../classTower3.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower3.InitializeTowerProperties()'],['../classTower4.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower4.InitializeTowerProperties()'],['../classTower5.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower5.InitializeTowerProperties()']]],
-  ['instance_3',['instance',['../classHealthBar.html#a5f8b0838f5570468a7b09c922c46732a',1,'HealthBar']]],
-  ['instance_4',['Instance',['../classHealthBar.html#a60557d0962bc6d2a35e1e61c2929a76b',1,'HealthBar']]],
-  ['isactive_5',['IsActive',['../classBaseTower.html#a92c6b1cf703f9e064f5efc0907f80379',1,'BaseTower']]],
-  ['isplaced_6',['isPlaced',['../classTowerPlacement.html#ab22f66562c158fd8d4d285ba3f291a69',1,'TowerPlacement']]],
-  ['isvalidplacement_7',['isValidPlacement',['../classBaseTower.html#abb4bbe854cc3e1d2997ffe70352dc558',1,'BaseTower']]]
+  ['handleenemydiessignal_0',['HandleEnemyDiesSignal',['../classRoundManager_1_1RoundManager.html#aab7119c18b9651c4fe6210d1a0a82d4c',1,'RoundManager::RoundManager']]],
+  ['handleenemyfinishedsignal_1',['HandleEnemyFinishedSignal',['../classRoundManager_1_1RoundManager.html#af2088afeccd3d0d76c510f0395b8fc23',1,'RoundManager::RoundManager']]],
+  ['handleenemysplit_2',['HandleEnemySplit',['../classRoundManager_1_1RoundManager.html#a2258d292010a9f5844966e87478647f2',1,'RoundManager::RoundManager']]],
+  ['hard_3',['Hard',['../namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a3656183169810334a96b91129dc9d881',1,'DifficultyCalculator']]],
+  ['hardbutton_4',['hardButton',['../classDifficultySelectionMenu.html#ac7baa800279e02dd898db9949d1dd50d',1,'DifficultySelectionMenu']]],
+  ['harddifficultycalculator_5',['HardDifficultyCalculator',['../classDifficultyCalculator_1_1HardDifficultyCalculator.html',1,'DifficultyCalculator']]],
+  ['hastarget_6',['HasTarget',['../classBaseTower.html#a7445a3228dd50c222536287a6df36b22',1,'BaseTower']]],
+  ['health_7',['Health',['../classChicken_1_1BaseChicken.html#a7e2e71a8bd09a63b231d1146aa939b80',1,'Chicken::BaseChicken']]],
+  ['healthbar_8',['HealthBar',['../classHealthBar.html',1,'']]],
+  ['healthchangedeventhandler_9',['HealthChangedEventHandler',['../classLevel.html#a6eba8fb4024b4bf2541a8e03f8a3479e',1,'Level']]],
+  ['heavybulletbuilder_10',['HeavyBulletBuilder',['../classHeavyBulletBuilder.html',1,'']]]
 ];

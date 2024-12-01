@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['initializecomponents_0',['InitializeComponents',['../classBaseTower.html#afa0720dc15d48d8b932da3a30e0d9e66',1,'BaseTower']]],
-  ['initializetowerproperties_1',['InitializeTowerProperties',['../classBaseTower.html#ad93fe07d1da0febd676dda38043bace9',1,'BaseTower.InitializeTowerProperties()'],['../classTower1.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower1.InitializeTowerProperties()'],['../classTower2.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower2.InitializeTowerProperties()'],['../classTower3.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower3.InitializeTowerProperties()'],['../classTower4.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower4.InitializeTowerProperties()'],['../classTower5.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower5.InitializeTowerProperties()']]]
+  ['handleenemydiessignal_0',['HandleEnemyDiesSignal',['../classRoundManager_1_1RoundManager.html#aab7119c18b9651c4fe6210d1a0a82d4c',1,'RoundManager::RoundManager']]],
+  ['handleenemyfinishedsignal_1',['HandleEnemyFinishedSignal',['../classRoundManager_1_1RoundManager.html#af2088afeccd3d0d76c510f0395b8fc23',1,'RoundManager::RoundManager']]],
+  ['handleenemysplit_2',['HandleEnemySplit',['../classRoundManager_1_1RoundManager.html#a2258d292010a9f5844966e87478647f2',1,'RoundManager::RoundManager']]],
+  ['healthchangedeventhandler_3',['HealthChangedEventHandler',['../classLevel.html#a6eba8fb4024b4bf2541a8e03f8a3479e',1,'Level']]]
 ];

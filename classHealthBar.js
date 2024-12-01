@@ -4,6 +4,7 @@ var classHealthBar =
     [ "ConnectEnemySignal", "classHealthBar.html#a1e1fe228b74737110af86605b34f4a6f", null ],
     [ "GetCurrentHealth", "classHealthBar.html#a634ea8e8b5988deaacbc14db8e0772ad", null ],
     [ "OnEnemyReachedEnd", "classHealthBar.html#a31e25462554dfbcce476f282cbb2d8ed", null ],
+    [ "OnHealthChanged", "classHealthBar.html#af75a2a447652a073cf364b6306a64686", null ],
     [ "OnNodeAdded", "classHealthBar.html#a6e9232e44d0cc1640b9c95680ac672f3", null ],
     [ "SetHealth", "classHealthBar.html#ace9d67cdddf485f0d4146b27e5fe137e", null ],
     [ "TestTriggerEnemyReachedEnd", "classHealthBar.html#a9af875daf60af81ca443034d98752cf3", null ],
