@@ -137,6 +137,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a78f40ef848826e3a98ee617460e13f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa0720dc15d48d8b932da3a30e0d9e66"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#afa0720dc15d48d8b932da3a30e0d9e66">InitializeComponents</a> ()</td></tr>
 <tr class="separator:afa0720dc15d48d8b932da3a30e0d9e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa465fc3cb890c772ab5d291c86db2bfc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#aa465fc3cb890c772ab5d291c86db2bfc">SetupSpawnPoints</a> (int count)</td></tr>
+<tr class="separator:aa465fc3cb890c772ab5d291c86db2bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acccf70be301a7ef6dfaa7f0ad18bb52a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#acccf70be301a7ef6dfaa7f0ad18bb52a">ValidateSceneSetup</a> ()</td></tr>
 <tr class="separator:acccf70be301a7ef6dfaa7f0ad18bb52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36a9ee55e5d3310b097afaccbda33400"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a36a9ee55e5d3310b097afaccbda33400">FireBullets</a> ()</td></tr>
@@ -147,6 +149,11 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ae79920e1db2df7b3944db5570c36a4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30743bb2f538e25b0a618877112024e1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a30743bb2f538e25b0a618877112024e1">CanShoot</a> ()</td></tr>
 <tr class="separator:a30743bb2f538e25b0a618877112024e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc138b23574e6dd080305894354cbf8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#adc138b23574e6dd080305894354cbf8a">DoubleCheckTarget</a> ()</td></tr>
+<tr class="memdesc:adc138b23574e6dd080305894354cbf8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks each BaseChicken in range of the turret, and sets the turret's current target to the furthest along BaseChicken.  <br /></td></tr>
+<tr class="separator:adc138b23574e6dd080305894354cbf8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72cb81746508554bfd0824ee73ba7a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ae72cb81746508554bfd0824ee73ba7a3">AimAtTarget</a> (double delta)</td></tr>
+<tr class="separator:ae72cb81746508554bfd0824ee73ba7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad93fe07d1da0febd676dda38043bace9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ad93fe07d1da0febd676dda38043bace9">InitializeTowerProperties</a> ()</td></tr>
 <tr class="separator:ad93fe07d1da0febd676dda38043bace9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -158,14 +165,18 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ad2dbb66f2b97769859cbc22143f4ca16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79adafe16bc9ebeb4d276db9d06d3bcb"><td class="memItemLeft" align="right" valign="top">Area2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a79adafe16bc9ebeb4d276db9d06d3bcb">sightArea</a></td></tr>
 <tr class="separator:a79adafe16bc9ebeb4d276db9d06d3bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4dd680786702afe668be01179131660"><td class="memItemLeft" align="right" valign="top">Node2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ac4dd680786702afe668be01179131660">currentTarget</a></td></tr>
-<tr class="separator:ac4dd680786702afe668be01179131660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a118ddfc5f5d3d36f2846e73545a592db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a118ddfc5f5d3d36f2846e73545a592db">currentTarget</a></td></tr>
+<tr class="separator:a118ddfc5f5d3d36f2846e73545a592db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4bbe854cc3e1d2997ffe70352dc558"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#abb4bbe854cc3e1d2997ffe70352dc558">isValidPlacement</a> = true</td></tr>
 <tr class="separator:abb4bbe854cc3e1d2997ffe70352dc558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1cf6e59ee00ec0161777e19242c4620"><td class="memItemLeft" align="right" valign="top">Marker2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ad1cf6e59ee00ec0161777e19242c4620">bulletSpawnPoint</a></td></tr>
-<tr class="separator:ad1cf6e59ee00ec0161777e19242c4620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ed9612996a100117ef3aa16945bd31"><td class="memItemLeft" align="right" valign="top">List&lt; Marker2D &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a09ed9612996a100117ef3aa16945bd31">bulletSpawnPoints</a> = new List&lt;Marker2D&gt;()</td></tr>
+<tr class="separator:a09ed9612996a100117ef3aa16945bd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e75a54e0b3c2474d5c2a126deb5f10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interfaceIBulletBuilder.html">IBulletBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#af1e75a54e0b3c2474d5c2a126deb5f10">bulletBuilder</a></td></tr>
 <tr class="separator:af1e75a54e0b3c2474d5c2a126deb5f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0adf578c28b1b3c49d450cc9c8e20e5c"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a0adf578c28b1b3c49d450cc9c8e20e5c">ChickensInRange</a></td></tr>
+<tr class="separator:a0adf578c28b1b3c49d450cc9c8e20e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a931aafdc5661643e53591bbdd1b37cd9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a931aafdc5661643e53591bbdd1b37cd9">targetInSight</a> = false</td></tr>
+<tr class="separator:a931aafdc5661643e53591bbdd1b37cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -345,6 +356,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae72cb81746508554bfd0824ee73ba7a3" name="ae72cb81746508554bfd0824ee73ba7a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72cb81746508554bfd0824ee73ba7a3">&#9670;&#160;</a></span>AimAtTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AimAtTarget </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4b5d6e4f13c0c3103e74a02295aede6e" name="a4b5d6e4f13c0c3103e74a02295aede6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b5d6e4f13c0c3103e74a02295aede6e">&#9670;&#160;</a></span>CanBePlaced()</h2>
 
@@ -440,6 +477,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="adc138b23574e6dd080305894354cbf8a" name="adc138b23574e6dd080305894354cbf8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc138b23574e6dd080305894354cbf8a">&#9670;&#160;</a></span>DoubleCheckTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> DoubleCheckTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a36a9ee55e5d3310b097afaccbda33400" name="a36a9ee55e5d3310b097afaccbda33400"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36a9ee55e5d3310b097afaccbda33400">&#9670;&#160;</a></span>FireBullets()</h2>
 
@@ -463,7 +525,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classTower1.html#a4af4839dc4547d0a942fc03b5f577cfb">Tower1</a>, <a class="el" href="classTower2.html#a4af4839dc4547d0a942fc03b5f577cfb">Tower2</a>, <a class="el" href="classTower3.html#a4af4839dc4547d0a942fc03b5f577cfb">Tower3</a>, <a class="el" href="classTower4.html#a4af4839dc4547d0a942fc03b5f577cfb">Tower4</a>, and <a class="el" href="classTower5.html#a4af4839dc4547d0a942fc03b5f577cfb">Tower5</a>.</p>
+<p>Reimplemented in <a class="el" href="classTower1.html#a4af4839dc4547d0a942fc03b5f577cfb">Tower1</a>.</p>
 
 </div>
 </div>
@@ -690,6 +752,32 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa465fc3cb890c772ab5d291c86db2bfc" name="aa465fc3cb890c772ab5d291c86db2bfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa465fc3cb890c772ab5d291c86db2bfc">&#9670;&#160;</a></span>SetupSpawnPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SetupSpawnPoints </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -973,8 +1061,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad1cf6e59ee00ec0161777e19242c4620" name="ad1cf6e59ee00ec0161777e19242c4620"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1cf6e59ee00ec0161777e19242c4620">&#9670;&#160;</a></span>bulletSpawnPoint</h2>
+<a id="a09ed9612996a100117ef3aa16945bd31" name="a09ed9612996a100117ef3aa16945bd31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ed9612996a100117ef3aa16945bd31">&#9670;&#160;</a></span>bulletSpawnPoints</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -983,7 +1071,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Marker2D bulletSpawnPoint</td>
+          <td class="memname">List&lt;Marker2D&gt; bulletSpawnPoints = new List&lt;Marker2D&gt;()</td>
         </tr>
       </table>
   </td>
@@ -995,8 +1083,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4dd680786702afe668be01179131660" name="ac4dd680786702afe668be01179131660"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4dd680786702afe668be01179131660">&#9670;&#160;</a></span>currentTarget</h2>
+<a id="a0adf578c28b1b3c49d450cc9c8e20e5c" name="a0adf578c28b1b3c49d450cc9c8e20e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0adf578c28b1b3c49d450cc9c8e20e5c">&#9670;&#160;</a></span>ChickensInRange</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1005,7 +1093,29 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Node2D currentTarget</td>
+          <td class="memname">List&lt;<a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a>&gt; ChickensInRange</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a118ddfc5f5d3d36f2846e73545a592db" name="a118ddfc5f5d3d36f2846e73545a592db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a118ddfc5f5d3d36f2846e73545a592db">&#9670;&#160;</a></span>currentTarget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> currentTarget</td>
         </tr>
       </table>
   </td>
@@ -1072,6 +1182,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">Area2D sightArea</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a931aafdc5661643e53591bbdd1b37cd9" name="a931aafdc5661643e53591bbdd1b37cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931aafdc5661643e53591bbdd1b37cd9">&#9670;&#160;</a></span>targetInSight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool targetInSight = false</td>
         </tr>
       </table>
   </td>
