@@ -34,7 +34,7 @@ var annotated_dup =
     [ "LoseMenu", "classLoseMenu.html", "classLoseMenu" ],
     [ "Main", "classMain.html", "classMain" ],
     [ "Main_menu", "classMain__menu.html", null ],
-    [ "MainMenu", "classMainMenu.html", null ],
+    [ "MainMenu", "classMainMenu.html", "classMainMenu" ],
     [ "Map", "classMap.html", "classMap" ],
     [ "MultiPath", "classMultiPath.html", "classMultiPath" ],
     [ "MultipathTest", "classMultipathTest.html", "classMultipathTest" ],

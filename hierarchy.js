@@ -10,11 +10,11 @@ var hierarchy =
     [ "Control", null, [
       [ "BaseMenu", "classBaseMenu.html", [
         [ "LoseMenu", "classLoseMenu.html", null ],
-        [ "MainMenu", "classMainMenu.html", null ],
         [ "PauseMenu", "classPauseMenu.html", null ],
         [ "WinMenu", "classWinMenu.html", null ]
       ] ],
       [ "DifficultySelectionMenu", "classDifficultySelectionMenu.html", null ],
+      [ "MainMenu", "classMainMenu.html", null ],
       [ "Main_menu", "classMain__menu.html", null ]
     ] ],
     [ "DifficultyCalculatorFactory", "classDifficultyCalculator_1_1DifficultyCalculatorFactory.html", null ],

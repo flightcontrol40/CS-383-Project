@@ -1,7 +1,7 @@
 var searchData=
 [
   ['easy_0',['Easy',['../namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a7f943921724d63dc0ac9c6febf99fa88',1,'DifficultyCalculator']]],
-  ['easybutton_1',['easyButton',['../classDifficultySelectionMenu.html#a96ab0e995a5882ac58c54939b91a1468',1,'DifficultySelectionMenu.easyButton()'],['../classLevelSelectionMenu.html#a96ab0e995a5882ac58c54939b91a1468',1,'LevelSelectionMenu.easyButton()']]],
+  ['easybutton_1',['easyButton',['../classDifficultySelectionMenu.html#a96ab0e995a5882ac58c54939b91a1468',1,'DifficultySelectionMenu']]],
   ['easydifficultycalculator_2',['EasyDifficultyCalculator',['../classDifficultyCalculator_1_1EasyDifficultyCalculator.html',1,'DifficultyCalculator']]],
   ['encoding_3',['encoding',['../namespacefix__whitespace.html#ab1000d1f2ea9878f60bc119650013894',1,'fix_whitespace']]],
   ['endofpatheventhandler_4',['EndOfPathEventHandler',['../classChicken_1_1BaseChicken.html#aa55233bacf540a75dc55db888b5d738f',1,'Chicken::BaseChicken']]],
