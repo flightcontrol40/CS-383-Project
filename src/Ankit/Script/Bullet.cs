@@ -2,7 +2,6 @@
 using Godot;
 using System;
 using Chicken;
-using System.Runtime.CompilerServices;
 
 // Bullet class representing a projectile in the game, inheriting from Area2D for 2D collision handling.
 public partial class Bullet : Area2D
@@ -20,6 +19,8 @@ public partial class Bullet : Area2D
 
     // Notifier to detect when the bullet exits the screen.
     private VisibleOnScreenNotifier2D screenNotifier;
+
+    private int FramesBeforeDeletion = 500;
 
     // Called when the bullet node is added to the scene.
     public override void _Ready()
@@ -62,6 +63,10 @@ public partial class Bullet : Area2D
     // Updates the bullet's position every frame based on its speed and direction.
     public override void _Process(double delta)
     {
+        // We delete the bullet after it's left the bounds of the screen because no chickens exist there for them to collide with.
+        if (!GetViewport().GetVisibleRect().HasPoint(GlobalPosition))
+            QueueFree();
+
         Position += Direction * (float)(Speed * delta);
     }
 
@@ -83,6 +88,4 @@ public partial class Bullet : Area2D
     {
         QueueFree();
     }
-
-
 }

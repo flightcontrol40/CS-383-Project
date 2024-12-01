@@ -43,25 +43,6 @@ public partial class Tower5 : BaseTower
     {
         return new StandardBulletBuilder();
     }
-
-    protected override void FireBullets()
-    {
-        GD.Print("TOWER 5 Firing Pattern");
-        GD.Print($"- Single Shot Working!");
-        GD.Print($"- Bullets: {BulletsPerShot}, Damage: {BulletDamage}");
-        GD.Print("Tower5: Attempting to fire bullets with animation");
-        try 
-        {
-            PlayShootingAnimation(); // Triggers animation before firing
-            base.FireBullets();
-            GD.Print("Tower5: Bullets fired successfully with animation");
-        }
-        catch (System.Exception e)
-        {
-            GD.PrintErr($"Tower5: Error firing bullets with animation: {e.Message}");
-        }
-    }
-
 }
 
 

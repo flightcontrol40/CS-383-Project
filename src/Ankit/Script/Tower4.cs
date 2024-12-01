@@ -31,22 +31,4 @@ public partial class Tower4 : BaseTower
     {
         return new StandardBulletBuilder();
     }
-
-    protected override void FireBullets()
-    {
-        GD.Print("TOWER 4 Firing Pattern");
-        GD.Print($"- Quad Shot Working!");
-        GD.Print($"- Bullets: {BulletsPerShot}, Damage: {BulletDamage}");
-        GD.Print("Tower4: Attempting to fire bullets with animation");
-        try 
-        {
-            PlayShootingAnimation(); // Triggers animation before firing
-            base.FireBullets();
-            GD.Print("Tower4: Bullets fired successfully with animation");
-        }
-        catch (System.Exception e)
-        {
-            GD.PrintErr($"Tower4: Error firing bullets with animation: {e.Message}");
-        }
-    }
 }

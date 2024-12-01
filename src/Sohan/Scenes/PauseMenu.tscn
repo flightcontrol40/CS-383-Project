@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://scqpiveh4flc"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/PauseMenu.cs" id="1_di0as"]
-[ext_resource type="Texture2D" uid="uid://b0opr8ra7q18c" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
-[ext_resource type="FontFile" uid="uid://m4wul774ncty" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
-[ext_resource type="Texture2D" uid="uid://b1xkiubp108mh" path="res://src/Ankit/Assets/pause-removebg-preview.png" id="4_1o5by"]
+[ext_resource type="Texture2D" uid="uid://cy33xwmqbneh7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
+[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
+[ext_resource type="Texture2D" uid="uid://d37mw8kfb7u6s" path="res://src/Sohan/Assests/1174462.png" id="4_rpsjb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_wp4bj")
@@ -38,7 +38,7 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[node name="PauseMenu" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -156,10 +156,9 @@ vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1117.0
-offset_right = 1467.0
-offset_bottom = 360.0
+offset_right = 512.0
+offset_bottom = 512.0
 scale = Vector2(0.1, 0.1)
-texture_normal = ExtResource("4_1o5by")
+texture_normal = ExtResource("4_rpsjb")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

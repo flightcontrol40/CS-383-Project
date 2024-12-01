@@ -59,22 +59,4 @@ public partial class Tower3 : BaseTower
     {
         return new HeavyBulletBuilder();
     }
-
-    protected override void FireBullets()
-    {
-        GD.Print("TOWER 3 Firing Pattern");
-        GD.Print($"- Triple Shot Working!");
-        GD.Print($"- Bullets: {BulletsPerShot}, Damage: {BulletDamage}");
-        GD.Print("Tower3: Attempting to fire bullets with animation");
-        try 
-        {
-            PlayShootingAnimation(); // Triggers animation before firing
-            base.FireBullets();
-            GD.Print("Tower3: Bullets fired successfully with animation");
-        }
-        catch (System.Exception e)
-        {
-            GD.PrintErr($"Tower3: Error firing bullets with animation: {e.Message}");
-        }
-    }
 }

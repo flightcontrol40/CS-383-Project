@@ -41,20 +41,19 @@ public partial class Tower1 : BaseTower
     }
 
     protected override void FireBullets()
-{
-    GD.Print("TOWER 1 Firing Pattern");
-    GD.Print($"- Single Shot Working!");
-    GD.Print($"- Bullets: {BulletsPerShot}, Damage: {BulletDamage}");
-    GD.Print("Tower1: Attempting to fire bullets");
-    try 
     {
-        PlayShootingAnimation(); // Add this line first
-        base.FireBullets();
-        GD.Print("Tower1: Bullets fired successfully");
+        GD.Print("TOWER 1 Firing Pattern");
+        GD.Print($"- Single Shot Working!");
+        GD.Print($"- Bullets: {BulletsPerShot}, Damage: {BulletDamage}");
+        GD.Print("Tower1: Attempting to fire bullets");
+        try 
+        {
+            base.FireBullets();
+            GD.Print("Tower1: Bullets fired successfully");
+        }
+        catch (System.Exception e)
+        {
+            GD.PrintErr($"Tower1: Error firing bullets: {e.Message}");
+        }
     }
-    catch (System.Exception e)
-    {
-        GD.PrintErr($"Tower1: Error firing bullets: {e.Message}");
-    }
-}
 }
