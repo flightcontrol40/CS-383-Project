@@ -1,13 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=15 format=3 uid="uid://dsrlv0mknuxye"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
 [ext_resource type="PackedScene" uid="uid://dku6irpdht0ik" path="res://src/Nathan/scenes/RoundManager.tscn" id="2_0n13b"]
 [ext_resource type="Script" path="res://src/Austin/scripts/custom_resources/Level.cs" id="3_j5db1"]
-[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/meadows.tscn" id="3_owqxk"]
+[ext_resource type="PackedScene" uid="uid://xfbsml2kriv7" path="res://src/Austin/scenes/map.tscn" id="3_owqxk"]
 [ext_resource type="PackedScene" uid="uid://cjbygfchlgilm" path="res://src/Sohan/Scenes/Shop.tscn" id="5_4201l"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
+[ext_resource type="PackedScene" uid="uid://dk3xwdblv4m6w" path="res://src/Sohan/Scenes/main_menu.tscn" id="9_p7f2y"]
 [ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/Scenes/PlayerHealth.tscn" id="9_xq0cl"]
+[ext_resource type="PackedScene" uid="uid://c5r3n5sox0jsy" path="res://src/Sohan/Scenes/LevelSelectionMenu.tscn" id="10_5ny7a"]
+[ext_resource type="PackedScene" uid="uid://br7v1if6t0dg5" path="res://src/Sohan/Scenes/DifficultySelectionMenu.tscn" id="11_8tvf3"]
+[ext_resource type="Script" path="res://src/Sohan/Scripts/LevelSelectionMenu.cs" id="11_mije4"]
+[ext_resource type="Script" path="res://src/Sohan/Scripts/DifficultySelectionMenu.cs" id="13_wruq8"]
 
 [sub_resource type="Resource" id="Resource_040l3"]
 script = ExtResource("3_j5db1")
@@ -43,6 +48,16 @@ text = "This is a test"
 
 [node name="PlayerHealth" parent="." instance=ExtResource("9_xq0cl")]
 position = Vector2(513, 1)
+
+[node name="MainMenu" parent="." instance=ExtResource("9_p7f2y")]
+
+[node name="LevelSelectionMenu" parent="." instance=ExtResource("10_5ny7a")]
+visible = false
+script = ExtResource("11_mije4")
+
+[node name="DifficultySelectionMenu" parent="." instance=ExtResource("11_8tvf3")]
+visible = false
+script = ExtResource("13_wruq8")
 
 [connection signal="LoadRound" from="LevelManager" to="RoundManager" method="loadLevel"]
 [connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]

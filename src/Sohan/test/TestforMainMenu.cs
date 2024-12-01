@@ -50,6 +50,8 @@ namespace SohanTests
         }
 
         // Unit Tests
+        // This test ensures that the "Exit" button exists within the MainMenu's VBoxContainer.
+        // It could catch errors where the button is mistakenly renamed, removed, or moved outside the expected hierarchy, preventing users from exiting the menu.
         [TestCase]
         public void MainMenuExitButtonExists()
         {

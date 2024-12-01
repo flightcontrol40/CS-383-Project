@@ -84,6 +84,7 @@ theme_override_constants/separation = 10
 [node name="Level1Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -144,6 +145,7 @@ text = "Hard
 [node name="Level_2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -158,6 +160,7 @@ text = "Level 2"
 [node name="Level_3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -188,3 +191,7 @@ theme_override_font_sizes/font_size = 60
 text = "Select Level"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Level1Button" to="." method="OnLevel1Pressed"]
+[connection signal="pressed" from="VBoxContainer/Level_2" to="." method="OnLevel2Pressed"]
+[connection signal="pressed" from="VBoxContainer/Level_3" to="." method="OnLevel3Pressed"]
