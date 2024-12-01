@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['gamelosteventhandler_0',['GameLostEventHandler',['../classRoundManager_1_1RoundManager.html#ab181c20125261a9b8a195bf6aacc4061',1,'RoundManager::RoundManager']]],
-  ['gamewoneventhandler_1',['GameWonEventHandler',['../classRoundManager_1_1RoundManager.html#a62292cc7b8e775def355f972fb3cbf58',1,'RoundManager::RoundManager']]],
-  ['getcurrenthealth_2',['GetCurrentHealth',['../classHealthBar.html#a634ea8e8b5988deaacbc14db8e0772ad',1,'HealthBar']]],
-  ['getenemyranks_3',['getEnemyRanks',['../classDifficultyCalculator_1_1DifficultyCalculator.html#a3db55bf2c224337ee2dbe95e12cb5c38',1,'DifficultyCalculator::DifficultyCalculator']]],
-  ['getpath_4',['getPath',['../classLevel.html#a33250fb6b39db4084be413bca686b67b',1,'Level.getPath()'],['../classMultiPath.html#a0dc7f33b2dec30409753cc76204e1b02',1,'MultiPath.getPath()'],['../classPath.html#ac7548db6f5be40735a3e0a273e7bef3b',1,'Path.getPath()']]],
-  ['getresult_5',['GetResult',['../classStandardBulletBuilder.html#aafef0e47dfee24d96b054364a33a981b',1,'StandardBulletBuilder.GetResult()'],['../interfaceIBulletBuilder.html#ab7ccb078a94748b3ee1c9ecb5f345623',1,'IBulletBuilder.GetResult()']]],
-  ['getspawnamount_6',['getSpawnAmount',['../classDifficultyCalculator_1_1DifficultyCalculator.html#ad16276ca57b798153b3e9aaddb41d35f',1,'DifficultyCalculator::DifficultyCalculator']]]
+  ['handleenemydiessignal_0',['HandleEnemyDiesSignal',['../classRoundManager_1_1RoundManager.html#aab7119c18b9651c4fe6210d1a0a82d4c',1,'RoundManager::RoundManager']]],
+  ['handleenemyfinishedsignal_1',['HandleEnemyFinishedSignal',['../classRoundManager_1_1RoundManager.html#af2088afeccd3d0d76c510f0395b8fc23',1,'RoundManager::RoundManager']]],
+  ['handleenemysplit_2',['HandleEnemySplit',['../classRoundManager_1_1RoundManager.html#a2258d292010a9f5844966e87478647f2',1,'RoundManager::RoundManager']]],
+  ['healthchangedeventhandler_3',['HealthChangedEventHandler',['../classLevel.html#a6eba8fb4024b4bf2541a8e03f8a3479e',1,'Level']]],
+  ['hidepausemenu_4',['HidePauseMenu',['../classPauseMenu.html#a8e52fbb7777c84387f84ebab8d3babc5',1,'PauseMenu']]]
 ];

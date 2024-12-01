@@ -101,10 +101,14 @@ $(document).ready(function(){initNavTree('classTower4.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:ad0eced46032b140e37b11dd294c5ce14"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTower4.html#ad0eced46032b140e37b11dd294c5ce14">InitializeComponents</a> ()</td></tr>
+<tr class="separator:ad0eced46032b140e37b11dd294c5ce14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c5f5d3f3579d8ec3cbc9e962641a02d"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTower4.html#a5c5f5d3f3579d8ec3cbc9e962641a02d">InitializeTowerProperties</a> ()</td></tr>
 <tr class="separator:a5c5f5d3f3579d8ec3cbc9e962641a02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6debedd98751f08dd02c4551a6288e8d"><td class="memItemLeft" align="right" valign="top">override <a class="el" href="interfaceIBulletBuilder.html">IBulletBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTower4.html#a6debedd98751f08dd02c4551a6288e8d">CreateBulletBuilder</a> ()</td></tr>
 <tr class="separator:a6debedd98751f08dd02c4551a6288e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4af4839dc4547d0a942fc03b5f577cfb"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTower4.html#a4af4839dc4547d0a942fc03b5f577cfb">FireBullets</a> ()</td></tr>
+<tr class="separator:a4af4839dc4547d0a942fc03b5f577cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classBaseTower"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classBaseTower')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classBaseTower.html">BaseTower</a></td></tr>
 <tr class="memitem:acd2717dfa8c41f64a2ba8b5ee985caac inherit pro_methods_classBaseTower"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#acd2717dfa8c41f64a2ba8b5ee985caac">CanTargetChicken</a> (<a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> chicken)</td></tr>
 <tr class="separator:acd2717dfa8c41f64a2ba8b5ee985caac inherit pro_methods_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,11 +126,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ae79920e1db2df7b3944db5570c36a4a6 inherit pro_methods_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30743bb2f538e25b0a618877112024e1 inherit pro_methods_classBaseTower"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a30743bb2f538e25b0a618877112024e1">CanShoot</a> ()</td></tr>
 <tr class="separator:a30743bb2f538e25b0a618877112024e1 inherit pro_methods_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc138b23574e6dd080305894354cbf8a inherit pro_methods_classBaseTower"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#adc138b23574e6dd080305894354cbf8a">DoubleCheckTarget</a> ()</td></tr>
-<tr class="memdesc:adc138b23574e6dd080305894354cbf8a inherit pro_methods_classBaseTower"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks each BaseChicken in range of the turret, and sets the turret's current target to the furthest along BaseChicken.  <br /></td></tr>
-<tr class="separator:adc138b23574e6dd080305894354cbf8a inherit pro_methods_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72cb81746508554bfd0824ee73ba7a3 inherit pro_methods_classBaseTower"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ae72cb81746508554bfd0824ee73ba7a3">AimAtTarget</a> (double delta)</td></tr>
-<tr class="separator:ae72cb81746508554bfd0824ee73ba7a3 inherit pro_methods_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad93fe07d1da0febd676dda38043bace9 inherit pro_methods_classBaseTower"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ad93fe07d1da0febd676dda38043bace9">InitializeTowerProperties</a> ()</td></tr>
 <tr class="separator:ad93fe07d1da0febd676dda38043bace9 inherit pro_methods_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -162,18 +161,14 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ad2dbb66f2b97769859cbc22143f4ca16 inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79adafe16bc9ebeb4d276db9d06d3bcb inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top">Area2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a79adafe16bc9ebeb4d276db9d06d3bcb">sightArea</a></td></tr>
 <tr class="separator:a79adafe16bc9ebeb4d276db9d06d3bcb inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a118ddfc5f5d3d36f2846e73545a592db inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a118ddfc5f5d3d36f2846e73545a592db">currentTarget</a></td></tr>
-<tr class="separator:a118ddfc5f5d3d36f2846e73545a592db inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4dd680786702afe668be01179131660 inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top">Node2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ac4dd680786702afe668be01179131660">currentTarget</a></td></tr>
+<tr class="separator:ac4dd680786702afe668be01179131660 inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4bbe854cc3e1d2997ffe70352dc558 inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#abb4bbe854cc3e1d2997ffe70352dc558">isValidPlacement</a> = true</td></tr>
 <tr class="separator:abb4bbe854cc3e1d2997ffe70352dc558 inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1cf6e59ee00ec0161777e19242c4620 inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top">Marker2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ad1cf6e59ee00ec0161777e19242c4620">bulletSpawnPoint</a></td></tr>
 <tr class="separator:ad1cf6e59ee00ec0161777e19242c4620 inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e75a54e0b3c2474d5c2a126deb5f10 inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interfaceIBulletBuilder.html">IBulletBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#af1e75a54e0b3c2474d5c2a126deb5f10">bulletBuilder</a></td></tr>
 <tr class="separator:af1e75a54e0b3c2474d5c2a126deb5f10 inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0adf578c28b1b3c49d450cc9c8e20e5c inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classChicken_1_1BaseChicken.html">BaseChicken</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a0adf578c28b1b3c49d450cc9c8e20e5c">ChickensInRange</a></td></tr>
-<tr class="separator:a0adf578c28b1b3c49d450cc9c8e20e5c inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a931aafdc5661643e53591bbdd1b37cd9 inherit pro_attribs_classBaseTower"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#a931aafdc5661643e53591bbdd1b37cd9">targetInSight</a> = false</td></tr>
-<tr class="separator:a931aafdc5661643e53591bbdd1b37cd9 inherit pro_attribs_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classBaseTower"><td colspan="2" onclick="javascript:toggleInherit('properties_classBaseTower')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classBaseTower.html">BaseTower</a></td></tr>
 <tr class="memitem:ab9842586906e936bc8212709be22e06b inherit properties_classBaseTower"><td class="memItemLeft" align="right" valign="top">PackedScene&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseTower.html#ab9842586906e936bc8212709be22e06b">BulletScene</a><code> [get, set]</code></td></tr>
 <tr class="separator:ab9842586906e936bc8212709be22e06b inherit properties_classBaseTower"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,6 +218,60 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classBaseTower.html#a78f40ef848826e3a98ee617460e13f92">BaseTower</a>.</p>
+
+</div>
+</div>
+<a id="a4af4839dc4547d0a942fc03b5f577cfb" name="a4af4839dc4547d0a942fc03b5f577cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4af4839dc4547d0a942fc03b5f577cfb">&#9670;&#160;</a></span>FireBullets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void FireBullets </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classBaseTower.html#a36a9ee55e5d3310b097afaccbda33400">BaseTower</a>.</p>
+
+</div>
+</div>
+<a id="ad0eced46032b140e37b11dd294c5ce14" name="ad0eced46032b140e37b11dd294c5ce14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0eced46032b140e37b11dd294c5ce14">&#9670;&#160;</a></span>InitializeComponents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void InitializeComponents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classBaseTower.html#afa0720dc15d48d8b932da3a30e0d9e66">BaseTower</a>.</p>
 
 </div>
 </div>

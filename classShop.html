@@ -94,7 +94,6 @@ $(document).ready(function(){initNavTree('classShop.html',''); initResizable(); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classShop-members.html">List of all members</a>  </div>
@@ -109,14 +108,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a58d67e4d7bf68d0a09ed9630ba231b30"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a58d67e4d7bf68d0a09ed9630ba231b30">_Ready</a> ()</td></tr>
 <tr class="separator:a58d67e4d7bf68d0a09ed9630ba231b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:a4b569390857a418d4eb55b05fb377ded"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a> { <a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377deda972e73b7a882d0802a4e3a16946a2f94">Basic</a>
-, <a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377deda007be3acd5669d100711b13d79e23369">Sniper</a>
-, <a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377deda22ef5d9468d7aa2f806d865b88a27a52">Cannon</a>
- }</td></tr>
-<tr class="separator:a4b569390857a418d4eb55b05fb377ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a7e672e9e507cfe811c51b8e1affa5863"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a7e672e9e507cfe811c51b8e1affa5863">UpdateMoneyLabel</a> ()</td></tr>
@@ -127,12 +118,12 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ab29a187bde95b61313597f48be763c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a194f3d043bd7d70ad9dc4bea2f0c9cff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a194f3d043bd7d70ad9dc4bea2f0c9cff">_on_CannonTowerButton_pressed</a> ()</td></tr>
 <tr class="separator:a194f3d043bd7d70ad9dc4bea2f0c9cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0663d7821e053a545f887b6eac7876d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a0663d7821e053a545f887b6eac7876d4">SelectTower</a> (<a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a> tType, int towerPrice)</td></tr>
-<tr class="separator:a0663d7821e053a545f887b6eac7876d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f625b7876ee3f4d6f48dc6d483e21a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#ae9f625b7876ee3f4d6f48dc6d483e21a">SelectTower</a> (string towerType, int towerPrice)</td></tr>
+<tr class="separator:ae9f625b7876ee3f4d6f48dc6d483e21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72405d8cc2a72c91d8ed556195cc86e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a72405d8cc2a72c91d8ed556195cc86e7">BuyTower</a> (int towerPrice)</td></tr>
 <tr class="separator:a72405d8cc2a72c91d8ed556195cc86e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1928b749226568adbc35f013d7efe0ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBaseTower.html">BaseTower</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a1928b749226568adbc35f013d7efe0ae">CreateTowerInstance</a> (<a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a> tType)</td></tr>
-<tr class="separator:a1928b749226568adbc35f013d7efe0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7593dfed3b50529ef22dab31b9c09db9"><td class="memItemLeft" align="right" valign="top">Node2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a7593dfed3b50529ef22dab31b9c09db9">CreateTowerInstance</a> (string towerType)</td></tr>
+<tr class="separator:a7593dfed3b50529ef22dab31b9c09db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -146,37 +137,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a346aa9c172e9434ad6d736f3fb3d04c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0a445b75f8bd985bb267e68858bbdb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#ab0a445b75f8bd985bb267e68858bbdb9">cannonTowerPrice</a> = 200</td></tr>
 <tr class="separator:ab0a445b75f8bd985bb267e68858bbdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a647c30f3c5cf1e7727e4f1021ba4d9f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a647c30f3c5cf1e7727e4f1021ba4d9f9">selectedTowerType</a></td></tr>
-<tr class="separator:a647c30f3c5cf1e7727e4f1021ba4d9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a873f7b78044eb62a7d76346345d10c5e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShop.html#a873f7b78044eb62a7d76346345d10c5e">selectedTowerType</a> = &quot;&quot;</td></tr>
+<tr class="separator:a873f7b78044eb62a7d76346345d10c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a4b569390857a418d4eb55b05fb377ded" name="a4b569390857a418d4eb55b05fb377ded"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b569390857a418d4eb55b05fb377ded">&#9670;&#160;</a></span>TowerType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b569390857a418d4eb55b05fb377deda972e73b7a882d0802a4e3a16946a2f94" name="a4b569390857a418d4eb55b05fb377deda972e73b7a882d0802a4e3a16946a2f94"></a>Basic&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4b569390857a418d4eb55b05fb377deda007be3acd5669d100711b13d79e23369" name="a4b569390857a418d4eb55b05fb377deda007be3acd5669d100711b13d79e23369"></a>Sniper&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4b569390857a418d4eb55b05fb377deda22ef5d9468d7aa2f806d865b88a27a52" name="a4b569390857a418d4eb55b05fb377deda22ef5d9468d7aa2f806d865b88a27a52"></a>Cannon&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab711b5908a8da26d3184351087c4235b" name="ab711b5908a8da26d3184351087c4235b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab711b5908a8da26d3184351087c4235b">&#9670;&#160;</a></span>_on_BasicTowerButton_pressed()</h2>
@@ -304,8 +267,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1928b749226568adbc35f013d7efe0ae" name="a1928b749226568adbc35f013d7efe0ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1928b749226568adbc35f013d7efe0ae">&#9670;&#160;</a></span>CreateTowerInstance()</h2>
+<a id="a7593dfed3b50529ef22dab31b9c09db9" name="a7593dfed3b50529ef22dab31b9c09db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7593dfed3b50529ef22dab31b9c09db9">&#9670;&#160;</a></span>CreateTowerInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,10 +277,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classBaseTower.html">BaseTower</a> CreateTowerInstance </td>
+          <td class="memname">Node2D CreateTowerInstance </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a>&#160;</td>
-          <td class="paramname"><em>tType</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>towerType</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -330,8 +293,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0663d7821e053a545f887b6eac7876d4" name="a0663d7821e053a545f887b6eac7876d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0663d7821e053a545f887b6eac7876d4">&#9670;&#160;</a></span>SelectTower()</h2>
+<a id="ae9f625b7876ee3f4d6f48dc6d483e21a" name="ae9f625b7876ee3f4d6f48dc6d483e21a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f625b7876ee3f4d6f48dc6d483e21a">&#9670;&#160;</a></span>SelectTower()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,8 +305,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void SelectTower </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a>&#160;</td>
-          <td class="paramname"><em>tType</em>, </td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>towerType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -497,8 +460,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a647c30f3c5cf1e7727e4f1021ba4d9f9" name="a647c30f3c5cf1e7727e4f1021ba4d9f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a647c30f3c5cf1e7727e4f1021ba4d9f9">&#9670;&#160;</a></span>selectedTowerType</h2>
+<a id="a873f7b78044eb62a7d76346345d10c5e" name="a873f7b78044eb62a7d76346345d10c5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a873f7b78044eb62a7d76346345d10c5e">&#9670;&#160;</a></span>selectedTowerType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -507,7 +470,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classShop.html#a4b569390857a418d4eb55b05fb377ded">TowerType</a> selectedTowerType</td>
+          <td class="memname">string selectedTowerType = &quot;&quot;</td>
         </tr>
       </table>
   </td>

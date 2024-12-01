@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['initializecomponents_0',['InitializeComponents',['../classBaseTower.html#afa0720dc15d48d8b932da3a30e0d9e66',1,'BaseTower']]],
-  ['initializetowerproperties_1',['InitializeTowerProperties',['../classBaseTower.html#ad93fe07d1da0febd676dda38043bace9',1,'BaseTower.InitializeTowerProperties()'],['../classTower1.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower1.InitializeTowerProperties()'],['../classTower2.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower2.InitializeTowerProperties()'],['../classTower3.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower3.InitializeTowerProperties()'],['../classTower4.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower4.InitializeTowerProperties()'],['../classTower5.html#a5c5f5d3f3579d8ec3cbc9e962641a02d',1,'Tower5.InitializeTowerProperties()']]],
-  ['isvalidposition_2',['IsValidPosition',['../classBaseTower.html#a31a0c0b1ad29ddbb7f534dee632843cf',1,'BaseTower']]]
+  ['level_0',['Level',['../classLevel.html#aa8eea882b5aaf5bc56ff862e1f2ffe32',1,'Level']]],
+  ['loaddifficultytable_1',['loadDifficultyTable',['../classLevel.html#a5e4145fc4e82b7e8cb578c9896acd629',1,'Level.loadDifficultyTable()'],['../classLevelManager.html#a5e4145fc4e82b7e8cb578c9896acd629',1,'LevelManager.loadDifficultyTable()']]],
+  ['loadlevel_2',['loadLevel',['../classRoundManager_1_1RoundManager.html#a7bfb308234aa233e29cd90ab92a5cb0c',1,'RoundManager::RoundManager']]],
+  ['loadmap_3',['loadMap',['../classLevel.html#ae4ce2bff44165ab32e2886d645d99acc',1,'Level']]],
+  ['loadroundeventhandler_4',['LoadRoundEventHandler',['../classLevelManager.html#a1c15caaa4e5e4cc727ad63909de61c22',1,'LevelManager']]]
 ];

@@ -10,9 +10,8 @@ var searchData=
   ['level3map_7',['level3Map',['../classLevelSelectionMenu.html#a3f6a3fd9f7d5df251955143ee6d35af1',1,'LevelSelectionMenu']]],
   ['leveldata_8',['levelData',['../classRoundManager_1_1RoundManager.html#aed98e887d39099a6c6df16df8c948c4d',1,'RoundManager::RoundManager']]],
   ['levelloaded_9',['levelLoaded',['../classLevelManager.html#af3ee07980c2289f926b1f396eb6187ab',1,'LevelManager']]],
-  ['levelm_10',['levelm',['../classMain.html#a57f3896bd2ae45ff3129b6dda5dcf0f5',1,'Main']]],
-  ['levelmanager_11',['levelManager',['../classDifficultySelectionMenu.html#af5ed97b3f9eb6756a2afdacb8ad2474d',1,'DifficultySelectionMenu']]],
-  ['levelselectionmenu_12',['levelSelectionMenu',['../classMainMenu.html#af41986f679f89f73ac60cbba0cb348ce',1,'MainMenu']]],
-  ['liveenemies_13',['liveEnemies',['../classRoundManager_1_1RoundManager.html#aad7b4d030ad8f2cced970c8ad747baad',1,'RoundManager::RoundManager']]],
-  ['lm_14',['lm',['../classLoadLevelTest.html#a47cc6d4798658b0327c9d2c4926a7270',1,'LoadLevelTest']]]
+  ['levelmanager_10',['levelManager',['../classDifficultySelectionMenu.html#af5ed97b3f9eb6756a2afdacb8ad2474d',1,'DifficultySelectionMenu']]],
+  ['levelselectionmenu_11',['levelSelectionMenu',['../classMainMenu.html#af41986f679f89f73ac60cbba0cb348ce',1,'MainMenu']]],
+  ['liveenemies_12',['liveEnemies',['../classRoundManager_1_1RoundManager.html#aad7b4d030ad8f2cced970c8ad747baad',1,'RoundManager::RoundManager']]],
+  ['lm_13',['lm',['../classLoadLevelTest.html#a47cc6d4798658b0327c9d2c4926a7270',1,'LoadLevelTest']]]
 ];
