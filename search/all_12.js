@@ -20,7 +20,9 @@ var searchData=
   ['towerhead_17',['towerHead',['../classBaseTower.html#ab88d7e6cad3fc4c7a643cbb12354c2b5',1,'BaseTower']]],
   ['towerheadpath_18',['TowerHeadPath',['../classBaseTower.html#a51e123218daa95861deab6edaad570c2',1,'BaseTower']]],
   ['towerplacement_19',['TowerPlacement',['../classTowerPlacement.html',1,'']]],
-  ['towerscene_20',['towerScene',['../classTowerFactory.html#a9cae2f2dffe8ec1a34cc6316adf2692f',1,'TowerFactory']]],
-  ['towertype_21',['TowerType',['../classShop.html#a4b569390857a418d4eb55b05fb377ded',1,'Shop']]],
-  ['tutorial_22',['Tutorial',['../classTutorial.html',1,'']]]
+  ['towerposition_20',['TowerPosition',['../classBullet.html#aa18c9fd38b13a32f26d909a182c72e0c',1,'Bullet']]],
+  ['towerrange_21',['TowerRange',['../classBullet.html#a0c2f535b856ff3365eee73a0568fc351',1,'Bullet']]],
+  ['towerscene_22',['towerScene',['../classTowerFactory.html#a9cae2f2dffe8ec1a34cc6316adf2692f',1,'TowerFactory']]],
+  ['towertype_23',['TowerType',['../classShop.html#a4b569390857a418d4eb55b05fb377ded',1,'Shop']]],
+  ['tutorial_24',['Tutorial',['../classTutorial.html',1,'']]]
 ];

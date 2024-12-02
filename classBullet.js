@@ -9,5 +9,7 @@ var classBullet =
     [ "FramesBeforeDeletion", "classBullet.html#a68919618bed63f842354ef8d06b5e6ff", null ],
     [ "screenNotifier", "classBullet.html#ac6f8decb9b2a77838f2cd7b42bf7a90d", null ],
     [ "Speed", "classBullet.html#a61efabcca15cccefe7d85ea6da6af5e3", null ],
+    [ "TowerPosition", "classBullet.html#aa18c9fd38b13a32f26d909a182c72e0c", null ],
+    [ "TowerRange", "classBullet.html#a0c2f535b856ff3365eee73a0568fc351", null ],
     [ "Damage", "classBullet.html#ab16a3ebb727a38f50223c1be2ecd111d", null ]
 ];
