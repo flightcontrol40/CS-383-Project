@@ -363,30 +363,42 @@ public partial class BaseTower : Node2D
 
 
 	protected virtual void FireBullets()
+{
+    if (BulletScene == null || currentTarget == null || !IsInstanceValid(currentTarget))
+        return;
+
+    // Play the shooting animation
+    if (towerHead != null && towerHead.SpriteFrames != null)
     {
-        if (BulletScene == null || currentTarget == null || !IsInstanceValid(currentTarget))
-            return;
-
-        foreach (var spawnPoint in bulletSpawnPoints)
+        towerHead.Play("default"); // Play the default animation
+        
+        // Reset animation after a short delay
+        GetTree().CreateTimer(0.3f).Timeout += () =>
         {
-            if (!IsInstanceValid(spawnPoint))
-                continue;
+            towerHead.Stop();
+        };
+    }
 
-            for (int i = 0; i < BulletsPerShot; i++)
+    foreach (var spawnPoint in bulletSpawnPoints)
+    {
+        if (!IsInstanceValid(spawnPoint))
+            continue;
+
+        for (int i = 0; i < BulletsPerShot; i++)
+        {
+            var bullet = BulletScene.Instantiate<Bullet>();
+            if (bullet != null)
             {
-                var bullet = BulletScene.Instantiate<Bullet>();
-                if (bullet != null)
-                {
-                    bullet.Position = spawnPoint.GlobalPosition;
-                    bullet.Direction = (currentTarget.GlobalPosition - bullet.Position).Normalized();
-                    bullet.Speed = BulletSpeed;
-                    bullet.Damage = BulletDamage;
-                    AddSibling(bullet);
-                    bullet.AddToGroup("Projectile");
-                }
+                bullet.Position = spawnPoint.GlobalPosition;
+                bullet.Direction = (currentTarget.GlobalPosition - bullet.Position).Normalized();
+                bullet.Speed = BulletSpeed;
+                bullet.Damage = BulletDamage;
+                AddSibling(bullet);
+                bullet.AddToGroup("Projectile");
             }
         }
     }
+}
 
 	// Plays the tower's shooting animation.
 	protected virtual void PlayShootingAnimation()
