@@ -13,6 +13,7 @@ var classShop =
     [ "_on_SniperTowerButton_pressed", "classShop.html#ab29a187bde95b61313597f48be763c98", null ],
     [ "_on_SpeedTowerButton_pressed", "classShop.html#aeb254647fa2b92c6369eb431c720e72d", null ],
     [ "_Ready", "classShop.html#a58d67e4d7bf68d0a09ed9630ba231b30", null ],
+    [ "AddRemoveMoney", "classShop.html#a645f2c85822b423aa7fea03008867799", null ],
     [ "BuyTower", "classShop.html#a72405d8cc2a72c91d8ed556195cc86e7", null ],
     [ "CreateTowerInstance", "classShop.html#a1928b749226568adbc35f013d7efe0ae", null ],
     [ "SelectTower", "classShop.html#a0663d7821e053a545f887b6eac7876d4", null ],

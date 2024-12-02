@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83":[3,0,1,6],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a3656183169810334a96b91129dc9d881":[3,0,1,6,2],
 "namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a7f943921724d63dc0ac9c6febf99fa88":[3,0,1,6,0],
 "namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a87f8a6ab85c9ced3702b4ea641ad4bb5":[3,0,1,6,1],
 "namespaceRoundManager.html":[3,0,3],
