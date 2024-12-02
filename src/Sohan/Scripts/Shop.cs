@@ -29,6 +29,12 @@ public partial class Shop : Node
 		UpdateMoneyLabel();
 	}
 
+	public void AddRemoveMoney(int money)
+	{
+		playerMoney += money;
+		UpdateMoneyLabel();
+	}
+
 	private void UpdateMoneyLabel()
 	{
 		// Update the player's money display

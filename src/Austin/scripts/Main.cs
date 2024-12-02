@@ -12,6 +12,7 @@ public partial class Main : Node
 
 	private RoundManager.RoundManager roundm;
 	private LevelManager levelm;
+	private Shop shop;
 	private Button StartRoundButton;
 
 	// Called when the node enters the scene tree for the first time.
@@ -24,6 +25,8 @@ public partial class Main : Node
 		roundm = GetNode<RoundManager.RoundManager>("RoundManager");
 		roundm.loadLevel(levelm.level, (int)levelm.baseDifficulty);
 
+		shop = GetNode<Shop>("Shop");
+
 		StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
 		StartRoundButton.Pressed += () => {
 			if (!PlacingTurret)
@@ -34,7 +37,7 @@ public partial class Main : Node
 		};
 		HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
 		levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
-		//levelm.level.Connect(Level.SignalName.MoneyChanged, )
+		levelm.level.Connect(Level.SignalName.MoneyChanged, Callable.From<int>(shop.AddRemoveMoney));
 	}
 
 	private void PlaceTower()

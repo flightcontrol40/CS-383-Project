@@ -81,7 +81,6 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.Health -= damageCounter; // Decrements health based on damage from towers
 		
 		if (Health <= 0 ){
-			GD.PushWarning("Chicken Died. Emitting signal");
 			EmitSignal(SignalName.EnemyDied, this); // Emits death signal if base chicken dies to towers
 		}
 	}
