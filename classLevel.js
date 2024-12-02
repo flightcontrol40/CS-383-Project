@@ -6,6 +6,7 @@ var classLevel =
     [ "loadDifficultyTable", "classLevel.html#a5e4145fc4e82b7e8cb578c9896acd629", null ],
     [ "loadMap", "classLevel.html#ae4ce2bff44165ab32e2886d645d99acc", null ],
     [ "MoneyChangedEventHandler", "classLevel.html#a241eac976af3d514a6cb3b1ce6bd3f19", null ],
+    [ "ResetLevel", "classLevel.html#a0bddc17b023de28757e1440e1397793c", null ],
     [ "setDifficulty", "classLevel.html#a00a2afaf502f7edee6e097875efc90ee", null ],
     [ "unloadMap", "classLevel.html#aaab5869fd631b958fdb4027e0d61f61b", null ],
     [ "baseDifficulty", "classLevel.html#ae05a4d4e65aa9a734355ed813436320e", null ],
