@@ -109,7 +109,7 @@ sprite_frames = SubResource("SpriteFrames_gu8q5")
 
 [node name="Towerhead" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -24)
+position = Vector2(0, -20)
 scale = Vector2(1.25, 1.1875)
 sprite_frames = SubResource("SpriteFrames_usa03")
 frame_progress = 0.374781

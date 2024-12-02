@@ -390,6 +390,7 @@ public partial class BaseTower : Node2D
             if (bullet != null)
             {
                 bullet.Position = spawnPoint.GlobalPosition;
+				bullet.TowerPosition = GlobalPosition;
                 bullet.Direction = (currentTarget.GlobalPosition - bullet.Position).Normalized();
                 bullet.Speed = BulletSpeed;
                 bullet.Damage = BulletDamage;
