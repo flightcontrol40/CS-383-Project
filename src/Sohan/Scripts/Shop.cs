@@ -31,12 +31,18 @@ public partial class Shop : Node
         Speed       // Tower5
     }
 
-    public override void _Ready()
-    {
-        // Get references to UI elements
-        moneyLabel = GetNode<Label>("Shop Panel/MoneyLabel");
-        UpdateMoneyLabel();
-    }
+	public override void _Ready()
+	{
+		// Get references to UI elements
+		moneyLabel = GetNode<Label>("Shop Panel/MoneyLabel");
+		UpdateMoneyLabel();
+	}
+
+	public void AddRemoveMoney(int money)
+	{
+		playerMoney += money;
+		UpdateMoneyLabel();
+	}
 
     private void UpdateMoneyLabel()
     {

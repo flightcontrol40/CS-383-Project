@@ -12,6 +12,7 @@ public partial class Main : Node
 
 	private RoundManager.RoundManager roundm;
 	private LevelManager levelm;
+	private Shop shop;
 	private Button StartRoundButton;
 
 	// Called when the node enters the scene tree for the first time.
@@ -26,6 +27,19 @@ public partial class Main : Node
     roundm = GetNode<RoundManager.RoundManager>("RoundManager");
     roundm.loadLevel(levelm.level, (int)levelm.baseDifficulty);
 
+		shop = GetNode<Shop>("Shop");
+
+		StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
+		StartRoundButton.Pressed += () => {
+			if (!PlacingTurret)
+			{
+				GD.Print("Round Starting");
+				roundm.startRound();
+			}
+		};
+		HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
+		levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
+		levelm.level.Connect(Level.SignalName.MoneyChanged, Callable.From<int>(shop.AddRemoveMoney));
     // Connect the GameLost signal
     roundm.Connect(nameof(RoundManager.RoundManager.GameLost), new Callable(this, nameof(OnGameLost)));
 
@@ -39,10 +53,6 @@ public partial class Main : Node
             roundm.startRound();
         }
     };
-
-    // Initialize PlayerHealth UI
-    HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
-    levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
 
     // Initialize LoseMenu and its buttons
     Control loseScreen = GetNode<Control>("LoseMenu");

@@ -32,7 +32,7 @@ public partial class Level : Resource
 
     public int PlayerMoney {
         get { return playerMoney; }
-        set { EmitSignal(SignalName.MoneyChanged, playerMoney - value); playerMoney = Math.Max(value, 0); }
+        set { EmitSignal(SignalName.MoneyChanged, value - playerMoney); playerMoney = Math.Max(value, 0); }
     }
     public int playerHealth {
         get { return PlayerHealth; }
