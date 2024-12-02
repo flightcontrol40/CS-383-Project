@@ -17,24 +17,61 @@ public partial class Main : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		levelm = GetNode<LevelManager>("LevelManager");
-		levelm.setDifficulty(Difficulty.Easy);
-		levelm.OnLoadLevel();
+    // Initialize LevelManager
+    levelm = GetNode<LevelManager>("LevelManager");
+    levelm.setDifficulty(Difficulty.Easy);
+    levelm.OnLoadLevel();
 
-		roundm = GetNode<RoundManager.RoundManager>("RoundManager");
-		roundm.loadLevel(levelm.level, (int)levelm.baseDifficulty);
+    // Initialize RoundManager
+    roundm = GetNode<RoundManager.RoundManager>("RoundManager");
+    roundm.loadLevel(levelm.level, (int)levelm.baseDifficulty);
 
-		StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
-		StartRoundButton.Pressed += () => {
-			if (!PlacingTurret)
-			{
-				GD.Print("Round Starting");
-				roundm.startRound();
-			}
-		};
-		HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
-		levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
-		//levelm.level.Connect(Level.SignalName.MoneyChanged, )
+    // Connect the GameLost signal
+    roundm.Connect(nameof(RoundManager.RoundManager.GameLost), new Callable(this, nameof(OnGameLost)));
+
+
+    // Initialize Start Round Button
+    StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
+    StartRoundButton.Pressed += () => {
+        if (!PlacingTurret)
+        {
+            GD.Print("Round Starting");
+            roundm.startRound();
+        }
+    };
+
+    // Initialize PlayerHealth UI
+    HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
+    levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
+
+    // Initialize LoseMenu and its buttons
+    Control loseScreen = GetNode<Control>("LoseMenu");
+    loseScreen.Visible = false;
+
+    Button restartButton = loseScreen.GetNode<Button>("VBoxContainer/Button");
+    restartButton.Pressed += ReloadLevel;
+
+    Button exitButton = loseScreen.GetNode<Button>("VBoxContainer/Button3");
+    exitButton.Pressed += () => {
+        GD.Print("Exiting to main menu...");
+        GetTree().ChangeSceneToFile("res://src/Austin/Scenes/main.tscn");
+    };
+}
+
+	//Shows Loose Menu on Game Lost
+	public void OnGameLost()
+	{
+    	GD.Print("Player has lost. Showing lose screen.");
+    	Control loseScreen = GetNode<Control>("LoseMenu");
+    	loseScreen.Visible = true;
+	}
+
+	//Reload the level when Restart is pressed
+	private void ReloadLevel()
+	{
+    	GD.Print("Restarting the game...");
+    	levelm.level.ResetLevel(); // Reset the level
+    	GetTree().ReloadCurrentScene(); // Reload the scene
 	}
 
 	

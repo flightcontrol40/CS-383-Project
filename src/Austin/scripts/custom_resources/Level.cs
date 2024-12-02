@@ -136,6 +136,18 @@ public partial class Level : Resource
         return difficultyTable;
     }
 
+    //This is to reset the level
+    //I am Sohan I added this here.
+    public void ResetLevel()
+    {
+        GD.Print("Resetting level...");
+        PlayerHealth = 100;
+        PlayerMoney = 500;
+        CurrentRoundNum = 0;
+        unloadMap();
+        loadMap();
+    }
+
     [Signal]
     public delegate void MoneyChangedEventHandler(int delta);
     [Signal]
