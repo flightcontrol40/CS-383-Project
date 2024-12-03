@@ -1,10 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://vlulkw1n2v1t"]
+[gd_scene load_steps=13 format=3 uid="uid://vlulkw1n2v1t"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/LevelSelector.cs" id="1_gp6at"]
-[ext_resource type="Texture2D" uid="uid://cwd5nrmcvpqt7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
-[ext_resource type="ButtonGroup" uid="uid://b23wtmjlnjgwk" path="res://src/Austin/resources/DifficultyButtonGroup.tres" id="2_yb81c"]
-[ext_resource type="ButtonGroup" uid="uid://dpjiw1whpkokw" path="res://src/Austin/resources/MapButtonGroup.tres" id="3_amcty"]
-[ext_resource type="FontFile" uid="uid://dxr8sy74ub2t2" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
+[ext_resource type="Texture2D" uid="uid://db18xfda4xi56" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
+[ext_resource type="FontFile" uid="uid://bde8ib7rydnbd" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
+[ext_resource type="ButtonGroup" uid="uid://bvmmhedfjj3h" path="res://src/Austin/resource/DifficutlyButtonGroup.tres" id="4_cjjvo"]
+[ext_resource type="ButtonGroup" uid="uid://dfsaqe73farhk" path="res://src/Austin/resource/MapButtonGroup.tres" id="5_6kmqv"]
+
+[sub_resource type="Resource" id="Resource_xvjb8"]
+metadata/__load_path__ = "res://src/Austin/resources/DifficultyButtonGroup.tres"
+
+[sub_resource type="Resource" id="Resource_6ybl0"]
+metadata/__load_path__ = "res://src/Austin/resources/MapButtonGroup.tres"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iiyk0"]
 texture = ExtResource("2_tjgfu")
@@ -47,8 +53,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gp6at")
-difficutlySelection = ExtResource("2_yb81c")
-mapSelection = ExtResource("3_amcty")
+difficutlySelection = SubResource("Resource_xvjb8")
+mapSelection = SubResource("Resource_6ybl0")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -106,7 +112,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 toggle_mode = true
 button_pressed = true
-button_group = ExtResource("2_yb81c")
+button_group = ExtResource("4_cjjvo")
 text = "Easy"
 
 [node name="Medium" type="Button" parent="HBoxContainer/Difficulty"]
@@ -122,7 +128,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 toggle_mode = true
-button_group = ExtResource("2_yb81c")
+button_group = ExtResource("4_cjjvo")
 text = "Medium"
 
 [node name="Hard" type="Button" parent="HBoxContainer/Difficulty"]
@@ -138,7 +144,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 toggle_mode = true
-button_group = ExtResource("2_yb81c")
+button_group = ExtResource("4_cjjvo")
 text = "Hard"
 
 [node name="Map" type="VBoxContainer" parent="HBoxContainer"]
@@ -170,7 +176,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 toggle_mode = true
 button_pressed = true
-button_group = ExtResource("3_amcty")
+button_group = ExtResource("5_6kmqv")
 text = "Default"
 
 [node name="Multipath" type="Button" parent="HBoxContainer/Map"]
@@ -186,7 +192,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 toggle_mode = true
-button_group = ExtResource("3_amcty")
+button_group = ExtResource("5_6kmqv")
 text = "Multipath"
 
 [node name="Meadows" type="Button" parent="HBoxContainer/Map"]
@@ -202,7 +208,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 toggle_mode = true
-button_group = ExtResource("3_amcty")
+button_group = ExtResource("5_6kmqv")
 text = "Meadows"
 
 [node name="Start" type="Button" parent="."]

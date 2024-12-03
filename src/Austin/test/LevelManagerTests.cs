@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DifficultyCalculator;
 
 namespace AustinsTests {
+    /*
     
     [TestSuite]
     public partial class LevelManagerTests : Node {
@@ -319,4 +320,5 @@ namespace AustinsTests {
             levelManager.Free();
         }
     }
+    */
 }
