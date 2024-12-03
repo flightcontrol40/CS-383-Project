@@ -32,6 +32,7 @@ var hierarchy =
         [ "MediumDifficultyCalculator", "classDifficultyCalculator_1_1MediumDifficultyCalculator.html", null ]
       ] ],
       [ "SpawnOrder", "classDifficultyCalculator_1_1SpawnOrder.html", null ],
+      [ "LevelManager", "classLevelManager.html", null ],
       [ "Main", "classMain.html", null ],
       [ "Shop", "classShop.html", null ]
     ] ],
