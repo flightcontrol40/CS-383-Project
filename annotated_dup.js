@@ -31,7 +31,7 @@ var annotated_dup =
     [ "LevelManager", "classLevelManager.html", "classLevelManager" ],
     [ "LevelSelectionMenu", "classLevelSelectionMenu.html", null ],
     [ "LevelSelector", "classLevelSelector.html", "classLevelSelector" ],
-    [ "LoadLevelTest", "classLoadLevelTest.html", "classLoadLevelTest" ],
+    [ "LoadLevelTest", "classLoadLevelTest.html", null ],
     [ "LoseMenu", "classLoseMenu.html", "classLoseMenu" ],
     [ "Main", "classMain.html", "classMain" ],
     [ "Main_menu", "classMain__menu.html", null ],

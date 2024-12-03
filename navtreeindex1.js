@@ -1,14 +1,7 @@
 var NAVTREEINDEX1 =
 {
-"classMain.html#ae0514db493be2595b4ab2cc10ff0187d":[3,2,0,20,3],
-"classMain.html#aec009801c1029ae6bebb9570577f8d2f":[3,2,0,20,4],
-"classMain.html#af7f4af5fcd1fdb17826a032236a11727":[3,2,0,20,8],
-"classMainMenu.html":[3,2,0,22],
-"classMainMenu.html#a0252fb6cd05a88cfcac12e0eb1a8a3e7":[3,2,0,22,1],
-"classMainMenu.html#a58d67e4d7bf68d0a09ed9630ba231b30":[3,2,0,22,0],
-"classMainMenu.html#a84ba12584f1cc6232b6cfff3903dd0a7":[3,2,0,22,3],
+"classMainMenu.html#a8bbcfcf5253365bbaa8dfcd57a950883":[3,2,0,22,4],
 "classMainMenu.html#ae8bfaa7f047e088f8412cfb16164bde9":[3,2,0,22,5],
-"classMainMenu.html#af41986f679f89f73ac60cbba0cb348ce":[3,2,0,22,4],
 "classMainMenu.html#af54d9eb802914b8fb707acf4ef17fd12":[3,2,0,22,2],
 "classMain__menu.html":[3,2,0,21],
 "classMap.html":[3,2,0,23],
@@ -249,5 +242,12 @@ var NAVTREEINDEX1 =
 "namespaceChicken.html":[3,0,0],
 "namespaceChicken.html#a63eab158c3939d16044f28fedc267267":[3,0,0,2],
 "namespaceChicken.html#a63eab158c3939d16044f28fedc267267a2d28e7044585c73f72552cfd7d97fae3":[3,0,0,2,0],
-"namespaceChicken.html#a63eab158c3939d16044f28fedc267267a59ee75ba5d841b18fcf1751b14d57acd":[3,0,0,2,3]
+"namespaceChicken.html#a63eab158c3939d16044f28fedc267267a59ee75ba5d841b18fcf1751b14d57acd":[3,0,0,2,3],
+"namespaceChicken.html#a63eab158c3939d16044f28fedc267267a909421385acaed6dcdb94ff5b6c61581":[3,0,0,2,2],
+"namespaceChicken.html#a63eab158c3939d16044f28fedc267267ad7c0f73824739a37bfd2d451f220c800":[3,0,0,2,1],
+"namespaceDifficultyCalculator.html":[3,0,1],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83":[3,0,1,6],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a3656183169810334a96b91129dc9d881":[3,0,1,6,2],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a7f943921724d63dc0ac9c6febf99fa88":[3,0,1,6,0],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a87f8a6ab85c9ced3702b4ea641ad4bb5":[3,0,1,6,1]
 };

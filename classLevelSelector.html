@@ -102,10 +102,6 @@ $(document).ready(function(){initNavTree('classLevelSelector.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae725d7aef609e57356171f028f3028e9"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelSelector.html#ae725d7aef609e57356171f028f3028e9">setDifficultyEventHandler</a> (int difficulty)</td></tr>
-<tr class="separator:ae725d7aef609e57356171f028f3028e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a567c8ed147938f6ae331d13d2dbe3b37"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelSelector.html#a567c8ed147938f6ae331d13d2dbe3b37">setMapEventHandler</a> (int map)</td></tr>
-<tr class="separator:a567c8ed147938f6ae331d13d2dbe3b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d67e4d7bf68d0a09ed9630ba231b30"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelSelector.html#a58d67e4d7bf68d0a09ed9630ba231b30">_Ready</a> ()</td></tr>
 <tr class="separator:a58d67e4d7bf68d0a09ed9630ba231b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283e0ea55da32a4e18caeabb96d5c04a"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelSelector.html#a283e0ea55da32a4e18caeabb96d5c04a">_Process</a> (double delta)</td></tr>
@@ -135,6 +131,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a032434707f5ebf2f5d2392b4156148a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a839e98b4683d699cc4ceb43a85349a"><td class="memItemLeft" align="right" valign="top">AvailableMaps&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelSelector.html#a7a839e98b4683d699cc4ceb43a85349a">currentMap</a> = AvailableMaps.Default</td></tr>
 <tr class="separator:a7a839e98b4683d699cc4ceb43a85349a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47cc6d4798658b0327c9d2c4926a7270"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLevelManager.html">LevelManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevelSelector.html#a47cc6d4798658b0327c9d2c4926a7270">lm</a></td></tr>
+<tr class="separator:a47cc6d4798658b0327c9d2c4926a7270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a283e0ea55da32a4e18caeabb96d5c04a" name="a283e0ea55da32a4e18caeabb96d5c04a"></a>
@@ -363,42 +361,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae725d7aef609e57356171f028f3028e9" name="ae725d7aef609e57356171f028f3028e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae725d7aef609e57356171f028f3028e9">&#9670;&#160;</a></span>setDifficultyEventHandler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">delegate void setDifficultyEventHandler </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>difficulty</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a567c8ed147938f6ae331d13d2dbe3b37" name="a567c8ed147938f6ae331d13d2dbe3b37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a567c8ed147938f6ae331d13d2dbe3b37">&#9670;&#160;</a></span>setMapEventHandler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">delegate void setMapEventHandler </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>map</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a032434707f5ebf2f5d2392b4156148a2" name="a032434707f5ebf2f5d2392b4156148a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a032434707f5ebf2f5d2392b4156148a2">&#9670;&#160;</a></span>currentDifficulty</h2>
@@ -455,6 +417,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">ButtonGroup difficutlySelection</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47cc6d4798658b0327c9d2c4926a7270" name="a47cc6d4798658b0327c9d2c4926a7270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47cc6d4798658b0327c9d2c4926a7270">&#9670;&#160;</a></span>lm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLevelManager.html">LevelManager</a> lm</td>
         </tr>
       </table>
   </td>
