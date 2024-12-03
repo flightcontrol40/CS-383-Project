@@ -83,13 +83,16 @@ public partial class Level : Resource
 
     // Pretend this doesn't exist, I needed things for my pattern...
     // (If the oral exam is done it can probably be deleted at this point)
+    /*
     public void setDifficulty(Difficulty difficulty) {
         baseDifficulty = difficulty;
         loadDifficultyTable(difficulty);
     }
+    */
 
     // Pretend this doesn't exist, I needed things for my pattern...
     // (If the oral exam is done it can probably be deleted at this point)
+    /*
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
@@ -135,6 +138,7 @@ public partial class Level : Resource
 
         return difficultyTable;
     }
+    */
 
     //This is to reset the level
     //I am Sohan I added this here.

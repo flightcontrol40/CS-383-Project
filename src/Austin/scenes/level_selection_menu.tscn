@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://vlulkw1n2v1t"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/LevelSelector.cs" id="1_gp6at"]
-[ext_resource type="Texture2D" uid="uid://db18xfda4xi56" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
+[ext_resource type="Texture2D" uid="uid://cwd5nrmcvpqt7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
 [ext_resource type="ButtonGroup" uid="uid://b23wtmjlnjgwk" path="res://src/Austin/resources/DifficultyButtonGroup.tres" id="2_yb81c"]
 [ext_resource type="ButtonGroup" uid="uid://dpjiw1whpkokw" path="res://src/Austin/resources/MapButtonGroup.tres" id="3_amcty"]
-[ext_resource type="FontFile" uid="uid://bde8ib7rydnbd" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
+[ext_resource type="FontFile" uid="uid://dxr8sy74ub2t2" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iiyk0"]
 texture = ExtResource("2_tjgfu")
@@ -232,8 +232,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
 text = "Start"
 
 [connection signal="pressed" from="HBoxContainer/Difficulty/Easy" to="." method="OnEasyDifficultyPressed"]
-[connection signal="pressed" from="HBoxContainer/Difficulty/Medium" to="." method="OnMediumDifficutlyPressed"]
-[connection signal="pressed" from="HBoxContainer/Difficulty/Hard" to="." method="OnHardButtonPressed"]
+[connection signal="pressed" from="HBoxContainer/Difficulty/Medium" to="." method="OnMediumDifficultyPressed"]
+[connection signal="pressed" from="HBoxContainer/Difficulty/Hard" to="." method="OnHardDifficultyPressed"]
 [connection signal="pressed" from="HBoxContainer/Map/Default" to="." method="OnDefaultMapPressed"]
 [connection signal="pressed" from="HBoxContainer/Map/Multipath" to="." method="OnMultipathMapPressed"]
 [connection signal="pressed" from="HBoxContainer/Map/Meadows" to="." method="OnMeadowsMapPressed"]

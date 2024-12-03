@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk3xwdblv4m6w"]
+[gd_scene load_steps=12 format=3 uid="uid://dk3xwdblv4m6w"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_xq74t"]
-[ext_resource type="Texture2D" uid="uid://b0opr8ra7q18c" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
-[ext_resource type="FontFile" uid="uid://m4wul774ncty" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
+[ext_resource type="Texture2D" uid="uid://cwd5nrmcvpqt7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
+[ext_resource type="FontFile" uid="uid://dxr8sy74ub2t2" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
+[ext_resource type="PackedScene" uid="uid://vlulkw1n2v1t" path="res://src/Austin/scenes/level_selection_menu.tscn" id="4_edmo6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_vtaje")
@@ -36,6 +37,10 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_vtv1u"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_u8pi4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -135,3 +140,9 @@ theme_override_font_sizes/font_size = 60
 text = "KILL MO. CHICKEN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LevelSelector" parent="." instance=ExtResource("4_edmo6")]
+visible = false
+layout_mode = 1
+difficutlySelection = SubResource("ButtonGroup_vtv1u")
+mapSelection = SubResource("ButtonGroup_u8pi4")

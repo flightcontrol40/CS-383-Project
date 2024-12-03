@@ -12,11 +12,11 @@ public enum AvailableMaps {
 
 public partial class LevelManager : Node
 {
-    private const string baseMapPath = "res/src/Austin/scenes/";
+    private const string baseMapPath = "res://src/Austin/scenes/";
     private Dictionary<AvailableMaps, string> MapPaths = new Dictionary<AvailableMaps, string> {
         {AvailableMaps.Default, baseMapPath + "map.tscn"},
         {AvailableMaps.Multipath, baseMapPath + "multipath_map.tscn"},
-        {AvailableMaps.Meadows, baseMapPath + "deadows.tscn"}
+        {AvailableMaps.Meadows, baseMapPath + "meadows.tscn"}
     };
 
     private const string difficultyTablePath = "res://src/Nathan/CustomResources/DifficultyTable.cs";
@@ -59,31 +59,32 @@ public partial class LevelManager : Node
 
         // load round
         GD.Print("Level loading, attempting to load round...");
-        EmitSignal(SignalName.LoadRound, level, (int)baseDifficulty);
     }
 
     /// <summary>
     /// Used to set the difficulty of a level and creates a new difficulty table object.
     /// </summary>
     /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
-    public void setDifficulty(int difficulty) {
+    public void setDifficulty(Difficulty difficulty) {
         if (!levelLoaded) {
             // create new difficulty table
-            DifficultyTable newDifficultyTable = loadDifficultyTable((Difficulty)difficulty);
+            DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
 
             // book keeping
-            baseDifficulty = (Difficulty)difficulty;
+            baseDifficulty = difficulty;
             level.difficultyTable = newDifficultyTable;
         }
+        GD.Print("Blarg");
     }
 
     /// <summary>
     /// Used to set the map to another map scene.
     /// </summary>
     /// <param name="map">A PackedScene that refers to a map</param>
-    public void setMap(int mapSelection) {
+    public void setMap(AvailableMaps mapSelection) {
         string mapPath = "";
-        if (MapPaths.TryGetValue((AvailableMaps)mapSelection, out mapPath)) {
+        if (MapPaths.TryGetValue(mapSelection, out mapPath)) {
+            GD.Print($"Attempting to load the map {mapPath}");
             PackedScene map = GD.Load<PackedScene>(mapPath);
             if (map != null) {
                 level.mapScene = map;
@@ -99,6 +100,7 @@ public partial class LevelManager : Node
     /// <param name="difficulty">Difficutly of the level</param>
     /// <returns>The newly created DifficultyTable object</returns>
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
+        GD.Print($"Loading difficulty: {difficulty}");
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
         level.maxRound = 100;
@@ -138,6 +140,7 @@ public partial class LevelManager : Node
         difficultyTable.RoundDifficultyValue = new int[level.maxRound];
         difficultyTable.RoundDifficultyValue[0] = initialRoundDifficulty;
         for (int i = 1; i < difficultyTable.RoundDifficultyValue.Length; i++) {
+            GD.Print($"i={i}");
             difficultyTable.RoundDifficultyValue[i] = difficultyTable.RoundDifficultyValue[i - 1] + incrementDifficutly;
         }
 

@@ -4,6 +4,7 @@ using DifficultyCalculator;
 
 public partial class LoadLevelTest : Node2D
 {
+    /*
     LevelManager lm;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -25,4 +26,5 @@ public partial class LoadLevelTest : Node2D
     public void OnLoadRound(int difficulty, Level l) {
         GD.Print($"Recieved signal to start round on difficulty: {difficulty}");
     }
+    */
 }

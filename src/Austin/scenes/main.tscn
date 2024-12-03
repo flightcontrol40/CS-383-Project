@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/Scenes/PlayerHealth.tscn" id="9_xq0cl"]
 [ext_resource type="PackedScene" uid="uid://vlulkw1n2v1t" path="res://src/Austin/scenes/level_selection_menu.tscn" id="11_6keui"]
 [ext_resource type="PackedScene" uid="uid://gaehkex37cx0" path="res://src/Sohan/Scenes/Loose_screen.tscn" id="12_lsyvb"]
-[ext_resource type="PackedScene" uid="uid://scqpiveh4flc" path="res://src/Sohan/Scenes/PauseMenu.tscn" id="13_p4ncb"]
 
 [sub_resource type="Resource" id="Resource_040l3"]
 script = ExtResource("3_j5db1")
@@ -57,7 +56,7 @@ position = Vector2(513, 1)
 [node name="LoseMenu" parent="." instance=ExtResource("12_lsyvb")]
 visible = false
 
-[node name="LevelSelectionMenu" parent="." instance=ExtResource("11_6keui")]
+[node name="LevelSelector" parent="." instance=ExtResource("11_6keui")]
 visible = false
 difficutlySelection = SubResource("ButtonGroup_wjakq")
 mapSelection = SubResource("ButtonGroup_71xrn")

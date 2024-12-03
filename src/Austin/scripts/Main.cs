@@ -21,12 +21,9 @@ public partial class Main : Node
 	{
     // Initialize LevelManager
     levelm = GetNode<LevelManager>("LevelManager");
-    levelm.setDifficulty((int)Difficulty.Easy);
-    levelm.OnLoadLevel();
 
     // Initialize RoundManager
     roundm = GetNode<RoundManager.RoundManager>("RoundManager");
-    roundm.loadLevel(levelm.level, (int)levelm.baseDifficulty);
 
 		shop = GetNode<Shop>("Shop");
 		pauseMenu = GetNode<PauseMenu>("PauseMenu");

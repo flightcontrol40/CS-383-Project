@@ -6,21 +6,15 @@ using DifficultyCalculator;
 public partial class LevelSelector : Control
 {
     [Export]
-    ButtonGroup difficutlySelection;
-
+    private ButtonGroup difficutlySelection;
     [Export]
-    ButtonGroup mapSelection;
-    Difficulty currentDifficulty = Difficulty.Easy;
-    AvailableMaps currentMap = AvailableMaps.Default;
-
-    [Signal]
-    public delegate void setDifficultyEventHandler(int difficulty);
-    [Signal]
-    public delegate void setMapEventHandler(int map);
-
+    private ButtonGroup mapSelection;
+    private Difficulty currentDifficulty = Difficulty.Easy;
+    private AvailableMaps currentMap = AvailableMaps.Default;
+    private LevelManager lm;
     public override void _Ready()
     {
-        return;
+        lm = GetNode<LevelManager>("LevelManager");
     }
 
     public override void _Process(double delta)
@@ -28,27 +22,38 @@ public partial class LevelSelector : Control
     }
 
     public void OnStartPressed() {
-        EmitSignal(SignalName.setDifficulty, (int)currentDifficulty);
-        EmitSignal(SignalName.setMap, (int)currentMap);
+        GD.Print("1");
+        lm.setDifficulty(currentDifficulty);
+        GD.Print("2");
+        lm.setMap(currentMap);
+        GD.Print("3");
+        lm.OnLoadLevel();
+        GD.Print("4");
         this.Visible = false;
     }
 
     public void OnEasyDifficultyPressed() {
+        GD.Print("Easy selected");
         currentDifficulty = Difficulty.Easy;
     }
     public void OnMediumDifficultyPressed() {
+        GD.Print("Medium selected");
         currentDifficulty = Difficulty.Medium;
     }
     public void OnHardDifficultyPressed() {
+        GD.Print("Hard selected");
         currentDifficulty = Difficulty.Hard;
     }
     public void OnDefaultMapPressed() {
+        GD.Print("Default map selected");
         currentMap = AvailableMaps.Default;
     }
     public void OnMultipathMapPressed() {
+        GD.Print("Multipath map selected");
         currentMap = AvailableMaps.Multipath;
     }
     public void OnMeadowsMapPressed() {
+        GD.Print("Meadows map selected");
         currentMap = AvailableMaps.Meadows;
     }
 
