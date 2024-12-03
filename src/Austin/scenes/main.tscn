@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=15 format=3 uid="uid://dsrlv0mknuxye"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c5r3n5sox0jsy" path="res://src/Sohan/Scenes/LevelSelectionMenu.tscn" id="10_5738w"]
 [ext_resource type="PackedScene" uid="uid://br7v1if6t0dg5" path="res://src/Sohan/Scenes/DifficultySelectionMenu.tscn" id="11_v021v"]
 [ext_resource type="PackedScene" uid="uid://gaehkex37cx0" path="res://src/Sohan/Scenes/Loose_screen.tscn" id="12_lsyvb"]
+[ext_resource type="PackedScene" uid="uid://scqpiveh4flc" path="res://src/Sohan/Scenes/PauseMenu.tscn" id="13_p4ncb"]
 
 [sub_resource type="Resource" id="Resource_040l3"]
 script = ExtResource("3_j5db1")
@@ -56,6 +57,8 @@ position = Vector2(513, 1)
 
 [node name="LoseMenu" parent="." instance=ExtResource("12_lsyvb")]
 visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("13_p4ncb")]
 
 [connection signal="LoadRound" from="LevelManager" to="RoundManager" method="loadLevel"]
 [connection signal="TowerBought" from="Shop" to="." method="_on_shop_tower_bought"]

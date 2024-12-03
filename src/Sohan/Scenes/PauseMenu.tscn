@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://scqpiveh4flc"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/PauseMenu.cs" id="1_di0as"]
-[ext_resource type="Texture2D" uid="uid://behjurmq07vqv" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
-[ext_resource type="FontFile" uid="uid://blrqbeifn3lu" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
-[ext_resource type="Texture2D" uid="uid://bwegwwqjm8hln" path="res://src/Sohan/Assests/1174462.png" id="4_rpsjb"]
+[ext_resource type="Texture2D" uid="uid://cpeammv0lcn4h" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
+[ext_resource type="FontFile" uid="uid://cb432vsmi6df8" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
+[ext_resource type="Texture2D" uid="uid://dtypffvjg3mta" path="res://src/Ankit/Assets/art/pause-Photoroom.png" id="4_03s71"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_wp4bj")
@@ -38,17 +38,18 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[node name="MainMenu" type="Control"]
+[node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_di0as")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +59,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_w2ad8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,6 +71,7 @@ offset_right = 216.0
 offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_constants/separation = 10
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
@@ -100,7 +101,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_xvwto")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wtxvu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b7ft1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ljipv")
-text = "Restart Game"
+text = "Back To Start Game"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -133,7 +134,6 @@ text = "Exit
 "
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,9 +156,11 @@ vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 512.0
-offset_bottom = 512.0
+offset_left = 1105.0
+offset_top = 17.0
+offset_right = 1535.0
+offset_bottom = 447.0
 scale = Vector2(0.1, 0.1)
-texture_normal = ExtResource("4_rpsjb")
+texture_normal = ExtResource("4_03s71")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

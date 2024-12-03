@@ -14,6 +14,7 @@ public partial class Main : Node
 	private LevelManager levelm;
 	private Shop shop;
 	private Button StartRoundButton;
+	private PauseMenu pauseMenu;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -28,6 +29,11 @@ public partial class Main : Node
     roundm.loadLevel(levelm.level, (int)levelm.baseDifficulty);
 
 		shop = GetNode<Shop>("Shop");
+		pauseMenu = GetNode<PauseMenu>("PauseMenu");
+        if (pauseMenu != null)
+        {
+            pauseMenu.DisablePauseMenu(); // Hide pause menu initially
+        }
 
 		StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
 		StartRoundButton.Pressed += () => {
@@ -35,6 +41,10 @@ public partial class Main : Node
 			{
 				GD.Print("Round Starting");
 				roundm.startRound();
+				if (pauseMenu != null)
+                {
+                    pauseMenu.EnablePauseMenu(); // Show pause menu when game actually starts
+                }
 			}
 		};
 		HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
@@ -74,6 +84,12 @@ public partial class Main : Node
     	GD.Print("Player has lost. Showing lose screen.");
     	Control loseScreen = GetNode<Control>("LoseMenu");
     	loseScreen.Visible = true;
+
+		// Hide pause menu when game is lost
+        if (pauseMenu != null)
+        {
+            pauseMenu.DisablePauseMenu();
+        }
 	}
 
 	//Reload the level when Restart is pressed
