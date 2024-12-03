@@ -22,6 +22,7 @@ var searchData=
   ['towerposition_19',['TowerPosition',['../classBullet.html#aa18c9fd38b13a32f26d909a182c72e0c',1,'Bullet']]],
   ['towerrange_20',['TowerRange',['../classBullet.html#a0c2f535b856ff3365eee73a0568fc351',1,'Bullet']]],
   ['towerscene_21',['towerScene',['../classTowerFactory.html#a9cae2f2dffe8ec1a34cc6316adf2692f',1,'TowerFactory']]],
-  ['towertype_22',['TowerType',['../classShop.html#a4b569390857a418d4eb55b05fb377ded',1,'Shop']]],
-  ['tutorial_23',['Tutorial',['../classTutorial.html',1,'']]]
+  ['towershopbutton_22',['towerShopButton',['../classShop.html#aaa3106b40f0024558bf1b2ce5b246c93',1,'Shop']]],
+  ['towertype_23',['TowerType',['../classShop.html#a4b569390857a418d4eb55b05fb377ded',1,'Shop']]],
+  ['tutorial_24',['Tutorial',['../classTutorial.html',1,'']]]
 ];

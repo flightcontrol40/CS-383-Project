@@ -1,5 +1,13 @@
 var NAVTREEINDEX2 =
 {
+"namespaceChicken.html#a63eab158c3939d16044f28fedc267267a59ee75ba5d841b18fcf1751b14d57acd":[3,0,0,2,3],
+"namespaceChicken.html#a63eab158c3939d16044f28fedc267267a909421385acaed6dcdb94ff5b6c61581":[3,0,0,2,2],
+"namespaceChicken.html#a63eab158c3939d16044f28fedc267267ad7c0f73824739a37bfd2d451f220c800":[3,0,0,2,1],
+"namespaceDifficultyCalculator.html":[3,0,1],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83":[3,0,1,6],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a3656183169810334a96b91129dc9d881":[3,0,1,6,2],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a7f943921724d63dc0ac9c6febf99fa88":[3,0,1,6,0],
+"namespaceDifficultyCalculator.html#a43efb0a2e61815a66134dfa5ccea0a83a87f8a6ab85c9ced3702b4ea641ad4bb5":[3,0,1,6,1],
 "namespaceRoundManager.html":[3,0,3],
 "namespacefix__whitespace.html":[3,0,2],
 "namespacefix__whitespace.html#a26e37947397becff0b5b04b73691ff48":[3,0,2,2],
