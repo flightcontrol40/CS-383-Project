@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsrlv0mknuxye"]
+[gd_scene load_steps=14 format=3 uid="uid://dsrlv0mknuxye"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Main.cs" id="1_6tv6r"]
 [ext_resource type="PackedScene" uid="uid://ccomjicon1i7p" path="res://src/Austin/scenes/level_manager.tscn" id="1_ircu7"]
@@ -9,8 +9,7 @@
 [ext_resource type="Script" path="res://src/Austin/scripts/Tutorial.cs" id="8_v0l8j"]
 [ext_resource type="PackedScene" uid="uid://dk3xwdblv4m6w" path="res://src/Sohan/Scenes/main_menu.tscn" id="9_2yelq"]
 [ext_resource type="PackedScene" uid="uid://1hfdoop8uwub" path="res://src/Sohan/Scenes/PlayerHealth.tscn" id="9_xq0cl"]
-[ext_resource type="PackedScene" uid="uid://c5r3n5sox0jsy" path="res://src/Sohan/Scenes/LevelSelectionMenu.tscn" id="10_5738w"]
-[ext_resource type="PackedScene" uid="uid://br7v1if6t0dg5" path="res://src/Sohan/Scenes/DifficultySelectionMenu.tscn" id="11_v021v"]
+[ext_resource type="PackedScene" uid="uid://vlulkw1n2v1t" path="res://src/Austin/scenes/level_selection_menu.tscn" id="12_e5nbc"]
 [ext_resource type="PackedScene" uid="uid://gaehkex37cx0" path="res://src/Sohan/Scenes/Loose_screen.tscn" id="12_lsyvb"]
 [ext_resource type="PackedScene" uid="uid://scqpiveh4flc" path="res://src/Sohan/Scenes/PauseMenu.tscn" id="13_sruys"]
 
@@ -52,13 +51,14 @@ position = Vector2(513, 1)
 
 [node name="MainMenu" parent="." instance=ExtResource("9_2yelq")]
 
-[node name="LevelSelectionMenu" parent="." instance=ExtResource("10_5738w")]
-
-[node name="DifficultySelectionMenu" parent="." instance=ExtResource("11_v021v")]
-
 [node name="LoseMenu" parent="." instance=ExtResource("12_lsyvb")]
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("13_sruys")]
 
+[node name="LevelSelector" parent="." instance=ExtResource("12_e5nbc")]
+offset_left = 1.0
+offset_right = 1.0
+
+[connection signal="LoadRound" from="LevelManager" to="RoundManager" method="loadLevel"]
 [connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]

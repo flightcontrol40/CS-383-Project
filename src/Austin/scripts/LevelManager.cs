@@ -48,6 +48,7 @@ public partial class LevelManager : Node
     /// </summary>
     public void OnLoadLevel() {
         GD.Print("Loading level...");
+        GD.Print($"levelLaoded={levelLoaded}");
         // load the map
         level.loadMap();
         //book keeping
@@ -57,7 +58,7 @@ public partial class LevelManager : Node
         }
 
         // load round
-        GD.Print("Level loading, attempting to load round...");
+        EmitSignal(SignalName.LoadRound, level, (int)baseDifficulty);
     }
 
     /// <summary>
@@ -65,6 +66,7 @@ public partial class LevelManager : Node
     /// </summary>
     /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
     public void setDifficulty(Difficulty difficulty) {
+        GD.Print(levelLoaded);
         if (!levelLoaded) {
             // create new difficulty table
             DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
