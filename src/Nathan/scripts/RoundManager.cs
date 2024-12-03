@@ -93,6 +93,7 @@ public partial class RoundManager : Node2D {
                 GD.Print("Setting Next Spawn Time");
                 this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
             }
+            this.levelData.CurrentRoundNum++;
         }
     }
 
@@ -198,6 +199,7 @@ public partial class RoundManager : Node2D {
                 this.roundRunning = false;
                 this.levelData.CurrentRoundNum++;
             }
+            GD.Print($"Live enemies: {this.liveEnemies.Count()}");
         }
         base._Process(delta);
     }

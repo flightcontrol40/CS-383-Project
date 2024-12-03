@@ -53,7 +53,6 @@ public partial class Shop : Node
 
     private void UpdateMoneyLabel()
     {
-        GD.Print("Adding money...");
         moneyLabel.Text = $"{playerMoney}";
     }
 

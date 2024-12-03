@@ -6,11 +6,11 @@ public partial class Bullet : Area2D
 {
     // Speed of the bullet, with a default value of 400.
     [Export]
-    public float Speed = 500;
+    public float Speed = 1000;
     
     // Damage inflicted by the bullet, with a default value of 10.
     [Export]
-    public int Damage { get; set; } = 10;
+    public int Damage { get; set; } = 50;
     
     // Direction vector determining the bullet's movement direction.
     public Vector2 Direction;

@@ -26,8 +26,6 @@ SoundManager="*res://src/Nathan/scenes/SoundManager.tscn"
 file_logging/enable_file_logging=true
 file_logging/enable_file_logging.pc=false
 file_logging/log_path="res://TestResults"
-settings/stdout/print_fps=true
-settings/stdout/print_gpu_profile=true
 
 [dotnet]
 
