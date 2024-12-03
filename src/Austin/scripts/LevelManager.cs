@@ -1,14 +1,6 @@
 using Godot;
 using RoundManager;
 using DifficultyCalculator;
-using System.Collections.Generic;
-
-
-public enum AvailableMaps {
-    Default,
-    Multipath,
-    Meadows
-}
 
 public partial class LevelManager : Node
 {
@@ -21,7 +13,7 @@ public partial class LevelManager : Node
 
     private const string difficultyTablePath = "res://src/Nathan/CustomResources/DifficultyTable.cs";
 
-    [Export]
+	[Export]
     public Difficulty baseDifficulty = Difficulty.Easy;
     [Export]
     public Level level;
@@ -66,11 +58,14 @@ public partial class LevelManager : Node
     /// </summary>
     /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
     public void setDifficulty(Difficulty difficulty) {
+    public void setDifficulty(Difficulty difficulty) {
         if (!levelLoaded) {
             // create new difficulty table
             DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
+            DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
 
             // book keeping
+            baseDifficulty = difficulty;
             baseDifficulty = difficulty;
             level.difficultyTable = newDifficultyTable;
         }

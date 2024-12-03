@@ -93,14 +93,12 @@ namespace AustinsTests {
             AssertThat(levelManager.mapLoaded).IsEqual(true);
         }
 
-        /*
         [TestCase]
         public void Unit_setNullMap() {
             levelManager.setMap(null);
 
             AssertThat(levelManager.level.mapScene).IsNotNull();
         }
-        */
 
         [TestCase]
         public void Unit_loadLevelLoadsMap() {
@@ -119,12 +117,14 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_easyDifficultyTableMaxRound() {
             levelManager.setDifficulty(Difficulty.Easy);
+            levelManager.setDifficulty(Difficulty.Easy);
 
             AssertThat(levelManager.level.maxRound).IsEqual(100);
         }
 
         [TestCase]
         public void Unit_easyDifficultyTableEnemyRanks() {
+            levelManager.setDifficulty(Difficulty.Easy);
             levelManager.setDifficulty(Difficulty.Easy);
 
             Godot.Collections.Array<int> easyRanks = new Godot.Collections.Array<int> {
@@ -137,6 +137,7 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_easyDifficultyTableRoundDifficultyValue() {
+            levelManager.setDifficulty(Difficulty.Easy);
             levelManager.setDifficulty(Difficulty.Easy);
 
             int[] easyRoundDifficulty = new int [levelManager.level.maxRound];
@@ -151,12 +152,14 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_mediumDifficultyTableMaxRound() {
             levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty(Difficulty.Medium);
 
             AssertThat(levelManager.level.maxRound).IsEqual(100);
         }
 
         [TestCase]
         public void Unit_mediumDifficultyTableEnemyRanks() {
+            levelManager.setDifficulty(Difficulty.Medium);
             levelManager.setDifficulty(Difficulty.Medium);
 
             Godot.Collections.Array<int> mediumRanks = new Godot.Collections.Array<int> {
@@ -171,6 +174,7 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_mediumDifficultyTableRoundDifficultyValue() {
             levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty(Difficulty.Medium);
 
             int[] mediumRoundDifficulty = new int [levelManager.level.maxRound];
             mediumRoundDifficulty[0] = 8;
@@ -184,12 +188,14 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_hardDifficultyTableMaxRound() {
             levelManager.setDifficulty(Difficulty.Hard);
+            levelManager.setDifficulty(Difficulty.Hard);
 
             AssertThat(levelManager.level.maxRound).IsEqual(100);
         }
 
         [TestCase]
         public void Unit_hardDifficultyTableEnemyRanks() {
+            levelManager.setDifficulty(Difficulty.Hard);
             levelManager.setDifficulty(Difficulty.Hard);
 
             Godot.Collections.Array<int> hardRanks = new Godot.Collections.Array<int> {
@@ -203,6 +209,7 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_hardDifficultyTableRoundDifficultyValue() {
+            levelManager.setDifficulty(Difficulty.Hard);
             levelManager.setDifficulty(Difficulty.Hard);
 
             int[] hardRoundDifficulty = new int [levelManager.level.maxRound];
@@ -224,6 +231,7 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_setDifficultyEasy() {
             levelManager.setDifficulty(Difficulty.Easy);
+            levelManager.setDifficulty(Difficulty.Easy);
 
             AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Easy);
         }
@@ -231,12 +239,14 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_setDifficultyMedium() {
             levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty(Difficulty.Medium);
 
             AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Medium);
         }
 
         [TestCase]
         public void Unit_setDifficultyHard() {
+            levelManager.setDifficulty(Difficulty.Hard);
             levelManager.setDifficulty(Difficulty.Hard);
 
             AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Hard);

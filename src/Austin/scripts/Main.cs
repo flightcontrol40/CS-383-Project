@@ -147,4 +147,9 @@ public partial class Main : Node
 		PlaceTower();
 	}
 
+	public void SetPaused(bool isPaused)
+{
+    GetTree().Paused = isPaused;
+    // You might want to show/hide a pause overlay here
+}
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmt4pjx6qy0rj"]
 
 [ext_resource type="Script" path="res://src/Clayton/MainMenu/MainMenu.gd" id="1_2vja7"]
-[ext_resource type="FontFile" uid="uid://deus54qjh17t1" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
+[ext_resource type="FontFile" uid="uid://b47oq7rggfxno" path="res://src/Clayton/Assets/Daydream.ttf" id="3_6bqo3"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3

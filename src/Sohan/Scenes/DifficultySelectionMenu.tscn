@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://br7v1if6t0dg5"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scenes/DifficultySelectionMenu.cs" id="1_t3h2n"]
-[ext_resource type="FontFile" uid="uid://bde8ib7rydnbd" path="res://src/Sohan/Assests/Wizard.ttf" id="2_csuou"]
-[ext_resource type="Texture2D" uid="uid://db18xfda4xi56" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_rur07"]
+[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="2_csuou"]
+[ext_resource type="Texture2D" uid="uid://cy33xwmqbneh7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_rur07"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iiyk0"]
 texture = ExtResource("2_rur07")
@@ -114,6 +114,9 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_fonts/font = ExtResource("2_csuou")
 theme_override_font_sizes/font_size = 60
-text = "Select Difficulty"
+text = "Select Difficulty
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Easy" to="." method="OnEasyPressed"]

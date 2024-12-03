@@ -3,7 +3,6 @@ using DifficultyCalculator;
 
 public partial class DifficultySelectionMenu : Control
 {
-	/*
 	private Button easyButton;
 	private Button mediumButton;
 	private Button hardButton;
@@ -74,5 +73,4 @@ public partial class DifficultySelectionMenu : Control
 		// Hide the difficulty selection menu
 		this.Visible = false;
 	}
-	*/
 }
