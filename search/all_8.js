@@ -12,5 +12,6 @@ var searchData=
   ['healthchangedeventhandler_9',['HealthChangedEventHandler',['../classLevel.html#a6eba8fb4024b4bf2541a8e03f8a3479e',1,'Level']]],
   ['heavy_10',['Heavy',['../classShop.html#a4b569390857a418d4eb55b05fb377dedaf9ffe67a20da9cbff56b420fca4bd491',1,'Shop']]],
   ['heavybulletbuilder_11',['HeavyBulletBuilder',['../classHeavyBulletBuilder.html',1,'']]],
-  ['heavytowerprice_12',['heavyTowerPrice',['../classShop.html#a679b801a40387db20619f1e159141595',1,'Shop']]]
+  ['heavytowerprice_12',['heavyTowerPrice',['../classShop.html#a679b801a40387db20619f1e159141595',1,'Shop']]],
+  ['hidemenu_13',['HideMenu',['../classPauseMenu.html#a48def145d4c3a674bc6d9a51c42df563',1,'PauseMenu']]]
 ];
