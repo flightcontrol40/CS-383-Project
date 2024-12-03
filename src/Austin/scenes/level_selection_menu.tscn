@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://vlulkw1n2v1t"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/LevelSelector.cs" id="1_gp6at"]
-[ext_resource type="Texture2D" uid="uid://db18xfda4xi56" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
-[ext_resource type="FontFile" uid="uid://bde8ib7rydnbd" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
+[ext_resource type="Texture2D" uid="uid://cwd5nrmcvpqt7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
+[ext_resource type="FontFile" uid="uid://dxr8sy74ub2t2" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
 [ext_resource type="ButtonGroup" uid="uid://bvmmhedfjj3h" path="res://src/Austin/resource/DifficutlyButtonGroup.tres" id="4_cjjvo"]
 [ext_resource type="ButtonGroup" uid="uid://dfsaqe73farhk" path="res://src/Austin/resource/MapButtonGroup.tres" id="5_6kmqv"]
 

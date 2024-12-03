@@ -20,7 +20,7 @@ public partial class Main : Node
 	public override void _Ready()
 	{
     // Initialize LevelManager
-    //levelm = GetNode<LevelManager>("LevelManager");
+    levelm = GetNode<LevelManager>("LevelManager");
 
     // Initialize RoundManager
     roundm = GetNode<RoundManager.RoundManager>("RoundManager");

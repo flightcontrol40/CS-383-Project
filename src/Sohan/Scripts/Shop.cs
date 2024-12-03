@@ -53,7 +53,8 @@ public partial class Shop : Node
 
     private void UpdateMoneyLabel()
     {
-        moneyLabel.Text = $"Money: ${playerMoney}";
+        GD.Print("Adding money...");
+        moneyLabel.Text = $"{playerMoney}";
     }
 
     // New method to handle menu selections
