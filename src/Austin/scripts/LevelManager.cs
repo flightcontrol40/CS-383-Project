@@ -1,12 +1,27 @@
 using Godot;
 using RoundManager;
 using DifficultyCalculator;
+using System.Collections.Generic;
+
+
+public enum AvailableMaps {
+    Default,
+    Multipath,
+    Meadows
+}
 
 public partial class LevelManager : Node
 {
+    private const string baseMapPath = "res/src/Austin/scenes/";
+    private Dictionary<AvailableMaps, string> MapPaths = new Dictionary<AvailableMaps, string> {
+        {AvailableMaps.Default, baseMapPath + "map.tscn"},
+        {AvailableMaps.Multipath, baseMapPath + "multipath_map.tscn"},
+        {AvailableMaps.Meadows, baseMapPath + "deadows.tscn"}
+    };
+
     private const string difficultyTablePath = "res://src/Nathan/CustomResources/DifficultyTable.cs";
 
-	[Export]
+    [Export]
     public Difficulty baseDifficulty = Difficulty.Easy;
     [Export]
     public Level level;
@@ -51,13 +66,13 @@ public partial class LevelManager : Node
     /// Used to set the difficulty of a level and creates a new difficulty table object.
     /// </summary>
     /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
-    public void setDifficulty(Difficulty difficulty) {
+    public void setDifficulty(int difficulty) {
         if (!levelLoaded) {
             // create new difficulty table
-            DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
+            DifficultyTable newDifficultyTable = loadDifficultyTable((Difficulty)difficulty);
 
             // book keeping
-            baseDifficulty = difficulty;
+            baseDifficulty = (Difficulty)difficulty;
             level.difficultyTable = newDifficultyTable;
         }
     }
@@ -66,9 +81,15 @@ public partial class LevelManager : Node
     /// Used to set the map to another map scene.
     /// </summary>
     /// <param name="map">A PackedScene that refers to a map</param>
-    public void setMap(PackedScene map) {
-        if (map != null) {
-            level.mapScene = map;
+    public void setMap(int mapSelection) {
+        string mapPath = "";
+        if (MapPaths.TryGetValue((AvailableMaps)mapSelection, out mapPath)) {
+            PackedScene map = GD.Load<PackedScene>(mapPath);
+            if (map != null) {
+                level.mapScene = map;
+            }
+        } else {
+            GD.PrintErr("Tried to set map to an unkown map, so left it as is");
         }
     }
 

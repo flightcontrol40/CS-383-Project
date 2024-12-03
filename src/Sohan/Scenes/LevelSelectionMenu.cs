@@ -2,6 +2,7 @@ using Godot;
 
 public partial class LevelSelectionMenu : Node2D
 {
+	/*
 	private Button level1Button;
 	private Button level2Button;
 	private Button level3Button;
@@ -73,4 +74,5 @@ public partial class LevelSelectionMenu : Node2D
 			GD.PrintErr("DifficultySelectionMenu is null! Cannot open.");
 		}
 	}
+	*/
 }

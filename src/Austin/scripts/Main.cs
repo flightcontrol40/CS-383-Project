@@ -21,7 +21,7 @@ public partial class Main : Node
 	{
     // Initialize LevelManager
     levelm = GetNode<LevelManager>("LevelManager");
-    levelm.setDifficulty(Difficulty.Easy);
+    levelm.setDifficulty((int)Difficulty.Easy);
     levelm.OnLoadLevel();
 
     // Initialize RoundManager

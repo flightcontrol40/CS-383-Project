@@ -15,7 +15,7 @@ public partial class LoadLevelTest : Node2D
     public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed("loadDefaultDifficulty")) {
-            lm.setDifficulty(Difficulty.Medium);
+            lm.setDifficulty((int)Difficulty.Medium);
         }
         if (Input.IsActionJustPressed("loadLevel")) {
             lm.OnLoadLevel();

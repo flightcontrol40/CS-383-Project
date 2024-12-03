@@ -93,12 +93,14 @@ namespace AustinsTests {
             AssertThat(levelManager.mapLoaded).IsEqual(true);
         }
 
+        /*
         [TestCase]
         public void Unit_setNullMap() {
             levelManager.setMap(null);
 
             AssertThat(levelManager.level.mapScene).IsNotNull();
         }
+        */
 
         [TestCase]
         public void Unit_loadLevelLoadsMap() {
@@ -116,14 +118,14 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_easyDifficultyTableMaxRound() {
-            levelManager.setDifficulty(Difficulty.Easy);
+            levelManager.setDifficulty((int)Difficulty.Easy);
 
             AssertThat(levelManager.level.maxRound).IsEqual(100);
         }
 
         [TestCase]
         public void Unit_easyDifficultyTableEnemyRanks() {
-            levelManager.setDifficulty(Difficulty.Easy);
+            levelManager.setDifficulty((int)Difficulty.Easy);
 
             Godot.Collections.Array<int> easyRanks = new Godot.Collections.Array<int> {
                 (int)Chicken.Cost.ChickenR1,
@@ -135,7 +137,7 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_easyDifficultyTableRoundDifficultyValue() {
-            levelManager.setDifficulty(Difficulty.Easy);
+            levelManager.setDifficulty((int)Difficulty.Easy);
 
             int[] easyRoundDifficulty = new int [levelManager.level.maxRound];
             easyRoundDifficulty[0] = 6;
@@ -148,14 +150,14 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_mediumDifficultyTableMaxRound() {
-            levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty((int)Difficulty.Medium);
 
             AssertThat(levelManager.level.maxRound).IsEqual(100);
         }
 
         [TestCase]
         public void Unit_mediumDifficultyTableEnemyRanks() {
-            levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty((int)Difficulty.Medium);
 
             Godot.Collections.Array<int> mediumRanks = new Godot.Collections.Array<int> {
                 (int)Chicken.Cost.ChickenR1,
@@ -168,7 +170,7 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_mediumDifficultyTableRoundDifficultyValue() {
-            levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty((int)Difficulty.Medium);
 
             int[] mediumRoundDifficulty = new int [levelManager.level.maxRound];
             mediumRoundDifficulty[0] = 8;
@@ -181,14 +183,14 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_hardDifficultyTableMaxRound() {
-            levelManager.setDifficulty(Difficulty.Hard);
+            levelManager.setDifficulty((int)Difficulty.Hard);
 
             AssertThat(levelManager.level.maxRound).IsEqual(100);
         }
 
         [TestCase]
         public void Unit_hardDifficultyTableEnemyRanks() {
-            levelManager.setDifficulty(Difficulty.Hard);
+            levelManager.setDifficulty((int)Difficulty.Hard);
 
             Godot.Collections.Array<int> hardRanks = new Godot.Collections.Array<int> {
                 (int)Chicken.Cost.ChickenR1,
@@ -201,7 +203,7 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_hardDifficultyTableRoundDifficultyValue() {
-            levelManager.setDifficulty(Difficulty.Hard);
+            levelManager.setDifficulty((int)Difficulty.Hard);
 
             int[] hardRoundDifficulty = new int [levelManager.level.maxRound];
             hardRoundDifficulty[0] = 15;
@@ -221,21 +223,21 @@ namespace AustinsTests {
 
         [TestCase]
         public void Unit_setDifficultyEasy() {
-            levelManager.setDifficulty(Difficulty.Easy);
+            levelManager.setDifficulty((int)Difficulty.Easy);
 
             AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Easy);
         }
 
         [TestCase]
         public void Unit_setDifficultyMedium() {
-            levelManager.setDifficulty(Difficulty.Medium);
+            levelManager.setDifficulty((int)Difficulty.Medium);
 
             AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Medium);
         }
 
         [TestCase]
         public void Unit_setDifficultyHard() {
-            levelManager.setDifficulty(Difficulty.Hard);
+            levelManager.setDifficulty((int)Difficulty.Hard);
 
             AssertThat(levelManager.baseDifficulty).IsEqual(Difficulty.Hard);
         }
@@ -243,7 +245,7 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_setMapMeadows() {
             PackedScene meadows = GD.Load<PackedScene>("res://src/Austin/scenes/meadows.tscn");
-            levelManager.setMap(meadows);
+            levelManager.setMap((int)AvailableMaps.Meadows);
 
             AssertThat(levelManager.level.mapScene).IsEqual(meadows);
         }
@@ -251,7 +253,7 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_setMapMultipath() {
             PackedScene multipath = GD.Load<PackedScene>("res://src/Austin/scenes/multipath_map.tscn");
-            levelManager.setMap(multipath);
+            levelManager.setMap((int)AvailableMaps.Multipath);
 
             AssertThat(levelManager.level.mapScene).IsEqual(multipath);
         }
@@ -259,7 +261,7 @@ namespace AustinsTests {
         [TestCase]
         public void Unit_setMapDefault() {
             PackedScene defaultMap = GD.Load<PackedScene>("res://src/Austin/scenes/map.tscn");
-            levelManager.setMap(defaultMap);
+            levelManager.setMap((int)AvailableMaps.Default);
 
             AssertThat(levelManager.level.mapScene).IsEqual(defaultMap);
         }

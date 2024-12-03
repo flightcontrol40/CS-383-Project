@@ -1,0 +1,240 @@
+[gd_scene load_steps=11 format=3 uid="uid://vlulkw1n2v1t"]
+
+[ext_resource type="Script" path="res://src/Austin/scripts/LevelSelector.cs" id="1_gp6at"]
+[ext_resource type="Texture2D" uid="uid://db18xfda4xi56" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_tjgfu"]
+[ext_resource type="ButtonGroup" uid="uid://b23wtmjlnjgwk" path="res://src/Austin/resources/DifficultyButtonGroup.tres" id="2_yb81c"]
+[ext_resource type="ButtonGroup" uid="uid://dpjiw1whpkokw" path="res://src/Austin/resources/MapButtonGroup.tres" id="3_amcty"]
+[ext_resource type="FontFile" uid="uid://bde8ib7rydnbd" path="res://src/Sohan/Assests/Wizard.ttf" id="3_uowaq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iiyk0"]
+texture = ExtResource("2_tjgfu")
+modulate_color = Color(0.233925, 0.233925, 0.233925, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk35t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmr0b"]
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugley"]
+bg_color = Color(0.615422, 0.615422, 0.615422, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb4aw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gp6at")
+difficutlySelection = ExtResource("2_yb81c")
+mapSelection = ExtResource("3_amcty")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iiyk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = -102.0
+offset_right = 361.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 165
+
+[node name="Difficulty" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="HBoxContainer/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("3_uowaq")
+theme_override_font_sizes/font_size = 60
+text = "Difficulty
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Easy" type="Button" parent="HBoxContainer/Difficulty"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_yb81c")
+text = "Easy"
+
+[node name="Medium" type="Button" parent="HBoxContainer/Difficulty"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+toggle_mode = true
+button_group = ExtResource("2_yb81c")
+text = "Medium"
+
+[node name="Hard" type="Button" parent="HBoxContainer/Difficulty"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+toggle_mode = true
+button_group = ExtResource("2_yb81c")
+text = "Hard"
+
+[node name="Map" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="HBoxContainer/Map"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("3_uowaq")
+theme_override_font_sizes/font_size = 60
+text = "Map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Default" type="Button" parent="HBoxContainer/Map"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_amcty")
+text = "Default"
+
+[node name="Multipath" type="Button" parent="HBoxContainer/Map"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+toggle_mode = true
+button_group = ExtResource("3_amcty")
+text = "Multipath"
+
+[node name="Meadows" type="Button" parent="HBoxContainer/Map"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+toggle_mode = true
+button_group = ExtResource("3_amcty")
+text = "Meadows"
+
+[node name="Start" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -608.0
+offset_top = -135.0
+offset_right = -508.0
+offset_bottom = -93.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pk35t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmr0b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugley")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb4aw")
+text = "Start"
+
+[connection signal="pressed" from="HBoxContainer/Difficulty/Easy" to="." method="OnEasyDifficultyPressed"]
+[connection signal="pressed" from="HBoxContainer/Difficulty/Medium" to="." method="OnMediumDifficutlyPressed"]
+[connection signal="pressed" from="HBoxContainer/Difficulty/Hard" to="." method="OnHardButtonPressed"]
+[connection signal="pressed" from="HBoxContainer/Map/Default" to="." method="OnDefaultMapPressed"]
+[connection signal="pressed" from="HBoxContainer/Map/Multipath" to="." method="OnMultipathMapPressed"]
+[connection signal="pressed" from="HBoxContainer/Map/Meadows" to="." method="OnMeadowsMapPressed"]
+[connection signal="pressed" from="Start" to="." method="OnStartPressed"]

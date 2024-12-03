@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://c5r3n5sox0jsy"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scenes/LevelSelectionMenu.cs" id="1_l014h"]
-[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="2_lmy21"]
-[ext_resource type="Texture2D" uid="uid://cy33xwmqbneh7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_x3prc"]
+[ext_resource type="FontFile" uid="uid://bde8ib7rydnbd" path="res://src/Sohan/Assests/Wizard.ttf" id="2_lmy21"]
+[ext_resource type="Texture2D" uid="uid://db18xfda4xi56" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_x3prc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xyxw"]
 texture = ExtResource("2_x3prc")
