@@ -10,8 +10,5 @@ var classLevelSelector =
     [ "OnMultipathMapPressed", "classLevelSelector.html#a0ee35fa6f94ed5f90a8552ec6ff2b865", null ],
     [ "OnStartPressed", "classLevelSelector.html#af54d9eb802914b8fb707acf4ef17fd12", null ],
     [ "currentDifficulty", "classLevelSelector.html#a032434707f5ebf2f5d2392b4156148a2", null ],
-    [ "currentMap", "classLevelSelector.html#a7a839e98b4683d699cc4ceb43a85349a", null ],
-    [ "difficutlySelection", "classLevelSelector.html#a0828ad0eacf785d656af3727f4fd75ba", null ],
-    [ "lm", "classLevelSelector.html#a47cc6d4798658b0327c9d2c4926a7270", null ],
-    [ "mapSelection", "classLevelSelector.html#a1694e282ce461c87d745d7140aa656bc", null ]
+    [ "currentMap", "classLevelSelector.html#a7a839e98b4683d699cc4ceb43a85349a", null ]
 ];

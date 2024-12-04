@@ -5,6 +5,7 @@ var classRoundManager_1_1RoundManager =
     [ "cleanLevel", "classRoundManager_1_1RoundManager.html#a8a00635bcb0588122cb9b9bd89e8bcba", null ],
     [ "GameLostEventHandler", "classRoundManager_1_1RoundManager.html#ab181c20125261a9b8a195bf6aacc4061", null ],
     [ "GameWonEventHandler", "classRoundManager_1_1RoundManager.html#a62292cc7b8e775def355f972fb3cbf58", null ],
+    [ "GetMaxRoundNumber", "classRoundManager_1_1RoundManager.html#abcb8f6f87c9c7236132c24e9b639c8ba", null ],
     [ "HandleEnemyDiesSignal", "classRoundManager_1_1RoundManager.html#aab7119c18b9651c4fe6210d1a0a82d4c", null ],
     [ "HandleEnemyFinishedSignal", "classRoundManager_1_1RoundManager.html#af2088afeccd3d0d76c510f0395b8fc23", null ],
     [ "HandleEnemySplit", "classRoundManager_1_1RoundManager.html#a2258d292010a9f5844966e87478647f2", null ],

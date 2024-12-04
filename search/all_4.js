@@ -15,8 +15,7 @@ var searchData=
   ['difficultytable_12',['difficultyTable',['../classLevel.html#aeeab23083a7d7f588f3fae1bd9a6d65e',1,'Level.difficultyTable()'],['../classDifficultyCalculator_1_1DifficultyCalculator.html#aeeab23083a7d7f588f3fae1bd9a6d65e',1,'DifficultyCalculator.DifficultyCalculator.difficultyTable()']]],
   ['difficultytable_13',['DifficultyTable',['../classRoundManager_1_1DifficultyTable.html',1,'RoundManager']]],
   ['difficultytablepath_14',['difficultyTablePath',['../classLevelManager.html#a8c21b73f5a7559f23266dc13abf6619a',1,'LevelManager']]],
-  ['difficutlyselection_15',['difficutlySelection',['../classLevelSelector.html#a0828ad0eacf785d656af3727f4fd75ba',1,'LevelSelector']]],
-  ['direction_16',['Direction',['../classBullet.html#a4fcced862bdecc3879cfbf3da6029054',1,'Bullet']]],
-  ['disablepausemenu_17',['DisablePauseMenu',['../classPauseMenu.html#a7ceaca5facdf3813a824611dc747b836',1,'PauseMenu']]],
-  ['doublechecktarget_18',['DoubleCheckTarget',['../classBaseTower.html#adc138b23574e6dd080305894354cbf8a',1,'BaseTower']]]
+  ['direction_15',['Direction',['../classBullet.html#a4fcced862bdecc3879cfbf3da6029054',1,'Bullet']]],
+  ['disablepausemenu_16',['DisablePauseMenu',['../classPauseMenu.html#a7ceaca5facdf3813a824611dc747b836',1,'PauseMenu']]],
+  ['doublechecktarget_17',['DoubleCheckTarget',['../classBaseTower.html#adc138b23574e6dd080305894354cbf8a',1,'BaseTower']]]
 ];

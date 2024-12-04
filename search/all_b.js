@@ -12,11 +12,10 @@ var searchData=
   ['levelselectionmenu_9',['levelSelectionMenu',['../classMainMenu.html#a8bbcfcf5253365bbaa8dfcd57a950883',1,'MainMenu']]],
   ['levelselector_10',['LevelSelector',['../classLevelSelector.html',1,'']]],
   ['liveenemies_11',['liveEnemies',['../classRoundManager_1_1RoundManager.html#aad7b4d030ad8f2cced970c8ad747baad',1,'RoundManager::RoundManager']]],
-  ['lm_12',['lm',['../classLevelSelector.html#a47cc6d4798658b0327c9d2c4926a7270',1,'LevelSelector']]],
-  ['loaddifficultytable_13',['loadDifficultyTable',['../classLevelManager.html#a5e4145fc4e82b7e8cb578c9896acd629',1,'LevelManager']]],
-  ['loadlevel_14',['loadLevel',['../classRoundManager_1_1RoundManager.html#a7bfb308234aa233e29cd90ab92a5cb0c',1,'RoundManager::RoundManager']]],
-  ['loadleveltest_15',['LoadLevelTest',['../classLoadLevelTest.html',1,'']]],
-  ['loadmap_16',['loadMap',['../classLevel.html#ae4ce2bff44165ab32e2886d645d99acc',1,'Level']]],
-  ['loadroundeventhandler_17',['LoadRoundEventHandler',['../classLevelManager.html#a1c15caaa4e5e4cc727ad63909de61c22',1,'LevelManager']]],
-  ['losemenu_18',['LoseMenu',['../classLoseMenu.html',1,'']]]
+  ['loaddifficultytable_12',['loadDifficultyTable',['../classLevelManager.html#a5e4145fc4e82b7e8cb578c9896acd629',1,'LevelManager']]],
+  ['loadlevel_13',['loadLevel',['../classRoundManager_1_1RoundManager.html#a7bfb308234aa233e29cd90ab92a5cb0c',1,'RoundManager::RoundManager']]],
+  ['loadleveltest_14',['LoadLevelTest',['../classLoadLevelTest.html',1,'']]],
+  ['loadmap_15',['loadMap',['../classLevel.html#ae4ce2bff44165ab32e2886d645d99acc',1,'Level']]],
+  ['loadroundeventhandler_16',['LoadRoundEventHandler',['../classLevelManager.html#a1c15caaa4e5e4cc727ad63909de61c22',1,'LevelManager']]],
+  ['losemenu_17',['LoseMenu',['../classLoseMenu.html',1,'']]]
 ];
