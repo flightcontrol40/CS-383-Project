@@ -59,19 +59,19 @@ public partial class HealthBar : ProgressBar
         UpdateHealthBar(delta);
     }
 
-	public void TestTriggerEnemyReachedEnd(BaseChicken enemy)
-	{
-    	OnEnemyReachedEnd(enemy);
-	}
+    public void TestTriggerEnemyReachedEnd(BaseChicken enemy)
+    {
+        OnEnemyReachedEnd(enemy);
+    }
 
-	
+    
 
-	public void SetHealth(int health)
-	{
-    	currentHealth = Mathf.Clamp(health, 0, 100);
-    	Value = currentHealth;
-    	UpdateHealthBarColor();
-	}
+    public void SetHealth(int health)
+    {
+        currentHealth = Mathf.Clamp(health, 0, 100);
+        Value = currentHealth;
+        UpdateHealthBarColor();
+    }
 
 
 

@@ -20,7 +20,7 @@ public partial class LevelManager : Node
 
     private const string difficultyTablePath = "res://src/Nathan/CustomResources/DifficultyTable.cs";
 
-	[Export]
+    [Export]
     public Difficulty baseDifficulty = Difficulty.Easy;
     [Export]
     public Level level;

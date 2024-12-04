@@ -125,9 +125,10 @@ public partial class RoundManager : Node2D {
     public void HandleEnemyDiesSignal(BaseChicken enemy)
     {
         // Free the enemy
+        GD.Print("Freeing Chicken");
         this.levelData.PlayerMoney += enemy.EnemyRank; // Add to money
         liveEnemies.Remove(enemy);
-        enemy.QueueFree();
+        enemy.Free();
     }
 
     /// <summary>
@@ -139,7 +140,6 @@ public partial class RoundManager : Node2D {
         this.levelData.playerHealth -= enemy.damageAmount;
         // Free the enemy
         liveEnemies.Remove(enemy);
-        enemy.QueueFree();
     }
 
     /// <summary>
@@ -189,8 +189,7 @@ public partial class RoundManager : Node2D {
             else if (
                 this.levelData.playerHealth > 0 &&
                 this.roundRunning == true &&
-                this.levelData.maxRound == this.levelData.CurrentRoundNum)
-                {
+                this.levelData.maxRound == this.levelData.CurrentRoundNum) {
                     this.roundRunning = false;
                     EmitSignal(SignalName.GameWon);
                     cleanLevel();
@@ -199,7 +198,6 @@ public partial class RoundManager : Node2D {
                 this.roundRunning = false;
                 this.levelData.CurrentRoundNum++;
             }
-            GD.Print($"Live enemies: {this.liveEnemies.Count()}");
         }
         base._Process(delta);
     }
