@@ -4,5 +4,7 @@ var searchData=
   ['updatehealthbar_1',['UpdateHealthBar',['../classHealthBar.html#aa565b1c315b07ce22d6bc5cf568472f2',1,'HealthBar']]],
   ['updatehealthbarcolor_2',['UpdateHealthBarColor',['../classHealthBar.html#a4cf3dde1e1aa1bbf619874ea593f8895',1,'HealthBar']]],
   ['updatemoneylabel_3',['UpdateMoneyLabel',['../classShop.html#a7e672e9e507cfe811c51b8e1affa5863',1,'Shop']]],
-  ['updateposition_4',['UpdatePosition',['../classPathFollow2d.html#a272363f0e6cee9ba4b007cc436ae3dbd',1,'PathFollow2d']]]
+  ['updateposition_4',['UpdatePosition',['../classPathFollow2d.html#a272363f0e6cee9ba4b007cc436ae3dbd',1,'PathFollow2d']]],
+  ['updateroundnumbereventhandler_5',['updateRoundNumberEventHandler',['../classRoundManager_1_1RoundManager.html#adaf6b956bfdc1778c43703ba9af772f1',1,'RoundManager::RoundManager']]],
+  ['updateroundnumberlabel_6',['updateRoundNumberLabel',['../classShop.html#ab3aa829853893497c9dc56feb4ad0865',1,'Shop']]]
 ];

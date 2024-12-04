@@ -13,6 +13,7 @@ var classRoundManager_1_1RoundManager =
     [ "spawnEnemy", "classRoundManager_1_1RoundManager.html#addfc0c3129b6ff606f7276e175f31a15", null ],
     [ "startRound", "classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7", null ],
     [ "TakeDamage", "classRoundManager_1_1RoundManager.html#a26c6bf5390870ba76d1c512bac710a95", null ],
+    [ "updateRoundNumberEventHandler", "classRoundManager_1_1RoundManager.html#adaf6b956bfdc1778c43703ba9af772f1", null ],
     [ "currentTime", "classRoundManager_1_1RoundManager.html#a272038ad264893a568c808f13d818b17", null ],
     [ "difficultyCalculator", "classRoundManager_1_1RoundManager.html#a85118af8d13dde082049ec7b604925e7", null ],
     [ "levelData", "classRoundManager_1_1RoundManager.html#aed98e887d39099a6c6df16df8c948c4d", null ],

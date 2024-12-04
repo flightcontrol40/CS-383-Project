@@ -20,6 +20,7 @@ var classShop =
     [ "SelectTower", "classShop.html#a0663d7821e053a545f887b6eac7876d4", null ],
     [ "TowerBoughtEventHandler", "classShop.html#aa746a7ac4d5f5cce8a3c5ab506af2b65", null ],
     [ "UpdateMoneyLabel", "classShop.html#a7e672e9e507cfe811c51b8e1affa5863", null ],
+    [ "updateRoundNumberLabel", "classShop.html#ab3aa829853893497c9dc56feb4ad0865", null ],
     [ "basicTowerPrice", "classShop.html#a788de4e2311ba899e596b0ada14c0db7", null ],
     [ "heavyTowerPrice", "classShop.html#a679b801a40387db20619f1e159141595", null ],
     [ "moneyLabel", "classShop.html#a22f55fa10008bebb205fdc7448a51229", null ],
