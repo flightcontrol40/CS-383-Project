@@ -1,6 +1,5 @@
 using Godot;
 using System;
-
 namespace Chicken;
 
 public enum Cost{
@@ -40,6 +39,8 @@ public static partial class ChickenFactory { //Factory Pattern used by round man
 
 public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
+	GodotObject soundManager;
+
 	[Export]
 	public int Health = 100; // Set base health
 	public int Speed = 150; // Set base speed
@@ -55,7 +56,9 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	/// <summary>
 	/// Makes chicken a child to a path so that path following is possible
 	/// </summary>
+
 	
+
 	public void Start(Path2D LevelPath) {
 		this.path = LevelPath;
 		Reparent(LevelPath);
@@ -70,8 +73,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	public override void _Process(double delta){
 		if(started == true){
 			this.SetProgress(Progress + (float)(delta * Speed)); // Increment the progress ratio based on the speed and delta time
-			if (this.ProgressRatio >= 1)
-			{
+			if (this.ProgressRatio >= 1) {
 				EmitSignal(SignalName.EndOfPath, this); // Lets round manager / healthbar know when a chicken reaches end of path
 			}
 		}
@@ -111,6 +113,8 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.Visible = false;
 		// Reference the Area2D node
 		_collisionArea = GetNode<Area2D>("Area2D");
+
+		this.
 
 		// Connect the "area_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
