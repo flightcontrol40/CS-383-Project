@@ -42,7 +42,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
     public GodotObject soundManager;
 
     [Export]
-    public int Health = 100; // Set base health
+    public int Health = 75; // Set base health
     public int Speed = 150; // Set base speed
     public int damageAmount {protected set; get; } = 2; // Set base damage
     public int EnemyRank = 1; //set rank for round manager money

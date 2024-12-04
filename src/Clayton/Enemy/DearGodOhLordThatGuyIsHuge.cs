@@ -6,7 +6,7 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 
     public DearGodOhLordThatGuyIsHuge(){
         Speed = 100; // Set tier 4 speed
-        Health = 2500; // Set tier 4 health
+        Health = 1500; // Set tier 4 health
         damageAmount = 250; // Set tier 4 damage 
         EnemyRank = 4; // Set rank for round manager money
     }
