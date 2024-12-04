@@ -190,11 +190,9 @@ public partial class RoundManager : Node2D {
                     EmitSignal(SignalName.GameWon);
                     cleanLevel();
                 }
-
             else if ( this.spawnQueue.Count() == 0 && this.liveEnemies.Count() == 0){
                 GD.Print($"Round {this.levelData.CurrentRoundNum} Completed");
                 this.roundRunning = false;
-                this.levelData.CurrentRoundNum++;
             }
         }
         base._Process(delta);
