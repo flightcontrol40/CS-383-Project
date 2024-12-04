@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cmdbsyrd1i1ro" path="res://src/Nathan/Assets/Pugna Pastoria.mp3" id="10_hhedy"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_prlrv"]
+shuffle = true
 fade_time = 0.56
 stream_count = 9
 stream_0 = ExtResource("2_rtc1t")

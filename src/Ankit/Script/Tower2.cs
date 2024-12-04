@@ -26,6 +26,8 @@ public partial class Tower2 : BaseTower
         GD.Print($"Bullet Speed: {BulletSpeed}");
         GD.Print($"Bullet Damage: {BulletDamage}");
         GD.Print("===========================================");
+        shootTimer.WaitTime = ShootingInterval;
+    
     }
 
     protected override IBulletBuilder CreateBulletBuilder()

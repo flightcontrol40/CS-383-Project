@@ -126,9 +126,8 @@ public partial class RoundManager : Node2D {
     {
         // Free the enemy
         GD.Print("Freeing Chicken");
-        this.levelData.PlayerMoney += enemy.EnemyRank; // Add to money
+        this.levelData.PlayerMoney += (enemy.EnemyRank * 5); // Add to money
         liveEnemies.Remove(enemy);
-        enemy.Free();
     }
 
     /// <summary>
@@ -148,6 +147,9 @@ public partial class RoundManager : Node2D {
     /// <param name="enemy">The associated enemy.</param>
     public void HandleEnemySplit(BaseChicken enemy) {
         this.liveEnemies.Add(enemy); // Start tracking the new chicken
+        enemy.EnemyDied += HandleEnemyDiesSignal;
+        enemy.EndOfPath += HandleEnemyFinishedSignal;
+        enemy.EnemySplit += HandleEnemySplit;
     }
 
     /// <summary>
@@ -194,7 +196,9 @@ public partial class RoundManager : Node2D {
                     EmitSignal(SignalName.GameWon);
                     cleanLevel();
                 }
+
             else if ( this.spawnQueue.Count() == 0 && this.liveEnemies.Count() == 0){
+                GD.Print($"Round {this.levelData.CurrentRoundNum} Completed");
                 this.roundRunning = false;
                 this.levelData.CurrentRoundNum++;
             }
@@ -222,5 +226,10 @@ public partial class RoundManager : Node2D {
     /// </summary>
     [Signal]
     public delegate void GameWonEventHandler();
+
+
+    private int GetMaxRoundNumber(){
+        return this.levelData.difficultyTable.EnemyRanks.Count();
+    }
 
 }

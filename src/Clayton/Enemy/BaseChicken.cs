@@ -44,7 +44,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
     [Export]
     public int Health = 100; // Set base health
     public int Speed = 150; // Set base speed
-    public int damageAmount {protected set; get; } = 10; // Set base damage
+    public int damageAmount {protected set; get; } = 2; // Set base damage
     public int EnemyRank = 1; //set rank for round manager money
     public bool Dead = false;
 
@@ -58,7 +58,6 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
     /// Makes chicken a child to a path so that path following is possible
     /// </summary>
 
-    
 
     public void Start(Path2D LevelPath) {
         this.path = LevelPath;
@@ -68,7 +67,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
         else{
             Reparent(LevelPath);
         }
-        this.Visible = true; 
+        this.Visible = true;
         this.started = true;
         SetLoop(false); // Prevents looping of the path
         
@@ -81,6 +80,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
             this.SetProgress(Progress + (float)(delta * Speed)); // Increment the progress ratio based on the speed and delta time
             if (this.ProgressRatio >= 1) {
                 EmitSignal(SignalName.EndOfPath, this); // Lets round manager / healthbar know when a chicken reaches end of path
+                this.QueueFree();
             }
         }
    }

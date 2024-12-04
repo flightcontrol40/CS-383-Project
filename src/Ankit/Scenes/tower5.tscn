@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/Ankit/Script/Tower5.cs" id="1_rllng"]
 [ext_resource type="PackedScene" uid="uid://dmi80xnwl2m1b" path="res://src/Ankit/Scenes/bullet.tscn" id="2_esi1f"]
-[ext_resource type="Texture2D" uid="uid://klgv6ultud4m" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Bodies/body_halftrack.png" id="2_r1jo6"]
-[ext_resource type="Texture2D" uid="uid://cih6co3hcaxfo" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Weapons/turret_02_mk4.png" id="3_66it6"]
-[ext_resource type="Texture2D" uid="uid://cc7ldvkrul14q" path="res://src/Ankit/Assets/cowimage.png" id="5_rr86u"]
+[ext_resource type="Texture2D" uid="uid://dsmbe2op86npa" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Bodies/body_halftrack.png" id="2_r1jo6"]
+[ext_resource type="Texture2D" uid="uid://bc258thc2c8su" path="res://src/Ankit/Assets/ground_shaker_asset/Red/Weapons/turret_02_mk4.png" id="3_66it6"]
+[ext_resource type="Texture2D" uid="uid://bdwthgqxr0fme" path="res://src/Ankit/Assets/cowimage.png" id="5_rr86u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7tfl"]
 atlas = ExtResource("2_r1jo6")

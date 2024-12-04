@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/Ankit/Script/Tower4.cs" id="1_kr7sm"]
 [ext_resource type="PackedScene" uid="uid://dmi80xnwl2m1b" path="res://src/Ankit/Scenes/bullet.tscn" id="2_aypnh"]
-[ext_resource type="Texture2D" uid="uid://c61q222ojv8tj" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Bodies/body_halftrack.png" id="2_ompr3"]
-[ext_resource type="Texture2D" uid="uid://blu66ruy2k6ia" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Weapons/turret_02_mk4.png" id="3_a3834"]
-[ext_resource type="Texture2D" uid="uid://cc7ldvkrul14q" path="res://src/Ankit/Assets/cowimage.png" id="5_emwhj"]
+[ext_resource type="Texture2D" uid="uid://bikhusrxs4436" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Bodies/body_halftrack.png" id="2_ompr3"]
+[ext_resource type="Texture2D" uid="uid://cu741pgh7a0g7" path="res://src/Ankit/Assets/ground_shaker_asset/Purple/Weapons/turret_02_mk4.png" id="3_a3834"]
+[ext_resource type="Texture2D" uid="uid://bdwthgqxr0fme" path="res://src/Ankit/Assets/cowimage.png" id="5_emwhj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_diifh"]
 atlas = ExtResource("2_ompr3")
@@ -114,7 +114,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5saor"]
-radius = 192.0
+radius = 500.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4x3v"]
 size = Vector2(74, 89)

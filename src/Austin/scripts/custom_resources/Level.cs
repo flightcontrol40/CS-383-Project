@@ -7,6 +7,7 @@
 using System;
 using DifficultyCalculator;
 using Godot;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using RoundManager;
 
 [GlobalClass]
@@ -17,7 +18,7 @@ public partial class Level : Resource
     [Export]
     public DifficultyTable difficultyTable;
     [Export]
-    private int PlayerHealth = 100;
+    private int PlayerHealth = 250;
     [Export]
     private int playerMoney = 500;
     [Export]
@@ -49,6 +50,7 @@ public partial class Level : Resource
     public Level() {
         GD.Print("Hello there I am an instance of level");
     }
+
 
     /// <summary>
     /// If there isn't already a map instance, creates a new one.

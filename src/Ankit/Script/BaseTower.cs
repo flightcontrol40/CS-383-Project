@@ -389,11 +389,17 @@ public partial class BaseTower : Node2D
             var bullet = BulletScene.Instantiate<Bullet>();
             if (bullet != null)
             {
+                var shape = sightArea?.GetNode<CollisionShape2D>("CollisionShape2D")?.Shape as CircleShape2D;
+                float range = shape?.Radius ?? 0;
                 bullet.Position = spawnPoint.GlobalPosition;
                 bullet.TowerPosition = GlobalPosition;
                 bullet.Direction = (currentTarget.GlobalPosition - bullet.Position).Normalized();
                 bullet.Speed = BulletSpeed;
                 bullet.Damage = BulletDamage;
+                if (range != 0){
+                bullet.TowerRange = range;
+
+                }
                 AddSibling(bullet);
                 bullet.AddToGroup("Projectile");
             }
@@ -542,9 +548,6 @@ public partial class BaseTower : Node2D
     }
 
 
-
-
-    
 
     // Processes tower's rotation to aim at the target and manage shooting.
     public override void _Process(double delta)

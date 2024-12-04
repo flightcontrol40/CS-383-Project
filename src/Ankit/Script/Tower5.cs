@@ -6,7 +6,7 @@ public partial class Tower5 : BaseTower
     protected override void InitializeComponents()
     {
         base.InitializeComponents();
-        SetupSpawnPoints(5);  // Five spawn points for Tower5
+        SetupSpawnPoints(1);  // Five spawn points for Tower5
     }
     // public override void _Ready()
     // {
@@ -23,10 +23,10 @@ public partial class Tower5 : BaseTower
     protected override void InitializeTowerProperties()
     {
         // Speed tower configuration
-        ShootingInterval = 0.75f;    // Fast shooting
-        RotationSpeed = 8.0f;       // Fastest rotation
+        ShootingInterval = 0.2f;    // Fast shooting
+        RotationSpeed = 12.0f;       // Fastest rotation
         BulletsPerShot = 1;         // Single shot
-        BulletSpeed = 450f;         // Fastest bullets
+        BulletSpeed = 5000f;         // Fastest bullets
         BulletDamage = 10;          // Normal damage
 
         GD.Print("=== Speed Tower Properties Initialized ===");
@@ -37,6 +37,7 @@ public partial class Tower5 : BaseTower
         GD.Print($"Bullet Speed: {BulletSpeed}");
         GD.Print($"Bullet Damage: {BulletDamage}");
         GD.Print("=========================================");
+        shootTimer.WaitTime = ShootingInterval;
     }
 
     protected override IBulletBuilder CreateBulletBuilder()
