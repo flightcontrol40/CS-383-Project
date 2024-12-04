@@ -7,6 +7,7 @@ var classMain =
     [ "ReloadLevel", "classMain.html#aec009801c1029ae6bebb9570577f8d2f", null ],
     [ "SetPaused", "classMain.html#ad676722361af1883ddef8230697a4432", null ],
     [ "levelm", "classMain.html#a57f3896bd2ae45ff3129b6dda5dcf0f5", null ],
+    [ "levelSelector", "classMain.html#add8d208c9af6a71d949cd7033557070f", null ],
     [ "newTower", "classMain.html#abf822a4eef8980c43cf3f8d3b2ec6488", null ],
     [ "pauseMenu", "classMain.html#a8669cdf1b0df4e9df579b33bb6ad3a4d", null ],
     [ "PlacingTurret", "classMain.html#af7f4af5fcd1fdb17826a032236a11727", null ],

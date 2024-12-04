@@ -6,5 +6,6 @@ var searchData=
   ['levelloaded_3',['levelLoaded',['../classLevelManager.html#af3ee07980c2289f926b1f396eb6187ab',1,'LevelManager']]],
   ['levelm_4',['levelm',['../classMain.html#a57f3896bd2ae45ff3129b6dda5dcf0f5',1,'Main']]],
   ['levelselectionmenu_5',['levelSelectionMenu',['../classMainMenu.html#a8bbcfcf5253365bbaa8dfcd57a950883',1,'MainMenu']]],
-  ['liveenemies_6',['liveEnemies',['../classRoundManager_1_1RoundManager.html#aad7b4d030ad8f2cced970c8ad747baad',1,'RoundManager::RoundManager']]]
+  ['levelselector_6',['levelSelector',['../classMain.html#add8d208c9af6a71d949cd7033557070f',1,'Main']]],
+  ['liveenemies_7',['liveEnemies',['../classRoundManager_1_1RoundManager.html#aad7b4d030ad8f2cced970c8ad747baad',1,'RoundManager::RoundManager']]]
 ];

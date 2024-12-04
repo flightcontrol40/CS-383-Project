@@ -2,6 +2,7 @@ var classLevelSelector =
 [
     [ "_Process", "classLevelSelector.html#a283e0ea55da32a4e18caeabb96d5c04a", null ],
     [ "_Ready", "classLevelSelector.html#a58d67e4d7bf68d0a09ed9630ba231b30", null ],
+    [ "GameStartedEventHandler", "classLevelSelector.html#ad0faa9107efb291f511dc8e4c7d17a68", null ],
     [ "OnDefaultMapPressed", "classLevelSelector.html#a7bef71f9e5b7fc30ec75b39a021eb862", null ],
     [ "OnEasyDifficultyPressed", "classLevelSelector.html#ae014e6bb4ceb1bf9d0008a4f378d38b8", null ],
     [ "OnHardDifficultyPressed", "classLevelSelector.html#a0ae30d58b4902254fd2662fe1ccfda56", null ],
