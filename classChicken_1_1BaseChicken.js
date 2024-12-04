@@ -9,6 +9,7 @@ var classChicken_1_1BaseChicken =
     [ "Start", "classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749", null ],
     [ "TakeDamage", "classChicken_1_1BaseChicken.html#a9cfe2ed2a40b26ce515e523a99039746", null ],
     [ "_collisionArea", "classChicken_1_1BaseChicken.html#a10ceea8eb354754f949ad9c879e0da50", null ],
+    [ "Dead", "classChicken_1_1BaseChicken.html#a8ae546dd6a9379070867c205d5a6e5f3", null ],
     [ "EnemyRank", "classChicken_1_1BaseChicken.html#a954ff97be4c5583b98da9898339c33e0", null ],
     [ "Health", "classChicken_1_1BaseChicken.html#a7e2e71a8bd09a63b231d1146aa939b80", null ],
     [ "path", "classChicken_1_1BaseChicken.html#aa54b50837e39df0998d44f28d445f552", null ],

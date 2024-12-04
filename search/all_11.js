@@ -29,8 +29,8 @@ var searchData=
   ['spawnenemy_26',['spawnEnemy',['../classRoundManager_1_1RoundManager.html#addfc0c3129b6ff606f7276e175f31a15',1,'RoundManager::RoundManager']]],
   ['spawnorder_27',['SpawnOrder',['../classDifficultyCalculator_1_1SpawnOrder.html',1,'SpawnOrder'],['../classDifficultyCalculator_1_1SpawnOrder.html#a5710e4375507bd6d84e3a6d5b24ae2d0',1,'DifficultyCalculator.SpawnOrder.SpawnOrder()']]],
   ['spawnqueue_28',['spawnQueue',['../classRoundManager_1_1RoundManager.html#a396b2fc1458f8423bfd9265daa038e47',1,'RoundManager::RoundManager']]],
-  ['speed_29',['Speed',['../classBullet.html#a61efabcca15cccefe7d85ea6da6af5e3',1,'Bullet.Speed()'],['../classChicken_1_1BaseChicken.html#a04caa6dcdf90645ea95e5f3281d780cd',1,'Chicken.BaseChicken.Speed()'],['../classShop.html#a4b569390857a418d4eb55b05fb377deda44877c6aa8e93fa5a91c9361211464fb',1,'Shop.Speed()']]],
-  ['speed_30',['speed',['../classPathFollow2d.html#a7f7e4724cf57d59513b39c5ecc81adc8',1,'PathFollow2d']]],
+  ['speed_29',['speed',['../classPathFollow2d.html#a7f7e4724cf57d59513b39c5ecc81adc8',1,'PathFollow2d']]],
+  ['speed_30',['Speed',['../classBullet.html#a61efabcca15cccefe7d85ea6da6af5e3',1,'Bullet.Speed()'],['../classChicken_1_1BaseChicken.html#a04caa6dcdf90645ea95e5f3281d780cd',1,'Chicken.BaseChicken.Speed()'],['../classShop.html#a4b569390857a418d4eb55b05fb377deda44877c6aa8e93fa5a91c9361211464fb',1,'Shop.Speed()']]],
   ['speedtowerprice_31',['speedTowerPrice',['../classShop.html#a77c6f329709d6e74ad0973b751f5e626',1,'Shop']]],
   ['standardbulletbuilder_32',['StandardBulletBuilder',['../classStandardBulletBuilder.html',1,'']]],
   ['start_33',['Start',['../classChicken_1_1BaseChicken.html#a9d3d3711aa7e360a5d3e6b2be4ec5749',1,'Chicken::BaseChicken']]],
@@ -38,6 +38,5 @@ var searchData=
   ['started_35',['started',['../classChicken_1_1BaseChicken.html#a43c08d193d555a2b2a61c53d2a4e5a63',1,'Chicken::BaseChicken']]],
   ['startgamebutton_36',['startGameButton',['../classMainMenu.html#ae8bfaa7f047e088f8412cfb16164bde9',1,'MainMenu']]],
   ['startround_37',['startRound',['../classRoundManager_1_1RoundManager.html#aa203203b1859ecc63cdbbeed16359eb7',1,'RoundManager::RoundManager']]],
-  ['startroundbutton_38',['StartRoundButton',['../classMain.html#a63ce771664121c77855b21c2abc6835a',1,'Main']]],
-  ['stress_39',['Stress',['../classChickenWalkTest.html#a22d30841880a54203e022dbe40d4113d',1,'ChickenWalkTest']]]
+  ['startroundbutton_38',['StartRoundButton',['../classMain.html#a63ce771664121c77855b21c2abc6835a',1,'Main']]]
 ];

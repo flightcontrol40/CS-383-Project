@@ -1,12 +1,23 @@
 var searchData=
 [
-  ['takedamage_0',['TakeDamage',['../classChicken_1_1BaseChicken.html#a9cfe2ed2a40b26ce515e523a99039746',1,'Chicken.BaseChicken.TakeDamage()'],['../classDearGodOhLordThatGuyIsHuge.html#a06f35dc2b943d756aa43533a43387b22',1,'DearGodOhLordThatGuyIsHuge.TakeDamage()'],['../classFrank.html#a06f35dc2b943d756aa43533a43387b22',1,'Frank.TakeDamage()'],['../classFrankest.html#a06f35dc2b943d756aa43533a43387b22',1,'Frankest.TakeDamage()'],['../classRoundManager_1_1RoundManager.html#a26c6bf5390870ba76d1c512bac710a95',1,'RoundManager.RoundManager.TakeDamage()']]],
+  ['takedamage_0',['TakeDamage',['../classDearGodOhLordThatGuyIsHuge.html#a06f35dc2b943d756aa43533a43387b22',1,'DearGodOhLordThatGuyIsHuge.TakeDamage()'],['../classFrank.html#a06f35dc2b943d756aa43533a43387b22',1,'Frank.TakeDamage()'],['../classFrankest.html#a06f35dc2b943d756aa43533a43387b22',1,'Frankest.TakeDamage()'],['../classRoundManager_1_1RoundManager.html#a26c6bf5390870ba76d1c512bac710a95',1,'RoundManager.RoundManager.TakeDamage()'],['../classChicken_1_1BaseChicken.html#a9cfe2ed2a40b26ce515e523a99039746',1,'Chicken.BaseChicken.TakeDamage()']]],
   ['testtriggerenemyreachedend_1',['TestTriggerEnemyReachedEnd',['../classHealthBar.html#a9af875daf60af81ca443034d98752cf3',1,'HealthBar']]],
-  ['togglecollisionshapes_2',['ToggleCollisionShapes',['../classBaseTower.html#a71846eadae6ea911b7f9a6ee26966b47',1,'BaseTower']]],
-  ['tower1factory_3',['Tower1Factory',['../classTower1Factory.html#aeb316b6fd1502354378c166b9ea64826',1,'Tower1Factory']]],
-  ['tower2factory_4',['Tower2Factory',['../classTower2Factory.html#a8bcfce5941bbe1568d2f4b1e9e35a331',1,'Tower2Factory']]],
-  ['tower3factory_5',['Tower3Factory',['../classTower3Factory.html#adc7fef863e0ae42d5e896b80946813b8',1,'Tower3Factory']]],
-  ['tower4factory_6',['Tower4Factory',['../classTower4Factory.html#a13ab7dbb6d9d6c3e84e44f57e2bd83b7',1,'Tower4Factory']]],
-  ['tower5factory_7',['Tower5Factory',['../classTower5Factory.html#a1da8f8c09ddffd1a83ad899354c729eb',1,'Tower5Factory']]],
-  ['towerboughteventhandler_8',['TowerBoughtEventHandler',['../classShop.html#aa746a7ac4d5f5cce8a3c5ab506af2b65',1,'Shop']]]
+  ['timercalc1_2',['TimerCalc1',['../classChickenWalkTest.html#a2fcf00e4ee53152b74b75df5b2ea3fbc',1,'ChickenWalkTest']]],
+  ['timercalc10_3',['TimerCalc10',['../classChickenWalkTest.html#a58606fb9e0746b4a79ff3d7dfe3d6ca4',1,'ChickenWalkTest']]],
+  ['timercalc11_4',['TimerCalc11',['../classChickenWalkTest.html#ac05c30ea344ba21ea85cf5521068e4df',1,'ChickenWalkTest']]],
+  ['timercalc2_5',['TimerCalc2',['../classChickenWalkTest.html#ad58cf9f40025c36de6fb80557809adb7',1,'ChickenWalkTest']]],
+  ['timercalc3_6',['TimerCalc3',['../classChickenWalkTest.html#ae023e237c3713aa5c7b1ce3bf528dfc3',1,'ChickenWalkTest']]],
+  ['timercalc4_7',['TimerCalc4',['../classChickenWalkTest.html#ae9713d9422587b49a3d30f21f7b3ed1f',1,'ChickenWalkTest']]],
+  ['timercalc5_8',['TimerCalc5',['../classChickenWalkTest.html#abc0f348a08c074fe9ab7e2e2e1027d48',1,'ChickenWalkTest']]],
+  ['timercalc6_9',['TimerCalc6',['../classChickenWalkTest.html#aaa99e435e0a4026b7cbd5f25cc15b01d',1,'ChickenWalkTest']]],
+  ['timercalc7_10',['TimerCalc7',['../classChickenWalkTest.html#a636f065812ca9f3af340676dad73ff02',1,'ChickenWalkTest']]],
+  ['timercalc8_11',['TimerCalc8',['../classChickenWalkTest.html#a4c1707bc5837a58416f244da8696758b',1,'ChickenWalkTest']]],
+  ['timercalc9_12',['TimerCalc9',['../classChickenWalkTest.html#af002277558ae62e8d33ab057784a9d3b',1,'ChickenWalkTest']]],
+  ['togglecollisionshapes_13',['ToggleCollisionShapes',['../classBaseTower.html#a71846eadae6ea911b7f9a6ee26966b47',1,'BaseTower']]],
+  ['tower1factory_14',['Tower1Factory',['../classTower1Factory.html#aeb316b6fd1502354378c166b9ea64826',1,'Tower1Factory']]],
+  ['tower2factory_15',['Tower2Factory',['../classTower2Factory.html#a8bcfce5941bbe1568d2f4b1e9e35a331',1,'Tower2Factory']]],
+  ['tower3factory_16',['Tower3Factory',['../classTower3Factory.html#adc7fef863e0ae42d5e896b80946813b8',1,'Tower3Factory']]],
+  ['tower4factory_17',['Tower4Factory',['../classTower4Factory.html#a13ab7dbb6d9d6c3e84e44f57e2bd83b7',1,'Tower4Factory']]],
+  ['tower5factory_18',['Tower5Factory',['../classTower5Factory.html#a1da8f8c09ddffd1a83ad899354c729eb',1,'Tower5Factory']]],
+  ['towerboughteventhandler_19',['TowerBoughtEventHandler',['../classShop.html#aa746a7ac4d5f5cce8a3c5ab506af2b65',1,'Shop']]]
 ];
