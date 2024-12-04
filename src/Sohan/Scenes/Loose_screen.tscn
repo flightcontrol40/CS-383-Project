@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://gaehkex37cx0"]
+[gd_scene load_steps=10 format=3 uid="uid://gaehkex37cx0"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/LoseMenu.cs" id="1_5xi0i"]
-[ext_resource type="Texture2D" uid="uid://bikx0eptrtibo" path="res://src/Sohan/Assests/360_F_389246345_eOfW9MU1KcOaDx93CMm6GDv3UQlTLxwq.png" id="2_88yes"]
-[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="3_7j8iy"]
+[ext_resource type="Texture2D" uid="uid://d2h8ujts7r5nx" path="res://src/Sohan/Assests/360_F_389246345_eOfW9MU1KcOaDx93CMm6GDv3UQlTLxwq.png" id="2_88yes"]
+[ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="3_7j8iy"]
+[ext_resource type="PackedScene" uid="uid://bt6h2647pjrx7" path="res://src/Nathan/scenes/SettingsMenu.tscn" id="4_wwq31"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_88yes")
@@ -136,3 +137,6 @@ text = "You Loose
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SettingsMenu" parent="." instance=ExtResource("4_wwq31")]
+layout_mode = 1

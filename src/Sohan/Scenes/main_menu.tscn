@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dk3xwdblv4m6w"]
+[gd_scene load_steps=13 format=3 uid="uid://dk3xwdblv4m6w"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_xq74t"]
-[ext_resource type="Texture2D" uid="uid://cwd5nrmcvpqt7" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
-[ext_resource type="FontFile" uid="uid://dxr8sy74ub2t2" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
+[ext_resource type="Texture2D" uid="uid://dlemuunwvfnu8" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
+[ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
 [ext_resource type="PackedScene" uid="uid://vlulkw1n2v1t" path="res://src/Austin/scenes/level_selection_menu.tscn" id="4_edmo6"]
+[ext_resource type="PackedScene" uid="uid://bt6h2647pjrx7" path="res://src/Nathan/scenes/SettingsMenu.tscn" id="5_ngvyu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_vtaje")
@@ -38,9 +39,9 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_vtv1u"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_ldnsm"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_u8pi4"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_7g0gd"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -144,5 +145,8 @@ vertical_alignment = 1
 [node name="LevelSelector" parent="." instance=ExtResource("4_edmo6")]
 visible = false
 layout_mode = 1
-difficutlySelection = SubResource("ButtonGroup_vtv1u")
-mapSelection = SubResource("ButtonGroup_u8pi4")
+difficutlySelection = SubResource("ButtonGroup_ldnsm")
+mapSelection = SubResource("ButtonGroup_7g0gd")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_ngvyu")]
+layout_mode = 1

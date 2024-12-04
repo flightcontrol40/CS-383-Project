@@ -20,6 +20,9 @@ func _ready():
     set_sfx_volume(.25)
 
 
+func _load_default_sounds():
+    load_sound("chicken_death","res://src/Nathan/Assets/chicken-noise.mp3")
+
 func _update_volumes():
     music_player.volume_db = linear_to_db(music_volume)
     sfx_player.volume_db = linear_to_db(sfx_volume)

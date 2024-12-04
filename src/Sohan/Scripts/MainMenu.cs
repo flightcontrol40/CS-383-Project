@@ -3,14 +3,20 @@ using Godot;
 public partial class MainMenu : Control
 {
     private Button startGameButton;
+    private Button optionsGameButton;
+
     private Button exitGameButton;
     private Control levelSelectionMenu;
+    private Control SettingsMenu;
+
 
     public override void _Ready()
     {
         // Get the Start Game button and the Level Selection Menu
         startGameButton = GetNode<Button>("VBoxContainer/Button");
+        optionsGameButton = GetNode<Button>("VBoxContainer/Button2");
         exitGameButton = GetNode<Button>("VBoxContainer/Button3");
+        SettingsMenu = GetNode<Control>("SettingsMenu");
 
         // Ensure the Level Selection Menu exists
         levelSelectionMenu = GetNodeOrNull<Control>("../LevelSelector");
@@ -23,6 +29,8 @@ public partial class MainMenu : Control
         // Connect button signals
         startGameButton.Pressed += OnStartPressed;
         exitGameButton.Pressed += OnExitPressed;
+        optionsGameButton.Pressed += OnOptionsPressed;
+        this.SettingsMenu.Connect("return_to_menu",Callable.From(HandleSettingsMenuReturnButton));
 
         // Debug visibility states
         GD.Print($"MainMenu Visibility (initial): {this.Visible}");
@@ -36,13 +44,45 @@ public partial class MainMenu : Control
     private void OnStartPressed()
     {
         GD.Print("Start button pressed. Opening Level Selection Menu.");
-        this.Visible = false;               // Hide Main Menu
+        this.Visible = false;
+        this.HideMenu();                   // Hide Main Menu
         levelSelectionMenu.Visible = true; // Show Level Selection Menu
     }
 
-    private void OnExitPressed()
-    {
+    private void OnExitPressed() {
         GD.Print("Exit button pressed. Exiting the game...");
         GetTree().Quit(); // Quit the game
     }
+
+    private void OnOptionsPressed(){
+        GD.Print("Opening options menu through main menu");
+        var sub_menu_visible = (bool)this.SettingsMenu.Get("visible");
+        if (sub_menu_visible == false){
+            GD.Print("Opening options menu through main menu");
+            this.HideMenu();
+            this.SettingsMenu.Call("unhide_menu");
+        }
+    }
+
+    private void HandleSettingsMenuReturnButton(){
+        this.SettingsMenu.Call("hide_menu");
+        this.ShowMenu();
+    }
+
+
+    private void HideMenu() {
+        this.startGameButton.Visible = false;
+        this.exitGameButton.Visible = false;
+        this.optionsGameButton.Visible = false;
+        MouseFilter = MouseFilterEnum.Ignore;
+    }
+
+     private void ShowMenu() {
+        this.startGameButton.Visible = true;
+        this.exitGameButton.Visible = true;
+        this.optionsGameButton.Visible = true;
+        MouseFilter = MouseFilterEnum.Stop;
+    }
+
+
 }

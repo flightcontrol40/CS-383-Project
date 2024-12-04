@@ -10,6 +10,7 @@ public partial class PauseMenu : BaseMenu
     private Panel panel;
     private VBoxContainer vboxContainer;
     private Label label;
+    private Control SettingsMenu;
 
     public override void _Ready()
     {
@@ -22,6 +23,7 @@ public partial class PauseMenu : BaseMenu
         panel = GetNode<Panel>("Panel");
         vboxContainer = GetNode<VBoxContainer>("VBoxContainer");
         label = GetNode<Label>("Label");
+        SettingsMenu = GetNode<Control>("SettingsMenu");
 
         // Initially hide everything
         HideMenu();
@@ -46,6 +48,7 @@ public partial class PauseMenu : BaseMenu
         resumeButton.Pressed += OnResumePressed;
         restartButton.Pressed += OnRestartPressed;
         optionsButton.Pressed += OnOptionsPressed;
+        this.SettingsMenu.Connect("return_to_menu",Callable.From(HandleSettingsMenuReturnButton));
     }
 
     protected override void OnExitPressed()
@@ -99,12 +102,17 @@ public partial class PauseMenu : BaseMenu
         GetTree().ChangeSceneToFile("res://src/Sohan/Scenes/main_menu.tscn");
     }
 
-    private void OnOptionsPressed()
-    {
+    private void OnOptionsPressed() {
         GD.Print("Opening options menu through main menu");
-        GetTree().Paused = false;
+        var sub_menu_visible = (bool)this.SettingsMenu.Get("visible");
+        if (sub_menu_visible == false){
+            GD.Print("Opening options menu through main menu");
+            this.HideMenu();
+            this.SettingsMenu.Call("unhide_menu");
+        }
+        // GetTree().Paused = false;
         // Go back to main menu which will handle options
-        GetTree().ChangeSceneToFile("res://src/Sohan/Scenes/main_menu.tscn");
+        // GetTree().ChangeSceneToFile("res://src/Sohan/Scenes/main_menu.tscn");
     }
 
     public void EnablePauseMenu()
@@ -126,4 +134,11 @@ public partial class PauseMenu : BaseMenu
             GD.Print("Pause button disabled");
         }
     }
+
+    private void HandleSettingsMenuReturnButton(){
+        this.SettingsMenu.Call("hide_menu");
+        this.ShowMenu();
+    }
+
 }
+

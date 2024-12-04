@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://scqpiveh4flc"]
+[gd_scene load_steps=11 format=3 uid="uid://scqpiveh4flc"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/PauseMenu.cs" id="1_di0as"]
-[ext_resource type="Texture2D" uid="uid://cpeammv0lcn4h" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
-[ext_resource type="FontFile" uid="uid://cb432vsmi6df8" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
-[ext_resource type="Texture2D" uid="uid://dtypffvjg3mta" path="res://src/Ankit/Assets/art/pause-Photoroom.png" id="4_03s71"]
+[ext_resource type="Texture2D" uid="uid://dlemuunwvfnu8" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_wp4bj"]
+[ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="3_v2065"]
+[ext_resource type="Texture2D" uid="uid://m3l08o2p1r7e" path="res://src/Ankit/Assets/art/pause-Photoroom.png" id="4_03s71"]
+[ext_resource type="PackedScene" uid="uid://bt6h2647pjrx7" path="res://src/Nathan/scenes/SettingsMenu.tscn" id="5_w4pxb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_wp4bj")
@@ -162,5 +163,8 @@ offset_right = 1535.0
 offset_bottom = 447.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("4_03s71")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_w4pxb")]
+layout_mode = 1
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
