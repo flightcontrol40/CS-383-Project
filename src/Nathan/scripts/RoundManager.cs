@@ -124,6 +124,9 @@ public partial class RoundManager : Node2D {
         GD.Print("Freeing Chicken");
         this.levelData.PlayerMoney += (enemy.EnemyRank * 5); // Add to money
         liveEnemies.Remove(enemy);
+            if (enemy is not null){
+                enemy.CallDeferred("queue_free");
+            }
     }
 
     /// <summary>
@@ -135,6 +138,10 @@ public partial class RoundManager : Node2D {
         this.levelData.playerHealth -= enemy.damageAmount;
         // Free the enemy
         liveEnemies.Remove(enemy);
+            if (enemy is not null){
+                enemy.CallDeferred("queue_free");
+            }
+
     }
 
     /// <summary>
@@ -159,7 +166,10 @@ public partial class RoundManager : Node2D {
         }
         spawnQueue.Clear();
         foreach (BaseChicken enemy in liveEnemies){
-            enemy.QueueFree();
+            if (enemy is not null){
+                enemy.CallDeferred("queue_free");
+
+            }
         }
         liveEnemies.Clear();
     }

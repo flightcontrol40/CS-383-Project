@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c602kiofe7fhi"]
+[gd_scene load_steps=12 format=3 uid="uid://dk3xwdblv4m6w"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_xq74t"]
-[ext_resource type="Texture2D" uid="uid://baa8x0t526dfo" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
-[ext_resource type="FontFile" uid="uid://1fvqjgo72w32" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
+[ext_resource type="Texture2D" uid="uid://dlemuunwvfnu8" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
+[ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="3_gjayn"]
 [ext_resource type="PackedScene" uid="uid://vlulkw1n2v1t" path="res://src/Austin/scenes/level_selection_menu.tscn" id="4_edmo6"]
 [ext_resource type="PackedScene" uid="uid://bt6h2647pjrx7" path="res://src/Nathan/scenes/SettingsMenu.tscn" id="5_ngvyu"]
 [ext_resource type="PackedScene" uid="uid://dx7126dyoceyc" path="res://src/Clayton/TL5Demo/Demo.tscn" id="6_sx1rj"]

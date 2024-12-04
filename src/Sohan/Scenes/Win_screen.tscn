@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1ukxxg81kh7j"]
 
-[ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_nvivv"]
+[ext_resource type="Script" path="res://src/Sohan/Scripts/WinMenu.cs" id="1_34sl0"]
 [ext_resource type="Texture2D" uid="uid://cky8hnfowlnky" path="res://src/Sohan/Assests/you-win-neon-signs-style-text-vector.png" id="2_pjv6w"]
 [ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="3_n0ouw"]
 
@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nvivv")
+script = ExtResource("1_34sl0")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

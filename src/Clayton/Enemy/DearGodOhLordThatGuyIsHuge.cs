@@ -25,7 +25,9 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 				chicken.SetProgress(this.Progress + ((float)rand.NextDouble() * 100)); //set new chicken location where chicken died
 				chicken.Start(path); //start new chicken on the path
 				EmitSignal(SignalName.EnemySplit, chicken); // tell round manager chicken has split
-				this.QueueFree(); // Free the Chicken
+				// this.QueueFree(); // Free the Chicken
+				this._RemoveThis = true;
+
 
 			}
 			EmitSignal(SignalName.EnemyDied, this); // tell round manager old chicken has died

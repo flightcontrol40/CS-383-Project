@@ -39,6 +39,8 @@ public static partial class ChickenFactory { //Factory Pattern used by round man
 
 public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
+    protected bool _RemoveThis = false;
+
 	public GodotObject soundManager;
 
 	[Export]
@@ -70,18 +72,24 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.Visible = true;
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path
+		GD.Print("Chicken Started");
+		this.ZIndex += 90;
 		
 	}
 	/// <summary>
 	/// Starts chicken along path after start function is called
 	/// </summary>
 	public override void _Process(double delta){
+		if (this._RemoveThis == true){
+			this.QueueFree();
+		}
 		if(started == true){
 			this.SetProgress(Progress + (float)(delta * Speed)); // Increment the progress ratio based on the speed and delta time
 			if (this.ProgressRatio >= 1) {
 				EmitSignal(SignalName.EndOfPath, this); // Lets round manager / healthbar know when a chicken reaches end of path
 				this.QueueFree();
 			}
+		
 		}
    }
 
@@ -89,9 +97,8 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.Health -= damageCounter; // Decrements health based on damage from towers
 		if (Health <= 0 ){
 			this.soundManager.Call("play_sfx","chicken_death");
-
 			EmitSignal(SignalName.EnemyDied, this); // Emits death signal if base chicken dies to towers
-			this.QueueFree(); // Free the Chicken
+			this._RemoveThis = true; // Free the Chicken
 
 		}
 	}
@@ -123,7 +130,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		// Reference the Area2D node
 		_collisionArea = GetNode<Area2D>("Area2D");
 		this.soundManager = GetTree().Root.GetNode<Node2D>("SoundManager");
-
+		this.ZIndex = 200;
 		// Connect the "area_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
 	}

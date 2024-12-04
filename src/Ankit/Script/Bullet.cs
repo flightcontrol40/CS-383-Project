@@ -24,6 +24,8 @@ public partial class Bullet : Area2D
     
     private int FramesBeforeDeletion = 500;
     
+    private bool _RemoveThis = false;
+
     // Called when the bullet node is added to the scene.
     public override void _Ready()
     {
@@ -65,17 +67,20 @@ public partial class Bullet : Area2D
     // Updates the bullet's position every frame based on its speed and direction.
     public override void _Process(double delta)
     {
+        if (this._RemoveThis == true){
+            this.QueueFree();
+        }
         // Add range check before the screen boundary check
         float distanceFromTower = GlobalPosition.DistanceTo(TowerPosition);
         if (distanceFromTower > TowerRange)
         {
-            QueueFree();
+            this.CallDeferred("queue_free");
             return;
         }
         
         // Keep existing screen boundary check as a fallback
         if (!GetViewport().GetVisibleRect().HasPoint(GlobalPosition))
-            QueueFree();
+            this.CallDeferred("queue_free");
         
         Position += Direction * (float)(Speed * delta);
     }
@@ -89,13 +94,13 @@ public partial class Bullet : Area2D
         {
             // Inflicts damage on the chicken and removes the bullet.
             chicken.TakeDamage(Damage);
-            QueueFree();
+            this._RemoveThis = true;
         }
     }
     
     // Removes the bullet when it exits the screen.
     private void OnScreenExited()
     {
-        QueueFree();
+        this.CallDeferred("queue_free");
     }
 }

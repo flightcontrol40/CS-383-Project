@@ -4,9 +4,13 @@ using Chicken;
 using System.Collections.Generic;
 using System.Linq;
 
+public static class _Preloader{
+    public static PackedScene bulletScene =  ResourceLoader.Load<PackedScene>("res://src/Ankit/Scenes/bullet.tscn");
+}
+
 public partial class BaseTower : Node2D
 {
-    [Export]
+    // [Export]
     public PackedScene BulletScene { get; set; }
     [Export]
     public NodePath TowerHeadPath { get; set; }
@@ -135,6 +139,7 @@ public partial class BaseTower : Node2D
     public override void _Ready()
     {
         if (!IsInstanceValid(this)) return;
+        BulletScene = _Preloader.bulletScene;
         ChickensInRange = new List<BaseChicken>();   
         bulletBuilder = CreateBulletBuilder();
         InitializeComponents();

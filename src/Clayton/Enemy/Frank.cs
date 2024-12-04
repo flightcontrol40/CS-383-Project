@@ -27,8 +27,7 @@ public partial class Frank : BaseChicken{
 			chicken2.Start(path); //start new chicken on the path
 			EmitSignal(SignalName.EnemySplit, chicken2); // tell round manager chicken has split    
 			EmitSignal(SignalName.EnemyDied, this); // tell round manager old chicken has died
-			this.QueueFree(); // Free the Chicken
-
+			this._RemoveThis = true;
 		}
 	}
 	

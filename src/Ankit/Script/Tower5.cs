@@ -27,7 +27,7 @@ public partial class Tower5 : BaseTower
         RotationSpeed = 12.0f;       // Fastest rotation
         BulletsPerShot = 1;         // Single shot
         BulletSpeed = 5000f;         // Fastest bullets
-        BulletDamage = 10;          // Normal damage
+        BulletDamage = 20;          // Normal damage
 
         GD.Print("=== Speed Tower Properties Initialized ===");
         GD.Print($"Type: Speed Tower");

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class DemoMenu : Control
+public partial class Demo : Control
 {
 	private Button returnButton; // Button for returning to the main menu
 
