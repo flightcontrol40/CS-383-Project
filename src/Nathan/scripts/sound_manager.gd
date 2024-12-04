@@ -10,7 +10,7 @@ class_name soundManager
 
 # Volume controls
 @export var music_volume: float = 0.5
-@export var sfx_volume: float = 0.5
+@export var sfx_volume: float = 0.75
 
 var current_song: String = ""
 
@@ -18,6 +18,7 @@ func _ready():
     _update_volumes()
     set_music_volume(.25)
     set_sfx_volume(.25)
+    _load_default_sounds()
 
 
 func _load_default_sounds():

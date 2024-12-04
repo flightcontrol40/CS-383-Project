@@ -32,3 +32,4 @@ stream = SubResource("AudioStreamPlaylist_prlrv")
 autoplay = true
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 50

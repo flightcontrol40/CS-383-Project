@@ -39,7 +39,7 @@ public static partial class ChickenFactory { //Factory Pattern used by round man
 
 public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
-	GodotObject soundManager;
+	public GodotObject soundManager;
 
 	[Export]
 	public int Health = 100; // Set base health
@@ -87,8 +87,9 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
 	public virtual void TakeDamage(int damageCounter){
 		this.Health -= damageCounter; // Decrements health based on damage from towers
-		
 		if (Health <= 0 ){
+			this.soundManager.Call("play_sfx","chicken_death");
+
 			EmitSignal(SignalName.EnemyDied, this); // Emits death signal if base chicken dies to towers
 		}
 	}
@@ -119,8 +120,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.Visible = false;
 		// Reference the Area2D node
 		_collisionArea = GetNode<Area2D>("Area2D");
-
-		this.
+		this.soundManager = GetTree().Root.GetNode<Node2D>("SoundManager");
 
 		// Connect the "area_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));

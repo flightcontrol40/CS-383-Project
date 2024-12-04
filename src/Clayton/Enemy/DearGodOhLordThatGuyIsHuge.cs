@@ -14,6 +14,8 @@ public partial class DearGodOhLordThatGuyIsHuge: BaseChicken{
 	public override void TakeDamage(int damageCounter){
 		this.Health -= damageCounter; // decrement health
 		if ((this.Health <= 0) && (this.Dead == false)){
+			this.soundManager.Call("play_sfx","chicken_death");
+
 			this.Dead = true; //prevents multiple splits from being called
 			var rand = new Random();
 			// Spawn chicken of lower tier
