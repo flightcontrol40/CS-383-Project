@@ -46,6 +46,7 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 	public int Speed = 150; // Set base speed
 	public int damageAmount {protected set; get; } = 10; // Set base damage
 	public int EnemyRank = 1; //set rank for round manager money
+	public bool Dead = false;
 
 	public Path2D path; // Create variable for path following
 	public bool started = false; // Used in start function to start chicken movement on path
@@ -61,7 +62,12 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 
 	public void Start(Path2D LevelPath) {
 		this.path = LevelPath;
-		Reparent(LevelPath);
+		if(this.GetParent() == null){
+			LevelPath.AddChild(this);
+		}
+		else{
+			Reparent(LevelPath);
+		}
 		this.Visible = true; 
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path
