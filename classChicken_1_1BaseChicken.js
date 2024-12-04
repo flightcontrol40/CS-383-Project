@@ -12,6 +12,7 @@ var classChicken_1_1BaseChicken =
     [ "EnemyRank", "classChicken_1_1BaseChicken.html#a954ff97be4c5583b98da9898339c33e0", null ],
     [ "Health", "classChicken_1_1BaseChicken.html#a7e2e71a8bd09a63b231d1146aa939b80", null ],
     [ "path", "classChicken_1_1BaseChicken.html#aa54b50837e39df0998d44f28d445f552", null ],
+    [ "soundManager", "classChicken_1_1BaseChicken.html#a7c85972c80b8a289b434ab92d8755e0f", null ],
     [ "Speed", "classChicken_1_1BaseChicken.html#a04caa6dcdf90645ea95e5f3281d780cd", null ],
     [ "started", "classChicken_1_1BaseChicken.html#a43c08d193d555a2b2a61c53d2a4e5a63", null ],
     [ "damageAmount", "classChicken_1_1BaseChicken.html#afad2b5cf34be24f840f5b161fbc48725", null ]

@@ -4,6 +4,7 @@ var classPauseMenu =
     [ "ConnectSignals", "classPauseMenu.html#a3b4220ff06172a9e13754e1be0e4c920", null ],
     [ "DisablePauseMenu", "classPauseMenu.html#a7ceaca5facdf3813a824611dc747b836", null ],
     [ "EnablePauseMenu", "classPauseMenu.html#a1aac3119e4f14009dab701309591b1d7", null ],
+    [ "HandleSettingsMenuReturnButton", "classPauseMenu.html#a13e775452b04f9327b9f9b4824a38fa5", null ],
     [ "HideMenu", "classPauseMenu.html#a48def145d4c3a674bc6d9a51c42df563", null ],
     [ "OnExitPressed", "classPauseMenu.html#a696565d0ea29db6e8ee3e3c414e836e1", null ],
     [ "OnOptionsPressed", "classPauseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888", null ],
@@ -17,5 +18,6 @@ var classPauseMenu =
     [ "pauseButton", "classPauseMenu.html#a60d125545ee4ca8d81a6785d831455d9", null ],
     [ "restartButton", "classPauseMenu.html#a4080304e14f2586cf59da891e55fbead", null ],
     [ "resumeButton", "classPauseMenu.html#a1e4667679e32f42bf749bada47313001", null ],
+    [ "SettingsMenu", "classPauseMenu.html#a2d551b30cb16274dad5838dd7de13058", null ],
     [ "vboxContainer", "classPauseMenu.html#a8ffb18330313c15d6c7a40f5106ca0b9", null ]
 ];

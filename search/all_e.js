@@ -16,7 +16,7 @@ var searchData=
   ['onmediumdifficultypressed_13',['OnMediumDifficultyPressed',['../classLevelSelector.html#a5d31a85f8e1bd85ccf6425b9bb353f91',1,'LevelSelector']]],
   ['onmultipathmappressed_14',['OnMultipathMapPressed',['../classLevelSelector.html#a0ee35fa6f94ed5f90a8552ec6ff2b865',1,'LevelSelector']]],
   ['onnodeadded_15',['OnNodeAdded',['../classHealthBar.html#a6e9232e44d0cc1640b9c95680ac672f3',1,'HealthBar']]],
-  ['onoptionspressed_16',['OnOptionsPressed',['../classPauseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'PauseMenu']]],
+  ['onoptionspressed_16',['OnOptionsPressed',['../classLoseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'LoseMenu.OnOptionsPressed()'],['../classMainMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'MainMenu.OnOptionsPressed()'],['../classPauseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'PauseMenu.OnOptionsPressed()']]],
   ['onpausebuttonpressed_17',['OnPauseButtonPressed',['../classPauseMenu.html#a896e99a1d1d8307a016ff3b51c44f372',1,'PauseMenu']]],
   ['onrestartpressed_18',['OnRestartPressed',['../classPauseMenu.html#a0f1b5863662806130343327b4e98019e',1,'PauseMenu']]],
   ['onresumepressed_19',['OnResumePressed',['../classPauseMenu.html#a3e11ba9e480be43bf5398d9e958ffda2',1,'PauseMenu']]],
@@ -24,5 +24,6 @@ var searchData=
   ['onshoottimertimeout_21',['OnShootTimerTimeout',['../classBaseTower.html#ae79920e1db2df7b3944db5570c36a4a6',1,'BaseTower']]],
   ['onstartpressed_22',['OnStartPressed',['../classLevelSelector.html#af54d9eb802914b8fb707acf4ef17fd12',1,'LevelSelector.OnStartPressed()'],['../classBaseMenu.html#af54d9eb802914b8fb707acf4ef17fd12',1,'BaseMenu.OnStartPressed()'],['../classMainMenu.html#af54d9eb802914b8fb707acf4ef17fd12',1,'MainMenu.OnStartPressed()']]],
   ['optionsbutton_23',['optionsButton',['../classPauseMenu.html#a6a142b6ee5401c5b1df9ab69d7c13cf7',1,'PauseMenu']]],
-  ['oral_20exam_20prep_20nathan_24',['Oral Exam Prep Nathan',['../md_Docs_Nathan_Oral_Exam_Prep_Nathan.html',1,'']]]
+  ['optionsgamebutton_24',['optionsGameButton',['../classLoseMenu.html#a6f9b96488c70ea8ff6bd3009fc3906c9',1,'LoseMenu.optionsGameButton()'],['../classMainMenu.html#a6f9b96488c70ea8ff6bd3009fc3906c9',1,'MainMenu.optionsGameButton()']]],
+  ['oral_20exam_20prep_20nathan_25',['Oral Exam Prep Nathan',['../md_Docs_Nathan_Oral_Exam_Prep_Nathan.html',1,'']]]
 ];

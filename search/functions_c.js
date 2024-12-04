@@ -15,7 +15,7 @@ var searchData=
   ['onmediumdifficultypressed_12',['OnMediumDifficultyPressed',['../classLevelSelector.html#a5d31a85f8e1bd85ccf6425b9bb353f91',1,'LevelSelector']]],
   ['onmultipathmappressed_13',['OnMultipathMapPressed',['../classLevelSelector.html#a0ee35fa6f94ed5f90a8552ec6ff2b865',1,'LevelSelector']]],
   ['onnodeadded_14',['OnNodeAdded',['../classHealthBar.html#a6e9232e44d0cc1640b9c95680ac672f3',1,'HealthBar']]],
-  ['onoptionspressed_15',['OnOptionsPressed',['../classPauseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'PauseMenu']]],
+  ['onoptionspressed_15',['OnOptionsPressed',['../classLoseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'LoseMenu.OnOptionsPressed()'],['../classMainMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'MainMenu.OnOptionsPressed()'],['../classPauseMenu.html#adcd3ce4db4e78ddd16db5c4f501fe888',1,'PauseMenu.OnOptionsPressed()']]],
   ['onpausebuttonpressed_16',['OnPauseButtonPressed',['../classPauseMenu.html#a896e99a1d1d8307a016ff3b51c44f372',1,'PauseMenu']]],
   ['onrestartpressed_17',['OnRestartPressed',['../classPauseMenu.html#a0f1b5863662806130343327b4e98019e',1,'PauseMenu']]],
   ['onresumepressed_18',['OnResumePressed',['../classPauseMenu.html#a3e11ba9e480be43bf5398d9e958ffda2',1,'PauseMenu']]],
