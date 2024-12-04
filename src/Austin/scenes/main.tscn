@@ -57,7 +57,7 @@ visible = false
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("13_sruys")]
-visible = false
+z_index = 10
 
 [node name="LevelSelector" parent="." instance=ExtResource("12_e5nbc")]
 visible = false

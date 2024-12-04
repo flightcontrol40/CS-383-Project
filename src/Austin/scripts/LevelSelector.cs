@@ -23,6 +23,7 @@ public partial class LevelSelector : Control
         lm.setMap(currentMap);
         lm.OnLoadLevel();
         Visible = false;
+        EmitSignal(SignalName.GameStarted);
     }
 
     public void OnEasyDifficultyPressed() {
@@ -43,5 +44,8 @@ public partial class LevelSelector : Control
     public void OnMeadowsMapPressed() {
         currentMap = AvailableMaps.Meadows;
     }
+
+    [Signal]
+    public delegate void GameStartedEventHandler();
 
 }

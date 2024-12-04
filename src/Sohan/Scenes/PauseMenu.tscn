@@ -165,6 +165,7 @@ scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("4_03s71")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("5_w4pxb")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

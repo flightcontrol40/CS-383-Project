@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dk3xwdblv4m6w"]
+[gd_scene load_steps=11 format=3 uid="uid://dk3xwdblv4m6w"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_xq74t"]
 [ext_resource type="Texture2D" uid="uid://dlemuunwvfnu8" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
@@ -38,10 +38,6 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_ldnsm"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_7g0gd"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -145,8 +141,7 @@ vertical_alignment = 1
 [node name="LevelSelector" parent="." instance=ExtResource("4_edmo6")]
 visible = false
 layout_mode = 1
-difficutlySelection = SubResource("ButtonGroup_ldnsm")
-mapSelection = SubResource("ButtonGroup_7g0gd")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("5_ngvyu")]
+visible = false
 layout_mode = 1

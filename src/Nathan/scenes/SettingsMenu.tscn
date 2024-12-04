@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt6h2647pjrx7"]
+[gd_scene load_steps=11 format=3 uid="uid://bt6h2647pjrx7"]
 
 [ext_resource type="Script" path="res://src/Nathan/scripts/settings_menu.gd" id="1_pkc4i"]
 [ext_resource type="Texture2D" uid="uid://dlemuunwvfnu8" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_q66ug"]
 [ext_resource type="Script" path="res://src/Nathan/scripts/music_setting_slider.gd" id="3_basmr"]
 [ext_resource type="Script" path="res://src/Nathan/scripts/sfx_setting_slider.gd" id="4_7r3oh"]
+[ext_resource type="Script" path="res://src/Nathan/scripts/full_screen_setting.gd" id="5_2bu3u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6la4"]
 texture = ExtResource("2_q66ug")
@@ -39,7 +40,6 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
 [node name="SettingsMenu" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,6 +106,12 @@ rounded = true
 scrollable = false
 script = ExtResource("4_7r3oh")
 
+[node name="FullScreenSetting" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Fullscreen Mode"
+script = ExtResource("5_2bu3u")
+
 [node name="ReturnContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -137,4 +143,5 @@ text = "Return"
 
 [connection signal="value_changed" from="VBoxContainer/MusicSettings/HSlider" to="VBoxContainer/MusicSettings/HSlider" method="update_volume"]
 [connection signal="value_changed" from="VBoxContainer/SFXSettings/HSlider" to="VBoxContainer/SFXSettings/HSlider" method="update_volume"]
+[connection signal="toggled" from="VBoxContainer/FullScreenSetting" to="VBoxContainer/FullScreenSetting" method="_on_toggled"]
 [connection signal="pressed" from="ReturnContainer/ReturnButton" to="." method="_on_return_button_pressed"]

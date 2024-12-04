@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 SoundManager="*res://src/Nathan/scenes/SoundManager.tscn"
-LastSettingPage="*res://src/Nathan/scripts/last_setting_page.gd"
 
 [debug]
 

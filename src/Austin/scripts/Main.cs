@@ -15,35 +15,35 @@ public partial class Main : Node
     private Shop shop;
     private Button StartRoundButton;
     private PauseMenu pauseMenu;
+    private LevelSelector levelSelector;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
     // Initialize LevelManager
     levelm = GetNode<LevelManager>("LevelManager");
-
+    // Subscribe to level Selector signal
+    levelSelector = GetNode<LevelSelector>("LevelSelector");
+    levelSelector.GameStarted += () => {
+        if (pauseMenu != null)
+        {
+            pauseMenu.EnablePauseMenu(); // Show pause menu when game actually starts
+        }
+    };
     // Initialize RoundManager
     roundm = GetNode<RoundManager.RoundManager>("RoundManager");
 
-        shop = GetNode<Shop>("Shop");
-        pauseMenu = GetNode<PauseMenu>("PauseMenu");
-        if (pauseMenu != null)
-        {
-            pauseMenu.DisablePauseMenu(); // Hide pause menu initially
-        }
+    shop = GetNode<Shop>("Shop");
+    pauseMenu = GetNode<PauseMenu>("PauseMenu");
 
-        StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
-        StartRoundButton.Pressed += () => {
-            if (!PlacingTurret)
-            {
-                GD.Print("Round Starting");
-                roundm.startRound();
-                if (pauseMenu != null)
-                {
-                    pauseMenu.EnablePauseMenu(); // Show pause menu when game actually starts
-                }
-            }
-        };
+    StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
+    StartRoundButton.Pressed += () => {
+        if (!PlacingTurret)
+        {
+            GD.Print("Round Starting");
+            roundm.startRound();
+        }
+    };
         HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
         levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
         levelm.level.Connect(Level.SignalName.MoneyChanged, Callable.From<int>(shop.AddRemoveMoney));

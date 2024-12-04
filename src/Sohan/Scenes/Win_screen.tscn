@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1ukxxg81kh7j"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_nvivv"]
-[ext_resource type="Texture2D" uid="uid://ddcwu2g1ypw3k" path="res://src/Sohan/Assests/you-win-neon-signs-style-text-vector.png" id="2_pjv6w"]
-[ext_resource type="FontFile" uid="uid://dmyisu8ufwpgf" path="res://src/Sohan/Assests/Wizard.ttf" id="3_n0ouw"]
+[ext_resource type="Texture2D" uid="uid://cky8hnfowlnky" path="res://src/Sohan/Assests/you-win-neon-signs-style-text-vector.png" id="2_pjv6w"]
+[ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="3_n0ouw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2ad8"]
 texture = ExtResource("2_pjv6w")
