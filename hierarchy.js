@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "_Preloader", "class__Preloader.html", null ],
     [ "Area2D", null, [
       [ "Bullet", "classBullet.html", null ]
     ] ],
@@ -12,7 +13,7 @@ var hierarchy =
         [ "PauseMenu", "classPauseMenu.html", null ],
         [ "WinMenu", "classWinMenu.html", null ]
       ] ],
-      [ "DemoMenu", "classDemoMenu.html", null ],
+      [ "Demo", "classDemo.html", null ],
       [ "DifficultySelectionMenu", "classDifficultySelectionMenu.html", null ],
       [ "LevelSelector", "classLevelSelector.html", null ],
       [ "LoseMenu", "classLoseMenu.html", null ],

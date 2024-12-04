@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['frank_0',['Frank',['../classFrank.html',1,'']]],
-  ['frankest_1',['Frankest',['../classFrankest.html',1,'']]]
+  ['easydifficultycalculator_0',['EasyDifficultyCalculator',['../classDifficultyCalculator_1_1EasyDifficultyCalculator.html',1,'DifficultyCalculator']]]
 ];

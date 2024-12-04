@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['ibulletbuilder_0',['IBulletBuilder',['../interfaceIBulletBuilder.html',1,'']]]
+  ['harddifficultycalculator_0',['HardDifficultyCalculator',['../classDifficultyCalculator_1_1HardDifficultyCalculator.html',1,'DifficultyCalculator']]],
+  ['healthbar_1',['HealthBar',['../classHealthBar.html',1,'']]],
+  ['heavybulletbuilder_2',['HeavyBulletBuilder',['../classHeavyBulletBuilder.html',1,'']]]
 ];

@@ -22,7 +22,7 @@ var searchData=
   ['onpausebuttonpressed_19',['OnPauseButtonPressed',['../classPauseMenu.html#a896e99a1d1d8307a016ff3b51c44f372',1,'PauseMenu']]],
   ['onrestartpressed_20',['OnRestartPressed',['../classPauseMenu.html#a0f1b5863662806130343327b4e98019e',1,'PauseMenu']]],
   ['onresumepressed_21',['OnResumePressed',['../classPauseMenu.html#a3e11ba9e480be43bf5398d9e958ffda2',1,'PauseMenu']]],
-  ['onreturnbuttonpressed_22',['OnReturnButtonPressed',['../classDemoMenu.html#ab04b59d925a28ff50952595916f2a5ed',1,'DemoMenu']]],
+  ['onreturnbuttonpressed_22',['OnReturnButtonPressed',['../classDemo.html#ab04b59d925a28ff50952595916f2a5ed',1,'Demo']]],
   ['onscreenexited_23',['OnScreenExited',['../classBullet.html#a7fe713491f638b66d330d2863ff8648b',1,'Bullet']]],
   ['onshoottimertimeout_24',['OnShootTimerTimeout',['../classBaseTower.html#ae79920e1db2df7b3944db5570c36a4a6',1,'BaseTower']]],
   ['onstartpressed_25',['OnStartPressed',['../classLevelSelector.html#af54d9eb802914b8fb707acf4ef17fd12',1,'LevelSelector.OnStartPressed()'],['../classBaseMenu.html#af54d9eb802914b8fb707acf4ef17fd12',1,'BaseMenu.OnStartPressed()'],['../classMainMenu.html#af54d9eb802914b8fb707acf4ef17fd12',1,'MainMenu.OnStartPressed()']]],

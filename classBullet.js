@@ -5,6 +5,7 @@ var classBullet =
     [ "OnAreaEntered", "classBullet.html#a00697fc11b19eca4190016cbccc44444", null ],
     [ "OnScreenExited", "classBullet.html#a7fe713491f638b66d330d2863ff8648b", null ],
     [ "SetupCollisions", "classBullet.html#aec060940e989b49c1765d73fd40864ec", null ],
+    [ "_RemoveThis", "classBullet.html#af6677729c303fe07bdda167fc625483c", null ],
     [ "Direction", "classBullet.html#a4fcced862bdecc3879cfbf3da6029054", null ],
     [ "FramesBeforeDeletion", "classBullet.html#a68919618bed63f842354ef8d06b5e6ff", null ],
     [ "screenNotifier", "classBullet.html#ac6f8decb9b2a77838f2cd7b42bf7a90d", null ],

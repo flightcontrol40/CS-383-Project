@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['main_0',['Main',['../classMain.html',1,'']]],
-  ['main_5fmenu_1',['Main_menu',['../classMain__menu.html',1,'']]],
-  ['mainmenu_2',['MainMenu',['../classMainMenu.html',1,'']]],
-  ['map_3',['Map',['../classMap.html',1,'']]],
-  ['mediumdifficultycalculator_4',['MediumDifficultyCalculator',['../classDifficultyCalculator_1_1MediumDifficultyCalculator.html',1,'DifficultyCalculator']]],
-  ['multipath_5',['MultiPath',['../classMultiPath.html',1,'']]],
-  ['multipathtest_6',['MultipathTest',['../classMultipathTest.html',1,'']]]
+  ['level_0',['Level',['../classLevel.html',1,'']]],
+  ['levelmanager_1',['LevelManager',['../classLevelManager.html',1,'']]],
+  ['levelselectionmenu_2',['LevelSelectionMenu',['../classLevelSelectionMenu.html',1,'']]],
+  ['levelselector_3',['LevelSelector',['../classLevelSelector.html',1,'']]],
+  ['loadleveltest_4',['LoadLevelTest',['../classLoadLevelTest.html',1,'']]],
+  ['losemenu_5',['LoseMenu',['../classLoseMenu.html',1,'']]]
 ];

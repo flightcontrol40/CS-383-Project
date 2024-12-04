@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['shop_0',['Shop',['../classShop.html',1,'']]],
-  ['spawnorder_1',['SpawnOrder',['../classDifficultyCalculator_1_1SpawnOrder.html',1,'DifficultyCalculator']]],
-  ['standardbulletbuilder_2',['StandardBulletBuilder',['../classStandardBulletBuilder.html',1,'']]]
+  ['rapidbulletbuilder_0',['RapidBulletBuilder',['../classRapidBulletBuilder.html',1,'']]],
+  ['roundmanager_1',['RoundManager',['../classRoundManager_1_1RoundManager.html',1,'RoundManager']]]
 ];

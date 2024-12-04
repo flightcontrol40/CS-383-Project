@@ -13,8 +13,8 @@ var searchData=
   ['pausemenu_10',['PauseMenu',['../classPauseMenu.html',1,'']]],
   ['placetower_11',['PlaceTower',['../classMain.html#ae0514db493be2595b4ab2cc10ff0187d',1,'Main']]],
   ['placingturret_12',['PlacingTurret',['../classMain.html#af7f4af5fcd1fdb17826a032236a11727',1,'Main']]],
-  ['playerhealth_13',['PlayerHealth',['../classLevel.html#a185f4542c638e29c9a6c41f3a22f42ea',1,'Level']]],
-  ['playerhealth_14',['playerHealth',['../classLevel.html#a48595a6d596594bc25ff2a5611f7ceed',1,'Level']]],
+  ['playerhealth_13',['playerHealth',['../classLevel.html#a48595a6d596594bc25ff2a5611f7ceed',1,'Level']]],
+  ['playerhealth_14',['PlayerHealth',['../classLevel.html#a185f4542c638e29c9a6c41f3a22f42ea',1,'Level']]],
   ['playermoney_15',['playerMoney',['../classLevel.html#af3c0dbc8253d12765c39cdeeea56d709',1,'Level.playerMoney()'],['../classShop.html#af3c0dbc8253d12765c39cdeeea56d709',1,'Shop.playerMoney()']]],
   ['playermoney_16',['PlayerMoney',['../classLevel.html#a736215bd6d4ea5ba7cc8262691d9480b',1,'Level']]],
   ['playshootinganimation_17',['PlayShootingAnimation',['../classBaseTower.html#a9fe1d1a8cdf77d262a9de98b983596a7',1,'BaseTower']]]

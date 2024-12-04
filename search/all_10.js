@@ -8,7 +8,7 @@ var searchData=
   ['reshowmenueventhandler_5',['ReshowMenuEventHandler',['../classMainMenu.html#a38dceed0caca47441bbc6db2f9896fb2',1,'MainMenu']]],
   ['restartbutton_6',['restartButton',['../classLoseMenu.html#a4080304e14f2586cf59da891e55fbead',1,'LoseMenu.restartButton()'],['../classPauseMenu.html#a4080304e14f2586cf59da891e55fbead',1,'PauseMenu.restartButton()']]],
   ['resumebutton_7',['resumeButton',['../classPauseMenu.html#a1e4667679e32f42bf749bada47313001',1,'PauseMenu']]],
-  ['returnbutton_8',['returnButton',['../classDemoMenu.html#a57c557a0cfdb515246cfda2ee14e52bb',1,'DemoMenu']]],
+  ['returnbutton_8',['returnButton',['../classDemo.html#a57c557a0cfdb515246cfda2ee14e52bb',1,'Demo']]],
   ['rotationspeed_9',['RotationSpeed',['../classBaseTower.html#afc1820f342bf4987fb62cfcf54b41628',1,'BaseTower']]],
   ['rounddifficultyvalue_10',['RoundDifficultyValue',['../classRoundManager_1_1DifficultyTable.html#a20719fdca6acb18dbb5e1735d721b137',1,'RoundManager::DifficultyTable']]],
   ['roundm_11',['roundm',['../classMain.html#a101826d38b1a4c418de518b1286936e5',1,'Main']]],
