@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://icbpusc6sd0u"]
 
 [ext_resource type="Script" path="res://src/Austin/scripts/Map.cs" id="1_q2h2w"]
-[ext_resource type="Texture2D" uid="uid://b8kawkducga" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="2_yfxck"]
+[ext_resource type="Texture2D" uid="uid://bpoetes4yd317" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="2_yfxck"]
 [ext_resource type="Script" path="res://src/Austin/scripts/MultiPath.cs" id="3_d3fnt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykwuv"]

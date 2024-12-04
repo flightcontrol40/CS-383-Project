@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://xfbsml2kriv7"]
 
 [ext_resource type="PackedScene" uid="uid://dfupv5dpijmrb" path="res://src/Austin/scenes/path.tscn" id="1_8amha"]
-[ext_resource type="Texture2D" uid="uid://b8kawkducga" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
+[ext_resource type="Texture2D" uid="uid://bpoetes4yd317" path="res://src/Austin/assets/KnightQuest_Tiles_nospace.png" id="1_jwyeg"]
 [ext_resource type="Script" path="res://src/Austin/scripts/Map.cs" id="1_pj5xu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqhc4"]
@@ -147,21 +147,26 @@ tile_map_data = PackedByteArray("AAD+////AAACAAAAAAD+/wAAAAABAAEAAAD+/wEAAAAAAAA
 tile_set = SubResource("TileSet_koisa")
 
 [node name="TowerZones" type="Area2D" parent="."]
+visible = false
 position = Vector2(0.998183, 0)
 scale = Vector2(0.999092, 1)
 
 [node name="NoZone" type="CollisionPolygon2D" parent="TowerZones"]
+visible = false
 position = Vector2(-0.999092, 8)
 polygon = PackedVector2Array(-80.0727, 240, 360.327, 232, 360.327, 360, 136.124, 352, 136.124, 568, 272.247, 568, 272.247, 520, 192.174, 520, 192.174, 400, 360.327, 400, 360.327, 520, 272.247, 520, 272.247, 568, 360.327, 568, 408.371, 568, 408.371, 400, 848.771, 400, 848.771, 120, 968.88, 128, 960.872, 520, 568.516, 520, 576.523, 768, 632.574, 768, 632.574, 568, 1024.93, 568, 1024.93, 80, 800.727, 80, 800.727, 352, 416.378, 352, 408.371, 240, 632.574, 232, 632.574, 24, 360.327, 24, 360.327, 192, 408.371, 192, 416.378, 72, 576.523, 72, 584.531, 192, -80.0727, 184)
 
 [node name="Path" parent="." instance=ExtResource("1_8amha")]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Path"]
+visible = false
 position = Vector2(0, 16)
 scale = Vector2(0.999092, 1)
 curve = SubResource("Curve2D_14av3")
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
+visible = false
 position = Vector2(768, 736)
 
 [connection signal="body_entered" from="TowerZones" to="." method="_on_tower_zones_body_entered"]

@@ -28,6 +28,11 @@ file_logging/enable_file_logging=true
 file_logging/enable_file_logging.pc=false
 file_logging/log_path="res://TestResults"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=2
+
 [dotnet]
 
 project/assembly_name="TowerGame"

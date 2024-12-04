@@ -31,6 +31,7 @@ level = SubResource("Resource_040l3")
 [node name="RoundManager" parent="." instance=ExtResource("2_0n13b")]
 
 [node name="Shop" parent="." instance=ExtResource("5_4201l")]
+top_level = true
 
 [node name="MoneyTimer" type="Timer" parent="."]
 
@@ -50,13 +51,16 @@ layout_mode = 2
 position = Vector2(513, 1)
 
 [node name="MainMenu" parent="." instance=ExtResource("9_2yelq")]
+visible = false
 
 [node name="LoseMenu" parent="." instance=ExtResource("12_lsyvb")]
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("13_sruys")]
+visible = false
 
 [node name="LevelSelector" parent="." instance=ExtResource("12_e5nbc")]
+visible = false
 offset_left = 1.0
 offset_right = 1.0
 
