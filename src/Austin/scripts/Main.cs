@@ -17,38 +17,40 @@ public partial class Main : Node
 	private PauseMenu pauseMenu;
 	private LevelSelector levelSelector;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	// Initialize LevelManager
-	levelm = GetNode<LevelManager>("LevelManager");
-	// Subscribe to level Selector signal
-	levelSelector = GetNode<LevelSelector>("LevelSelector");
-	levelSelector.GameStarted += () => {
-		if (pauseMenu != null)
-		{
-			pauseMenu.EnablePauseMenu(); // Show pause menu when game actually starts
-		}
-	};
-	// Initialize RoundManager
-	roundm = GetNode<RoundManager.RoundManager>("RoundManager");
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+    // Initialize LevelManager
+    levelm = GetNode<LevelManager>("LevelManager");
+    // Subscribe to level Selector signal
+    levelSelector = GetNode<LevelSelector>("LevelSelector");
+    levelSelector.GameStarted += () => {
+        if (pauseMenu != null)
+        {
+            pauseMenu.EnablePauseMenu(); // Show pause menu when game actually starts
+        }
+    };
+    // Initialize RoundManager
+    roundm = GetNode<RoundManager.RoundManager>("RoundManager");
+    // Subscribe to RoundManager Signals
+    shop = GetNode<Shop>("Shop");
+    pauseMenu = GetNode<PauseMenu>("PauseMenu");
 
-	shop = GetNode<Shop>("Shop");
-	pauseMenu = GetNode<PauseMenu>("PauseMenu");
+    StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
+    StartRoundButton.Pressed += () => {
+        if (!PlacingTurret)
+        {
+            GD.Print("Round Starting");
+            roundm.startRound();
+        }
+    };
+        HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
+        levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
+        levelm.level.Connect(Level.SignalName.MoneyChanged, Callable.From<int>(shop.AddRemoveMoney));
+    // Connect the GameLost signal
+    roundm.GameWon += OnGameWon;
+    roundm.GameLost += OnGameLost;
 
-	StartRoundButton = GetNode<Button>("Shop/Shop Panel/StartRoundButton");
-	StartRoundButton.Pressed += () => {
-		if (!PlacingTurret)
-		{
-			GD.Print("Round Starting");
-			roundm.startRound();
-		}
-	};
-		HealthBar health = GetNode<HealthBar>("PlayerHealth/HealthBar");
-		levelm.level.Connect(Level.SignalName.HealthChanged, Callable.From<int>(health.OnHealthChanged));
-		levelm.level.Connect(Level.SignalName.MoneyChanged, Callable.From<int>(shop.AddRemoveMoney));
-	// Connect the GameLost signal
-	roundm.Connect(nameof(RoundManager.RoundManager.GameLost), new Callable(this, nameof(OnGameLost)));
 
 
 	// Initialize Start Round Button
@@ -97,7 +99,17 @@ public partial class Main : Node
 		GetTree().ReloadCurrentScene(); // Reload the scene
 	}
 
-	
+    private void OnGameWon(){
+        GD.Print("Player has Won. Showing Win screen.");
+        Control winScreen = GetNode<Control>("WinScreen");
+        winScreen.Visible = true;
+        // Hide pause menu when game is won
+        if (pauseMenu != null)
+        {
+            pauseMenu.DisablePauseMenu();
+        }
+    }
+
 
 	private void PlaceTower()
 	{
