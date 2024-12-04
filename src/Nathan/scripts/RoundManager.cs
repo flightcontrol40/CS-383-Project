@@ -83,14 +83,11 @@ public partial class RoundManager : Node2D {
             throw new Exception("Round Cannot Be started before a level is loaded");
         }
         if (this.levelData.CurrentRoundNum <= this.levelData.maxRound){
-            GD.Print($"Calculating SpawnOrder for Round: {this.levelData.CurrentRoundNum}");
             this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
                 this.levelData.CurrentRoundNum
             );
-            GD.Print($"Spawn Queue: {this.spawnQueue}");
             this.roundRunning = true;
             if (spawnQueue.Count > 0){
-                GD.Print("Setting Next Spawn Time");
                 this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
             }
             this.levelData.CurrentRoundNum++;
@@ -115,7 +112,6 @@ public partial class RoundManager : Node2D {
         if (order.Enemy.GetParent() == null){
             this.AddChild(order.Enemy);
         }
-        GD.Print($"Spawning Enemy: {order.Enemy}");
     }
 
     /// <summary>
@@ -177,10 +173,8 @@ public partial class RoundManager : Node2D {
     /// <param name="delta"></param>
     public override void _Process(double delta) {
         this.currentTime += delta;
-        // GD.Print("Processing Round");
         if (this.roundRunning == true) {
             if (this.currentTime > this.nextSpawnTime && spawnQueue.Count > 0){
-                GD.Print("Spawning Enemy");
                 this.spawnEnemy();
             }
             if (this.levelData.playerHealth <= 0 ){
