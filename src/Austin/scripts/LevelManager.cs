@@ -98,7 +98,7 @@ public partial class LevelManager : Node
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
-        level.maxRound = 100;
+        level.maxRound = 10;
         DifficultyTable difficultyTable = new DifficultyTable();
 
         //init EnemyRanks
