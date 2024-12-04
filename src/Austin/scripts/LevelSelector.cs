@@ -5,23 +5,20 @@ using DifficultyCalculator;
 
 public partial class LevelSelector : Control
 {
-    [Export]
-    private ButtonGroup difficutlySelection;
-    [Export]
-    private ButtonGroup mapSelection;
     private Difficulty currentDifficulty = Difficulty.Easy;
     private AvailableMaps currentMap = AvailableMaps.Default;
-    private LevelManager lm;
     public override void _Ready()
     {
-        lm = GetNode<LevelManager>("../LevelManager");
+        return;
     }
 
     public override void _Process(double delta)
     {
+        return;
     }
 
     public void OnStartPressed() {
+        LevelManager lm = GetNode<LevelManager>("../LevelManager");
         lm.setDifficulty(currentDifficulty);
         lm.setMap(currentMap);
         lm.OnLoadLevel();

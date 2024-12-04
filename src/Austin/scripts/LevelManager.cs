@@ -47,8 +47,6 @@ public partial class LevelManager : Node
     /// Gets called by the level selection menu once the player has finished selecting a level.
     /// </summary>
     public void OnLoadLevel() {
-        GD.Print("Loading level...");
-        GD.Print($"levelLaoded={levelLoaded}");
         // load the map
         level.loadMap();
         //book keeping
@@ -66,7 +64,6 @@ public partial class LevelManager : Node
     /// </summary>
     /// <param name="difficulty">Some difficutly from the RoundManager.Difficulty enum to set the level difficulty to</param>
     public void setDifficulty(Difficulty difficulty) {
-        GD.Print(levelLoaded);
         if (!levelLoaded) {
             // create new difficulty table
             DifficultyTable newDifficultyTable = loadDifficultyTable(difficulty);
@@ -75,7 +72,6 @@ public partial class LevelManager : Node
             baseDifficulty = difficulty;
             level.difficultyTable = newDifficultyTable;
         }
-        GD.Print("Blarg");
     }
 
     /// <summary>
@@ -85,7 +81,6 @@ public partial class LevelManager : Node
     public void setMap(AvailableMaps mapSelection) {
         string mapPath = "";
         if (MapPaths.TryGetValue(mapSelection, out mapPath)) {
-            GD.Print($"Attempting to load the map {mapPath}");
             PackedScene map = GD.Load<PackedScene>(mapPath);
             if (map != null) {
                 level.mapScene = map;
@@ -101,7 +96,6 @@ public partial class LevelManager : Node
     /// <param name="difficulty">Difficutly of the level</param>
     /// <returns>The newly created DifficultyTable object</returns>
     private DifficultyTable loadDifficultyTable(Difficulty difficulty) {
-        GD.Print($"Loading difficulty: {difficulty}");
         int initialRoundDifficulty; //need to swap this to some kind of exponential equation
         int incrementDifficutly;
         level.maxRound = 100;
@@ -141,7 +135,6 @@ public partial class LevelManager : Node
         difficultyTable.RoundDifficultyValue = new int[level.maxRound];
         difficultyTable.RoundDifficultyValue[0] = initialRoundDifficulty;
         for (int i = 1; i < difficultyTable.RoundDifficultyValue.Length; i++) {
-            GD.Print($"i={i}");
             difficultyTable.RoundDifficultyValue[i] = difficultyTable.RoundDifficultyValue[i - 1] + incrementDifficutly;
         }
 
