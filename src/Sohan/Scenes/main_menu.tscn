@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=11 format=3 uid="uid://dk3xwdblv4m6w"]
-=======
-[gd_scene load_steps=14 format=3 uid="uid://dk3xwdblv4m6w"]
->>>>>>> Stashed changes
+[gd_scene load_steps=12 format=3 uid="uid://c602kiofe7fhi"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/MainMenu.cs" id="1_xq74t"]
 [ext_resource type="Texture2D" uid="uid://baa8x0t526dfo" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="2_vtaje"]
@@ -44,13 +40,6 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-<<<<<<< Updated upstream
-=======
-[sub_resource type="ButtonGroup" id="ButtonGroup_w71rv"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_evlak"]
-
->>>>>>> Stashed changes
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -171,11 +160,6 @@ layout_mode = 1
 [node name="LevelSelector" parent="." instance=ExtResource("4_edmo6")]
 visible = false
 layout_mode = 1
-<<<<<<< Updated upstream
-=======
-difficutlySelection = SubResource("ButtonGroup_w71rv")
-mapSelection = SubResource("ButtonGroup_evlak")
->>>>>>> Stashed changes
 
 [node name="SettingsMenu" parent="." instance=ExtResource("5_ngvyu")]
 visible = false
