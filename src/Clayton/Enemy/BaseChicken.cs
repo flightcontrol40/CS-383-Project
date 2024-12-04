@@ -73,7 +73,6 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		this.started = true;
 		SetLoop(false); // Prevents looping of the path
 		GD.Print("Chicken Started");
-		this.ZIndex += 90;
 		
 	}
 	/// <summary>
@@ -130,7 +129,6 @@ public partial class BaseChicken : PathFollow2D{ //Super Class of BaseChicken
 		// Reference the Area2D node
 		_collisionArea = GetNode<Area2D>("Area2D");
 		this.soundManager = GetTree().Root.GetNode<Node2D>("SoundManager");
-		this.ZIndex = 200;
 		// Connect the "area_entered" signal from Area2D to detect collisions
 		_collisionArea.Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
 	}

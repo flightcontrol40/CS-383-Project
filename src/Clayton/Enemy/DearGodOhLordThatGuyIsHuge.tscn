@@ -7,7 +7,6 @@
 radius = 159.721
 
 [node name="ChickenEnemy3" type="PathFollow2D"]
-z_index = 50
 rotates = false
 script = ExtResource("1_0sioa")
 

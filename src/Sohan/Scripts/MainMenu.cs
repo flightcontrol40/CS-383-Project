@@ -97,7 +97,7 @@ public partial class MainMenu : Control
 		this.startGameButton.Visible = true;
 		this.exitGameButton.Visible = true;
 		this.optionsGameButton.Visible = true;
-		this.demoGameButton.Visible = false;
+		this.demoGameButton.Visible = true;
 		MouseFilter = MouseFilterEnum.Stop;
 		
 		EmitSignal(nameof(ReshowMenu));

@@ -7,7 +7,6 @@
 size = Vector2(303.571, 305.626)
 
 [node name="ChickenEnemy3" type="PathFollow2D"]
-z_index = 50
 rotates = false
 script = ExtResource("1_7u7so")
 

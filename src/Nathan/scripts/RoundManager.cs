@@ -196,8 +196,7 @@ public partial class RoundManager : Node2D {
             }
             else if (
                 this.levelData.playerHealth > 0 &&
-                this.roundRunning == true &&
-                this.levelData.maxRound == this.levelData.CurrentRoundNum) {
+                this.levelData.maxRound <= this.levelData.CurrentRoundNum) {
                     this.roundRunning = false;
                     EmitSignal(SignalName.GameWon);
                     cleanLevel();
