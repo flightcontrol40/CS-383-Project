@@ -49,6 +49,9 @@ public partial class RoundManager : Node2D {
     /// </summary>
     public bool roundRunning = false;
 
+    [Signal]
+    public delegate void updateRoundNumberEventHandler(int roundNum);
+
     /// <summary>
     /// Called when the object enters the scene tree. Sets up queue objects
     /// </summary>
@@ -82,7 +85,7 @@ public partial class RoundManager : Node2D {
         if (this.levelData == null){
             throw new Exception("Round Cannot Be started before a level is loaded");
         }
-        if (this.levelData.CurrentRoundNum <= this.levelData.maxRound){
+        if (this.levelData.CurrentRoundNum <= this.levelData.maxRound && roundRunning == false){
             this.spawnQueue = this.difficultyCalculator.CalculateSpawnOrder(
                 this.levelData.CurrentRoundNum
             );
@@ -90,7 +93,6 @@ public partial class RoundManager : Node2D {
             if (spawnQueue.Count > 0){
                 this.nextSpawnTime = currentTime + (spawnQueue[0].spawnDelay / 1000.0);
             }
-            this.levelData.CurrentRoundNum++;
         }
     }
 
@@ -203,6 +205,8 @@ public partial class RoundManager : Node2D {
             else if ( this.spawnQueue.Count() == 0 && this.liveEnemies.Count() == 0){
                 GD.Print($"Round {this.levelData.CurrentRoundNum} Completed");
                 this.roundRunning = false;
+                this.levelData.CurrentRoundNum++;
+                EmitSignal(SignalName.updateRoundNumber, this.levelData.CurrentRoundNum);
             }
         }
         base._Process(delta);

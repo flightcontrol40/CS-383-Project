@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx7126dyoceyc"]
 
 [ext_resource type="Script" path="res://src/Clayton/TL5Demo/Demo.cs" id="1_82vhc"]
-[ext_resource type="Texture2D" uid="uid://baa8x0t526dfo" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="1_hwr51"]
+[ext_resource type="Texture2D" uid="uid://c4lwyqcg4aw0o" path="res://src/Sohan/Assests/btd6-monkey-meadow.png" id="1_hwr51"]
 [ext_resource type="VideoStream" path="res://src/Clayton/TL5Demo/Untitled-video-Made-with-Clipchamp (1).ogv" id="1_jyjdj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1uvu8"]

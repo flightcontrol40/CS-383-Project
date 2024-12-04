@@ -56,6 +56,10 @@ public partial class Shop : Node
         moneyLabel.Text = $"{playerMoney}";
     }
 
+    private void updateRoundNumberLabel(int roundNum) {
+        GetNode<Label>("./Shop Panel/RoundContainer/Number").Text = $"{roundNum}";
+    }
+
     // New method to handle menu selections
     private void _on_tower_shop_id_pressed(int id)
     {

@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://cjbygfchlgilm"]
 
 [ext_resource type="Script" path="res://src/Sohan/Scripts/Shop.cs" id="1_dxfvc"]
-[ext_resource type="Texture2D" uid="uid://dg1yxx3832j34" path="res://src/Nathan/images/angry_chicken_logo.png" id="2_bfhxj"]
-[ext_resource type="Texture2D" uid="uid://ev8hw2u3p2cl" path="res://src/Ankit/Assets/tower1.png" id="2_ncqbx"]
-[ext_resource type="Texture2D" uid="uid://oyfifopptt26" path="res://src/Ankit/Assets/art/pngtree-money-icon-isolated-dollar-cash-illustration-png-image_3429652-Photoroom.png" id="2_pb4r5"]
-[ext_resource type="FontFile" uid="uid://cpbfarrjflcc7" path="res://src/Sohan/Assests/Wizard.ttf" id="2_qwgn6"]
-[ext_resource type="Texture2D" uid="uid://ce8rrdthhr56i" path="res://src/Ankit/Assets/Tower2.png" id="3_ojey0"]
-[ext_resource type="Texture2D" uid="uid://bsj0twcnhspjb" path="res://src/Ankit/Assets/game-store (1) (1).png" id="3_vc5re"]
-[ext_resource type="Texture2D" uid="uid://ds5myjlujfsl2" path="res://src/Ankit/Assets/tower3.png" id="4_8arxp"]
-[ext_resource type="Texture2D" uid="uid://uy081u4ipe1q" path="res://src/Ankit/Assets/tower5.png" id="5_5lpxe"]
-[ext_resource type="Texture2D" uid="uid://d2f1i210onk4y" path="res://src/Ankit/Assets/Tower4.png" id="6_hq80k"]
+[ext_resource type="Texture2D" uid="uid://cp2l5cadc8jjf" path="res://src/Nathan/images/angry_chicken_logo.png" id="2_bfhxj"]
+[ext_resource type="Texture2D" uid="uid://rgnfr2omgmja" path="res://src/Ankit/Assets/tower1.png" id="2_ncqbx"]
+[ext_resource type="Texture2D" uid="uid://bssdqehungdlq" path="res://src/Ankit/Assets/art/pngtree-money-icon-isolated-dollar-cash-illustration-png-image_3429652-Photoroom.png" id="2_pb4r5"]
+[ext_resource type="FontFile" uid="uid://b4d78n3qmdsx" path="res://src/Sohan/Assests/Wizard.ttf" id="2_qwgn6"]
+[ext_resource type="Texture2D" uid="uid://cm1hs628oyks8" path="res://src/Ankit/Assets/Tower2.png" id="3_ojey0"]
+[ext_resource type="Texture2D" uid="uid://dobqolbh45xy" path="res://src/Ankit/Assets/game-store (1) (1).png" id="3_vc5re"]
+[ext_resource type="Texture2D" uid="uid://rkfvg4v7n13a" path="res://src/Ankit/Assets/tower3.png" id="4_8arxp"]
+[ext_resource type="Texture2D" uid="uid://b504hnyuph5o2" path="res://src/Ankit/Assets/tower5.png" id="5_5lpxe"]
+[ext_resource type="Texture2D" uid="uid://i82tdhj41462" path="res://src/Ankit/Assets/Tower4.png" id="6_hq80k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0, 0, 0, 0)
@@ -36,10 +36,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="MoneyLabel" type="Label" parent="Shop Panel"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 3.0
-offset_right = 163.0
-offset_bottom = 56.0
+offset_left = 78.0
+offset_top = 68.0
+offset_right = 143.0
+offset_bottom = 121.0
 theme_override_fonts/font = ExtResource("2_qwgn6")
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxTexture_bnt5k")
@@ -47,8 +47,8 @@ text = " 0"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop Panel/MoneyLabel"]
-position = Vector2(-40.5, 29)
-scale = Vector2(0.308333, 0.172222)
+position = Vector2(-38, 20)
+scale = Vector2(0.261111, 0.172222)
 texture = ExtResource("2_pb4r5")
 
 [node name="StartRoundButton" type="Button" parent="Shop Panel"]
@@ -76,10 +76,10 @@ flat = true
 
 [node name="TowerShop" type="MenuButton" parent="Shop Panel"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 58.0
-offset_right = 223.0
-offset_bottom = 166.0
+offset_left = 2.0
+offset_top = 123.0
+offset_right = 117.0
+offset_bottom = 231.0
 theme = SubResource("Theme_20yxn")
 theme_override_colors/font_disabled_color = Color(0, 0.756863, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0.701961, 0, 1)
@@ -90,7 +90,6 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0.760784, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0.443137, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_qwgn6")
 theme_override_font_sizes/font_size = 19
-text = "Tower Shop"
 icon = ExtResource("3_vc5re")
 item_count = 5
 popup/item_0/text = "Basic Tower - $100"
@@ -107,5 +106,24 @@ popup/item_3/id = 3
 popup/item_4/text = "Speed Tower - $300"
 popup/item_4/icon = ExtResource("5_5lpxe")
 popup/item_4/id = 4
+
+[node name="RoundContainer" type="HBoxContainer" parent="Shop Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 181.0
+offset_bottom = 59.0
+
+[node name="Label" type="Label" parent="Shop Panel/RoundContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qwgn6")
+theme_override_font_sizes/font_size = 42
+text = "Round:"
+
+[node name="Number" type="Label" parent="Shop Panel/RoundContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qwgn6")
+theme_override_font_sizes/font_size = 42
+text = "0"
 
 [connection signal="about_to_popup" from="Shop Panel/TowerShop" to="." method="_on_tower_shop_about_to_popup"]

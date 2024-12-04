@@ -24,7 +24,7 @@ public partial class Level : Resource
     [Export]
     private int currentRoundNum = 0;
     [Export]
-    public int maxRound = 100;
+    public int maxRound = 20;
     [Export]
     public PackedScene mapScene = GD.Load<PackedScene>(defaultMapScenePath);
     [Export]
