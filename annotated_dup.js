@@ -21,6 +21,7 @@ var annotated_dup =
     [ "Bullet", "classBullet.html", "classBullet" ],
     [ "ChickenWalkTest", "classChickenWalkTest.html", "classChickenWalkTest" ],
     [ "DearGodOhLordThatGuyIsHuge", "classDearGodOhLordThatGuyIsHuge.html", "classDearGodOhLordThatGuyIsHuge" ],
+    [ "DemoMenu", "classDemoMenu.html", "classDemoMenu" ],
     [ "DifficultySelectionMenu", "classDifficultySelectionMenu.html", null ],
     [ "Frank", "classFrank.html", "classFrank" ],
     [ "Frankest", "classFrankest.html", "classFrankest" ],

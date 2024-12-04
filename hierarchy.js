@@ -12,6 +12,7 @@ var hierarchy =
         [ "PauseMenu", "classPauseMenu.html", null ],
         [ "WinMenu", "classWinMenu.html", null ]
       ] ],
+      [ "DemoMenu", "classDemoMenu.html", null ],
       [ "DifficultySelectionMenu", "classDifficultySelectionMenu.html", null ],
       [ "LevelSelector", "classLevelSelector.html", null ],
       [ "LoseMenu", "classLoseMenu.html", null ],
